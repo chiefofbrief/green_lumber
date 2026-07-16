@@ -7,6 +7,11 @@ There are three scripts which all run independently and create their own CSV fil
 * **active_stock_universe.py**: Filters the master universe to exclude ETFs, mutual funds, and stocks that are not actively trading: isEtf=false, isFund=false, isActivelyTrading=true. CBOE is dropped here (only master includes it); exchanges are NASDAQ, NYSE, AMEX, OTC, PNK.
 * **large_actives_with_metrics.py**: Filters the active stock universe for market cap, trading volume, and sales, and adds a variety of additional metrics: marketCap ≥ $1B, dollar volume (price×volume) ≥ $1M/day, prior-TTM sales ≥ $10M USD.
 
+Commands:
+* python3 Scripts/master_stock_universe.py
+* python3 Scripts/active_stock_universe.py
+* python3 Scripts/large_actives_with_metrics.py
+
 -------------
 
 ## Data Points
