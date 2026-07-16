@@ -1,0 +1,79 @@
+# Documentation: Fetching All US Stocks
+
+## Overview
+
+There are three scripts which all run independently and create their own CSV file. 
+* **master_stock_universe.py**: Captures all US stocks, including OTC, on the following exchanges: NASDAQ, NYSE, AMEX, CBOE, OTC, PNK. Each exchange is pulled in 3 type-slices (ETF / fund / common) to stay under the screener's 10,000-row-per-call cap; any slice still at the cap is re-split by isActivelyTrading (true/false). Partitioning is by type and trading state, never market cap, so null-market-cap names are never dropped.
+* **active_stock_universe.py**: Filters the master universe to exclude ETFs, mutual funds, and stocks that are not actively trading: isEtf=false, isFund=false, isActivelyTrading=true. CBOE is dropped here (only master includes it); exchanges are NASDAQ, NYSE, AMEX, OTC, PNK.
+* **large_actives_with_metrics.py**: Filters the active stock universe for market cap, trading volume, and sales, and adds a variety of additional metrics: marketCap ≥ $1B, dollar volume (price×volume) ≥ $1M/day, prior-TTM sales ≥ $10M USD.
+
+-------------
+
+## Data Points
+
+**master_stock_universe.py**
+* symbol
+* companyName
+* marketCap
+* sector
+* industry
+* volume
+* exchange
+* isEtf
+* isFund
+* isActivelyTrading
+
+**active_stock_universe.py**
+* same as master_stock_universe.py
+
+**large_actives_with_metrics.py**
+* symbol
+* company_name
+* market_cap_usd
+* ipo_date
+* growth_risk_score: (2·growth_score + risk_score) / 3 — blank if either is blank
+* growth_score: 0.35·P(sales_growth_ttm_vs_prior_ttm_pct) + 0.25·P(sales_growth_latest_q_yoy_pct) + 0.20·P(sales_growth_3yr_vs_prior_3yr_pct) + 0.10·P(gross_profit_to_sales_ttm_pct) + 0.10·P(gross_profit_to_sales_yoy_change_pp) — P(x) = percentile rank within the batch (0–100; blanks re-normalize)
+* risk_score: higher = safer. 0.30·(100 − P(total_debt_to_sales_pct)) + 0.125·P(lowest-7y fcf/sales) + 0.125·(100 − P(fcf_to_sales_vs_7yr_trough_pp)) + 0.125·P(lowest-7y gross-profit/sales) + 0.125·(100 − P(gross_profit_to_sales_vs_7yr_trough_pp)) + 0.10·P(lowest-7y sales growth) + 0.10·(100 − P(sales_growth_vs_7yr_trough_pp)) — the three "lowest-7y" levels are ranking inputs, not columns
+* ev_to_sales_ttm: (market_cap_usd + total debt − cash) / sales_ttm_usd (total debt & cash from the latest quarter, converted to USD)
+* pe_ratio_ttm: market_cap_usd / TTM net income (converted to USD; blank if net income ≤ 0)
+* analyst_buy_pct: (strongBuy + buy) / (strongBuy + buy + hold + sell + strongSell) × 100
+* analyst_count: strongBuy + buy + hold + sell + strongSell
+* description
+* sector
+* industry
+* sales_ttm_usd: TTM sales (sum of the last 4 quarters), converted to USD at the spot FX rate
+* sales_growth_ttm_vs_prior_ttm_pct: (TTM sales / prior-year TTM sales − 1) × 100
+* sales_growth_latest_q_yoy_pct: (latest-quarter sales / the same quarter one year earlier − 1) × 100
+* sales_growth_3yr_vs_prior_3yr_pct: (average of the last 3 annual sales / average of the prior 3 annual sales − 1) × 100
+* gross_profit_to_sales_ttm_pct: (TTM gross profit / TTM sales) × 100
+* gross_profit_to_sales_yoy_change_pp: (TTM gross-profit/sales) − (prior-year TTM gross-profit/sales), in percentage points
+* fcf_to_sales_ttm_pct: (TTM free cash flow / TTM sales) × 100
+* total_debt_to_sales_pct: (total debt [latest quarter] / TTM sales) × 100
+* sales_growth_vs_7yr_trough_pp: sales_growth_ttm_vs_prior_ttm_pct − lowest annual sales growth of the last 7 years — blank if < 7 years of history
+* gross_profit_to_sales_vs_7yr_trough_pp: gross_profit_to_sales_ttm_pct − lowest annual gross-profit/sales of the last 7 years — blank if < 7 years
+* fcf_to_sales_vs_7yr_trough_pp: fcf_to_sales_ttm_pct − lowest annual FCF/sales of the last 7 years — blank if < 7 years
+* shares_outstanding_yoy_change_pct: (latest annual diluted weighted-average shares / prior year − 1) × 100 (positive = dilution, negative = buyback)
+* exchange
+* volume
+
+-------------
+
+## Data Sources
+
+All scripts rely solely on FMP endpoints. 
+
+**master_stock_universe.py**
+* **/stable/company-screener**: All columns
+
+**active_stock_universe.py**
+* **/stable/company-screener**: All columns
+
+**large_actives_with_metrics.py**
+* **/stable/company-screener**: symbol, company_name, market_cap_usd, sector, industry, volume, exchange
+* **stable/profile**: description, ipoDate
+* **stable/income-statement?period=quarter (8Q)**: sales_ttm_usd, sales_growth_ttm_vs_prior_ttm_pct, sales_growth_latest_q_yoy_pct, gross_profit_to_sales_ttm_pct, gross_profit_to_sales_yoy_change_pp
+* stable/income-statement?period=annual (8y): sales_growth_3yr_vs_prior_3yr_pct, sales_growth_vs_7yr_trough_pp, gross_profit_to_sales_vs_7yr_trough_pp, shares_outstanding_yoy_change_pct
+* **stable/cash-flow-statement?period=quarter**: fcf_to_sales_ttm_pct
+* **stable/cash-flow-statement?period=annual**: fcf_to_sales_vs_7yr_trough_pp
+* **stable/balance-sheet-statement?period=quarter**: total_debt_to_sales_pct
+* **stable/grades-consensus**: analyst_buy_pct, analyst_count
