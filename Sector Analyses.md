@@ -35,11 +35,11 @@
 | | Communication Equipment | 7 | 33% | 50.0 |
 | | Computer Hardware | 7 | 54% | 59.4 |
 | | Technology Distributors | 3 | 60% | 58.9 |
+| | Copper | 4 | 80% | 63.7 |
 | **Aerospace** | Aerospace & Defense ★ | 18 | 39% | 50.4 |
 | **Energy** | Engineering & Construction | 10 | 37% | 48.2 |
 | | Oil & Gas E&P | 10 | 28% | 46.1 |
 | | Solar | 4 | 67% | 61.9 |
-| | Copper | 4 | 80% | 63.7 |
 | | Independent Power Producers | 2 | 40% | 55.6 |
 
 - **Growth names** — number of companies that clear the ≥66 bar → breadth.
