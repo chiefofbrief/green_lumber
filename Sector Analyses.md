@@ -26,7 +26,7 @@
 
 **Data:**
 
-| Theme | Industry | Growth names | Concentration | Avg score |
+| Theme | Industry | Count (among companies with growth score ≥ 66) | Concentration (among companies with growth score ≥ 66)  | Avg score |
 |---|---|---|---|---|
 | **AI** | Semiconductors ★ | 30 | 38% | 52.7 |
 | | Software – Application | 25 | 23% | 45.5 |
