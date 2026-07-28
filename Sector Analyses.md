@@ -43,6 +43,7 @@
 | | Independent Power Producers | 2 | 40% | 55.6 |
 
 - **★** = top-10 on both breadth *and* concentration.
+  
 
 **Set aside:**
 
