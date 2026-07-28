@@ -34,6 +34,7 @@
 | | Hardware, Equipment & Parts | 10 | 29% | 48.7 |
 | | Communication Equipment | 7 | 33% | 50.0 |
 | | Computer Hardware | 7 | 54% | 59.4 |
+| | Electrical Equipment & Parts | 7 | 33% | 45.8 |
 | | Technology Distributors | 3 | 60% | 58.9 |
 | | Copper | 4 | 80% | 63.7 |
 | **Aerospace** | Aerospace & Defense ★ | 18 | 39% | 50.4 |
@@ -41,6 +42,7 @@
 | | Oil & Gas E&P | 10 | 28% | 46.1 |
 | | Solar | 4 | 67% | 61.9 |
 | | Independent Power Producers | 2 | 40% | 55.6 |
+
 
 - **★** = top-10 on both breadth *and* concentration.
 
@@ -50,7 +52,9 @@
 | Industry | Growth names | Concentration | Avg score | Why out |
 |---|---|---|---|---|
 | Gold ★ | 22 | 85% | 79.1 | commodity price / monetary — its own driver (strongest industry overall, but pure price) |
+| Other Precious Metals ★ | 7 | 100% | 77.3 | commodity price / monetary — same driver as gold |
 | Biotechnology | 26 | 28% | 44.8 | lottery — binary trial outcomes; big by count, thin by concentration |
+| Industrial Materials | 4 | 44% | 58.4 | commodity materials — price-driven, no clean theme |
 
 --------------
 
