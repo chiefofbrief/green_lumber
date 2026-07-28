@@ -26,7 +26,7 @@
 
 **Data:**
 
-| Theme | Industry | Count (among companies with growth score ≥ 66) | Concentration (among companies with growth score ≥ 66)  | Avg score |
+| Theme | Industry | Count (# of companies that clear the ≥66 bar) | Concentration (% of the industry that clears the ≥66 bar)  | Avg score |
 |---|---|---|---|---|
 | **AI** | Semiconductors ★ | 30 | 38% | 52.7 |
 | | Software – Application | 25 | 23% | 45.5 |
@@ -42,10 +42,7 @@
 | | Solar | 4 | 67% | 61.9 |
 | | Independent Power Producers | 2 | 40% | 55.6 |
 
-- **Growth names** — # of companies that clear the ≥66 bar → breadth.
-- **Concentration** — % of the industry that clears the ≥66 bar → how many of its companies are growing.
-- **Avg score** — the industry's mean growth score. Correlated with concentration but **not the same**: average rewards a few very-high scorers (magnitude); concentration rewards lots of names clearing the bar (a count). They share the top cast but rank it differently.
-- **★** = top-10 on both breadth *and* concentration → the anchors.
+- **★** = top-10 on both breadth *and* concentration.
 
 **Set aside:**
 
