@@ -5,15 +5,22 @@
 * What happens when companies stop using expensive models?
 * How important are custom chips?
 * Liquid cooling.
-* Networking: Selectics, Elite Materials. 
+* Networking: Selectics, Elite Materials. - Nvidia and Broadcom are the two market leaders in CPO, as both are leaders in switching ASICs. Nvidia has the largest networking business in the world, with revenue hitting $11 billion. Meanwhile, one-third of Broadcom’s $10.7 billion in total AI revenue, or approximately $3.6 billion, came from networking last quarter
 * Fiber (instead of copper): Corning.
 * Energy: Advanced Energy, Delta.
 * Vertical models: Abridge, EliseAI, Evenup, Fieldguide
 * TAAS (Token as a service): Together, Fireworks, Baseten.
 * Together AI - Open-source model recently raised $800M.
 * Memory: Hanmi, PSMC
-* Optics: Mediatek, Cargan, Aoet
+* Optics: Mediatek, Cargan, Aoet - Last month, Nvidia made $2 billion equity investments in two separate optical component suppliers: Coherent and Lumentum. Nvidia is securing its supply chain as it ramps its co-packaged optics (CPO) roadmap and writing big checks to do so. These targeted moves signal that CPO, the next major architectural shift in AI networking, is moving from theory to reality
 * ASIC: Guc, Wiwynn (wiwynn suppliers: TE connectivity, mpley, foci, browave, senko, afl)
+* Broadcom's customers are designing their own silicon precisely because they want a different price-performance profile than standard GPUs offer…Because they are sole-purpose chips, they tend to handle the tasks for which they were developed well, while also being more energy efficient. This is particularly ideal for AI inference, which is an ongoing cost
+* For now, while the U.S. may have enough gas in aggregate, the bigger-picture concern is whether pipelines, storage fields, and regional delivery networks can move supply out of high-growth basins and into markets where power generation, data centers, LNG exports, and industrial loads are growing fastest….The most formidable accelerant of gas burn for structural growth—lasting generation demand—is data center load.  U.S. cumulative data center capacity is projected to grow from 44 GW in 2025 to 55 GW in 2026—a 25% single-year increase—before reaching 74 GW by 2027, EVA said.
+* As Commercial Times highlights, demand from AI GPUs, ASICs, and CPO could trigger another supply shortage of high-end ABF substrates by 2027.
+* Steps in the chip manufacturing process: 1. Deposition: Different materials – conductors, insulating films and semiconductors – are deposited onto a silicon wafer. 2. Photoresist coating: The wafer is coated with a light-sensitive layer called photoresist. 3. Lithography: The microchip pattern is printed by using light to project it onto the wafer. 4. Baking and developing: The wafer is baked and developed to fix the pattern in the photoresist. 5. Etching: Reactive gases are used to etch away excess material, leaving the circuit pattern behind. 6. Ion implantation: The wafer may be bombarded with ions to tune the semiconductor’s properties. 7. Photoresist
+* terbium and dysprosium—which are essential for optical fibers and high-temperature magnets.
+* Next-generation chips require significantly more power and generate higher heat levels, positioning advanced liquid cooling and thermal management as the next critical segment of the AI value chain
+* More memory in a system allows model providers to: 1. fit a larger model (more parameters). 2. serve more concurrent requests, i.e. more users (more KV Cache). 3. support larger context windows, i.e. larger sequence lengths per request (more KV Cache). Inference providers make a business out of using all the above, which is why memory capacity per GPU is increasing. Not only that, but usable memory is not limited to a single package, since a workload can be sharded over multiple chips and aggregate memory can be pooled together within a scale up fabric. That’s why networking is such a key competitive battleground for all the AI hardware companies.
 
 ---------------
 
@@ -66,7 +73,7 @@
      * AI-native startups will prefer lower-cost base models over expensive foundation models. Growth at all costs is tricky since there is a real marginal cost per customer.  
 * AI and chips/memory/power are not the same thing.
       * Everything besides applications will be 'commoditized,' although infrastructure is currently an area of innovation.
-* Increased profits in one layer hurts the profits of downstream layers (e.g., memory prices up, Nvidia/AMD profits down; foundation model profits up, software profits down).
+* Increased profits in one layer hurts the profits of downstream layers (e.g., memory prices up, Nvidia/AMD profits down; foundation model profits up, software profits down). If a company is making bank because their AI tools are tremendous, and their revenues are surging…it means that other companies are paying for that product.
 * With abundant supply, everyone competes on price. This transforms high margins into low margins, favoring low-cost producers. 
 * AI bulls are betting on a sustained acceleration in demand.
      * The amount of 'organic' demand/sales is hard to determine due to a lot of circular financing and sales.
@@ -86,7 +93,14 @@
      * CPUs are critical for agents. But if agent usage is overhyped, CPUs are too.  
 * A large part of 'demand' is hyperscaler capex, which is already slowing (based on the derivative of the growth rate).
      * To this point, hyperscaler capex has been like a performative auction. When frugality becomes the status symbol instead, this may become a big problem.
-* As cash flow becomes exhausted, more companies may be taking on debt to pay for capex. If demand decelerates, this could be a big problem. 
+* As cash flow becomes exhausted, more companies may be taking on debt to pay for capex. If demand decelerates, this could be a big problem.
+* World Models use sensors, video, GPS, etc. to provide synthetic training environments, reducing the data bottleneck for robotics training.
+* Data is the necessary context agents need in order to act. As models become commodities, context becomes more important (data, access, logs, etc.).
+* Building an AI factory requires electricians, pipefitters, welders, ironworkers, HVAC technicians, and networking and computer specialists. This buildout extends far beyond the data center. It spans semiconductor fabs, advanced packaging facilities, server and supercomputer assembly, power generation, transmission lines, substations, and the vast upstream supply chains and downstream services.
+* By leasing compute capacity from neoclouds, hyperscalers shift their cost timeline from being a large upfront capex outflow to an operational expense outflow spread over long-term contracts
+* Within the AI investment theme, there is nowhere that the supply chain shifts faster than in networking
+* semiconductor market revenue is highly concentrated, and value extraction is even more so
+* Past a certain threshold of intelligence, developers prefer faster tokens to smarter tokens.
 
 **Application Overview**:
 * Finetuning:
@@ -96,7 +110,13 @@
      * After model training comes evaluation.
      * A larger model's capabilities can be distilled into a smaller model.
   *  Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and user interaction data may be the key.
-  *  Alternative models are already being used - Cursor used RL on Kimi for its model. 
+  *  Alternative models are already being used - Cursor used RL on Kimi for its model.
+  *  Vertical AI = Vertical SAAS (SAAS —> AI)
+  *  Robots need a higher level of reliability to deploy than software (LLMs). Robots are better for high frequency, low consequence tasks within a constrained space.
+  *  China has a huge advantage in robotics —> US companies rely on China for supplies —> US government/VCs will invest a lot in a US supply chain to catch up and decrease dependency.
+  *  As coding becomes easier, the non-code stuff (expertise, relationships) become more important, especially since the output is probabilistic and you need someone to complain to/about when it doesn’t work
+  *  The workflow you ship on day one is not the moat. The loop that production usage creates over time is.
+  *  
 
 **Critical players in each S-curve**:  
 * **AI infrastructure**:
