@@ -21,6 +21,33 @@
 * terbium and dysprosium—which are essential for optical fibers and high-temperature magnets.
 * Next-generation chips require significantly more power and generate higher heat levels, positioning advanced liquid cooling and thermal management as the next critical segment of the AI value chain
 * More memory in a system allows model providers to: 1. fit a larger model (more parameters). 2. serve more concurrent requests, i.e. more users (more KV Cache). 3. support larger context windows, i.e. larger sequence lengths per request (more KV Cache). Inference providers make a business out of using all the above, which is why memory capacity per GPU is increasing. Not only that, but usable memory is not limited to a single package, since a workload can be sharded over multiple chips and aggregate memory can be pooled together within a scale up fabric. That’s why networking is such a key competitive battleground for all the AI hardware companies.
+* The Vera Rubin DSX AI Factory reference design and NVIDIA Omniverse DSX Blueprint bring together compute, networking, storage, power, cooling, and operations into an open, modular architecture supported by partners including Vertiv, Schneider Electric, Eaton, Jacobs, Phaidra, Procore, PTC, Siemens, Switch, Trane Technologies, Cadence, and Dassault Systèmes. The broader power-to-rack ecosystem now also includes GE Vernova, which is using digital twins aligned with the Omniverse DSX Blueprint to model grid behavior, substations, and AI factory loads before deployment.
+* We have begun domestic production of NVIDIA AI infrastructure, including chip manufacturing in Arizona with TSMC, advanced packaging with Amkor and SPIL, and AI supercomputer assembly in Texas with Foxconn and Wistron— ramping over the coming year.
+* Leaders including 1X, AGIBOT, Agility, Agile Robots, Boston Dynamics, Figure, Hexagon Robotics, Humanoid, Mentee, and NEURA Robotics are building the next generation of humanoids using Cosmos world models, Isaac Sim and Isaac Lab to accelerate the development and validation of their robots. With a global install base exceeding 2 million robots, FANUC, ABB Robotics, Yaskawa, and KUKA are integrating NVIDIA Omniverse libraries and NVIDIA Isaac simulation frameworks into their virtual commissioning solutions.
+* For the data layer, Databricks ($4.8B), Snowflake ($4.68B), and MongoDB ($2.46B) have the highest revenue in 2025.
+* Robots: NVDA, TSM, ROK, UBTECH, FANUY, ABB, YASKY, TER, SYM, AMZN, ISGR, SERV, RR, MGA, Foxconn
+* What is the supply chain for Unitree, Agility, Apptronik, Figure, Tesla? (robotics)  - Actuator Copper Cooling  LiDAR Camera Gearbox Motor Chinese suppliers to US comps: Sunday Robotics, Dyna, and XDOF.
+* Edge AI: WebAI, FemtoAI, PolarGrid, Aizip Mirai, and OpenInfer, Perceptron
+* AXT Inc surged recently due to intense AI-driven demand for indium phosphide substrates. The company is benefiting from a massive uptick in demand for indium phosphide (InP) wafers, which are essential for AI optical networking and data center interconnects.
+* Nuclear stocks are gaining attention due to the massive electricity demand projected from the AI data center buildout. News reports highlight that companies like BWX Technologies and Cameco have seen positive earnings estimate revisions and hold strong analyst ratings.
+* alongside broader market interest in uranium and reactor-component players such as Cameco and BWX Technologies. Cameco’s uranium-positioning detail goes beyond “high-grade mines”: the company is described as producing about 15% of the 164 million pounds of uranium produced in 2025, behind Kazatomprom at 20%.
+* A year ago, Applied Optoelectronics  AAOI +20.34%  was a sleepy, unprofitable tech stock best known for crashing in 2017 when orders from Amazon.com AMZN -0.38% dried up. Today, it is one of the hottest mid-cap stocks on the market. The optical networking company announced after the closing bell Thursday that it received a new $71 million order for data-center transceivers from a hyperscale customer, bringing that client’s orders to $124 million since mid-March
+* Target Hospitality is a company that provides workforce lodging and other temporary, modular housing used for oil, gas and mining operations; large-scale events; and disaster relief.
+* A survey conducted by S&P Global Market Intelligence of data center operators found that 45 percent use a fully air-cooled system, while 42 percent use a hybrid air-and-liquid-cooled system. Just 12 percent use liquid cooling only. **Top players in the space, the report states, include Schneider Electric, Vertiv, Johnson Controls, Hewlett Packard Enterprise, Green Revolution Cooling, Submer, LiquidStack, and Asetek Inc.**
+* NovaRed Mining is positioning itself as a high-leverage player in the copper-gold sector through its flagship Wilmac project in British Columbia.
+* Ucore is strategically positioned to break the Chinese monopoly on heavy rare earth separation, specifically targeting high-premium elements like Terbium and Dysprosium which currently command prices outside of China up to five times higher than domestic rates.
+* MP Materials Corp. (MP) is the largest producer of rare earth materials in the Western Hemisphere, currently distinguished as the only fully vertically integrated "mine-to-magnet" provider in the United States.
+* Energy Fuels Inc. (UUUU) is currently the leading producer of uranium in the United States, having successfully evolved into a diversified critical minerals hub with a market capitalization of approximately $4.7 billion.
+* USA Rare Earth Inc. (USAR) is a development-stage critical minerals company that has recently become a cornerstone of U.S. industrial policy
+* NioCorp Developments Ltd. (NB) is an advanced critical minerals company focused on developing the Elk Creek Project in Nebraska, which is slated to become one of the only domestic producers of niobium, scandium, and titanium.
+* POET Technologies Inc. (POET) is an integrated photonics company currently transitioning from an R&D-heavy design firm into a commercial-scale provider of the "optical nervous system" for AI data centers.
+* Tempus AI (TEM) is a healthcare technology leader specialized in precision medicine
+* SoundHound AI (SOUN) is a leader in voice-enabled "Agentic AI
+* Evolv Technology (EVLV) is a leading AI-based security screening company
+* Amprius Technologies (AMPX) is a high-density battery pioneer
+* NIO Inc. (NIO) is a Chinese electric vehicle leader
+* Jabil Inc. (JBL) has successfully reinvented itself from a traditional contract manufacturer into a high-margin "silent giant" of AI and healthcare infrastructure
+
 
 ---------------
 
@@ -78,7 +105,9 @@
 * AI bulls are betting on a sustained acceleration in demand.
      * The amount of 'organic' demand/sales is hard to determine due to a lot of circular financing and sales.
      * Even assuming there is healthy demand, customer concentration is very high.
-     * If demand decelerates, hyperscalers can use FCF to subsidize capex, but margins, ROIC, and growth decrease, which will compress multiples. 
+     * If demand decelerates, hyperscalers can use FCF to subsidize capex, but margins, ROIC, and growth decrease, which will compress multiples.
+* LLMs are SAAS. AI may expand the software market.
+* Companies would rather pay someone to manage software, and that won’t change. 
 
 **S-Curves**:
 * **AI infrastructure**: Mid-Late acceleration - Hardware is being decommoditized (innovation matters). But more data/compute is leading to lower marginal returns. 
@@ -101,6 +130,7 @@
 * Within the AI investment theme, there is nowhere that the supply chain shifts faster than in networking
 * semiconductor market revenue is highly concentrated, and value extraction is even more so
 * Past a certain threshold of intelligence, developers prefer faster tokens to smarter tokens.
+* Data centers can take over 4 years from land purchase to datacenter delivery. Power and permits are necessary before they can even be taken seriously. 
 
 **Application Overview**:
 * Finetuning:
@@ -116,7 +146,7 @@
   *  China has a huge advantage in robotics —> US companies rely on China for supplies —> US government/VCs will invest a lot in a US supply chain to catch up and decrease dependency.
   *  As coding becomes easier, the non-code stuff (expertise, relationships) become more important, especially since the output is probabilistic and you need someone to complain to/about when it doesn’t work
   *  The workflow you ship on day one is not the moat. The loop that production usage creates over time is.
-  *  
+  *  Cheaper to build software is probably cheaper to buy, resulting in more customers. 
 
 **Critical players in each S-curve**:  
 * **AI infrastructure**:
@@ -147,7 +177,16 @@
    * Software can be AI apps, but there is a strong bear case:
         * Easier to make software now.
         * Per-seat/licensing model is shifting to tokens, which narrows margins.
-        * The sales process was designed around seat-based, not token-based, pricing. 
+        * The sales process was designed around seat-based, not token-based, pricing.
+    * Vertical saas companies are older than horizontal ones (so they might be less fragile). Examples: FICO, Tyler, Agilsys. They provide the domain-specific data that AI needs to expand beyond general models
+    * Public software companies that are agentic infra (APIs, databases, data) are being celebrated (prices going up).The focus seems to be: will a company’s existing product and monetization will thrive in a world where agents are doing more and more work?
+        * Does it have the kind of dataset a foundation model or new entrant couldn’t reconstruct in 12 months? Is the data proprietary?
+        * Does its product get more usage in an agentic world? (e.g., more usage, more API calls, etc.)
+        * Is it deeply embedded in customers’ operations?
+        * Does it have the engineering team, R&D investment, and leadership DNA to build real AI capabilities — not just bolt on a chatbot
+        * Is the domain complex? (how regulated, specialized, or expert-dependent)
+
+
  
    
 
