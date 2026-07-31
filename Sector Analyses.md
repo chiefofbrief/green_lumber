@@ -1,52 +1,59 @@
 # Sector Analyses
 
 ## Topics to Explore
-
-* What happens when companies stop using expensive models?
-* How important are custom chips?
-* Liquid cooling.
-* Networking: Selectics, Elite Materials. - Nvidia and Broadcom are the two market leaders in CPO, as both are leaders in switching ASICs. Nvidia has the largest networking business in the world, with revenue hitting $11 billion. Meanwhile, one-third of Broadcom’s $10.7 billion in total AI revenue, or approximately $3.6 billion, came from networking last quarter
-* Fiber (instead of copper): Corning.
-* Energy: Advanced Energy, Delta.
-* Vertical models: Abridge, EliseAI, Evenup, Fieldguide
-* TAAS (Token as a service): Together, Fireworks, Baseten.
-* Together AI - Open-source model recently raised $800M.
-* Memory: Hanmi, PSMC
-* Optics: Mediatek, Cargan, Aoet - Last month, Nvidia made $2 billion equity investments in two separate optical component suppliers: Coherent and Lumentum. Nvidia is securing its supply chain as it ramps its co-packaged optics (CPO) roadmap and writing big checks to do so. These targeted moves signal that CPO, the next major architectural shift in AI networking, is moving from theory to reality
-* ASIC: Guc, Wiwynn (wiwynn suppliers: TE connectivity, mpley, foci, browave, senko, afl)
-* Broadcom's customers are designing their own silicon precisely because they want a different price-performance profile than standard GPUs offer…Because they are sole-purpose chips, they tend to handle the tasks for which they were developed well, while also being more energy efficient. This is particularly ideal for AI inference, which is an ongoing cost
-* For now, while the U.S. may have enough gas in aggregate, the bigger-picture concern is whether pipelines, storage fields, and regional delivery networks can move supply out of high-growth basins and into markets where power generation, data centers, LNG exports, and industrial loads are growing fastest….The most formidable accelerant of gas burn for structural growth—lasting generation demand—is data center load.  U.S. cumulative data center capacity is projected to grow from 44 GW in 2025 to 55 GW in 2026—a 25% single-year increase—before reaching 74 GW by 2027, EVA said.
-* As Commercial Times highlights, demand from AI GPUs, ASICs, and CPO could trigger another supply shortage of high-end ABF substrates by 2027.
-* Steps in the chip manufacturing process: 1. Deposition: Different materials – conductors, insulating films and semiconductors – are deposited onto a silicon wafer. 2. Photoresist coating: The wafer is coated with a light-sensitive layer called photoresist. 3. Lithography: The microchip pattern is printed by using light to project it onto the wafer. 4. Baking and developing: The wafer is baked and developed to fix the pattern in the photoresist. 5. Etching: Reactive gases are used to etch away excess material, leaving the circuit pattern behind. 6. Ion implantation: The wafer may be bombarded with ions to tune the semiconductor’s properties. 7. Photoresist
-* terbium and dysprosium—which are essential for optical fibers and high-temperature magnets.
-* Next-generation chips require significantly more power and generate higher heat levels, positioning advanced liquid cooling and thermal management as the next critical segment of the AI value chain
-* More memory in a system allows model providers to: 1. fit a larger model (more parameters). 2. serve more concurrent requests, i.e. more users (more KV Cache). 3. support larger context windows, i.e. larger sequence lengths per request (more KV Cache). Inference providers make a business out of using all the above, which is why memory capacity per GPU is increasing. Not only that, but usable memory is not limited to a single package, since a workload can be sharded over multiple chips and aggregate memory can be pooled together within a scale up fabric. That’s why networking is such a key competitive battleground for all the AI hardware companies.
-* The Vera Rubin DSX AI Factory reference design and NVIDIA Omniverse DSX Blueprint bring together compute, networking, storage, power, cooling, and operations into an open, modular architecture supported by partners including Vertiv, Schneider Electric, Eaton, Jacobs, Phaidra, Procore, PTC, Siemens, Switch, Trane Technologies, Cadence, and Dassault Systèmes. The broader power-to-rack ecosystem now also includes GE Vernova, which is using digital twins aligned with the Omniverse DSX Blueprint to model grid behavior, substations, and AI factory loads before deployment.
-* We have begun domestic production of NVIDIA AI infrastructure, including chip manufacturing in Arizona with TSMC, advanced packaging with Amkor and SPIL, and AI supercomputer assembly in Texas with Foxconn and Wistron— ramping over the coming year.
-* Leaders including 1X, AGIBOT, Agility, Agile Robots, Boston Dynamics, Figure, Hexagon Robotics, Humanoid, Mentee, and NEURA Robotics are building the next generation of humanoids using Cosmos world models, Isaac Sim and Isaac Lab to accelerate the development and validation of their robots. With a global install base exceeding 2 million robots, FANUC, ABB Robotics, Yaskawa, and KUKA are integrating NVIDIA Omniverse libraries and NVIDIA Isaac simulation frameworks into their virtual commissioning solutions.
-* For the data layer, Databricks ($4.8B), Snowflake ($4.68B), and MongoDB ($2.46B) have the highest revenue in 2025.
-* Robots: NVDA, TSM, ROK, UBTECH, FANUY, ABB, YASKY, TER, SYM, AMZN, ISGR, SERV, RR, MGA, Foxconn
-* What is the supply chain for Unitree, Agility, Apptronik, Figure, Tesla? (robotics)  - Actuator Copper Cooling  LiDAR Camera Gearbox Motor Chinese suppliers to US comps: Sunday Robotics, Dyna, and XDOF.
-* Edge AI: WebAI, FemtoAI, PolarGrid, Aizip Mirai, and OpenInfer, Perceptron
-* AXT Inc surged recently due to intense AI-driven demand for indium phosphide substrates. The company is benefiting from a massive uptick in demand for indium phosphide (InP) wafers, which are essential for AI optical networking and data center interconnects.
-* Nuclear stocks are gaining attention due to the massive electricity demand projected from the AI data center buildout. News reports highlight that companies like BWX Technologies and Cameco have seen positive earnings estimate revisions and hold strong analyst ratings.
-* alongside broader market interest in uranium and reactor-component players such as Cameco and BWX Technologies. Cameco’s uranium-positioning detail goes beyond “high-grade mines”: the company is described as producing about 15% of the 164 million pounds of uranium produced in 2025, behind Kazatomprom at 20%.
-* A year ago, Applied Optoelectronics  AAOI +20.34%  was a sleepy, unprofitable tech stock best known for crashing in 2017 when orders from Amazon.com AMZN -0.38% dried up. Today, it is one of the hottest mid-cap stocks on the market. The optical networking company announced after the closing bell Thursday that it received a new $71 million order for data-center transceivers from a hyperscale customer, bringing that client’s orders to $124 million since mid-March
-* Target Hospitality is a company that provides workforce lodging and other temporary, modular housing used for oil, gas and mining operations; large-scale events; and disaster relief.
-* A survey conducted by S&P Global Market Intelligence of data center operators found that 45 percent use a fully air-cooled system, while 42 percent use a hybrid air-and-liquid-cooled system. Just 12 percent use liquid cooling only. **Top players in the space, the report states, include Schneider Electric, Vertiv, Johnson Controls, Hewlett Packard Enterprise, Green Revolution Cooling, Submer, LiquidStack, and Asetek Inc.**
-* NovaRed Mining is positioning itself as a high-leverage player in the copper-gold sector through its flagship Wilmac project in British Columbia.
-* Ucore is strategically positioned to break the Chinese monopoly on heavy rare earth separation, specifically targeting high-premium elements like Terbium and Dysprosium which currently command prices outside of China up to five times higher than domestic rates.
-* MP Materials Corp. (MP) is the largest producer of rare earth materials in the Western Hemisphere, currently distinguished as the only fully vertically integrated "mine-to-magnet" provider in the United States.
-* Energy Fuels Inc. (UUUU) is currently the leading producer of uranium in the United States, having successfully evolved into a diversified critical minerals hub with a market capitalization of approximately $4.7 billion.
-* USA Rare Earth Inc. (USAR) is a development-stage critical minerals company that has recently become a cornerstone of U.S. industrial policy
-* NioCorp Developments Ltd. (NB) is an advanced critical minerals company focused on developing the Elk Creek Project in Nebraska, which is slated to become one of the only domestic producers of niobium, scandium, and titanium.
-* POET Technologies Inc. (POET) is an integrated photonics company currently transitioning from an R&D-heavy design firm into a commercial-scale provider of the "optical nervous system" for AI data centers.
-* Tempus AI (TEM) is a healthcare technology leader specialized in precision medicine
-* SoundHound AI (SOUN) is a leader in voice-enabled "Agentic AI
-* Evolv Technology (EVLV) is a leading AI-based security screening company
-* Amprius Technologies (AMPX) is a high-density battery pioneer
+* **How diversified are cloud sales for AWS/Azure?**
+* **How popular are custom/sole-purpose chips?**
+    * ASIC: AVGO, Guc, Wiwynn (wiwynn suppliers: TE connectivity, mpley, foci, browave, senko, afl)
+* **Are token costs decreasing?**
+* **What happens when token costs decrease?**
+* **How does the usage of Chinese models compare to US models? What is the leading Chinese model?**
+* **What is the growth rate of data centers and compute?**
+* **Demand vs. supply for data centers and compute?**
+* **How significant is liquid cooling?**
+    * Next-generation chips require significantly more power and generate higher heat levels.
+    * 45 percent use a fully air-cooled system, while 42 percent use a hybrid air-and-liquid-cooled system. Just 12 percent use liquid cooling only. Top players in the space, the report states, include Schneider Electric, Vertiv, Johnson Controls, Hewlett Packard Enterprise, Green Revolution Cooling, Submer, LiquidStack, and Asetek Inc.
+* **How significant is CPO? Is it the same as networking?**
+    * Nvidia and Broadcom are the two market leaders in CPO, as both are leaders in switching ASICs. Nvidia has the largest networking business in the world.
+    * Nvidia made $2 billion equity investments in two separate optical component suppliers: Coherent and Lumentum.
+    * Applied Optoelectronics, Mediatek, Cargan, Aoet, Corning (fiber), Selectics, Elite Materials
+    * terbium and dysprosium
+    * More memory in a system allows model providers to: 1. fit a larger model (more parameters). 2. serve more concurrent requests, i.e. more users (more KV Cache). 3. support larger context windows, i.e. larger sequence lengths per request (more KV Cache). Inference providers make a business out of using all the above, which is why memory capacity per GPU is increasing. Not only that, but usable memory is not limited to a single package, since a workload can be sharded over multiple chips and aggregate memory can be pooled together within a scale up fabric. That’s why networking is such a key competitive battleground for all the AI hardware companies.
+    * POET Technologies Inc. (POET) is an integrated photonics company currently transitioning from an R&D-heavy design firm into a commercial-scale provider of the "optical nervous system" for AI data centers.
+* **ABF substrates? Other substrates**
+    * demand from AI GPUs, ASICs, and CPO could trigger another supply shortage of high-end ABF substrates by 2027
+    * AXT Inc surged recently due to intense AI-driven demand for indium phosphide substrates. The company is benefiting from a massive uptick in demand for indium phosphide (InP) wafers, which are essential for AI optical networking and data center interconnects.
+* **Where is the power for data centers coming from?**
+    * The most formidable accelerant of gas burn for structural growth—lasting generation demand—is data center load.
+    * Nuclear stocks are gaining attention due to the massive electricity demand projected from the AI data center buildout. News reports highlight that companies like BWX Technologies and Cameco have seen positive earnings estimate revisions and hold strong analyst ratings.
+    * Cameco’s uranium-positioning detail goes beyond “high-grade mines”: the company is described as producing about 15% of the 164 million pounds of uranium produced in 2025, behind Kazatomprom at 20%.
+    * Advanced Energy, Delta.
+    * Energy Fuels Inc. (UUUU) is currently the leading producer of uranium in the United States
+    * MP Materials Corp. (MP) is the largest producer of rare earth materials in the Western Hemisphere
+    * Ucore is strategically positioned to break the Chinese monopoly on heavy rare earth separation, specifically targeting high-premium elements like Terbium and Dysprosium
+    * USA Rare Earth Inc.
+    * NioCorp Developments Ltd. (NB) is an advanced critical minerals company focused on developing the Elk Creek Project in Nebraska, which is slated to become one of the only domestic producers of niobium, scandium, and titanium.
+* **Are there any overlooked chip components/suppliers?**
+    * Steps in the chip manufacturing process: 1. Deposition: Different materials – conductors, insulating films and semiconductors – are deposited onto a silicon wafer. 2. Photoresist coating: The wafer is coated with a light-sensitive layer called photoresist. 3. Lithography: The microchip pattern is printed by using light to project it onto the wafer. 4. Baking and developing: The wafer is baked and developed to fix the pattern in the photoresist. 5. Etching: Reactive gases are used to etch away excess material, leaving the circuit pattern behind. 6. Ion implantation: The wafer may be bombarded with ions to tune the semiconductor’s properties. 7. Photoresist
+* **Who is providing the data foundation for agents?**
+    *  Databricks ($4.8B), Snowflake ($4.68B), and MongoDB ($2.46B) have the highest revenue in 2025
+* **What's going on with robotics? How far along is development? Deployment? WTF is 'edge'?**
+    * Leaders including 1X, AGIBOT, Agility, Agile Robots, Boston Dynamics, Figure, Hexagon Robotics, Humanoid, Mentee, and NEURA Robotics are building the next generation of humanoids using Cosmos world models, Isaac Sim and Isaac Lab to accelerate the development and validation of their robots. With a global install base exceeding 2 million robots, FANUC, ABB Robotics, Yaskawa, and KUKA are integrating NVIDIA Omniverse libraries and NVIDIA Isaac simulation frameworks into their virtual commissioning solutions.
+    * Robots: NVDA, TSM, ROK, UBTECH, FANUY, ABB, YASKY, TER, SYM, AMZN, ISGR, SERV, RR, MGA, Foxconn
+    * Edge AI: WebAI, FemtoAI, PolarGrid, Aizip Mirai, and OpenInfer, Perceptron
+* **What is the robotics supply chain?**
+    * What is the supply chain for Unitree, Agility, Apptronik, Figure, Tesla? (robotics)  - Actuator Copper Cooling  LiDAR Camera Gearbox Motor Chinese suppliers to US comps: Sunday Robotics, Dyna, and XDOF.
+* **Which vertical models are the most popular?**
+    * Abridge, EliseAI, Evenup, Fieldguide
+    * TAAS (Token as a service): Together AI, Fireworks, Baseten
+    * Public: Tempus AI (TEM), SoundHound AI (SOUN), Evolv Technology (EVLV),  Jabil Inc. (JBL)
 * NIO Inc. (NIO) is a Chinese electric vehicle leader
-* Jabil Inc. (JBL) has successfully reinvented itself from a traditional contract manufacturer into a high-margin "silent giant" of AI and healthcare infrastructure
+* Amprius Technologies (AMPX) is a high-density battery pioneer
+* **What are the components for AI deployment?**
+    * compute, networking, storage, power, cooling
+    * Vertiv, Schneider Electric, Eaton, Jacobs, Phaidra, Procore, PTC, Siemens, Switch, Trane Technologies, Cadence, and Dassault Systèmes, GE Vernova
+    * advanced packaging with Amkor and SPIL
+    * AI supercomputer assembly in Texas with Foxconn and Wistron
+* Target Hospitality is a company that provides workforce lodging and other temporary, modular housing used for oil, gas and mining operations
 
 
 ---------------
