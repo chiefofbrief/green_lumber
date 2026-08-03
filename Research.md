@@ -9,6 +9,7 @@
 * ADI
 * GPOR
 * EXE
+* CELH
 
 ## Sectors
 
