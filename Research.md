@@ -18,6 +18,7 @@
 * Will custom ASICs take a meaningful chunk of market share away from Nvidia's GPUs?
    * What is the difference between a GPU and a custom ASIC?
    * AVGO, GUC, Wiwynn (wiwynn suppliers: TE connectivity, mpley, foci, browave, senko, afl)
+   * AWS has been heavily promoting its Trainium and Graviton chips as alternatives to Nvidia Corp.’s graphics processing units
 * Is at least a portion of TSM's sales guaranteed?
 * Are token costs decreasing?
 * How could decreasing token costs impact the need for compute, chips, etc.?
