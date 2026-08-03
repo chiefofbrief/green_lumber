@@ -1,36 +1,6 @@
 # Sector Analyses
 
 
-
-
-L2 Semiconductor Equipment & EDA/IP 
-ASML: Sole manufacturer of EUV lithography — every advanced AI chip on the planet is physically impossible without it, making it the single most upstream gate   in the entire supply chain.
-KLAC: Near-monopoly in process control and yield monitoring — the tools that verify chip quality at every fabrication step, a distinct and independent constraint from lithography.
-L3 Foundries & Advanced Packaging
-TSMC: The only foundry capable of producing leading-edge AI silicon at scale — N3 utilization on track to exceed 100% in H2 2026, making it the central bottleneck in the entire stack.
-AMKR: Primary recipient of TSMC's CoWoS packaging overflow — shows that even if wafer supply were unconstrained, advanced packaging is a separate, independent Chokepoint.
-L4 Compute Silicon
-NVDA: Dominant GPU platform with CUDA ecosystem lock-in — the whale that sets the pace for every other layer in the stack.
-AMD: The only credible GPU challenger, with the $100B Meta deal as the clearest test of whether AI compute wins are NVDA-only or genuinely broadening.
-L5 Memory Silicon
-HXSCL: HBM technology leader and primary Nvidia supplier — demand for the next three years already exceeds their available supply, making them the memory layer's binding constraint.
-MU: Cost-differentiated US-listed HBM player — shows whether the memory boom is concentrated in SK Hynix or whether a second supplier is capturing meaningful Share
-L6 Networking & Custom Silicon
-AVGO: Google and Meta's primary custom ASIC partner, contracted through 2031 — the clearest window into whether hyperscaler custom silicon is delivering real, durable revenue.
-MRVL: AWS and Azure's custom ASIC partner, also building a full optical connectivity platform — shows a second hyperscaler custom silicon program and whether the displacement of NVDA is structural.
-L7 Optical & Physical Connectivity
-COHR: Vertically integrated optical components supplier with a strategic Nvidia investment — direct validation from the dominant GPU vendor that optical connectivity is a critical dependency.
-NOK: Optical networking equipment with +56% YoY optical revenue and the most aggressive upward revision to hyperscaler CapEx estimates of any public vendor — a strong pure-play signal on AI connectivity demand.
-L8 Power Generation & Grid
-GEV: Gas turbine oligopolist with a $200B backlog stretching past 2029 — the clearest public confirmation that grid-scale power is structurally constrained, not just temporarily tight.
-BE: Behind-the-meter fuel cell manufacturer with Oracle (2.8GW) and AEP (1GW) as anchor customers — shows that hyperscalers are paying significant premiums to bypass the grid entirely.
-L9 Data Center Infrastructure
-VRT: Dominant power and cooling infrastructure provider — liquid cooling has crossed from optional to mandatory for AI-dense deployments, and less than 10% of existing US inventory is compliant.       
-EQIX: Carrier-neutral colocation operator with pre-leasing at record levels — the demand-side commitment signal showing hyperscalers are locking up DC capacity well ahead of construction completion.
-
-
----------------
-
 ## Key Sectors
 
 **AI, Aerospace, and Energy are the three big real-demand growth themes.**
