@@ -264,7 +264,7 @@ Revenue ($B), YoY%, Seq%, Accel(pp) per quarter — see the SQ1 table (2025Q2 12
 - `sales_growth_latest_q_yoy_pct`: 85.23; `sales_growth_ttm_vs_prior_ttm_pct`: 70.68
 - `sales_growth_q_accel_pp`: **+12.01**; `sales_growth_ttm_accel_pp`: **−15.49**
 
-## NVDA — 10-Q / 10-K (MD&A + Notes)
+## NVDA — 10-Q (MD&A + Notes)
 - "$4.5 billion charge… associated with H20… as the demand for H20 diminished." (`mda:27`)
 - "No shipments of Data Center Hopper products to China occurred during the quarter, compared with $4.6 billion in the first quarter of fiscal year 2026." (`mda:589`)
 - Revenue $81.6B; Data Center $75.2B (+92%); Edge $6.4B (+29%). (`mda:588–590`)
