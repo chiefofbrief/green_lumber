@@ -2,16 +2,15 @@
 
 ## Synthesis (the answer)
 
-**No — growth is not decelerating right now, it's re-accelerating. But that's the easy half. The durability of that growth looks weaker than the headline, and the risks are all trending the wrong way.**
+**Short version: No — NVDA's growth is not decelerating right now. It's re-accelerating. But that's the easy half of the question. The harder half — how durable that growth is — looks weaker than the headline, and the risks are all trending the wrong way.**
 
-- **Near-term:** Revenue grew 85% YoY last quarter, the 3rd straight quarter of acceleration — but only after a 5-quarter slide caused by the China H20 export ban. Because that trough was policy-depressed, part of the "acceleration" is just lapping an easy comp. Sequential growth (quarter-vs-prior-quarter, which strips out the year-ago distortion) has settled at a steady ~20%. So: strong and steady, not truly accelerating.
-- **What it rests on is narrow (SQ2/SQ3):** ~92% of revenue and ~96% of the growth is one business, Data Center. About 5 hyperscalers are ~46% of the whole company, and that concentration is *rising*.
-- **The "next leg" won't help soon (SQ4):** Robotics/edge is ~8% of revenue and shrinking as a share — a long-dated option, not a current driver.
-- **Two things lower the quality of the growth:**
-  - **Circular financing (SQ5):** The hyperscaler core is self-funded and organic, but NVDA is pouring money into its own customers ($18.6B in one quarter) and booking huge paper gains — a self-reinforcing loop that flatters results now and reverses hard later.
-  - **Custom ASICs (SQ6):** The biggest threat. NVDA's own top customers (Google, Anthropic, OpenAI, Meta) are committing gigawatts to custom chips. Broadcom's AI-chip business alone is $56B this year, guided >$100B next year, and is now taking networking share too.
+**Near-term: growth is accelerating.** Revenue grew 85% year-over-year last quarter, the third straight quarter of acceleration after a five-quarter slide. But the slide had a specific, one-off cause (the China H20 export ban), so the rebound is partly just lapping an easy comparison. Underneath the optics, sequential growth has settled at a steady ~20% a quarter — very strong, but "steady," not "accelerating" — and the smoothed trailing-twelve-month growth rate is still falling. So the honest read is *strong and steady*, not *accelerating*, once you strip the base effects.
 
-**Bottom line:** The current quarter is genuinely strong, so "decelerating" is wrong on the facts. But the growth is concentrated, partly self-financed, and increasingly contested by the very customers it depends on. Demand for AI compute isn't in doubt — how much of *NVDA's share* survives is. **Growth is accelerating now; the quality and durability of that growth is quietly weakening.**
+**What the growth rests on is narrow.** Almost the entire company is Data Center (~92% of revenue, ~96% of the growth), and it leans on about five hyperscalers that are roughly half the business — with customer concentration actually *rising*, not falling. Robotics and edge, the supposed next leg, are ~8% of revenue and shrinking as a share; they're a long-dated call option, not a near-term driver.
+
+**Two things make the growth lower-quality than it looks.** First, circular financing: the hyperscaler core is genuine, self-funded demand, but NVDA is pouring money into its own customers (\$18.6B in a single quarter) and booking huge paper gains on those stakes — a self-reinforcing loop that flatters results now and would reverse hard in a downturn. Second, and most serious, custom ASICs: NVDA's own biggest customers — Google, Anthropic, OpenAI, Meta — are committing gigawatts to custom chips from Broadcom, Amazon, and Google. Broadcom's AI-silicon business alone is \$56B this year, guided above \$100B next year, and it's now taking networking share too.
+
+**Bottom line — dollar for how many cents:** The near-term numbers are strong and real, so anyone calling growth "decelerating" today is wrong on the facts. But the growth is concentrated, partly self-financed, and increasingly contested by the very customers it depends on. The demand is not in doubt; the question is how much of *NVDA's* share of it survives. So: **growth is accelerating now, but the quality and durability of that growth is weakening** — the current quarter is worth close to a dollar, the years beyond it are worth meaningfully less than the headline implies.
 
 ---
 
