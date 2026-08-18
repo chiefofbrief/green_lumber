@@ -1,5 +1,5 @@
 """
-Shared Utility Functions — GL Stock-Data Scripts
+Shared Utility Functions 
 ================================================
 
 Common helpers used across the GL scripts (flat folder). Output convention:
