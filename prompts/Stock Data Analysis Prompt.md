@@ -60,7 +60,7 @@ If a metric's basis or a file's scope is unclear (e.g. how acceleration or a tro
 ## Flow
 
 ### Step 1 — Create the Analysis file
-Create `{TICKER} Analysis.md` in `analysis/stock analysis` with one `##` header for each of the fourteen primary questions below, in this order, and nothing else yet.
+Create `{TICKER} Analysis [DD-MM-YYYY].md` in `analysis/stock analysis` with one `##` header for each of the fourteen primary questions below, in this order, and nothing else yet.
 
 1. How does the company make money?
 2. What are its competitive advantages?
