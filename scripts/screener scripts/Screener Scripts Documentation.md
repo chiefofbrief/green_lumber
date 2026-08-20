@@ -8,9 +8,9 @@ There are three scripts which all run independently and create their own CSV fil
 * **large_actives_with_metrics.py**: Filters the active stock universe (marketCap ≥ $1B, dollar volume price×volume ≥ $1M/day, prior-TTM sales ≥ $10M USD) and drops non-comparable / price-driven / lottery industries before enriching (banks, insurers, REITs, asset managers, monetary metals, biotech). Each surviving name is ranked by percentile (0–100, higher = better) on every axis, with a composite score as the default sort.
 
 Commands:
-* python3 Scripts/master_stock_universe.py
-* python3 Scripts/active_stock_universe.py
-* python3 Scripts/large_actives_with_metrics.py
+* python3 "scripts/screener scripts/master_stock_universe.py"
+* python3 "scripts/screener scripts/active_stock_universe.py"
+* python3 "scripts/screener scripts/large_actives_with_metrics.py"
 
 -------------
 
