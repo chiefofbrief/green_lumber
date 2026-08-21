@@ -171,4 +171,4 @@ Clip # — [Clip Title]
 ---
 
 ## Step 4: Save & Commit
-Once approved, compile the Story Selection, Script, and Visual Prompts and save the deliverable to a new file named `outputs/Video_MarketMovers_{DATE}.md` using today's date.
+Once approved, compile the Story Selection, Script, and Visual Prompts and save the deliverable to a new file named `content/output/digest video {DATE}.md` using today's date.
