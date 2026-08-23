@@ -75,7 +75,6 @@ Power is increasingly the binding constraint on AI buildout. Pennsylvania Govern
 | INTC | Intel Corp. | Intel and Memory: A History of Exits, and a New Bid to Return | 7.47 | 25.42 | 11.19 | 25.22 | 38.93 | 4.96 | 8.51 | |
 | STM | STMicroelectronics N.V. | STMicroelectronics Plans Third 2026 Price Hike for August 23; Power Device Lead Times Reportedly Hit 52 Weeks | 9.97 | 24.43 | 32.78 | 37.72 | 34.29 | 1.65 | 3.27 | 96.31 |
 | BJ | BJ's Wholesale Club Holdings, Inc. | BJ's Wholesale Logs Higher Profit, Revenue | 5.92 | 9.86 | 3.08 | 5.08 | 18.47 | 1.04 | 0.65 | 20.15 |
-| SBUX | Starbucks Corporation | Walmart Is Playing the Long Game by Lowering Prices | 4.48 | -1.41 | 3.89 | -5.16 | 31.75 | 9.5 | 3.56 | 59.4 |
 
 **Glossary**
 
