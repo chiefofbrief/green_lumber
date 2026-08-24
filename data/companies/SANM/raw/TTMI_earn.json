@@ -1,0 +1,74 @@
+[
+  {
+    "symbol": "TTMI",
+    "date": "2026-11-04",
+    "epsActual": null,
+    "epsEstimated": 1.25,
+    "revenueActual": null,
+    "revenueEstimated": 1126106000,
+    "lastUpdated": "2026-08-24"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2026-08-05",
+    "epsActual": 0.99,
+    "epsEstimated": 0.894,
+    "revenueActual": 1004054000,
+    "revenueEstimated": 962040000,
+    "lastUpdated": "2026-08-24"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2026-04-29",
+    "epsActual": 0.75,
+    "epsEstimated": 0.66,
+    "revenueActual": 845976000,
+    "revenueEstimated": 789838900,
+    "lastUpdated": "2026-07-29"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2026-02-04",
+    "epsActual": 0.7,
+    "epsEstimated": 0.68,
+    "revenueActual": 774320000,
+    "revenueEstimated": 752898400,
+    "lastUpdated": "2026-05-04"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2025-10-29",
+    "epsActual": 0.67,
+    "epsEstimated": 0.61,
+    "revenueActual": 752736000,
+    "revenueEstimated": 752959000,
+    "lastUpdated": "2026-01-29"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2025-07-30",
+    "epsActual": 0.58,
+    "epsEstimated": 0.52,
+    "revenueActual": 730621000,
+    "revenueEstimated": 691142000,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2025-04-30",
+    "epsActual": 0.5,
+    "epsEstimated": 0.39,
+    "revenueActual": 648668000,
+    "revenueEstimated": 621441250,
+    "lastUpdated": "2025-07-30"
+  },
+  {
+    "symbol": "TTMI",
+    "date": "2025-02-05",
+    "epsActual": 0.6,
+    "epsEstimated": 0.47,
+    "revenueActual": 650965000,
+    "revenueEstimated": 630112670,
+    "lastUpdated": "2025-05-05"
+  }
+]

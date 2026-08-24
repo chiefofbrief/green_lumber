@@ -26,7 +26,7 @@ REQUEST_TIMEOUT = 10
 RETRY_DELAY = 5
 API_CALL_DELAY = 1
 
-OUTPUT_ROOT = "Stock Data"
+OUTPUT_ROOT = "/workspaces/green_lumber/data/companies"
 
 # ============================================================================
 # DIRECTORY & FILE MANAGEMENT

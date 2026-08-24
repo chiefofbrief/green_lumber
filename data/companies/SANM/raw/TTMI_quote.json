@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "TTMI",
+    "name": "TTM Technologies, Inc.",
+    "price": 106.8003,
+    "changePercentage": -3.38312,
+    "change": -3.7397,
+    "volume": 1263580.89305,
+    "dayLow": 103.6601,
+    "dayHigh": 107.17,
+    "yearHigh": 223.83,
+    "yearLow": 42.69,
+    "marketCap": 11091211155,
+    "priceAvg50": 151.8506,
+    "priceAvg200": 117.65185,
+    "exchange": "NASDAQ",
+    "open": 106.85,
+    "previousClose": 110.54,
+    "timestamp": 1787586124
+  }
+]

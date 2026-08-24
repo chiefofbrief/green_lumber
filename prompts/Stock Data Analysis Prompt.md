@@ -27,6 +27,7 @@ All output lands in `analysis/stock analysis/{TICKER} Analysis.md`.
 - `{TICKER} Excerpts.md` — the qualitative excerpts pulled from the long documents.
 - `{TICKER}_data_summary.md` — the seven script output summaries copied in full (profile, numbers, analyst, news, management, earnings, filings).
 - The most recent `{TICKER}_earnings_{Q}.md` — the latest earnings call.
+- `analysis/sector analysis/Sectors.md` — sector-level theses (S-curves, tailwinds/headwinds).
 
 **Never read the filing text in full — grep it**:
 - `{TICKER}_10k.txt` (or `{TICKER}_20f.txt` / `{TICKER}_40f.txt`) and `{TICKER}_10q.txt`.
@@ -60,7 +61,7 @@ If a metric's basis or a file's scope is unclear (e.g. how acceleration or a tro
 ## Flow
 
 ### Step 1 — Create the Analysis file
-Create `{TICKER} Analysis [DD-MM-YYYY].md` in `analysis/stock analysis` with one `##` header for each of the fourteen primary questions below, in this order, and nothing else yet.
+Create `{TICKER} {MM-DD-YY}.md` in `analysis/stock analysis` with one `##` header for each of the fourteen primary questions below, in this order, and nothing else yet.
 
 1. How does the company make money?
 2. What are its competitive advantages?
@@ -189,7 +190,7 @@ Create `{TICKER} Analysis [DD-MM-YYYY].md` in `analysis/stock analysis` with one
 
 #### Do accounting choices appear to be inflating or depressing reported earnings?
 **Data Sources**
-- `{TICKER} Excerpts.md` (accounting section)
+- `{TICKER} Excerpts.md`
 - `numbers.md`
 - latest earnings call
 - grep the filings for specifics

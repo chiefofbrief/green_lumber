@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "BMI",
+    "companyName": "Badger Meter, Inc.",
+    "price": 133.47,
+    "mktCap": 3868874469
+  },
+  {
+    "symbol": "CGNX",
+    "companyName": "Cognex Corporation",
+    "price": 58.5704,
+    "mktCap": 9747253813
+  },
+  {
+    "symbol": "DSGX",
+    "companyName": "The Descartes Systems Group Inc.",
+    "price": 78.82,
+    "mktCap": 6754150984
+  },
+  {
+    "symbol": "ESE",
+    "companyName": "ESCO Technologies Inc.",
+    "price": 278.66,
+    "mktCap": 7219300352
+  },
+  {
+    "symbol": "LFUS",
+    "companyName": "Littelfuse, Inc.",
+    "price": 402.52,
+    "mktCap": 10223484724
+  },
+  {
+    "symbol": "MKSI",
+    "companyName": "MKS Inc.",
+    "price": 268.91,
+    "mktCap": 18163283931
+  },
+  {
+    "symbol": "OLED",
+    "companyName": "Universal Display Corporation",
+    "price": 84.56,
+    "mktCap": 3886955737
+  },
+  {
+    "symbol": "PCTY",
+    "companyName": "Paylocity Holding Corporation",
+    "price": 152.4442,
+    "mktCap": 8162487489
+  },
+  {
+    "symbol": "TTMI",
+    "companyName": "TTM Technologies, Inc.",
+    "price": 106.455,
+    "mktCap": 11055351750
+  },
+  {
+    "symbol": "VNT",
+    "companyName": "Vontier Corporation",
+    "price": 32.94,
+    "mktCap": 4637952000
+  }
+]
