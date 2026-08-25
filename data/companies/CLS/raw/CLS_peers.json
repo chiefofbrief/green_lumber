@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "CTSH",
+    "companyName": "Cognizant Technology Solutions Corporation",
+    "price": 63.06,
+    "mktCap": 28405011820
+  },
+  {
+    "symbol": "FICO",
+    "companyName": "Fair Isaac Corporation",
+    "price": 1137.14,
+    "mktCap": 24559535801
+  },
+  {
+    "symbol": "FLEX",
+    "companyName": "Flex Ltd.",
+    "price": 109.25,
+    "mktCap": 40357275347
+  },
+  {
+    "symbol": "GRMN",
+    "companyName": "Garmin Ltd.",
+    "price": 288.55,
+    "mktCap": 55647733150
+  },
+  {
+    "symbol": "JBL",
+    "companyName": "Jabil Inc.",
+    "price": 308.68,
+    "mktCap": 32345678633
+  },
+  {
+    "symbol": "KEYS",
+    "companyName": "Keysight Technologies, Inc.",
+    "price": 320.12,
+    "mktCap": 54707025204
+  },
+  {
+    "symbol": "NOK",
+    "companyName": "Nokia Oyj",
+    "price": 10.34,
+    "mktCap": 55845223280
+  },
+  {
+    "symbol": "SNDK",
+    "companyName": "Sandisk Corporation",
+    "price": 1480.77,
+    "mktCap": 219286859108
+  },
+  {
+    "symbol": "TDY",
+    "companyName": "Teledyne Technologies Incorporated",
+    "price": 626.9,
+    "mktCap": 29059382156
+  },
+  {
+    "symbol": "UI",
+    "companyName": "Ubiquiti Inc.",
+    "price": 575.79,
+    "mktCap": 34848011322
+  }
+]

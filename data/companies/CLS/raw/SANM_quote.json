@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "SANM",
+    "name": "Sanmina Corporation",
+    "price": 191.11,
+    "changePercentage": 3.07427,
+    "change": 5.7,
+    "volume": 0,
+    "dayLow": 187.285,
+    "dayHigh": 193,
+    "yearHigh": 288.68,
+    "yearLow": 110.44,
+    "marketCap": 10242999114,
+    "priceAvg50": 214.103,
+    "priceAvg200": 182.16376,
+    "exchange": "NASDAQ",
+    "open": 190.51,
+    "previousClose": 185.41,
+    "timestamp": 1787688000
+  }
+]

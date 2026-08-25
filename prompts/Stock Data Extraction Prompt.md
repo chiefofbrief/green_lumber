@@ -14,7 +14,7 @@ All output lands in `data/companies/{TICKER}/{TICKER} Excerpts.md`.
 - Do not paraphrase, compress, or restate — not even one sentence.
 - Do not add commentary or transitions between passages.
 - End every excerpt with its source file in parentheses, e.g. `(AAPL_10k.txt)`.
-- A passage is worth keeping if it helps answer any one of the eleven questions below — judge each passage against all eleven at once. The output is one flat, unstructured list of excerpts, in the order you encounter them — do not create section headers or otherwise group excerpts by question.
+- A passage is worth keeping if it helps answer any one of the eleven questions below — judge each passage against all eleven at once. Skip passages that are too generic to add anything (e.g., boilerplate risk disclosures) or too inconsequential to matter (e.g., granular international tax nuances), even if they nominally touch a question's topic. The output is one flat, unstructured list of excerpts, in the order you encounter them — do not create section headers or otherwise group excerpts by question.
 - If the same passage, or a near-duplicate of it, appears more than once in the staging file, include it in the Excerpts file once.
 - Do not write process notes, coverage summaries, self-assessments, or any commentary about the extraction itself into the Excerpts file — the file contains excerpts and nothing else.
 
