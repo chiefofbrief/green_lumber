@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "CLS",
+    "name": "Celestica Inc.",
+    "price": 319.86,
+    "changePercentage": 4.08044,
+    "change": 12.54,
+    "volume": 1131709,
+    "dayLow": 313.6044,
+    "dayHigh": 325.82,
+    "yearHigh": 474.03,
+    "yearLow": 183.66,
+    "marketCap": 36778142520,
+    "priceAvg50": 336.9826,
+    "priceAvg200": 328.7498,
+    "exchange": "NYSE",
+    "open": 316.555,
+    "previousClose": 307.32,
+    "timestamp": 1787851836
+  }
+]

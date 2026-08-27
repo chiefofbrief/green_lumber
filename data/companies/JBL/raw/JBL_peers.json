@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "COHR",
+    "companyName": "Coherent, Inc.",
+    "price": 293.66,
+    "mktCap": 57451443005
+  },
+  {
+    "symbol": "FLEX",
+    "companyName": "Flex Ltd.",
+    "price": 115.5,
+    "mktCap": 42666043959
+  },
+  {
+    "symbol": "FN",
+    "companyName": "Fabrinet",
+    "price": 433.32999,
+    "mktCap": 15526083543
+  },
+  {
+    "symbol": "FTV",
+    "companyName": "Fortive Corporation",
+    "price": 60.23,
+    "mktCap": 18190487042
+  },
+  {
+    "symbol": "NTAP",
+    "companyName": "NetApp, Inc.",
+    "price": 189.7253,
+    "mktCap": 37230554520
+  },
+  {
+    "symbol": "PTC",
+    "companyName": "PTC Inc.",
+    "price": 157.89,
+    "mktCap": 18237242340
+  },
+  {
+    "symbol": "STM",
+    "companyName": "STMicroelectronics N.V.",
+    "price": 51.21,
+    "mktCap": 45707239026
+  },
+  {
+    "symbol": "TDY",
+    "companyName": "Teledyne Technologies Incorporated",
+    "price": 626.88,
+    "mktCap": 29058455074
+  },
+  {
+    "symbol": "TRMB",
+    "companyName": "Trimble Inc.",
+    "price": 61.369,
+    "mktCap": 14305820810
+  },
+  {
+    "symbol": "VRSN",
+    "companyName": "VeriSign, Inc.",
+    "price": 296.9501,
+    "mktCap": 26844289040
+  }
+]

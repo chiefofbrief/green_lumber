@@ -43,9 +43,9 @@ If a metric's basis or a file's scope is unclear (e.g. how acceleration or a tro
 ### Analysis
 
 **Guidelines**
-- Write in plain English. Explain yourself simply; do not hide behind jargon or complexity.
-- Be concise but comprehensive.
-- Lead with the takeaway; use specific figures to support it, not replace it. Data is evidence, not a conclusion.
+- Write in plain English, for a reader with minimal finance background. Assume no prior knowledge of accounting ratios, industry acronyms, or technical jargon — explain each one in plain terms when you use it. Do not hide behind jargon or complexity.
+- Be concise but comprehensive: cover every takeaway with supporting data, but don't restate the same point more than once, and don't cite five data points when two strong ones already make it clear.
+- Lead with the takeaway; use specific figures to support it, not replace it — and not bury it either. Choose the figures that most prove the point, not every figure available; citing everything you have is not the same as being thorough. Data is evidence, not a conclusion.
 - Spend words where the money is. Give major items real depth and minor ones less depth. If closing a gap needs disproportionate digging, note the gap and move on.
 - Indicate if takeaways rely on thin disclosures, incomplete information, or high volatility as this is critical context.
 - Be skeptical of reported financials and explanations for price moves. Reporting is often built to raise cheap capital, and news pins a cause on every move without knowing the full context. 
@@ -113,8 +113,9 @@ Create `{TICKER} {MM-DD-YY}.md` in `analysis/stock analysis` with one `##` heade
 - `news.md`
 
 **Sub-questions**
-- What is the annual and quarterly growth rate?
-- Are the growth rates accelerating or decelerating?
+- What is the annual growth rate? Is it accelerating or decelerating?
+- What is the quarterly growth rate? Is it accelerating or decelerating?
+- Acceleration is the change in the growth rate from one period to the next. Judge it from the actual sequence of periods — don't assume a direction just because growth is fast, or because it's rising. Growth can accelerate every period while the acceleration itself is shrinking: +5pp, then +19pp, then +7pp is positive (accelerating) each time, but the pace of acceleration peaked in the second period and has since cooled.
 - What is driving growth (including which product segments)?
 - Is growth organic?
 

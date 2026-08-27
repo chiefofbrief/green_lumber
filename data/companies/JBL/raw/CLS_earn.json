@@ -1,0 +1,74 @@
+[
+  {
+    "symbol": "CLS",
+    "date": "2026-10-26",
+    "epsActual": null,
+    "epsEstimated": 3.03,
+    "revenueActual": null,
+    "revenueEstimated": 5508291000,
+    "lastUpdated": "2026-08-27"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2026-07-27",
+    "epsActual": 2.54,
+    "epsEstimated": 2.29,
+    "revenueActual": 4665507000,
+    "revenueEstimated": 4295206000,
+    "lastUpdated": "2026-08-27"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2026-04-27",
+    "epsActual": 2.16,
+    "epsEstimated": 2.08,
+    "revenueActual": 3983209000,
+    "revenueEstimated": 3974398000,
+    "lastUpdated": "2026-07-27"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2026-01-28",
+    "epsActual": 1.89,
+    "epsEstimated": 1.74,
+    "revenueActual": 3607794000,
+    "revenueEstimated": 3512976000,
+    "lastUpdated": "2026-04-28"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2025-10-27",
+    "epsActual": 1.58,
+    "epsEstimated": 1.47,
+    "revenueActual": 3158591030,
+    "revenueEstimated": 3490103470,
+    "lastUpdated": "2026-01-12"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2025-07-28",
+    "epsActual": 1.39,
+    "epsEstimated": 1.24,
+    "revenueActual": 2893400000,
+    "revenueEstimated": 2763401610,
+    "lastUpdated": "2025-10-28"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2025-04-24",
+    "epsActual": 1.2,
+    "epsEstimated": 1.11,
+    "revenueActual": 2648600000,
+    "revenueEstimated": 2557412590,
+    "lastUpdated": "2025-07-21"
+  },
+  {
+    "symbol": "CLS",
+    "date": "2025-01-29",
+    "epsActual": 1.11,
+    "epsEstimated": 1.04,
+    "revenueActual": 2545700000,
+    "revenueEstimated": 2533252990,
+    "lastUpdated": "2025-04-29"
+  }
+]

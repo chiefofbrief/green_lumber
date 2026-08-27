@@ -1,0 +1,74 @@
+[
+  {
+    "symbol": "JBL",
+    "date": "2026-09-24",
+    "epsActual": null,
+    "epsEstimated": 4.06,
+    "revenueActual": null,
+    "revenueEstimated": 9692837000,
+    "lastUpdated": "2026-08-27"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2026-06-17",
+    "epsActual": 3.16,
+    "epsEstimated": 3.1,
+    "revenueActual": 8751000000,
+    "revenueEstimated": 8605259000,
+    "lastUpdated": "2026-08-27"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2026-03-18",
+    "epsActual": 2.69,
+    "epsEstimated": 2.51,
+    "revenueActual": 8282000000,
+    "revenueEstimated": 7778155000,
+    "lastUpdated": "2026-06-18"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2025-12-17",
+    "epsActual": 2.85,
+    "epsEstimated": 2.7,
+    "revenueActual": 8305000000,
+    "revenueEstimated": 8031103144,
+    "lastUpdated": "2026-03-12"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2025-09-25",
+    "epsActual": 3.29,
+    "epsEstimated": 2.92,
+    "revenueActual": 8252000000,
+    "revenueEstimated": 7588463072,
+    "lastUpdated": "2026-02-24"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2025-06-17",
+    "epsActual": 2.55,
+    "epsEstimated": 2.31,
+    "revenueActual": 7828000000,
+    "revenueEstimated": 7059156904,
+    "lastUpdated": "2026-02-24"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2025-03-20",
+    "epsActual": 1.94,
+    "epsEstimated": 1.83,
+    "revenueActual": 6728000000,
+    "revenueEstimated": 6408138170,
+    "lastUpdated": "2026-02-24"
+  },
+  {
+    "symbol": "JBL",
+    "date": "2024-12-18",
+    "epsActual": 2,
+    "epsEstimated": 1.88,
+    "revenueActual": 6994000000,
+    "revenueEstimated": 6608391868,
+    "lastUpdated": "2026-02-24"
+  }
+]

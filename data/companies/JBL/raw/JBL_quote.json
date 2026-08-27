@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "JBL",
+    "name": "Jabil Inc.",
+    "price": 311.51,
+    "changePercentage": 0.19298,
+    "change": 0.6,
+    "volume": 363344,
+    "dayLow": 306.2,
+    "dayHigh": 315.94,
+    "yearHigh": 428.93,
+    "yearLow": 189.6,
+    "marketCap": 32642226094,
+    "priceAvg50": 336.8194,
+    "priceAvg200": 289.4652,
+    "exchange": "NYSE",
+    "open": 314.88,
+    "previousClose": 310.91,
+    "timestamp": 1787851827
+  }
+]
