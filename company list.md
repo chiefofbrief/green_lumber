@@ -9,6 +9,12 @@
 * **SONY**
 * **Flex**: Data centers
 * **VRT**: Vertiv Holdings Co
+* TJX
+* **AEP**: Our American Electric Power Stock Pick Has Endured Setbacks. Buy While It’s Still Cheap.
+* **QCOM**: CHeap
+* **SO**: OpenAI gets green light for 3.2GW power deal to supply planned data center in Effingham County, Georgia
+* **S**: Rubrik shares drop on raised outlook as SentinelOne slides on profit guide
+* 
 
 
 ## Analyzed Companies
