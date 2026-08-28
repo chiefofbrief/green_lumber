@@ -2,6 +2,15 @@
 
 ## Notes
 
+### https://www.globaldatacenterhub.com/p/the-four-year-wait-for-a-transformer
+* Large power transformers, the equipment that converts the very high voltage carried by long-distance power lines into a voltage a building can actually use, now average 128 weeks from order to delivery
+* Developers now order power equipment years before a project has a customer or a final go-ahead. Chevron ordered seven large gas turbines from GE Vernova, the power equipment company spun out of General Electric in 2024, roughly two years before signing the twenty-year electricity agreement with Microsoft that those turbines will serve.
+* The published order books of power equipment makers show whether an announced AI buildout is real. GE Vernova reported $2.4 billion of data center electrical equipment orders in the first quarter of 2026, more than the company booked in all of 2025.
+* A large power transformer needs a specialized electrical steel that only a few mills in the world produce, plus copper, plus custom engineering, plus months of testing before it ships.
+* In the first quarter of 2026 alone, GE Vernova signed 21 gigawatts of new gas equipment agreements. Only 2 gigawatts of that were firm orders. The other 19 gigawatts were reservations...When a company announces gigawatts of new AI capacity, a portion of that number may be a place in a line rather than a machine that exists. That is why announced capacity and delivered capacity have drifted so far apart.
+* Equipment makers are public companies, so they report what customers actually bought, every three months, in filings that carry legal consequences if they are wrong. Announcements carry no such requirement. So, the next time a very large AI project is announced, the fastest way to know whether it is real is to wait a quarter and look at what the equipment makers say they sold.
+* 
+
 ### https://www.datagravity.dev/p/who-makes-money-when-inference-gets
 * Inference getting 10x cheaper is the mechanism of this market, not a threat to it. The deflation is manufactured at the silicon layer and sold at 75% gross margin. It passes through hyperscalers, who convert it into $1.7 trillion of contracted backlog and permanently higher capital intensity. It reaches the labs as a treadmill that grew revenue an order of magnitude while blended margins lagged the software benchmark, though serving margins reportedly hit 70% by mid-2026, the first hard evidence the deflation is reaching the labs’ own P&L. And it lands at the application layer as the best input cost curve in software history, capturable by whoever prices outcomes instead of reselling tokens. Underneath it all, the one layer with rising unit prices, power and land and grid capacity, holds the pricing power everyone else has to engineer. 
 * While silicon gets cheaper, electricity, land, and interconnection queues cannot be artificially deflated by engineers. Owners of scarce megawatts now hold the ultimate pricing power.
