@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "FN",
+    "name": "Fabrinet",
+    "price": 421.96,
+    "changePercentage": -2.48434,
+    "change": -10.75,
+    "volume": 238812.33949,
+    "dayLow": 416.33,
+    "dayHigh": 428.095,
+    "yearHigh": 748.89,
+    "yearLow": 313,
+    "marketCap": 15118700212,
+    "priceAvg50": 503.9766,
+    "priceAvg200": 536.9546,
+    "exchange": "NYSE",
+    "open": 425.42,
+    "previousClose": 432.71,
+    "timestamp": 1787931767
+  }
+]

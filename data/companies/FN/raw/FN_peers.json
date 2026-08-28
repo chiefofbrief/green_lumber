@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "BSY",
+    "companyName": "Bentley Systems, Incorporated",
+    "price": 37.8332,
+    "mktCap": 11057946224
+  },
+  {
+    "symbol": "DOCU",
+    "companyName": "DocuSign, Inc.",
+    "price": 65.08,
+    "mktCap": 12426700600
+  },
+  {
+    "symbol": "DT",
+    "companyName": "Dynatrace, Inc.",
+    "price": 54.375,
+    "mktCap": 15848992982
+  },
+  {
+    "symbol": "ENTG",
+    "companyName": "Entegris, Inc.",
+    "price": 139.595,
+    "mktCap": 21288237500
+  },
+  {
+    "symbol": "FTV",
+    "companyName": "Fortive Corporation",
+    "price": 59.515,
+    "mktCap": 17974544850
+  },
+  {
+    "symbol": "GEN",
+    "companyName": "Gen Digital Inc.",
+    "price": 31.26,
+    "mktCap": 18711519052
+  },
+  {
+    "symbol": "LITE",
+    "companyName": "Lumentum Holdings Inc.",
+    "price": 917.234,
+    "mktCap": 71360805200
+  },
+  {
+    "symbol": "MKSI",
+    "companyName": "MKS Inc.",
+    "price": 262.7061,
+    "mktCap": 17744247089
+  },
+  {
+    "symbol": "TRMB",
+    "companyName": "Trimble Inc.",
+    "price": 61.3518,
+    "mktCap": 14301811291
+  },
+  {
+    "symbol": "ZBRA",
+    "companyName": "Zebra Technologies Corporation",
+    "price": 359.43,
+    "mktCap": 17120872962
+  }
+]

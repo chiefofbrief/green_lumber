@@ -58,6 +58,25 @@ If a metric's basis or a file's scope is unclear (e.g. how acceleration or a tro
 - The `####` headings are the primary questions — verbatim and binding. The bullets under them are sub-questions: a checklist to cover, not a form to fill line by line. Weave them into one complete answer.
 - Each question's suggested Data Sources (included as part of each question below) point to where the answer mostly lives — a pointer, not a limit.
 
+**Format**
+- Structure each answer in two parts. **Takeaways** — a short bulleted list of the conclusions. Fold in a caveat only when it would change how the reader weighs the takeaway — otherwise leave it for Supporting Data. **Supporting Data** — the evidence behind those takeaways (comparisons, trends, figures, citations), in the same order as the takeaways above.
+
+Example — *How and why are sales growing?*
+
+**Takeaways**
+- Sales growth has undergone a sharp multi-year turnaround — from outright annual declines two years ago to high-teens growth today (TTM sales $33.59B, +17.8% YoY) — and the annual growth rate has accelerated in each of the past three years.
+- On a quarterly basis, growth is still strong but momentum has cooled: after accelerating for three straight quarters (18.5% → 18.7% → 23.1% YoY), the most recent quarter decelerated to 11.8% YoY — solid absolute growth, but a real pullback in pace that the smoothed annual figure doesn't show on its own.
+- That growth is almost entirely an AI data-center story, not a broad-based recovery: concentrated in the Intelligent Infrastructure segment, riding a string of hyperscaler wins, and organic rather than acquired — the largest recent deal added under 1% of revenue.
+
+**Supporting Data**
+TTM revenue growth has moved from -13.9% (TTM through Q3 FY24) to -6.1% (TTM through Q3 FY25) to +17.8% (TTM through Q3 FY26) — each step a further acceleration (-24.6pp, then +7.7pp, then +23.9pp) (numbers.md). Two years ago the business was still shrinking; today it's growing at a high-teens rate.
+
+Quarterly YoY growth is noisier: ~15.7% (Q3 FY25) → +18.5% (Q4 FY25, accel +2.8pp) → +18.7% (Q1 FY26, accel +0.2pp) → +23.1% (Q2 FY26, accel +4.4pp) → +11.8% (Q3 FY26, accel -11.3pp) (numbers.md) — three straight quarters of acceleration, then a sharp reversal, even though the latest quarter still beat the company's own guidance by $250M (earnings call). This isn't inconsistent with the annual figures above — the TTM number blends four quarters together, so one softer quarter gets absorbed into three stronger ones rather than showing up on its own. Management's guide for the coming quarter implies growth reaccelerating to roughly 16% YoY at the midpoint (earnings call), but the most recent actual data point is a deceleration, not a straight line up.
+
+The growth is concentrated in Intelligent Infrastructure, where revenue was up 52% YoY and then 21% YoY in the two most recent quarters (earnings calls). Within that segment, full-year AI-related revenue is guided to ~$13.6B, up from $9B a year earlier — roughly 50% growth — spread across cloud/data-center infrastructure, networking (helped by a strong regional capacity ramp), and capital equipment (test-equipment demand plus an early recovery in wafer-fab equipment), and reinforced by three hyperscaler wins to date plus a recent bolt-on acquisition adding higher-margin data-center power capabilities (earnings call). The other two segments are secondary contributors: one is recovering off multi-year lows on a shift to more flexible product platforms and stronger export demand, while the other is mixed — one sub-segment roughly flat on planned program attrition, the other growing "double-digit" and carrying above-average margins (earnings calls).
+
+The company does not separately break out acquisition-driven revenue, stating the added cost structure from acquisitions "has historically been relatively insignificant" relative to its overall scale (10-K) — borne out by the largest recent deal, which accounted for only 3.8% of total assets and under 1.0% of net revenue over the trailing nine months (10-Q). The other recent, smaller acquisitions are similarly capability additions rather than material revenue contributors, so the growth reads as organic demand, not an M&A roll-up.
+
 ## Flow
 
 ### Step 1 — Create the Analysis file

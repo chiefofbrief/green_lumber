@@ -1,0 +1,125 @@
+{
+  "date_range": {
+    "from": "2026-05-30",
+    "to": "2026-08-28"
+  },
+  "stories": [
+    {
+      "id": "ee94703d4f12468d9f86270174f4951d",
+      "window": "2026-07-29 \u2192 2026-08-28",
+      "date": "2026-08-20T21:27:45.758212+00:00",
+      "name": "North American Onshoring Boosts U.S. Industrial Stocks",
+      "summary": "A wave of 50% tariffs on Canadian imports and retaliatory measures are accelerating a shift of production onshore, reshaping cross-border supply chains and creating both risks and opportunities for U.S.-centric manufacturers. The coverage highlights several onshoring beneficiaries across heavy industry, electronics, and infrastructure, illustrating how local production can gain visibility as firms redeploy capacity from abroad. Insteel Industries underscores the push to domestic concrete reinforcing and infrastructure materials, benefiting from nearer-to-site supply amid tariff pressures. TTM Technologies points to electronics manufacturing for mission-critical applications\u2014data centers and aerospace\u2014as a core area for onshoring, with investments in domestic PCB and RF production. MYR Group demonstrates how wiring and grid upgrades for U.S. factories and data centers fit the reshoring narrative, supported by a backlog of utility contracts and a focus on higher-margin projects. Powell Industries and Hudson Technologies illustrate the broader electrical infrastructure and refrigerant supply backbone necessary for North American reshoring, highlighting the balance between strong demand and margin or regulatory risks in a tighter trade environment.",
+      "keyPoints": [
+        "Insteel Industries generates about $705.4 million of its roughly $707.7 million revenue from U.S. customers for concrete reinforcing products, with almost no foreign sales, and is consolidating its Upper Sandusky facility to boost efficiency and margins amid tariff-related costs on wire rod and tight supply.",
+        "TTM Technologies concentrates substantial U.S. manufacturing for PCBs and RF assemblies\u2014with about $1.7 billion of its roughly $3.4 billion total revenue coming from the United States\u2014and is expanding domestic capabilities with the Syracuse Ultra HDI PCB facility and the Epiq Solutions acquisition to serve AI-heavy data centers and aerospace/defense.",
+        "MYR Group reports two large revenue pillars (Transmission & Distribution at about $2.1 billion and Commercial & Industrial at about $1.9 billion) and a backlog of multi-year utility contracts, with a strategic shift toward higher-margin projects like battery storage and data centers\u2014though it faces rising labor costs and lumpy C&I work."
+      ],
+      "articleCount": 19
+    },
+    {
+      "id": "8ccddcdafb874d1c8bbb2385a968ad90",
+      "window": "2026-07-29 \u2192 2026-08-28",
+      "date": "2026-08-17T09:37:12.915279+00:00",
+      "name": "Fabrinet Q4 2026 Revenue Hits Record; Guides FY2027",
+      "summary": "Fabrinet reported fourth-quarter revenue of about $1.32 billion and adjusted EPS of $4.10, beating analyst estimates and showing year-over-year earnings growth from $2.65 per share. For the current quarter, the company projected revenue of roughly $1.38 billion to $1.43 billion and adjusted EPS of $4.10 to $4.25, above expectations, supported by ongoing demand for its optical packaging and electromechanical systems. Despite the beat, the stock fell about 6.6% in after-hours trading, reflecting a cautious market reaction even as year-to-date performance remains positive. Management reiterated durable growth drivers and capacity expansion plans aligned with an optimistic FY2027, with targets in the roughly $1.375 billion to $1.425 billion range reported. Analysts have noted consistency of earnings surprises, and investors are awaiting further management commentary on future trends. Overall, Fabrinet remains in a growth trajectory driven by demand for its precision manufacturing services amid near-term price volatility around results and guidance.",
+      "keyPoints": [
+        "Fabrinet reported fourth-quarter GAAP net income of $139.3 million, or $3.83 per share, up from $87.2 million, or $2.42 per share a year earlier.",
+        "By market close, Fabrinet's stock was up about 31% year-to-date, underscoring strong performance despite the after-hours pullback.",
+        "CEO Seamus Grady commented on optimism for the business, saying, 'We remain very optimistic about the strength of our business and durability in the growth trends we are seeing, as multiple, significant growth drivers across our business contribute to our success.'"
+      ],
+      "articleCount": 52
+    },
+    {
+      "id": "edf6523844894237a783dbbc0098d7c8",
+      "window": "2026-06-29 \u2192 2026-07-29",
+      "date": "2026-07-23T07:18:59.215844+00:00",
+      "name": "Fabrinet slides after AI stock rout, down 7%",
+      "summary": "Fabrinet shares dropped about 7% as investors weigh a broad selloff in AI hardware and weaker tech sentiment rather than company-specific news. Insider activity shows multiple sales by Thomas F Kelly and a pattern of portfolio reductions by several large funds alongside some new or increased positions from others. The State of Wyoming reduced its Fabrinet stake by about 60% in the first quarter, with institutional ownership still concentrated among large holders. The options market has issued elevated implied volatility for the Dec 18, 2026 $220 call, suggesting expectations of a meaningful near-term price move. On the earnings and research front, multiple analysts have adjusted targets and ratings, with some upgrades and others cautioning or trimming view, while Fabrinet posted solid quarterly results beating estimates. Overall, investors weigh a mix of favorable fundamentals, persistent exposure risks to large customers and supply chains, and shifting institutional positions.",
+      "keyPoints": [
+        "Insider trading by Thomas F. Kelly: over the last six months Kelly executed four stock sales with zero purchases, totaling about 1,850 shares worth roughly $1.15 million.",
+        "Large institutional moves are prominent: Wasatch Advisors cut 460,251 shares, Capital Research Global Investors cut 369,101 shares, American Century added 314,816 shares, Franklin Resources added 228,735 shares, and Durable Capital Partners added 216,472 shares; Price T Rowe Associates reduced 198,407 shares, with about 336 institutions buying and 247 reducing positions in the latest quarter.",
+        "State of Wyoming trimmed its Fabrinet stake by roughly 60% in Q1 to 1,232 shares (about $643k), while institutional ownership remains highly concentrated (about 97.38% of the stock) with several new or increased positions from other funds."
+      ],
+      "articleCount": 8
+    },
+    {
+      "id": "3c687482a644407eb56052b9fefc73e2",
+      "window": "2026-06-29 \u2192 2026-07-29",
+      "date": "2026-07-22T16:04:36.218057+00:00",
+      "name": "PNFP price target cut to 120 by JPMorgan",
+      "summary": "Analyst revisions on Pinnacle Financial Partners and National Bank Holdings show continued cautious optimism: JP Morgan kept PNFP at Overweight but lowered its price target to 120, while Benchmark also maintained a Buy on PNFP with a reduced target to 125, reflecting a conservative stance amid evolving market conditions. Both firms note PNFP remains undervalued relative to its GF Value, with GF Value estimates around 123.87 and current prices near the high 90s to low 100s, implying some upside despite the higher P/E relative to historical medians. For NBHC, Stephens & Co. maintained an Overweight rating with a lowered target of 46, and the stock trades around the low 40s with a P/E of about 17.9, a modest premium to its 5-year median and a GF Value of 40.41. Fabrinet faced a more pronounced retrenchment: Needham cut the target to 650 while keeping a Buy rating, amid insider selling and an evaluation that the stock appears overvalued relative to GF Value, though other firms have issued supportive targets and earnings results. Overall, the coverage reflects mixed-to-moderate confidence across these names, with selective upside supported by undervaluation signals but tempered by higher valuations and recent price-target reductions.",
+      "keyPoints": [
+        "JP Morgan kept PNFP at Overweight but trimmed the price target from $125 to $120, with PNFP\u2019s P/E (TTM) at 13.94x versus a 5-year median of 12.03x and a market cap of about $15.3B. The stock was around $101.24, and GF Value is $123.87 (roughly 18% undervalued).",
+        "Benchmark kept PNFP at Buy but lowered its target to $125 from $132, with PNFP having a GF Value of $123.87 and an implied undervaluation of about 19% as the stock traded near $99.81. The stock\u2019s P/E stood at 13.75x versus a 5-year median of 12.03x.",
+        "Fabrinet (FN) saw Needham reduce its target to $650 from $800, while maintaining a Buy rating; the company reported insider selling of about $1.8 million in the last 3 months and the GF Value ($371.52) implies the stock is about 41.9% overvalued at its price around $527."
+      ],
+      "articleCount": 6
+    },
+    {
+      "id": "c5c7f8a054d44d889d54cf0e2e8fc5b0",
+      "window": "2026-06-29 \u2192 2026-07-29",
+      "date": "2026-07-19T12:35:47.792051+00:00",
+      "name": "Fabrinet Downgraded to Hold by Wall Street Zen",
+      "summary": "Fabrinet faces mixed analyst language after Wall Street Zen downgraded the stock to hold, even as several other firms maintained or adjusted ratings and price targets, with a consensus around a Moderate Buy from MarketBeat-derived coverage. Despite the downgrade chatter, the company posted solid quarterly results, with $3.72 per share on revenue of about $1.21 billion, topping estimates and marking a roughly 39% year-over-year revenue increase. Analysts continue to project continued earnings strength, with a Q4 2026 EPS guidance range of roughly 3.72 to 3.87 and a consensus outlook near $12.97 per share for the current year. The investment community remains broadly positive on Fabrinet, as multiple firms maintain Buy or stronger views and price targets in the $661.75 range, while others adjust targets higher, signaling ongoing optimism about its mid-term growth. In related activity, large institutional holders persist, and insider-style moves such as director Homa Bahrami selling shares are noted but described as routine portfolio actions rather than fundamental changes in the company\u2019s outlook.",
+      "keyPoints": [
+        "Fox Advisors downgraded Fabrinet from a 'strong-buy' to an 'equal weight' rating on May 5.",
+        "Zacks Research downgraded Fabrinet from a 'strong-buy' rating to a 'hold' rating on June 15.",
+        "Rosenblatt Securities raised their price target on Fabrinet to $750 and issued a Buy rating in the May 5 update."
+      ],
+      "articleCount": 9
+    },
+    {
+      "id": "90b117110c354725a77de5d52f7575bb",
+      "window": "2026-06-29 \u2192 2026-07-29",
+      "date": "2026-06-30T12:43:02.656644+00:00",
+      "name": "Mint Signs Non-Binding MOU to Acquire Ascendze Stake",
+      "summary": "Mint Incorporation Limited announced a non-binding memorandum of understanding with Ascendze Pte. Ltd. to acquire a controlling or majority stake and establish Ascendze as Mint\u2019s primary platform for expanding in Singapore\u2019s semiconductor and robotics sectors. The collaboration aims to advance chip production technologies, robotics-driven automation, and related R&D and commercialization initiatives, funded by additional Mint investment. Mint, a NASDAQ-listed Hong Kong company focused on AI, robotics and interior design, seeks to leverage Ascendze\u2019s semiconductor manufacturing expertise and global customer base to strengthen its position in advanced manufacturing. Officials described the MOU as a milestone for Mint\u2019s global growth, highlighting a strategy to combine Mint\u2019s AI and robotics capabilities with Ascendze\u2019s local capabilities to create value in Singapore, a major semiconductor hub. The arrangement remains non-binding, with definitive agreements and customary approvals to follow.",
+      "keyPoints": [
+        "Ascendze counts Fabrinet Co., Ltd among its global customers, underscoring an established client base in semiconductor manufacturing and precision engineering.",
+        "Mint\u2019s AI and robotics portfolio includes subsidiaries Axonex AI and Rice Robotics AGI, delivering solutions such as smart facility management, humanoid and companion robots, and IoT-enabled analytics.",
+        "Mint Chief Executive Damian Chan framed the MoU as a milestone in Mint\u2019s global growth, emphasizing Singapore as a global hub for semiconductors and advanced manufacturing and the value created by combining Mint\u2019s AI/robotics with Ascendze\u2019s local capabilities."
+      ],
+      "articleCount": 12
+    },
+    {
+      "id": "6ed720b332e1427d9a65a0247a20e795",
+      "window": "2026-05-30 \u2192 2026-06-29",
+      "date": "2026-06-14T07:33:59.128266+00:00",
+      "name": "Intrepid Capital cuts Fabrinet stake 94.5%",
+      "summary": "Multiple institutional investors adjusted their positions in Fabrinet during the fourth quarter, with Intrepid Capital Management cutting its stake by 94.5% to 672 shares and Epoch Investment Partners trimming its holding by 4.2% while still keeping Fabrinet as its 22nd largest position. Analog Century Management LP reduced its Fabrinet stake by 37.9% to 173,298 shares, even as other firms added exposure, including Nicholas Investment Partners, which increased its position by 6.2% to 27,671 shares. Several smaller investors also boosted holdings, such as Harbour Investments and Quarry LP, alongside continued heavy institutional ownership overall. On the insider front, Director Homa Bahrami sold 2,500 shares at an average price of $711.91 for about $1.78 million, reducing his holdings by 13.35% to 16,233 shares.",
+      "keyPoints": [
+        "Epoch Investment Partners said Fabrinet fell to 374,887 shares after selling 16,417 in the fourth quarter, and that the stock was about 1.0% of its portfolio\u2014valued at $170.679 million at the end of the most recent reporting period.",
+        "Analog Century Management LP\u2019s Fabrinet stake was worth $78.899 million at its most recent SEC filing and represented about 3.9% of its investment portfolio, ranking it as the firm\u2019s 14th-largest holding.",
+        "Beyond the smaller trades cited in the summary, several major asset managers added to Fabrinet in different quarters: Vanguard Group increased by 1.4% (to 4,135,345 shares), Wasatch Advisors by 45.1% (to 1,779,665 shares), Geode Capital by 4.8% (to 1,108,813 shares), JPMorgan Chase & Co. by 64.8% (to 1,065,414 shares), and Invesco by 33.3% (to 681,850 shares)."
+      ],
+      "articleCount": 10
+    },
+    {
+      "id": "8f677d724b6e4b08a6ccd1bf634bc744",
+      "window": "2026-05-30 \u2192 2026-06-29",
+      "date": "2026-06-08T15:11:29.538513+00:00",
+      "name": "Qatar Investment Authority sells 2.9M Fluence shares",
+      "summary": "In Fabrinet stock activity, Natixis Advisors cut its position in the fourth quarter, and Capital International Investors also trimmed its stake, according to recent filings. The changes point to shifting institutional exposure even as other investors added smaller new positions, leaving most shares held by institutions. Analyst views remain mixed: JPMorgan set a neutral stance with a lower price target, while Needham maintained a buy rating with a higher target. Other coverage reflects the same split, with Weiss downgrading within its buy category and Fox Advisors moving from strong-buy to equal weight. Zacks, meanwhile, upgraded the shares to strong-buy. Overall, the reports show continued institutional turnover alongside divergent Wall Street expectations for Fabrinet.",
+      "keyPoints": [
+        "Natixis Advisors LLC reduced its Fabrinet position by 26.8% in the fourth quarter, selling 4,123 shares to hold 11,236 shares; the stake was valued at about $5.116 million in its latest SEC filing (as cited by HoldingsChannel).",
+        "Capital International Investors cut its Fabrinet stake by 52.9% in the fourth quarter\u2014selling 337,584 shares and ending with 300,783 shares\u2014worth $136.94 million, with the firm holding 0.84% of the company at quarter-end (per HoldingsChannel and SEC filing details).",
+        "Despite the institutional trimming described in filings, the articles note that institutional investors and hedge funds collectively owned 97.38% of Fabrinet\u2019s shares."
+      ],
+      "articleCount": 18
+    },
+    {
+      "id": "5588577817c6441ea011563acd4d9da0",
+      "window": "2026-05-30 \u2192 2026-06-29",
+      "date": "2026-05-31T10:02:18.281107+00:00",
+      "name": "Analysts revise Fabrinet outlook after Q3",
+      "summary": "After Fabrinet reported its third-quarter fiscal 2026 results, analysts largely viewed the update as constructive, with Rosenblatt raising its price target to $750 from $715 on expectations tied to expanded optical manufacturing, specialized semiconductor packaging, and a strategic minority investment in Taiwan-based Raytek Semiconductor. Wolfe Research also said earnings looked solid but warned that a sequential revenue decline in Fabrinet\u2019s Datacom segment could temper investor sentiment, while Telecom strength and new direct-to-hyperscaler transceiver deals may strengthen demand outside traditional merchant channels. In parallel, institutional ownership remained heavily concentrated, with Geode Capital Management increasing its stake by 4.8% to about 1.11 million shares worth roughly $505 million, while Intech Investment Management trimmed its position by 9.3% to about 15,987 shares worth about $7.3 million. Other major investors referenced across filings also raised holdings in Fabrinet, reinforcing the stock\u2019s continued appeal among large asset managers. In company-specific trading, a director sale was disclosed as part of the broader ownership updates.",
+      "keyPoints": [
+        "Rosenblatt said Fabrinet\u2019s minority investment in Taiwan-based Raytek Semiconductor represents an \u201cevolution for the company from standard silicon photonics manufacturing into an integrated provider of high-value ecosystem solutions.\u201d",
+        "A director sale added concrete details to the ownership-story: Director Homa Bahrami sold 2,500 shares at an average price of $711.91 (total $1,779,775), leaving her with 16,233 shares valued at about $11.56 million\u2014described as a 13.35% decrease in her stake.",
+        "Beyond Geode and Intech, other major institutional investors also adjusted positions in quantified ways: Vanguard increased holdings by 1.4% to 4,135,345 shares; Wasatch Advisors rose 45.1% to 1,779,665 shares; Invesco increased 33.3% to 681,850 shares; and JPMorgan Chase increased 1.7% to 646,333 shares (with institutional ownership at 97.38%)."
+      ],
+      "articleCount": 6
+    }
+  ]
+}

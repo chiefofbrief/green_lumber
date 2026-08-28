@@ -1,0 +1,21 @@
+[
+  {
+    "symbol": "LITE",
+    "name": "Lumentum Holdings Inc.",
+    "price": 913.16,
+    "changePercentage": -4.49516,
+    "change": -42.98,
+    "volume": 1397565,
+    "dayLow": 912.36,
+    "dayHigh": 941.75,
+    "yearHigh": 1085.68,
+    "yearLow": 125,
+    "marketCap": 71043848000,
+    "priceAvg50": 813.7565,
+    "priceAvg200": 666.16956,
+    "exchange": "NASDAQ",
+    "open": 941.74,
+    "previousClose": 956.14,
+    "timestamp": 1787931782
+  }
+]
