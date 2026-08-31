@@ -1,60 +1,97 @@
 # Sector Analyses
 
-## Notes
-
-### https://www.globaldatacenterhub.com/p/the-four-year-wait-for-a-transformer
-* Large power transformers, the equipment that converts the very high voltage carried by long-distance power lines into a voltage a building can actually use, now average 128 weeks from order to delivery
-* Developers now order power equipment years before a project has a customer or a final go-ahead. Chevron ordered seven large gas turbines from GE Vernova, the power equipment company spun out of General Electric in 2024, roughly two years before signing the twenty-year electricity agreement with Microsoft that those turbines will serve.
-* The published order books of power equipment makers show whether an announced AI buildout is real. GE Vernova reported $2.4 billion of data center electrical equipment orders in the first quarter of 2026, more than the company booked in all of 2025.
-* A large power transformer needs a specialized electrical steel that only a few mills in the world produce, plus copper, plus custom engineering, plus months of testing before it ships.
-* In the first quarter of 2026 alone, GE Vernova signed 21 gigawatts of new gas equipment agreements. Only 2 gigawatts of that were firm orders. The other 19 gigawatts were reservations...When a company announces gigawatts of new AI capacity, a portion of that number may be a place in a line rather than a machine that exists. That is why announced capacity and delivered capacity have drifted so far apart.
-* Equipment makers are public companies, so they report what customers actually bought, every three months, in filings that carry legal consequences if they are wrong. Announcements carry no such requirement. So, the next time a very large AI project is announced, the fastest way to know whether it is real is to wait a quarter and look at what the equipment makers say they sold.
+## Reading Notes [Not incorporated into the main Takeaways yet]
 * 
 
-### https://www.datagravity.dev/p/who-makes-money-when-inference-gets
-* Inference getting 10x cheaper is the mechanism of this market, not a threat to it. The deflation is manufactured at the silicon layer and sold at 75% gross margin. It passes through hyperscalers, who convert it into $1.7 trillion of contracted backlog and permanently higher capital intensity. It reaches the labs as a treadmill that grew revenue an order of magnitude while blended margins lagged the software benchmark, though serving margins reportedly hit 70% by mid-2026, the first hard evidence the deflation is reaching the labs’ own P&L. And it lands at the application layer as the best input cost curve in software history, capturable by whoever prices outcomes instead of reselling tokens. Underneath it all, the one layer with rising unit prices, power and land and grid capacity, holds the pricing power everyone else has to engineer. 
-* While silicon gets cheaper, electricity, land, and interconnection queues cannot be artificially deflated by engineers. Owners of scarce megawatts now hold the ultimate pricing power.
-* Software built on AI currently suffers from poor margins because developers must pay for expensive frontier models to stay competitive. However, as underlying compute costs fall, apps that charge users for resolved tasks—rather than just reselling access to AI models—stand to inherit the best profit margins in software history.
-* Cheaper tokens do not just mean more queries. They mean each query is allowed to think longer. Inference-time scaling made tokens-per-task a design variable, and memory, networking, and power all inherit the consequence.
-* Semiconductors hold the strangest position in the stack. They are the source of the deflation, and they get paid more every year for manufacturing it.
-* Merchant GPU or custom ASIC, every accelerator in this piece routes through the same fabs. TSMC is the one company for whom the ASIC-versus-Nvidia fight is a rounding error.
-* The risk to the design layer is share, not demand. Custom ASIC shipments are growing 44.6% in 2026 against 16.1% for merchant GPUs (TrendForce), heading toward roughly 40% of AI servers by 2030, funded by the same four boardrooms that supply most of Nvidia’s revenue. Broadcom booked $30 billion-plus of AI orders in a single quarter and sees $100 billion in 2027; Trainium crossed a $25 billion run rate. Cheaper inference does not shrink the semiconductor pool; units, content per unit, and workload count all rise. It does redistribute the pool toward whoever owns the cost-per-token roadmap, and purpose-built inference silicon is closing that gap faster than it ever did in training.
-* Networking rides the same curve with a sturdier margin: Nvidia’s networking segment tripled to $15 billion in a quarter, Arista raised guidance to $12.6 billion with purchase commitments up nearly 3x, and Ethernet optics are on a path to a $100 billion market by 2030 (LightCounting).
-* Memory stays a trade, not a holding. It is currently the best trade in the stack, set against the strongest base rate in semiconductors: three well-capitalized suppliers adding capacity into 70%+ margins has always, eventually, mean-reverted. HBM has real reasons to run longer than the usual DRAM clock. Packaging qualification, CoWoS coupling, and multi-year hyperscaler contracts all slow the supply response. Longer is not never. Networking is the durable half of the pair: Arista’s 62-64% gross margins sit on software moats and switching costs the memory names do not have, which is why the prior piece scored it overweight while scoring HBM a trade.
-* GE Vernova’s turbine backlog and reservations: 116 GW, sold out into 2031. The scarce input under a 10x-cheaper token is not silicon. It is the interconnection queue, where the median project waits more than five years.
+--------------------
 
-* Positioning. As a stance: own the deflation manufacturers (Nvidia, TSMC) and the un-deflatable bottom (power, grid equipment, and scarce-megawatt owners: the Vertiv and GE Vernova layer). Both ends hold pricing power the middle cannot reach. Treat memory as a trade while the shortage holds, since the capacity response is funded and dated, and hold the networking half of that pair, where the moats are software.
+## AI
 
-### https://www.globaldatacenterhub.com/p/fiber-is-the-second-queue-why-power 
-* Electricity is pushing projects to new areas. Because major cities are running out of power to run massive new data centers, builders are buying land in smaller, less developed towns where electricity is still available.
-* Internet cables are the new bottleneck. While these smaller towns have electricity, they do not have the massive underground internet cables required to run a data center. AI needs a totally different cable setup. Older data centers just needed enough cables to send websites to normal internet users. AI computers, however, constantly talk to each other at lightning speed while processing information, which requires ten times as many cables.
-* If the fiber cables in the ground are the highways, optical transceivers are the cars, and Co-Packaged Optics (CPO) is the next-generation engine. Because AI computers have to constantly talk to each other ("east-west" traffic), data centers need incredibly fast lasers to push data across those newly laid fiber cables. The industry is rapidly upgrading to ultra-fast optical speeds (800G and 1.6T).
-* Co-Packaged Optics (CPO) is a new design where the lasers are attached directly onto the main processing chips, rather than plugged into the front of a metal box. This saves massive amounts of electricity and reduces heat — which is critical because, as the article noted, these buildings are already starving for power.
-* The article highlighted a major warning: getting legal permits to lay fiber can delay a data center by 12 to 24 months. If a data center cannot open because it lacks internet cables, the tech companies building them might tell Celestica or Sanmina to pause shipments of the networking racks. While demand is sky-high, these underground cable delays could make revenue for manufacturing companies somewhat choppy or unpredictable quarter-to-quarter.
+### S-Curves
 
-## AI Applications
+* **Applications - Software**: Early-mid acceleration.
+   * With the exception of foundation models there are no household names.  
+* **Applications - Physical**: Experimentation-early acceleration.
+   * LLMs have lowered the barrier to deployment/adoption.
+* **Infrastructure - Hardware**: Mid-Late acceleration, but depends on the type of hardware.
+   * Hardware has been decommoditized (innovation matters), but scaling appears to be leading to lower marginal returns. 
+* **Infrastructure - Energy**: Unsure; a mix of old technologies being ramped up/repurposed and new technologies being developed.
 
-**S-Curves**: 
-* **AI applications - Software**: Early-mid acceleration - With the exception of foundation models there are no household names.  
-* **AI applications - Physical (edge, robotics, etc.)**: Experimentation-early acceleration - Barriers to deployment/adoption are being removed.
+### General Principles
 
-**The most value in the entire AI trade will accrue at the application layer**
+**Cost/token will decrease over time. Lower cost = More usage.**
+* Cheaper tokens do not just mean more queries. They mean each query is allowed to think longer.
+* Cheaper inference does not shrink the semiconductor pool; units, content per unit, and workload count all rise.
 
-**Physical AI will have the biggest upside, but reliability and data are a challenge**
-* Robots may not need AI for tasks in controlled environments (although they will likely use it), but definitely do for tweaked tasks in real world environments.
+**The interesting question is how cost/token will decrease. It could be by lowering production costs, squeezing more out of existing hardware, deploying new hardware, new architectures, etc.**
+
+**There will be an oversupply of infrastructure; the only uncertainty is when it affects the suppliers, and whether it will be in chips, power, models, or all of the above. We can hedge against this by favoring low-cost producers with sustainable margins.**
+* In a supply glut, everyone competes on price. 
+
+**The most value in the entire AI trade will accrue at the application layer, particularly as cost/token decreases. The infrastructure layer will become commoditized, but is currently decommoditized.**
+*  Unlike the internet, there is a real marginal cost per customer. Software built on AI currently suffers from poor margins because developers must pay for expensive frontier models.
+ 
+**When there is a shortage/constraint, companies invest in alternatives, and we should focus on providers that win regardless of the alternatives.**
+* Example: Focus on companies that benefit from both 'out-of-the-box' GPU adoption and custom chips, as it is uncertain what portion of future chips will be custom.
+
+**Increased profits in one layer hurts the profits of downstream layers, and we should be aware of what being bullish on one layer means for others.**
+* Memory prices up, Nvidia/AMD profits down.
+
+### Applications
+
+**Physical AI has the biggest upside, but timeline and initial scale is uncertain.**
 * Robots need a higher level of reliability to deploy than software (LLMs).
 * There is no equivalent of internet data (LLMs) for robotics. The model and posttraining are critical.
-    * There are two model training phases: Pretraining (create a base model using as much knowledge as possible), and posttraining (smaller, more custom datasets).
+
+**Vertical models (domain/task-specific) will be among the leading applications given their data advantage.**
+* For model training, data quality is the most important thing. Data diversity is also important.
+* There are two model training phases: Pretraining (create a base model using as much knowledge as possible), and posttraining (smaller, more custom datasets).
+* Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and proprietary data/user interaction data may be the key.
+
+
+
+**Cost/token can be improved by lowering production costs, squeezing more out of existing hardware, deploying new hardware, and new architectures. The ultimate goal is more FLOPS/dollar of compute. Currently, major areas of opportunity include: Custom chips, communication between chips (networking, optical), memory, higher chip utilization (cooling, electricity, gas), domain-specific models.**
+* **Custom chips**: Custom ASIC shipments are growing 44.6% in 2026 against 16.1% for merchant GPUs, heading toward roughly 40% of AI servers by 2030.
+* **Networking**: If the fiber cables in the ground are the highways, optical transceivers are the cars, and Co-Packaged Optics (CPO) is the next-generation engine. Because AI computers have to constantly talk to each other ("east-west" traffic), data centers need incredibly fast lasers to push data across those newly laid fiber cables. Co-Packaged Optics (CPO) saves massive amounts of electricity and reduces heat.
+* **Memory**: Find a balance between off-chip memory for capacity (DRAM) and on-chip memory for speed (SRAM). Also, improve KV cache compression so less memory is needed. 
+* **Energy**: Models translate compute into intelligence, and they need energy to do that; and the less energy, the more expensive the tokens. There is a shortage of energy which must be solved to reduce token costs (GE Vernova’s turbine backlog and reservations: 116 GW, sold out into 2031).
+
+
+
+
+
+There are 3 ways to improve deep learning on hardware: 1) More cores, 2) Increase communication between cores, 3) Bring memory closer to compute.
+
+
+
+
+
+**Data centers are a primary point of leverage for decreasing cost/token, but the timeline for construction/deployment is uncertain and subject to uncontrollable items (e.g., regulation). This presents both upside and downside for potential investments: Component suppliers benefit from the buildout, but are also at risk of order delays/cancellations due to a slowdown. The best way to track progress is to check the sales of equipment providers (e.g., GEV), not announcements.**
+* Developers now order power equipment years before a project has a customer or a final go-ahead. Large power transformers, the equipment that converts the very high voltage carried by long-distance power lines into a voltage a building can actually use, now average 128 weeks from order to delivery.
+* Because major cities are running out of power to run massive new data centers, builders are buying land in smaller, less developed towns where electricity is still available. While these smaller towns have electricity, they do not have the massive underground internet cables required to run a data center. AI needs a totally different cable setup.
+
+
+
+
+
+
+**Inputs into world models (e.g., sensors) may be critical for physical AI**
+
+**The US may invest in infrastructure for physical AI, although reliance on China may be the reality**
+* China has a huge advantage in robotics —> US companies rely on China for supplies —> US government/VCs will invest a lot in a US supply chain to catch up and decrease dependency.
+
+
 
 **World models may solve the data problem for physical AI**
 * World Models use sensors, video, GPS, etc. to provide synthetic training environments, reducing the data bottleneck for robotics training.
 
-**Vertical models (domain/task-specific) will eclipse the foundation models, but it'll take time**
-* A larger model's capabilities can be distilled into a smaller model.
+**Good vertical models start with a well-defined workflow, enable superhuman capabilities, and have an immediate ROI**
+* Well-defined, repeatable workflows (low ambiguity).
+* AI enables superhuman capabilities (e.g., 24/7 work, 100X more data analysis, pattern recognition).
+* Start with one worfklow, then expand it others after bulding trust. The entry point should have immediate ROI.
 
-**Data is key for vertical models**
-* Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and proprietary data/user interaction data may be the key.
-* For model training, data quality is the most important thing. Data diversity is also important.
+**AI doesn't know the thought that went into an output.**
+* AI has been trained on all internet data. But it doesn't have the traces (e.g., the thought that went into a post).
 
 **Legacy SAAS may be a beneficiary, particularly as a source of data. But software is getting cheaper to build**
 * Bull case:
@@ -72,67 +109,15 @@
     * Is it deeply embedded in customers’ operations?
     * What % of sales are AI (and rate of change)?
     * What is the market share (and rate of change)?
- 
-**Cost is a major concern (and profit lever) for applications**
-* Unlike the internet, there is a real marginal cost per customer.
 
-**Good vertical models start with a well-defined workflow, enable superhuman capabilities, and have an immediate ROI**
-* Well-defined, repeatable workflows (low ambiguity).
-* AI enables superhuman capabilities (e.g., 24/7 work, 100X more data analysis, pattern recognition).
-* Start with one worfklow, then expand it others after bulding trust. The entry point should have immediate ROI.
 
-**AI doesn't know the thought that went into an output.**
-* AI has been trained on all internet data. But it doesn't have the traces (e.g., the thought that went into a post).
 
-**AI is a productivity tool, but consumers don't care about being more productive.**
 
---------------
 
-## AI Infrastructure
-
-**S-Curves**:
-* **Hardware**: Mid-Late acceleration - Hardware has been decommoditized (innovation matters). But more data/compute is leading to lower marginal returns. 
-* **Energy**: ?...Maybe the same, maybe not.
-
-**There is a shortage of energy which must be solved to reduce token costs**
-* Models translate compute into intelligence, and they need energy to do that; and the less energy, the more expensive the tokens.
-
-**Inputs into world models (e.g., sensors) may be critical for physical AI**
-
-**The US may invest in infrastructure for physical AI, although reliance on China may be the reality**
-* China has a huge advantage in robotics —> US companies rely on China for supplies —> US government/VCs will invest a lot in a US supply chain to catch up and decrease dependency.
-
-**Hardware is currently an area of innovation. But it will be 'commoditized,' favoring low-cost producers**
-* AI and chips/memory/power are not the same thing.
-* With abundant supply, everyone competes on price. This transforms high margins into low margins, favoring low-cost producers.
-
-**There are 3 ways to improve deep learning on hardware: 1) More cores, 2) Increase communication between cores, 3) Bring memory closer to compute**
-* Within the AI investment theme, there is nowhere that the supply chain shifts faster than in networking.
-
-**Increased profits in one layer hurts the profits of downstream layers**
-* Memory prices up, Nvidia/AMD profits down.
-
-**How models and usage evolve will have a big impact on the fate of infrastructure providers**
-* More customization (e.g., ASICs) may decrease demand for out of the box solutions (e.g., Nvidia GPUs).
-* Longer conversations need more memory. But if models get smaller (fewer parameters), less memory may be needed.
-* CPUs are critical for agents. But if agent usage is overhyped, CPUs are too.
-
-**Past a certain threshold of intelligence, developers prefer faster tokens to smarter tokens**
-
-**Data centers can take over 4 years from land purchase to datacenter delivery. Power and permits are necessary before they can even be taken seriously**
-
-**The shortage of compute will may get worse before it gets better, which may lead to investment in alternatives**
-* It takes longer to make a fab than a data center.
-* TSMC didn't build enough capacity in the past few years, so big tech may seek alternatives to avoid another shortage.
-
-**Energy will be the lasting benefit of the AI bubble, although energy producers may end up like telecoms**
 
 --------------
 
 ## Energy
-
-**There is a shortage of energy for AI**
-* Models translate compute into intelligence, and they need energy to do that; and the less energy, the more expensive the tokens.
 
 **Energy will be the lasting benefit of the AI bubble, although energy producers may end up like telecoms**
 * Perhaps instead of chips, power will be the scarce resource which becomes overabundant due to overbuild.
