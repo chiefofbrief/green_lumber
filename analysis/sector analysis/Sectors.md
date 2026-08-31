@@ -17,6 +17,8 @@
    * Hardware has been decommoditized (innovation matters), but scaling appears to be leading to lower marginal returns. 
 * **Infrastructure - Energy**: Unsure; a mix of old technologies being ramped up/repurposed and new technologies being developed.
 
+----
+
 ### General Principles
 
 **Cost/token will decrease over time. Lower cost = More usage.**
