@@ -1,6 +1,7 @@
 # Company List
 
 ## Potential Names
+
 * NTNX: Nutanix Stock Surges as Cloud and Agentic AI Partnerships With AMD Pay Off [digest 8-27]: https://siliconangle.com/2026/08/26/nutanix-tops-estimates-as-external-storage-growth-helps-counter-hardware-squeeze/ 
 * DLTR: Dollar Tree Lifts Earnings Outlook After Notching Higher Profit [digest 8-27]
 * ENB: Enbridge Forms $1.95 Billion Joint Venture to Expand British Columbia Pipeline [digest 8-27]
@@ -18,8 +19,27 @@
 * OUST
 * TE connectivity
 * ACM
-* 
+* Sea Limited
+* Nu
+* Mercadolibre
+* **VIC List**
+  * PDD HOLDINGS INC, PDD	12
+  * ADOBE INC, ADBE	11
+  * APPLE INC, AAPL	10
+  * PayPal Holdings, Inc, PYPL	9
+  * CROCS INC, CROX	8
+  * TENCENT MUSIC ENTERTAINMENT, TME	7
+  * LULULEMON ATHLETICA INC, LULU	7
+  * Zoetis Inc, ZTS	7
+  * FERRARI NV, RACE	6
+  * CELSIUS HOLDINGS INC, CELH	6
+  * ALPHA METALLURGICAL RESOURCE, AMR	6
+  * NETFLIX INC, NFLX	6
+  * SERVICENOW INC, NOW	6
+  * BIRKENSTOCK HOLDING PLC, BIRK	6
+  * CONSTELLATION SOFTWARE INC, CSU.	5
 
+--------------------
 
 ## Analyzed Companies
 
