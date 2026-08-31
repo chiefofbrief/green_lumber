@@ -1,4 +1,4 @@
-# Sector Analyses
+# Sectors
 
 ## Notes [LLMs should ignore this section]
 
