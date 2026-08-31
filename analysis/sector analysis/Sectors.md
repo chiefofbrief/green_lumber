@@ -8,7 +8,6 @@
 ## AI
 
 ### S-Curves
-
 * **Applications - Software**: Early-mid acceleration.
    * With the exception of foundation models there are no household names.  
 * **Applications - Physical**: Experimentation-early acceleration.
@@ -17,100 +16,53 @@
    * Hardware has been decommoditized (innovation matters), but scaling appears to be leading to lower marginal returns. 
 * **Infrastructure - Energy**: Unsure; a mix of old technologies being ramped up/repurposed and new technologies being developed.
 
-
-
 ### General Principles
-
-**Cost/token will decrease over time. Lower cost = More usage.**
-* Cheaper tokens do not just mean more queries. They mean each query is allowed to think longer.
-* Cheaper inference does not shrink the semiconductor pool; units, content per unit, and workload count all rise.
-
-**The interesting question is how cost/token will decrease. It could be by lowering production costs, squeezing more out of existing hardware, deploying new hardware, new architectures, etc.**
-
-**There will be an oversupply of infrastructure; the only uncertainty is when it affects the suppliers, and whether it will be in chips, power, models, or all of the above. We can hedge against this by favoring low-cost producers with sustainable margins.**
-* In a supply glut, everyone competes on price. 
-
-**The most value in the entire AI trade will accrue at the application layer, particularly as cost/token decreases. The infrastructure layer will become commoditized, but is currently decommoditized.**
-*  Unlike the internet, there is a real marginal cost per customer. Software built on AI currently suffers from poor margins because developers must pay for expensive frontier models.
- 
-**When there is a shortage/constraint, companies invest in alternatives, and we should focus on providers that win regardless of the alternatives.**
-* Example: Focus on companies that benefit from both 'out-of-the-box' GPU adoption and custom chips, as it is uncertain what portion of future chips will be custom.
-
-**Increased profits in one layer hurts the profits of downstream layers, and we should be aware of what being bullish on one layer means for others.**
-* Memory prices up, Nvidia/AMD profits down.
+* **Cost/token will decrease over time. Lower cost = More usage.**
+  * Cheaper tokens do not just mean more queries. They mean each query is allowed to think longer.
+  * Cheaper inference does not shrink the semiconductor pool; units, content per unit, and workload count all rise.
+* **It's uncertain how cost/token will decrease. It could be by lowering production costs, squeezing more out of existing hardware, deploying new hardware, new architectures, etc.**
+* **In the race to lower cost/token, there will be an oversupply of infrastructure. The uncertainty is when, how, and where (chips, power, models, everything, etc.). Potential ways to hedge are to favor low-cost producers and spread bets.**
+  * In a supply glut, everyone competes on price, killing margins.
+* **As infrastructure and applications evolve, new constraints and alternatives present themselves, making the "final shape" uncertain. Potential ways to hedge are to focus on providers that win regardless of the alternatives (e.g., winners of both GPUs and custom chips) and spread bets.**
+* **The most value in the entire AI trade will accrue at the application layer. The infrastructure layer will become commoditized, although it is currently decommoditized.**
+  *  Unlike the internet, there is a real marginal cost per customer. Software built on AI currently suffers from poor margins because developers must pay for expensive frontier models.
+  *  Applications will be the biggest beneficiaries of lower cost/token.
+* **Increased profits in one layer hurts the profits of downstream layers (e.g., memory prices up, Nvidia/AMD profits down). This can temporarily suppress profits (leading to undervaluation), and/or put sustained pressure on profits that inhibits production (e.g., end users not using expensive models).**
 
 ### Applications
+* **Physical AI has the biggest upside, but timeline and initial scale is uncertain.**
+  * Robots need a higher level of reliability to deploy than software (LLMs).
+  * There is no equivalent of internet data (LLMs) for robotics. The model and posttraining are critical.
+* **Vertical models (domain/task-specific) will be among the leading applications given their data advantage.**
+  * For model training, data quality is the most important thing. 
+  * There are two model training phases: Pretraining (create a base model using as much knowledge as possible), and posttraining (smaller, more custom datasets).
+  * Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and proprietary data/user interaction data may be the key.
+* **Good vertical models start with a well-defined workflow, enable superhuman capabilities, and have an immediate ROI**
+  * Well-defined, repeatable workflows (low ambiguity).
+  * AI enables superhuman capabilities (e.g., 24/7 work, 100X more data analysis, pattern recognition).
+  * Start with one worfklow, then expand it others after bulding trust. The entry point should have immediate ROI.
+* **'Trace' data (the though behind a solution) is/will become critical. LLMs have been trained on all the internet data, but don't know the thought that went into a post.**
+* **The first tradeable AI applications may be existing SAAS companies. But they need to get more usage in an agentic world, have a data advantage (proprietary, complex domain), have an engineering/R&D team that can create meaningful AI capabilities, and have leadership that leans into the opportunity so that a meaningful % of sales come from AI.**
+  * Vertical SAAS companies (FICO, Tyler, Agilsys) provide the domain-specific data that AI needs to expand beyond general models.
+  * Does its product get more usage in an agentic world? (e.g., more usage, more API calls, etc.)
+  * Does it have the kind of dataset a foundation model or new entrant couldn’t reconstruct in 12 months? Is the data proprietary?
+  * Is the domain complex? (how regulated, specialized, or expert-dependent)
+  * Does it have the engineering team, R&D investment, and leadership DNA to build real AI capabilities — not just bolt on a chatbot?
+  * Is it deeply embedded in customers’ operations?
+  * What % of sales are AI (and rate of change)?
 
-**Physical AI has the biggest upside, but timeline and initial scale is uncertain.**
-* Robots need a higher level of reliability to deploy than software (LLMs).
-* There is no equivalent of internet data (LLMs) for robotics. The model and posttraining are critical.
-
-**Vertical models (domain/task-specific) will be among the leading applications given their data advantage.**
-* For model training, data quality is the most important thing. Data diversity is also important.
-* There are two model training phases: Pretraining (create a base model using as much knowledge as possible), and posttraining (smaller, more custom datasets).
-* Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and proprietary data/user interaction data may be the key.
-
-
-
-**Cost/token can be improved by lowering production costs, squeezing more out of existing hardware, deploying new hardware, and new architectures. The ultimate goal is more FLOPS/dollar of compute. Currently, major areas of opportunity include: Custom chips, communication between chips (networking, optical), memory, higher chip utilization (cooling, electricity, gas), domain-specific models.**
-* **Custom chips**: Custom ASIC shipments are growing 44.6% in 2026 against 16.1% for merchant GPUs, heading toward roughly 40% of AI servers by 2030.
-* **Networking**: If the fiber cables in the ground are the highways, optical transceivers are the cars, and Co-Packaged Optics (CPO) is the next-generation engine. Because AI computers have to constantly talk to each other ("east-west" traffic), data centers need incredibly fast lasers to push data across those newly laid fiber cables. Co-Packaged Optics (CPO) saves massive amounts of electricity and reduces heat.
-* **Memory**: Find a balance between off-chip memory for capacity (DRAM) and on-chip memory for speed (SRAM). Also, improve KV cache compression so less memory is needed. 
-* **Energy**: Models translate compute into intelligence, and they need energy to do that; and the less energy, the more expensive the tokens. There is a shortage of energy which must be solved to reduce token costs (GE Vernova’s turbine backlog and reservations: 116 GW, sold out into 2031).
-
-
-
-
-
-There are 3 ways to improve deep learning on hardware: 1) More cores, 2) Increase communication between cores, 3) Bring memory closer to compute.
-
-
-
-
-
-**Data centers are a primary point of leverage for decreasing cost/token, but the timeline for construction/deployment is uncertain and subject to uncontrollable items (e.g., regulation). This presents both upside and downside for potential investments: Component suppliers benefit from the buildout, but are also at risk of order delays/cancellations due to a slowdown. The best way to track progress is to check the sales of equipment providers (e.g., GEV), not announcements.**
-* Developers now order power equipment years before a project has a customer or a final go-ahead. Large power transformers, the equipment that converts the very high voltage carried by long-distance power lines into a voltage a building can actually use, now average 128 weeks from order to delivery.
-* Because major cities are running out of power to run massive new data centers, builders are buying land in smaller, less developed towns where electricity is still available. While these smaller towns have electricity, they do not have the massive underground internet cables required to run a data center. AI needs a totally different cable setup.
-
-
-
-
-
-
-**Inputs into world models (e.g., sensors) may be critical for physical AI**
-
-**The US may invest in infrastructure for physical AI, although reliance on China may be the reality**
-* China has a huge advantage in robotics —> US companies rely on China for supplies —> US government/VCs will invest a lot in a US supply chain to catch up and decrease dependency.
-
-
-
-**World models may solve the data problem for physical AI**
-* World Models use sensors, video, GPS, etc. to provide synthetic training environments, reducing the data bottleneck for robotics training.
-
-**Good vertical models start with a well-defined workflow, enable superhuman capabilities, and have an immediate ROI**
-* Well-defined, repeatable workflows (low ambiguity).
-* AI enables superhuman capabilities (e.g., 24/7 work, 100X more data analysis, pattern recognition).
-* Start with one worfklow, then expand it others after bulding trust. The entry point should have immediate ROI.
-
-**AI doesn't know the thought that went into an output.**
-* AI has been trained on all internet data. But it doesn't have the traces (e.g., the thought that went into a post).
-
-**Legacy SAAS may be a beneficiary, particularly as a source of data. But software is getting cheaper to build**
-* Bull case:
-    * Vertical SAAS companies (FICO, Tyler, Agilsys) provide the domain-specific data that AI needs to expand beyond general models.
-    * SAAS might leverage their data and customer relationships to provide AI applications. 
-* Bear case:
-    * Cheaper to build software is probably cheaper to buy, narrowing margins.
-    * The shift from per-seat/licensing to token-based pricing also hurts margins.
-    * The sales process was designed around seat-based, not token-based, pricing.
-* Key questions:
-    * Does its product get more usage in an agentic world? (e.g., more usage, more API calls, etc.)
-    * Does it have the kind of dataset a foundation model or new entrant couldn’t reconstruct in 12 months? Is the data proprietary?
-    * Is the domain complex? (how regulated, specialized, or expert-dependent)
-    * Does it have the engineering team, R&D investment, and leadership DNA to build real AI capabilities — not just bolt on a chatbot
-    * Is it deeply embedded in customers’ operations?
-    * What % of sales are AI (and rate of change)?
-    * What is the market share (and rate of change)?
+### Infrastructure
+* **Lower Cost/Token = more FLOPS/Dollar of compute.**
+* **The largest areas of opportunity in hardware for lowering cost/token are new types of chips (ASICs), more cores on chips (Cerebras), increasing communication between cores (networking, optical), bringing memory closer to compute, increasing chip utilization (cooling, electricity, gas), lowering energy cost.**
+  * **Custom chips**: Custom ASIC shipments are growing 44.6% in 2026 against 16.1% for merchant GPUs, heading toward roughly 40% of AI servers by 2030.
+  * **Networking**: If the fiber cables in the ground are the highways, optical transceivers are the cars, and Co-Packaged Optics (CPO) is the next-generation engine. Because AI computers have to constantly talk to each other ("east-west" traffic), data centers need incredibly fast lasers to push data across those newly laid fiber cables. Co-Packaged Optics (CPO) saves massive amounts of electricity and reduces heat.
+  * **Memory**: Find a balance between off-chip memory for capacity (DRAM) and on-chip memory for speed (SRAM). Also, improve KV cache compression so less memory is needed.
+  * **Energy**: Models translate compute into intelligence, and they need energy to do that; and the less energy, the more expensive the tokens. There is a shortage of energy which must be solved to reduce token costs (GE Vernova’s turbine backlog and reservations: 116 GW, sold out into 2031).
+* **More data centers should lower cost/token. The timeline for construction/deployment is uncertain and subject to uncontrollable items (component shortages, permits, utilities, regulation), but the level of investment can be assessed by checking the sales of equipment providers (e.g., GEV).**
+  * Developers now order power equipment years before a project has a customer or a final go-ahead. Large power transformers, the equipment that converts the very high voltage carried by long-distance power lines into a voltage a building can actually use, now average 128 weeks from order to delivery.
+  * Because major cities are running out of power to run massive new data centers, builders are buying land in smaller, less developed towns where electricity is still available. While these smaller towns have electricity, they do not have the massive underground internet cables required to run a data center. AI needs a totally different cable setup.
+* **Component suppliers to data centers may be lucrative in the near term, but they do present significant risk in the event of a delay (which could lead to delayed/cancelled POs). Potential ways to hedge are to focus on leaders whose orders are less likely to be cancelled in a delay, and focus on the fastest growing segments.**
+* Physical AI needs additional hardware beyond what LLMs require as they rely on world models, which use sensors, video, GPS, etc. to provide synthetic training environments, reducing the data bottleneck for robotics training. While it remains to be seen, US companies may invest in these components to reduce the reliance on China. 
 
 
 
