@@ -1,18 +1,49 @@
 # Sectors
 
-"AI" (machine learning, models, chips, data centers, power, software applications, robotics, etc.) is the umbrella which impacts the majority of our investments. We don't aim to be subject matter experts that understand every detail, nuance, or future development; rather, we aim to develop a flexible, antifragile picture of the current landscape (and the likely future landscape) which is just specific enough to be actionable.
+"AI" (machine learning, models, accelerators, data centers, power, software applications, edge, robotics, etc.) is the umbrella which impacts the majority of our investments. We don't aim to understand every detail, nuance, or future development; rather, we want to develop a flexible, antifragile picture of the current and future landscapes which is (just) specific enough to be actionable.
 
 ----------
 
-Models (language, vision, world, etc.) are extremely powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to switch providers and/or adopt new behaviors. More often than not, things progress more slowly than anticipated. 
+## ASSUMPOTIONS
 
-We are in the infrastructure buildout (not application) phase. At some point, there will be overinvestment in AI infrastructure, lowering the cost for application providers but leading to price competition (and lower margins) among infrastructure providers. The timeline for oversupply is uncertain, but if we assume things move slowly, it may be longer than aggressive assumptions. 
+AI models are powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to change existing behaviors. Things will likely progress more slowly than optimistic estimates. 
 
-There are two infrastructure buildouts happening at the same time: Physical infrastructure (hardware, data centers, etc.) and Digital infrastructure (agents, protocols, etc.). Both are critical for cost-effective deployment of AI applications at scale. 
+AI infrastructure and AI applications are not the same thing. The majority of value will ultimately accrue at the application layer, but we are in the infrastructure buildout phase, during which the primary goal is to lower the cost of deploying applications. Many investors conflate the two, which is why they are overly optimistic/pessimistic about AI capex. 
 
-'Incumbents' (pre-2023 companies) are the ones building the majority of the infrastructure, and they stand to benefit in the near-term. Many companies have added or adapted their offerings for AI. 
+There will be overinvestment in AI infrastructure, lowering the cost for application providers but leading to price competition (and lower margins) among infrastructure providers, which strongly favors low-cost producers. The timeline for oversupply is uncertain, but it's likely longer than the mainstream assumption and would appear early as slowing equipment orders (at least for physical infrastructure). 
 
-Digital infrastructure is currently focused on agents, and companies that provide that infrastructure stand to benefit. A lot of the emphasis is currently on observability (monitoring what is being done with agents) and governance (controlling what can be done with agents).
+It's possible that investment in AI infrastructure temporarily stalls. Slowing equipment orders and a sustained lack of FCF (along with depressed stock prices) for hyperscalers are potential signals. 
+* Hyperscaler have moved down the capital curve from FCF to debt to equity; if they do not revert to FCF, funding may stall.
+
+There are two primary components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). Both are critical for cost-effective deployment of AI applications at scale.  
+
+The hot areas within physical infrastructure are split between the chips themselves (accelerators) and the facilities that house them (data centers). 
+ * Accelerators are designed to do massive amounts of specialized math simultaneously, which requires compute (cores), fast memory, and fabric (high-speed interconnects that link chips). Innovation is focused on these 3 levers through custom chips, more efficient memory, and networking (increasing the speed of communication between chips). 
+ * Data centers take in electricity and output heat. To get electricity, the only functional source is natural gas; while solar, batteries, and nuclear may be options in the future, they are currently constrained. To get heat out, they are overhauling cooling systems to maintain/improve chip utilization. 
+   * Solar panels are getting cheaper, but the other costs involved with them (land, labor, transmission, etc.) are not. The lack of transmission lines is maybe the biggest problem.
+   * Batteries are getting cheaper, but other costs involved with them (e.g., lithium) are not.
+   * Nuclear is a long-term play. There are only so many existing plants, new plants take time to build, and new nuclear technologies are not proven. 
+
+The hot areas within digital infrastructure are data, models, and autonomous systems (primarily 'agents'). 
+ * While a lot of conversation within data has been focused on the breadth of data, it is shifting towards domain-specific data and data 'traces' (the thought that went into an output).
+   * AI has only distilled the end state of human thought by being trained on internet data.
+   * Vertical SAAS companies (e.g., FICO, Tyler, Agilsys) provide the domain-specific data that AI needs to expand beyond general models.
+ * For models, a lot of the discussion is around open-source vs. closed models, which seems to actually be a proxy for 'cheap' vs. 'expensive' models. Ultimately, rather than open vs. closed, the real activity will center around domain/task-specific models. 
+   * Most investors don't realize that open-source models are not free and in fact have a marginal cost for inference.
+   * Historically, data plus compute has outperformed encoding knowledge (e.g., Alphago). Vertical models would need to buck this trend, and proprietary data/user interaction data may be the key.
+ * Solutions for agents are mainly focused on observability (monitoring what is being done with agents) and governance (controlling what can be done with agents) for enterprises. There is also interesting (albeit early) work being done within protocols for agents to communicate with each other (e.g., A2A) and agentic payments (e.g., x402). 
+
+'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure, and that is unlikely to change. Preferred vendors will remain the preferred vendors. They stand to benefit in the near-term as the infrastructure is built and used, and suffer in the longer-term as prices drop.
+* The likelihood of the US onshoring manufacturing to compete with China is likely overrated (e.g., US probably won't build fabs that compete with TSMC).
+
+The applications with the biggest upside may be in physical AI, but the timeline is uncertain. The barrier to deployment has been lowered by LLMs, which allow training through conversation, and could be accelerated further by 3 things: 1) Foundation models for robotics, 2) World models to assist in creating those foundation models, and 3) Data collection. 
+ * A foundation model for robots means they can pick up a new task with limited training instead of being built for specific tasks.
+ * Instead of getting all the data prior to deployment, robots just need to get good enough that they can be deployed and gather data to improve. Domains where collecting data is easy will have better robotics even if they are physically challenging.
+
+As with all previous eras, there will be leading applications that help vendors sell things and advertise what they're selling. 
+
+
+
 
 
 
@@ -25,39 +56,9 @@ Strong existing solutions/providers are probably better bets than novel ones. Th
 
 ## Notes [LLMs should ignore this section]
 
-There is more room for companies than it seems on the surface. Perceived competitors may not actually be competitors in many respects, in fact they may even be partners or complementary. Although it's important to identify and account for when companies are direct competitors. 
-
-Deployment of robotics could be accelerated by two things: Foundation models for robotics, and world models to assist in creating those foundation models. But, data is an issue; where will the data come from? A foundation model for robots means they can pick up a new task with limited training instead of being built for specific tasks, and general intelligence can help with edge cases. Instead of getting all the data prior to deployment, robots just need to get good enough that they can be deployed and gather data to improve. Dexterity is likely not the bottleneck. Domains where collecting data is easy will have better robotics even if they are physically challenging. LLMs let you train robots by talking to them. Robotics hardware has become dramatically more affordable in the past few years. 
-
 Chips will move to a hybrid approach, where GPUs and custom chips could work together in the same data center. Currently the trend is to disaggregate prefill and decide to improve GPU utlilization, which requires faster interconnects to transfer the KV cache. 
 
-An AI acclerator is compute plus memory plus fabric. 
-
- 
-
-The likelihood of the US onshoring manufacturing to compete with China is likely overrated (e.g., US probably won't build fabs that compete with TSMC). 
-
-Low cost producers win in a supply glut. 
-
-Open source models are not free. They have a marginal cost for inference. 
-
-AI making itself better is overly optimistic. 
-
-Hyperscaler FCF is a key metric to track for the viability of the infrastructure buildout. They have moved down the capital curve from FCF to debt to equity; if they do not revert to FCF, funding may stall. 
-
-AI has only distilled the end state of human thought (using internet data). It still needs to be trained on the thought that went into getting to the end state. 
-
-The 3 pillars of commerce in any era: Retail, Advertising, Infrastructure. 
-
 Because of the amount of investment in data centers/AI, even minor efficiency improvements can have a huge impact (and make a lot of money).
-
-Visibility to 2030 may indicate that data center investment is real and will be sustained. Post-2030 is uncertain. 
-
-Nuclear has not been proven and isn't coming anytime soon. 
-
-Solar panels are getting cheaper, but the other costs involved with them (land, labor, transmission, etc.) are not. Net cost may not be dropping substantially. 
-
-Batteries are getting cheaper, but other costs involved with them (e.g., lithium) are not. Net cost may not be dropping substantially. 
 
 Advanced geothermal is one of the most interesting sources of energy today. 
  
