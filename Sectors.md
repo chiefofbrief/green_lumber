@@ -4,7 +4,7 @@
 
 ----------
 
-LLMs are extremely powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to switch providers and/or adopt new behaviors. More often than not, things progress more slowly than anticipated. 
+Models (language, vision, world, etc.) are extremely powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to switch providers and/or adopt new behaviors. More often than not, things progress more slowly than anticipated. 
 
 We are in the infrastructure buildout (not application) phase. At some point, there will be overinvestment in AI infrastructure, lowering the cost for application providers but leading to price competition (and lower margins) among infrastructure providers. The timeline for oversupply is uncertain, but if we assume things move slowly, it may be longer than aggressive assumptions. 
 
@@ -12,6 +12,7 @@ There are two infrastructure buildouts happening at the same time: Physical infr
 
 'Incumbents' (pre-2023 companies) are the ones building the majority of the infrastructure, and they stand to benefit in the near-term. Many companies have added or adapted their offerings for AI. 
 
+Digital infrastructure is currently focused on agents, and companies that provide that infrastructure stand to benefit. A lot of the emphasis is currently on observability (monitoring what is being done with agents) and governance (controlling what can be done with agents).
 
 
 
@@ -22,26 +23,9 @@ There are two infrastructure buildouts happening at the same time: Physical infr
 
 Strong existing solutions/providers are probably better bets than novel ones. The main reasons: 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Notes [LLMs should ignore this section]
 
 There is more room for companies than it seems on the surface. Perceived competitors may not actually be competitors in many respects, in fact they may even be partners or complementary. Although it's important to identify and account for when companies are direct competitors. 
-
-Digital infrastructure is currently focused on agents. Companies that provide the infrastructure for agents to perform more tasks, or perform tasks more effectively, may benefit as long as they do not destroy their margins in the process. 
-
-Many of the current companies building agentic infrastructure are not AI-native. They are pre-ChatGPT companies which have adapted their offerings to incorporate AI. 
 
 Deployment of robotics could be accelerated by two things: Foundation models for robotics, and world models to assist in creating those foundation models. But, data is an issue; where will the data come from? A foundation model for robots means they can pick up a new task with limited training instead of being built for specific tasks, and general intelligence can help with edge cases. Instead of getting all the data prior to deployment, robots just need to get good enough that they can be deployed and gather data to improve. Dexterity is likely not the bottleneck. Domains where collecting data is easy will have better robotics even if they are physically challenging. LLMs let you train robots by talking to them. Robotics hardware has become dramatically more affordable in the past few years. 
 
@@ -49,7 +33,7 @@ Chips will move to a hybrid approach, where GPUs and custom chips could work tog
 
 An AI acclerator is compute plus memory plus fabric. 
 
-A lot of the emphasis in agentic infra is on observability (seeing what people are doing with agents) and governance (controlling what they can do with agents). 
+ 
 
 The likelihood of the US onshoring manufacturing to compete with China is likely overrated (e.g., US probably won't build fabs that compete with TSMC). 
 
