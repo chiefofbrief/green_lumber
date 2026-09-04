@@ -1,6 +1,93 @@
 # Sectors
 
+"AI" (machine learning, models, chips, data centers, power, software applications, robotics, etc.) is the umbrella which impacts the majority of our investments. We don't aim to be subject matter experts that understand every detail, nuance, or future development; rather, we aim to develop a flexible, antifragile picture of the current landscape (and the likely future landscape) which is just specific enough to be actionable.
+
+----------
+
+LLMs are extremely powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to switch providers and/or adopt new behaviors. More often than not, things progress more slowly than anticipated. 
+
+We are in the infrastructure buildout (not application) phase. At some point, there will be overinvestment in AI infrastructure, lowering the cost for application providers but leading to price competition (and lower margins) among infrastructure providers. The timeline for oversupply is uncertain, but if we assume things move slowly, it may be longer than aggressive assumptions. 
+
+There are two infrastructure buildouts happening at the same time: Physical infrastructure (hardware, data centers, etc.) and Digital infrastructure (agents, protocols, etc.). Both are critical for cost-effective deployment of AI applications at scale. 
+
+'Incumbents' (pre-2023 companies) are the ones building the majority of the infrastructure, and they stand to benefit in the near-term. Many companies have added or adapted their offerings for AI. 
+
+
+
+
+
+---------------
+
+
+
+Strong existing solutions/providers are probably better bets than novel ones. The main reasons: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Notes [LLMs should ignore this section]
+
+There is more room for companies than it seems on the surface. Perceived competitors may not actually be competitors in many respects, in fact they may even be partners or complementary. Although it's important to identify and account for when companies are direct competitors. 
+
+Digital infrastructure is currently focused on agents. Companies that provide the infrastructure for agents to perform more tasks, or perform tasks more effectively, may benefit as long as they do not destroy their margins in the process. 
+
+Many of the current companies building agentic infrastructure are not AI-native. They are pre-ChatGPT companies which have adapted their offerings to incorporate AI. 
+
+Deployment of robotics could be accelerated by two things: Foundation models for robotics, and world models to assist in creating those foundation models. But, data is an issue; where will the data come from? A foundation model for robots means they can pick up a new task with limited training instead of being built for specific tasks, and general intelligence can help with edge cases. Instead of getting all the data prior to deployment, robots just need to get good enough that they can be deployed and gather data to improve. Dexterity is likely not the bottleneck. Domains where collecting data is easy will have better robotics even if they are physically challenging. LLMs let you train robots by talking to them. Robotics hardware has become dramatically more affordable in the past few years. 
+
+Chips will move to a hybrid approach, where GPUs and custom chips could work together in the same data center. Currently the trend is to disaggregate prefill and decide to improve GPU utlilization, which requires faster interconnects to transfer the KV cache. 
+
+An AI acclerator is compute plus memory plus fabric. 
+
+A lot of the emphasis in agentic infra is on observability (seeing what people are doing with agents) and governance (controlling what they can do with agents). 
+
+The likelihood of the US onshoring manufacturing to compete with China is likely overrated (e.g., US probably won't build fabs that compete with TSMC). 
+
+Low cost producers win in a supply glut. 
+
+Open source models are not free. They have a marginal cost for inference. 
+
+AI making itself better is overly optimistic. 
+
+Hyperscaler FCF is a key metric to track for the viability of the infrastructure buildout. They have moved down the capital curve from FCF to debt to equity; if they do not revert to FCF, funding may stall. 
+
+AI has only distilled the end state of human thought (using internet data). It still needs to be trained on the thought that went into getting to the end state. 
+
+The 3 pillars of commerce in any era: Retail, Advertising, Infrastructure. 
+
+Because of the amount of investment in data centers/AI, even minor efficiency improvements can have a huge impact (and make a lot of money).
+
+Visibility to 2030 may indicate that data center investment is real and will be sustained. Post-2030 is uncertain. 
+
+Nuclear has not been proven and isn't coming anytime soon. 
+
+Solar panels are getting cheaper, but the other costs involved with them (land, labor, transmission, etc.) are not. Net cost may not be dropping substantially. 
+
+Batteries are getting cheaper, but other costs involved with them (e.g., lithium) are not. Net cost may not be dropping substantially. 
+
+Advanced geothermal is one of the most interesting sources of energy today. 
+ 
+LLMs help you create human-type inputs. Deep learning (reinforcement learning) helps you identify things humans wouldn't think of. 
+
+A deficit of natural gas will arrive in 2028. It will be felt the most in electricity prices. Before the AI buildout, LNG was the main driver of demand. There is more gas under the ground; the problem is not that we are literally running out of gas, but rather cost-effective deployment. Processing is the first major constraint. Gathering is another constraint. Natural has is the primary fuel to power AI. The winners may be gas producers. Solar could benefit as well as electricity prices increase, but the infrastructure has issues. The biggest winners in the stock market thus far have been providers of turbines or distributed power, but these industries are cyclical. Drillers make drilling decisions based on oil, gas is a byproduct. The US is the leading exporter of gas; fi there is a gas shortage, curtailing exports of LNG is possible but unlikely given the dependency from other countries. Portable power also needs gas. Power sources like solar that don't require gas or electric are interesting, but are they cost-effective?
+
+
+
+
+
+
+---------------
+
 
 * Will custom ASICs take a meaningful chunk of market share away from Nvidia's GPUs?
    * What is the difference between a GPU and a custom ASIC?
