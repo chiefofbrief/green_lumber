@@ -22,6 +22,16 @@
 * Sea Limited
 * Nu
 * Mercadolibre
+* * Data centers: Vertiv, Schneider Electric, Eaton, Jacobs, Phaidra, Procore, PTC, Siemens, Switch, Trane Technologies, Cadence, and Dassault Systèmes, GE Vernova, Target Hospitality.
+* Minerals:  Energy Fuels Inc. (UUUU) is currently the leading producer of uranium in the United States.  Cameco produces about 15% of the 164 million pounds of uranium produced in 2025, behind Kazatomprom at 20%. Copper. terbium and dysprosium.  MP Materials Corp. (MP) is the largest producer of rare earth materials in the Western Hemisphere. Ucore is strategically positioned to break the Chinese monopoly on heavy rare earth separation, specifically targeting high-premium elements like Terbium and Dysprosium.
+* Cooling: Schneider Electric, Vertiv, Johnson Controls, Hewlett Packard Enterprise, Green Revolution Cooling, Submer, LiquidStack, and Asetek Inc.
+* CPO: POET, Coherent, Lumentum,  Applied Optoelectronics, Mediatek, Cargan, Aoet, Corning (fiber), Selectics, Elite Materials. Nvidia and Broadcom are the two market leaders in CPO, as both are leaders in switching ASICs.
+* Substrates: ABF substrates, AXT Inc surged recently due to intense AI-driven demand for indium phosphide substrates.
+* Digital infra: Databricks ($4.8B), Snowflake ($4.68B), and MongoDB ($2.46B)
+* Physical AI: NVDA, TSM, ROK, UBTECH, FANUY, ABB, YASKY, TER, SYM, AMZN, ISGR, SERV, RR, MGA, Foxconn
+
+
+ 
 * **VIC List**
   * PDD HOLDINGS INC, PDD	12
   * ADOBE INC, ADBE	11
