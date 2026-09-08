@@ -2,25 +2,40 @@
 
 ## Context
 
-**Purpose of this document**: 
-"AI" (machine learning, language models, vision models, accelerators, data centers, power, physical AI, etc.) is the "umbrella" for the majority of our investments. To assist in analyzing these companies, this document houses our assumptions, insights, and predictions related to the broader AI ecosystem. 
+"AI" (machine learning, language models, vision models, accelerators, data centers, power, physical AI, etc.) is the "umbrella" for the majority of our investments. To assist in analyzing these companies, this document houses our assumptions, insights, and predictions related to the broader AI ecosystem. Rather than attempting to map every technical detail or predict the future with 100% accuracy, this framework is designed to be a living document that evolves as we encounter new data.
 
-Rather than attempting to map every technical detail or predict the future with 100% accuracy, this framework is designed to be a living document. It will evolve as we encounter new data. The goal is to build an antifragile mental model of the AI landscape: specific enough to drive actionable decisions, yet flexible enough to adapt quickly when our assumptions are challenged. 
-
-**How to use this document**:
-Growth and risk drive our investment decisions. While both are critical, a company must demonstrate strong growth potential to even be considered. Growth has two main drivers: a company's individual ability to scale, and the broader expansion of its sector. Risk similarly exists at both the company and sector levels. This document estimates sector growth and risk by analyzing current market drivers, market and product potential, sales and margin vulnerabilities, and projected timelines.  
+Growth, and the risks to that growth, drive our investment decisions. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). This document aids in assessing the latter (sector growth and risks) by analyzing current market drivers, market and product potential, sales and margin vulnerabilities, and projected timelines.
 
 -----------------------------------------
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about new approaches to memory, pessimistic about token cost). The real challenge is to identify where the optimism and pessimism are justified in the near term. 
+
+A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. More often than not, adoption of technology at scale is not realized for years/decades after the potential is visible. As with previous technologies, AI enthusiasts are overly optimistic about the capabilities and/or the timeline for deployment of those capabilities. This overestimation is a significant contributor to incorrect timelines; the rate of infrastructure improvement and people's willingness to change existing behaviors are two common areas of overestimation. 
+
+To identify what actually matters in the near term, it helps to work backward from the likely end state. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still a lot of work to be done in the infrastructure layer. 
+
+The primary purpose of infrastructure is to lower the cost of deployment for applications. There are two primary components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). Given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers are being explored. However, if AI follows a similar pattern to previous information technologies, digital infrastructure will provide more leverage since physical improvements take longer and are more expensive. The near-term value in physical infrastructure exists in workarounds for bottlenecks, not novel solutions. 
+
+Infrastructure constraints shift over time. There are two assumptions will impact constraints  
+
+Inference, specifically decoding, is among the most pressing constraints at the moment. There are two components to inference: Prefill (processing the initial prompt) and decode. 
+
+Given that physical improvements are a long-term investment, the near-term value in physical infrastructure exists in workarounds for bottlenecks. Physical infrastructure can be decomposed into three categories: Accelerators (the chips doing the operations), data centers (the facilities that house chips), and energy (the power needed for the facilities). Accelerators provide the lowest near-term leverage; designing and deploying a new chip is a major investment, and it's likely that data centers will include a variety of accelerators (GPUs, TPUs, ASICs) to meet a variety of use cases.     
+
+This may be especially true for AI, where better software programming leads to improved hardware utilization. 
+
+However, given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers and constraints are receiving attention at the moment. 
+
+
+
 
 ## Insights
 
 **Throughout human history, retail, advertising, content, and infrastructure have been extremely lucrative. This has been/will be the same for AI.**
-* Retail: Helping people sell things.
+* Retail: Selling things.
 * Advertising: Helping people advertise what they're selling.
-* Content: Helping people find information or entertainment.
+* Content: Providing information or entertainment.
 * Infrastructure: Supports the other components. 
-
-**AI models are powerful applications. But as with all technologies, enthusiasts are overly optimistic about their future capabilities, the timeline for deployment of those capabilities, and people's willingness to change existing behaviors. Things will likely progress more slowly than optimistic estimates.** 
 
 **AI infrastructure and AI applications are not the same thing. The majority of value will ultimately accrue at the application layer, but we are in the infrastructure buildout phase, during which the primary goal is to lower the cost of deploying applications. Many investors conflate the two, which is why they are overly optimistic/pessimistic about AI capex.** 
 
