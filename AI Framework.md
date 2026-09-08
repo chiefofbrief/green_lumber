@@ -16,7 +16,21 @@ To identify what actually matters in the near term, it helps to work backward fr
 
 The primary purpose of infrastructure is to lower the cost of deployment for applications. There are two primary components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). Given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers are being explored. However, if AI follows a similar pattern to previous information technologies, digital infrastructure will provide more leverage since physical improvements take longer and are more expensive. The near-term value in physical infrastructure exists in workarounds for bottlenecks, not novel solutions. 
 
-Infrastructure constraints shift over time. There are two assumptions will impact constraints  
+Investing in infrastructure carries four major risks: 1) Oversupply, leading to price competition (and lower margins) among providers; 2) A decrease in investment and purchase orders; 3) Changes in how application providers serve the technology to their customers; 4) Novel solutions that make existing constraints/solutions obsolete. In the long-term, novel solutions and changes in delivery are the biggest risks; however, in the near-term, they should be monitored rather than driving investment decisions. Changes in how applications are delivered is a real risk (e.g., a shift from chat-based interfaces to background processes could impact the importance of inference), but since people are slow to change behavior, there should be time to adapt if changes are monitored. 
+
+In the near-term, oversupply is the most pressing risk, followed by decreased capex. Oversupply is difficult to trade against; the timeline is uncertain, customer concentration is high, a surplus in one component can exist alongside a shortage in another, and there is ambiguity around organic vs. manufactured demand. The best way to hedge against it is to invest in the strongest providers (ideally low-cost producers) in the fastest growing sub-sectors. Hyperscalers are driving capex, and they have moved down the capital curve from FCF to debt to equity to do so. If they do not revert to FCF, investors may punish them with depressed stock prices
+
+
+Oversupply is the most pressing risk, particularly given the ambiguity of organic vs. manufactured demand. The timeline for oversupply is uncertain, and a surplus in one component can exist alongside a shortage in another. The best way to hedge against oversupply is to invest in low-cost producers. 
+
+Changes in how applications are built and delivered is a real risk (e.g., a shift from chat-based interfaces to background processes could impact the importance of inference), but since people are slow to change behavior, there should be time to adapt if changes are monitored. Novel solutions are the smallest risk in the near-term, particularly for physical infrastructure. 
+
+
+
+The timeline for oversupply is uncertain. 
+
+
+but it's likely longer than the mainstream assumption and can be approximated as slowing equipment orders (at least for physical infrastructure).
 
 Inference, specifically decoding, is among the most pressing constraints at the moment. There are two components to inference: Prefill (processing the initial prompt) and decode. 
 
