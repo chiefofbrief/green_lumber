@@ -8,34 +8,69 @@ Growth, and the risks to that growth, drive our investment decisions. Drivers of
 
 -----------------------------------------
 
+## Context
+
 "AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about new approaches to memory, pessimistic about token cost). The real challenge is to identify where the optimism and pessimism are justified in the near term. 
 
-A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities and/or the timeline for deployment of those capabilities. They are probably overstating the rate of infrastructure improvement, the rate of adoption, and people's willingness to change behaviors. In the case of AI, it's not purely enthusiasm about the technology that drives these aggressive expectations, but also enthusiasm about the payday; the loudest voices are those building and investing in the infrastructure, not those building the applications. All of these factors make the consensus timeline unreliable. A more conservative timeline acknowledges that more often than not, adoption of technology applications at scale is not realized for years (even decades) after the potential is visible. 
+A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. In the case of AI, it's not purely enthusiasm but also the fact that the loudest advocates are those building and investing in the infrastructure, incentivizing them to paint an overly optimistic picture. Instead of using the consensus timeline, it's prudent to adopt a more conservative timeline which acknowledges that adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible.
 
-To identify what actually matters in the near term, it helps to work backward from the likely end state. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still a lot of work to be done in the infrastructure layer. 
+AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer.
 
-The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). Given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers are being explored. However, if AI follows a similar pattern to previous information technologies, digital infrastructure will provide more leverage since physical improvements take longer and are more expensive. The near-term value in physical infrastructure exists in workarounds for bottlenecks, not novel solutions.
+The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). 
 
-Infrastructure needs and constraints shift over time. Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) can change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely. The current focus area impacting both digital and physical infrastructure is inference, when a model applies its training to produce output (often in real time). Inference has two stages, prefill (processing the initial prompt) and decode (generating the response token by token); the decoding phase is the main issue as it's severely limited by memory bandwidth (the speed data is fetched).    
+Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move). Data centers are the facilities that house accelerators; energy is what provides the electricity to run them. Reliable sources of power and thermal management (to keep accelerators from overheating) are needed to maximize utilization. 
+
+Autonomous systems are the central focus for digital infrastructure. These systems could perform specific tasks, or perform a variety of tasks within a specific domain. Deployment at scale requires adapting existing infrastructure for probabilistic (not deterministic) systems that are free to execute actions within user constraints, domain-specific data to expand beyond general models, and data 'traces' (the thought that went into an output) since foundation models have only distilled the end state of human thought by being trained on internet data. One caveat: These observations are relevant for software applications, not physical applications, for which there is no equivalent to internet data and where foundation models are still being developed.  
+
+Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly. The most practical way to mitigate risk is to invest in the strongest providers in the fastest growing sub-sectors (which are ideally also one of the low-cost producers).
+
+
+
+--------------
+
+
+
+## Projection 
+
+Due to its probabilistic nature, AI is currently limited in enterprise contexts to verifiable tasks
+
+Natural gas is currently the only reliable source of electricity, although advanced geothermal is the wildcard solution. 
+
+Given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers are being explored; however, if AI follows a similar pattern to previous information technologies, digital infrastructure will provide more leverage over time. 
+
+To identify what actually matters in the near term, it helps to work backward from the likely end state. 
+
+Autonomous systems leveraging domain/task-specific models is a likely end state for applications. Domain-specific data, data 'traces' (the thought that went into an output), and infrastructure for autonomous systems are necessary to make it possible.
+
+'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure, and that is unlikely to change in the near-term.  However, because of the amount of investment, even minor efficiency improvements can have a huge impact, attracting new ideas and companies. It's likely that in the near-term the established vendors do most of the work, in the near to medium-term new entrants steal some market share, and in the long-term prices drop and everyone gets hurt (until the cycle resets).
+
+
+
+. 
+
+The near-term value in physical infrastructure exists in workarounds for bottlenecks, particularly accelerator utilization. Physical infrastructure can be decomposed into three categories: Accelerators (the chips doing the operations), data centers (the facilities that house chips), and energy (the power needed for the facilities). Accelerators have three primary levers: Compute (what executes the math?), memory (where do weights and state live?), and fabric (how far must data travel and how fast can it move?). Designing and deploying a new chip is a major investment, and it's likely that data centers will include a variety of accelerators (GPUs, TPUs, ASICs) to meet a variety of use cases, so investing in new chip designs is not a near-term play. Data centers and energy are where approaches to improve accelerator utilization, without having to design new chips, can be implemented.
+
+The near-term value in digital infrastructure are solutions that enable autonomous, probabilistic systems to perform specific tasks, or a variety of tasks within a specific domain. The current focus is on the subset of autonomous systems called 'agents.' Domain-specific data is necessary to expand beyond general models; potential sources include end customers (e.g., a law firm providing its data), third-party model trainers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys). Data 'traces' (the thought that went into an output) are also necessary given that AI has only distilled the end state of human thought by being trained on internet data. New approaches to runtime infrastructure are also needed as cloud infrastructure was built for stateless, deterministic execution; AI requires stateful (retaining context), probabilistic execution (varying outcomes). Solutions for agents are mainly focused on observability (monitoring what is being done with agents) and governance (controlling what can be done with agents) for enterprises. But for autonomous systems to reach their potential, better infrastructure is needed and is currently being built (e.g., A2A for communication between agents, x402 for agentic payments).
+
+
+
+
+
+
+
+The main focus area of AI infrastructure investments at the moment is inference. Inference is when a model applies its training to produce output (often in real time) in two stages, prefill (processing the initial prompt) and decode (generating the response token by token). The decoding phase is the constraint as it's severely limited by memory bandwidth (the speed data is fetched). There are multiple levers in digital and physical infrastructure that are used to alleviate the issue. 
+
+
+---------------------
 
 Investing in infrastructure carries four major risks: 1) Oversupply, leading to price competition (and lower margins) among providers; 2) A decrease in investment and purchase orders; 3) Changes in how application providers serve the technology to their customers; 4) Novel solutions that make existing constraints/solutions obsolete. In the near-term, oversupply is the most pressing risk, followed by decreasing capex. In the long-term, novel solutions and changes in delivery are the biggest risks; however, in the near-term, they should be monitored rather than driving investment decisions. 
 
-Oversupply is difficult to predict; the timeline is uncertain, customer concentration is high, a surplus in one component can exist alongside a shortage in another, and there is ambiguity around organic vs. manufactured demand. The best way to hedge against it is to invest in the strongest providers (ideally low-cost producers) in the fastest growing sub-sectors. A decrease in investment would be the result of one or more hyperscalers pulling back spending, with a likely catalyst being shareholder pressure to increase FCF (in the form of a depressed stock price) since hyperscalers have moved down the capital curve from FCF to debt to equity to fund investments. Changes in how applications are delivered is a real risk (e.g., a shift from chat-based interfaces to background processes could impact the importance of inference), but since people are slow to change behavior, there should be time to adapt if changes are monitored.
-
-
-
-
-
-Inference, specifically decoding, is among the most pressing constraints at the moment. There are two components to inference: Prefill (processing the initial prompt) and decode. 
-
-Given that physical improvements are a long-term investment, the near-term value in physical infrastructure exists in workarounds for bottlenecks. Physical infrastructure can be decomposed into three categories: Accelerators (the chips doing the operations), data centers (the facilities that house chips), and energy (the power needed for the facilities). Accelerators provide the lowest near-term leverage; designing and deploying a new chip is a major investment, and it's likely that data centers will include a variety of accelerators (GPUs, TPUs, ASICs) to meet a variety of use cases.     
+Oversupply is difficult to predict; the timeline is uncertain, customer concentration is high, a surplus in one component can exist alongside a shortage in another, and there is ambiguity around organic vs. manufactured demand. The best way to hedge against it is to invest in the strongest providers (ideally low-cost producers) in the fastest growing sub-sectors. A decrease in investment would be the result of one or more hyperscalers pulling back spending, with a likely catalyst being shareholder pressure to increase FCF (in the form of a depressed stock price) since hyperscalers have moved down the capital curve from FCF to debt to equity to fund investments. Changes in how applications are delivered is a real risk (e.g., a shift from chat-based interfaces to background processes could impact the importance of inference), but since people are slow to change behavior, there should be time to adapt if changes are monitored. 
 
 This may be especially true for AI, where better software programming leads to improved hardware utilization. 
 
-However, given the scale of investment into AI, a minor performance improvement can create significant value, so all potential levers and constraints are receiving attention at the moment. 
 
-
-
+------------
 
 ## Insights
 
