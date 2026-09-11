@@ -30,9 +30,9 @@ To identify what actually matters in the near term, it helps to work backward fr
 
 The promise of AI is autonomy, the idea that machines can perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks are spread across Applications, Digital infrastructure, and Physical infrastructure. can be broken into categories: Models, Context, Runtime infrastructure, Autonomous infrastructure, Physical infrastructure. 
 
-Applications are rhe end product. some apps are infra. task specific models. task specific context. task specific robots. wrappers. third party tools for model routing, agents. 
+Applications are rhe end product. some apps are infra. task specific models. task specific context. task specific robots. wrappers. third party tools for model routing, agents. a lot is unknown. but what is likely: task specific models and context. apps that use foundation models and context. better model routing. agentic commerce.  content creation. 
 
-digital infra. models. model architecture. chip software. context (data). autonomous infrastructure. 
+digital infra. models. model architecture. chip software. context (data). autonomous infrastructure. more foindation models. model routing. chip routing to max utilization and lowe costs. chip capacity resellers. updating websites to be agent friendly. agentic commerce. audio and visual gen models. 
 
 physical infea. chips. power. cooling. robots. vision, audio, sensors. 
 
