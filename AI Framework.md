@@ -28,6 +28,8 @@ Infrastructure needs and constraints shift over time. Oversupply leads to price 
 
 ## Landscape
 
+*It's easy to predict the winners. it hard to predict the exact method.*
+
 To identify what actually matters in the near term, it helps to work backward from a likely future state (roughly 5 years from today). It's impossible to predict what will happen, and there are many things that can happen simultaneously. Therefore, this section acts more like a list of likely possibilities rather than an exact mapping. It may be the case that AI adoption is underwhelming or significantly delayed (perhaps due to its probabilistic nature in a deterministic world), but for this exercise the focus is on what needs to happen for adoption at scale. 
 
 The promise of AI is autonomy, the idea that machines can perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across Applications, Digital infrastructure, and Physical infrastructure. 
