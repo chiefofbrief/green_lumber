@@ -62,22 +62,19 @@ Data centers need electricity, and the only reliable source at the moment is nat
 
 'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure, and that is unlikely to change in the near-term.  However, because of the amount of investment, even minor efficiency improvements can have a huge impact, attracting new ideas and companies. It's likely that in the near-term the established vendors do most of the work, in the near to medium-term new entrants steal some market share, and in the long-term prices drop and everyone gets hurt (until the cycle resets).
 
+Everything to this point has centered on digital AI. Physical AI is the other half of the application layer, and the one with the larger potential upside, though it comes with a longer and less certain path. Much of the above applies to physical AI as well; it runs on much of the same compute infrastructure, shares many of the same models, and faces many of the same digital constraints. What differs is the application layer and part of the infrastructure layer.
 
+Robotics excitement has grown because language and vision models lowered the barrier to training. But within the next five years, these models are more likely to serve as the 'brain' for existing machines than to power entirely new ones, and the new machines that do get built are more likely to be deployed into existing enterprise applications, like manufacturing, than into new categories.
+
+Several models act as the brain. A world model understands the laws of physics; instead of predicting the next word in a sentence, it predicts the next frame of a video, letting the machine anticipate the physical consequences of an action. An LLM reasons through what needs to be done, and vision models translate that reasoning into physical, mechanical execution. World models, and possibly foundation models for robotics, are what unlock a wider range of use cases; a foundation model lets a robot pick up new tasks with limited training, though as with software, ROI will likely be higher for models trained on a specific environment.
+
+Physical AI also requires something digital AI does not: the means to sense and act on the physical world. Sensing spans vision, audio, and other sensors; acting spans movement, dexterity, spatial awareness, and coordination with other autonomous systems. It is part of why physical deployment is slower and more capital-intensive than shipping software.
 
 
 -----------
 
 
 ### Applications
-
-
-**The applications with the biggest upside may be in physical AI, but the timeline and initial use cases are uncertain. There is a lot of excitement around robotics since the barrier to training has been lowered by language and vision models, but these models are more likely to initially serve as the 'brain' for existing infrastructure. World models are key to unlocking a variety of use cases, and as with software, domain/task-specific models are the likely end state.**    
-* A world model is an AI that understands the laws of physics; instead of predicting the next word in a sentence, it predicts the next frame of a video.
-* LLMs acts as the brain that reasons through what needs to be done, and vision models translate the text-based logic into physical, mechanical execution.
-* A foundation model for robots means they can pick up a new task with limited training instead of being built for specific tasks. However, the ROI may be higher for robots trained on specific environments.  
-* Instead of getting all the data prior to deployment, machines just need to get good enough that they can be deployed and gather data to improve. Domains where collecting data is easy will have better physical AI even if they are physically challenging.
-
-There is a lot of excitement around robotics since the barrier to training has been lowered by language and vision models, but within the next five years its more likely that 1) These models serve as the 'brain' for existing machines and 2) New machines are deployed into existing enterprise applications (e.g., manufacturing) rather than into brand new applications. World models, and possible foundation models for robotics, are key to unlocking a variety of use cases. 
 
 ### Digital infrastructure
 
