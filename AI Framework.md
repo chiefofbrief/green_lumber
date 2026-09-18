@@ -2,7 +2,7 @@
 
 ***NOTE: Treat this thesis as a snapshot based on the current landscape and available data. Rather than attempting to map every technical detail or predict the future with 100% accuracy, it is a living document that evolves as new data is encountered.***
 
-## First Principles
+## Basics
 
 ### Growth
 
@@ -18,27 +18,26 @@ Buying the strongest companies is the fastest-growing sub-sectors is the best wa
 
 A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. For the purposes of analysis, 'near-term' is defined as the next 2 years. In other words, for a company to be considered as an investment, there should be an expected increase in the stock price (due to anticipated sales growth) within the next 2 years. 
 
-However, it's better to buy too early than too late. All things being equal, a preference should be given to sub-sectors and companies where future growth is clearly being underestimated by investors.  
+However, it's better to buy too early than too late. All things being equal, a preference should be given to sub-sectors and companies where future growth is clearly being underestimated by investors.   
 
+Therefore, the goal is to be early, but not too early. The following assumptions provide the context to help make this assessment:
+* Progress in the overall AI sector is still early,
+* Infrastructure is much further along than applications, and
+* There are still sub-sectors within infrastructure with the potential for substantial growth.
 
+These assumptions are based on the typical history of new technology. Adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. A large part of this lag is due to the fact that applications require infrastructure, and infrastructure takes time. But despite knowing this, there is usually a period of time where enthusiasts are overly optimistic in the near-term; they overestimate the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. When these projections don't come to fruition, skeptics underestimate the capabilities and adoption. Both of these things are happening right now for AI.    
 
-#### Expectations vs. Reality
+### Applications vs. Infrastructure
 
-Adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. 
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).  
 
-### Defining AI
+AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition). Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. 
 
+To this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer.
 
+The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
 
-## First Principles
-
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). The real challenge is to identify where the optimism and pessimism are justified in the near term.
-
-
-### Timeline
-
-
-As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. In the case of AI, it's not purely enthusiasm but also the fact that the loudest advocates are those building and investing in the infrastructure, incentivizing them to paint an overly optimistic picture. Instead of using the consensus timeline, it's prudent to adopt a more conservative timeline which acknowledges that adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible.
+### 
 
 Even with conservative assumptions, it may be the case that AI adoption is underwhelming or significantly delayed. This may be due to a variety of factors, including decreased investment, lack of ROI, the difficulty of using probabilistic systems in a deterministic world, limited compute or memory capacity, regulation, etc. Decreased investment would most likely be the result of one or more hyperscalers pulling back spending, perhaps in response to shareholder pressure (aka depressed stock price) to increase FCF since they have moved down the capital curve to fund investments (from FCF to debt to equity). ROI for end customers (mainly enterprises) depends on the cost of foundation models; if the cost of compute and inference does not decrease in the near future (and for compute this seems highly unlikely), it may be hard to justify further spending. However, for this exercise, the assumption is that investment and usage will continue to grow. 
 
@@ -46,11 +45,11 @@ Even with conservative assumptions, it may be the case that AI adoption is under
 
 In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across Applications, Digital infrastructure, and Physical infrastructure.
 
-AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer.
+
 
 ### Applications
 
-An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition).
+
 
 That work looks different depending on whether the application is digital or physical, and treating the two as the same bet, at either the infrastructure or application layer, is a mistake. Physical AI is AI that understands and interacts with the laws of physics and the physical world. Digital and physical AI-native applications diverge most on timeline and uncertainty; digital AI applications are closer to deployable now, while physical AI applications carry more uncertainty on when, or whether, they arrive. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
 
@@ -58,7 +57,6 @@ That work looks different depending on whether the application is digital or phy
 
 Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly. The most practical way to mitigate risk is to invest in the strongest providers in the fastest growing sub-sectors (which are ideally also one of the low-cost producers).
 
-The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). 
 
 #### Physical Infrastructure
 
