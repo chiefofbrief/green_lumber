@@ -27,12 +27,26 @@ Therefore, the goal is to be early, but not too early. The following assumptions
 
 These assumptions are based on the typical history of new technology. Adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. A large part of this lag is due to the fact that applications require infrastructure, and infrastructure takes time. But despite knowing this, there is usually a period of time where enthusiasts are overly optimistic in the near-term; they overestimate the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. When these projections don't come to fruition, skeptics underestimate the capabilities and adoption. Both of these things are happening right now for AI.    
 
-### Applications vs. Infrastructure
+### Phases
+
+Applications are the main beneficiary of new technology; the vast majority of value ultimately accrues at the application layer. The primary purpose of infrastructure is to lower the cost of deployment for applications; it benefits while it is expanding to enable the applications, but eventually becomes a commodity. 
+
+Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. New applications enabling new behaviors appear in a second wave. 
+
+### AI
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).
+
+In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across applications and infrastructure. 
+
+AI infrastructure and AI applications are not the same thing. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition).
+
+
+
 
 "AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).  
 
-AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition). Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. 
-
+AI infrastructure and AI applications are not the same thing. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition). 
 To this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer.
 
 The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
@@ -43,7 +57,7 @@ Even with conservative assumptions, it may be the case that AI adoption is under
 
 ### Applications vs. Infrastructure
 
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across Applications, Digital infrastructure, and Physical infrastructure.
+
 
 
 
