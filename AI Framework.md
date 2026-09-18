@@ -1,40 +1,89 @@
 # AI Framework
 
-## Context
+***NOTE: Treat this thesis as a snapshot based on the current landscape and available data. Rather than attempting to map every technical detail or predict the future with 100% accuracy, it is a living document that evolves as new data is encountered.***
 
-"AI" (machine learning, language models, vision models, accelerators, data centers, power, physical AI, etc.) is the "umbrella" for the majority of our investments. To assist in analyzing these companies, this document houses our assumptions, insights, and predictions related to the broader AI ecosystem. Rather than attempting to map every technical detail or predict the future with 100% accuracy, this framework is designed to be a living document that evolves as we encounter new data.
+## First Principles
 
-Growth, and the risks to that growth, drive our investment decisions. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). This document aids in assessing the latter (sector growth and risks) by analyzing current market drivers, market and product potential, sales and margin vulnerabilities, and projected timelines.
+### Growth
+
+The anticipation of future sales growth, and the risks to that growth, dictate a company's stock price. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). Both are critical, but in the context of new technology, the sector is the starting point.  
+
+The first objective is to estimate which sub-sectors (e.g., networking, cooling, agentic commerce) will experience the most rapid growth in the near term. This may be the same, or different, than the sub-sectors which are currently experiencing the most growth. Recent sales growth, bottlenecks, industry attention, R&D, etc. are all clues. 
+
+The second objective is to identify the companies in that sub-sector which are best positioned to benefit from that growth. If there is sufficient demand, "all" companies may benefit in the near term. However, when demand shifts, it's likely that only the strongest companies (low costs, healthy financials, strong brands) will benefit, or that all companies will suffer from a deceleration. 
+
+Buying the strongest companies is the fastest-growing sub-sectors is the best way to enjoy growth while mitigating risk. 
+
+### Timeline
+
+A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. For the purposes of analysis, 'near-term' is defined as the next 2 years. In other words, for a company to be considered as an investment, there should be an expected increase in the stock price (due to anticipated sales growth) within the next 2 years. 
+
+However, it's better to buy too early than too late. All things being equal, a preference should be given to sub-sectors and companies where future growth is clearly being underestimated by investors.  
+
+
+
+#### Expectations vs. Reality
+
+Adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. 
+
+### Defining AI
+
+
+
+## First Principles
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). The real challenge is to identify where the optimism and pessimism are justified in the near term.
+
+
+### Timeline
+
+
+As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. In the case of AI, it's not purely enthusiasm but also the fact that the loudest advocates are those building and investing in the infrastructure, incentivizing them to paint an overly optimistic picture. Instead of using the consensus timeline, it's prudent to adopt a more conservative timeline which acknowledges that adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible.
+
+Even with conservative assumptions, it may be the case that AI adoption is underwhelming or significantly delayed. This may be due to a variety of factors, including decreased investment, lack of ROI, the difficulty of using probabilistic systems in a deterministic world, limited compute or memory capacity, regulation, etc. Decreased investment would most likely be the result of one or more hyperscalers pulling back spending, perhaps in response to shareholder pressure (aka depressed stock price) to increase FCF since they have moved down the capital curve to fund investments (from FCF to debt to equity). ROI for end customers (mainly enterprises) depends on the cost of foundation models; if the cost of compute and inference does not decrease in the near future (and for compute this seems highly unlikely), it may be hard to justify further spending. However, for this exercise, the assumption is that investment and usage will continue to grow. 
+
+### Applications vs. Infrastructure
+
+In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across Applications, Digital infrastructure, and Physical infrastructure.
+
+AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer.
+
+### Applications
+
+An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition).
+
+That work looks different depending on whether the application is digital or physical, and treating the two as the same bet, at either the infrastructure or application layer, is a mistake. Physical AI is AI that understands and interacts with the laws of physics and the physical world. Digital and physical AI-native applications diverge most on timeline and uncertainty; digital AI applications are closer to deployable now, while physical AI applications carry more uncertainty on when, or whether, they arrive. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
+
+### Infrastructure
+
+Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly. The most practical way to mitigate risk is to invest in the strongest providers in the fastest growing sub-sectors (which are ideally also one of the low-cost producers).
+
+The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). 
+
+#### Physical Infrastructure
+
+Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move). Data centers are the facilities that house accelerators; energy is what provides the electricity to run them. Reliable sources of power and thermal management (to keep accelerators from overheating) are needed to maximize utilization.
+
+#### Digital Infrastructure
+
+Autonomous systems are the central focus for digital infrastructure. These systems could perform specific tasks, or perform a variety of tasks within a specific domain. Deployment at scale requires creating infrastructure for probabilistic (not deterministic) systems that are free to execute actions within user constraints. It also requires providing the necessary context to expand beyond general capabilities and chat-based reasoning: Domain-specific data, data traces (the thought that went into an output), and 'persistent' memory (history, preferences, etc.) are needed to expand beyond foundation models.
+
+--------------------------------------
+
+
 
 -----------------------------------------
 
 ## Context
 
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about new approaches to memory, pessimistic about token cost). The real challenge is to identify where the optimism and pessimism are justified in the near term. 
-
-A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. As with previous technologies, AI enthusiasts are likely overly optimistic about the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors. In the case of AI, it's not purely enthusiasm but also the fact that the loudest advocates are those building and investing in the infrastructure, incentivizing them to paint an overly optimistic picture. Instead of using the consensus timeline, it's prudent to adopt a more conservative timeline which acknowledges that adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. 
-
-AI infrastructure and AI applications are not the same thing. If AI follows a similar pattern to previous information technologies, applications (digital or physical) will capture the most value. Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. However, to this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey). This indicates there is still work to be done in the infrastructure layer. 
-
-That work looks different depending on whether the application is digital or physical, and treating the two as the same bet, at either the infrastructure or application layer, is a mistake. Physical AI is AI that understands and interacts with the laws of physics and the physical world. Digital and physical AI-native applications diverge most on timeline and uncertainty; digital AI applications are closer to deployable now, while physical AI applications carry more uncertainty on when, or whether, they arrive. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
-
-The primary purpose of infrastructure is to lower the cost of deployment for applications, expressed for AI as cost per token. As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.). 
-
-Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move). Data centers are the facilities that house accelerators; energy is what provides the electricity to run them. Reliable sources of power and thermal management (to keep accelerators from overheating) are needed to maximize utilization. 
-
-*accelerator utlization, model architectures. if gpu proces dont decrease then spftwsre is rhe lever* Autonomous systems are the central focus for digital infrastructure. These systems could perform specific tasks, or perform a variety of tasks within a specific domain. Deployment at scale requires creating infrastructure for probabilistic (not deterministic) systems that are free to execute actions within user constraints. It also requires providing the necessary context to expand beyond general capabilities and chat-based reasoning: Domain-specific data, data traces (the thought that went into an output), and 'persistent' memory (history, preferences, etc.) are needed to expand beyond foundation models. 
-
-Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly. The most practical way to mitigate risk is to invest in the strongest providers in the fastest growing sub-sectors (which are ideally also one of the low-cost producers).
 
 ## Landscape
 
 To identify what actually matters in the near term, it helps to work backward from a likely future state. It's impossible to predict what will happen, and there are many things that can happen simultaneously. Therefore, this section acts more like a list of likely possibilities rather than an exact mapping. The hope is that it's possible to predict the 'winners,' even if it's impossible to predict the exact method. 
 
-First, a caveat: It may be the case that AI adoption is underwhelming or significantly delayed. This may be due to a variety of factors, including decreased investment, lack of ROI, the difficulty of using probabilistic systems in a deterministic world, limited compute or memory capacity, regulation, etc. Decreased investment would most likely be the result of one or more hyperscalers pulling back spending, perhaps in response to shareholder pressure (aka depressed stock price) to increase FCF since they have moved down the capital curve to fund investments (from FCF to debt to equity). ROI for end customers (mainly enterprises) depends on the cost of foundation models; if the cost of compute and inference does not decrease in the near future (and for compute this seems highly unlikely), it may be hard to justify further spending. However, for this exercise, the assumption is that investment and usage will continue to grow. 
 
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts. These building blocks will be spread across Applications, Digital infrastructure, and Physical infrastructure. 
 
-An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition). As already stated, there is not yet substantial traction for AI-native applications. The activities AI touches are expanding fast; the applications capturing that value as standalone AI-native products are not. Consistent with the reinvention pattern, existing activities are being reshaped first: content generation (text/image/video), web search, web/app design, coding, and e-commerce (likely next) on the digital side, and driving, product design, manufacturing, and warehouse operations on the physical side. Application-layer traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling); recognized within the field, but none have crossed into mainstream brand recognition, and none are publicly traded. The majority of this analysis therefore focuses on the infrastructure layer, where near-term outcomes are more investable. Applications remain where value ultimately accrues, and while pure-play AI-native startups aren't public yet, that doesn't mean there's no way to invest in that shift.
+ As already stated, there is not yet substantial traction for AI-native applications. The activities AI touches are expanding fast; the applications capturing that value as standalone AI-native products are not. Consistent with the reinvention pattern, existing activities are being reshaped first: content generation (text/image/video), web search, web/app design, coding, and e-commerce (likely next) on the digital side, and driving, product design, manufacturing, and warehouse operations on the physical side. Application-layer traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling); recognized within the field, but none have crossed into mainstream brand recognition, and none are publicly traded. The majority of this analysis therefore focuses on the infrastructure layer, where near-term outcomes are more investable. Applications remain where value ultimately accrues, and while pure-play AI-native startups aren't public yet, that doesn't mean there's no way to invest in that shift.
 
 Some existing public companies are rebuilding core parts of their business around AI-native models internally (e.g., AppLovin in ad serving, Unity in game development, Datadog in observability), making them investable exposure to the same shift without waiting for AI-native startups to go public. These are worth tracking as a distinct category: not new entrants, but incumbents whose AI-native rebuild makes them a proxy for application-layer upside that's otherwise not directly investable yet.
 
