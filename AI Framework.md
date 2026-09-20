@@ -6,21 +6,21 @@
 
 ### Growth
 
-The anticipation of future sales growth, and the risks to that growth, dictate a company's stock price. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). Both are critical, but in the context of new technology, the sector is the starting point.  
+Expected future sales growth, and the risks to that growth, dictate a company's stock price. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). Both are critical, but in the context of new technology, the sector is the starting point.  
 
-The first objective is to estimate which sub-sectors (e.g., networking, cooling, agentic commerce) will experience the most rapid growth in the near term. This may be the same, or different, than the sub-sectors which are currently experiencing the most growth. Recent sales growth, bottlenecks, industry attention, R&D, etc. are all clues. 
+The first objective is to estimate which sub-sectors (e.g., networking, cooling, agentic commerce) will experience the most rapid growth in the near term. This may be the same, or different, than the sub-sectors which are currently experiencing the most growth. Recent sales growth and the level of industry attention are good starting points. 
 
 The second objective is to identify the companies in that sub-sector which are best positioned to benefit from that growth. If there is sufficient demand, "all" companies may benefit in the near term. However, when demand shifts, it's likely that only the strongest companies (low costs, healthy financials, strong brands) will benefit, or that all companies will suffer from a deceleration. 
 
-Buying the strongest companies is the fastest-growing sub-sectors is the best way to enjoy growth while mitigating risk. 
+Buying the strongest companies in the fastest-growing sub-sectors is the best way to enjoy growth while mitigating risk. 
 
 ### Timeline
 
-A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong. For the purposes of analysis, 'near-term' is defined as the next 2 years. In other words, for a company to be considered as an investment, there should be an expected increase in the stock price (due to anticipated sales growth) within the next 2 years. 
+For a company to be considered as an investment, there should be an expected increase in the stock price (due to anticipated sales growth) within the near-term. Near-term is defined as the next 2 years. A focus on the near-term is key since being right on the wrong timeline can be the same as being wrong.
 
-However, it's better to buy too early than too late. All things being equal, a preference should be given to sub-sectors and companies where future growth is clearly being underestimated by investors.   
+However, it's better to buy too early than too late. A preference should be given to sub-sectors and companies where there is a clear path for future growth that is being underestimated by investors.   
 
-Therefore, the goal is to be early, but not too early. The following assumptions provide the context to help make this assessment:
+The following assumptions provide the high-level context to help make this assessment:
 * Progress in the overall AI sector is still early,
 * Infrastructure is much further along than applications, and
 * There are still sub-sectors within infrastructure with the potential for substantial growth.
