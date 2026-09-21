@@ -1,3 +1,12 @@
+Expected future sales growth, and the risks to that growth, dictate a company's stock price. The two components of growth are 1) The company's ability to scale and 2) The broader expansion of its sector. In the context of new technology, the sector is the starting point; start by identifying which sub-sectors will experience the most rapid growth in the near term, then identify identify the companies in that sub-sector which are best positioned to benefit from that growth. 
+
+
+
+The AI sector may offer more growth potential than any other sector. 
+
+
+
+---------
 
 The overall AI sector can be divided into 2 primary sub-sectors: Infrastructure and Applications. 
 
