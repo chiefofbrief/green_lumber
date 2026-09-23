@@ -1,29 +1,41 @@
-Expected future sales growth, and the risks to that growth, dictate a company's stock price. The two components of growth are 1) The company's ability to scale and 2) The broader expansion of its sector. In the context of new technology, the sector is the starting point; start by identifying which sub-sectors will experience the most rapid growth in the near term, then identify identify the companies in that sub-sector which are best positioned to benefit from that growth. 
+
+## The Basics of Investing in New Technology
+
+### It's all About Growth
+
+Expected sales growth, and the risks to that growth, dictate a company's stock price. New technology provides the potential for abnormal sales growth, and therefore, the potential for extreme stock price increases.
+
+Technology expands sectors, not just companies. If there is sufficient demand, "all" companies in a sub-sector may benefit temporarily. Start by identifying which sub-sectors will experience the most rapid growth. Good starting points are recent sales growth and constraints to adoption.
+
+Next, identify the companies within the high-growth sub-sectors which are best positioned to benefit from that growth. The strongest companies (low costs, healthy financials, strong brands) are a good starting point. 
+
+### Prioritize Applications, Buy Infrastructure in the Meantime
+
+New technology can be broken into two major sub-sectors, Applications and Infrastructure. The vast majority of value ultimately accrues at the application layer, which is ultimately where investments should be concentrated.  
+
+Applications initially get more traction by reinventing existing activities rather than inventing new ones. For example, e-commerce reinvented mail-order catalogs, and LLMs are a substitute for web search. Start with novel approaches to existing activities. Once the technology is well-established, entirely new behaviors gain traction and become investable.   
+
+The primary purpose of infrastructure is to lower the cost of deployment for applications. The companies benefit while they are solving a constraint to deployment, but eventually become commodities as constraints shift. Oversupply (leading to price competition), changes in how applications serve customers, and novel solutions can all shift constraints. The strongest companies (low costs, healthy financials, strong brands) are a good starting point as they are best able to withstand oversupply, but even they can experience huge price decreases.  
+
+### Be Early, but not Too Early
+
+Being right on the wrong timeline can be similar to being wrong. A balance must be struck between being early enough to enjoy growth while not being so early that a return is not available for years. The ideal investment experiences sales growth in the near-term, which is about 2 years. 
+
+However, the worst possible scenario is being late, so the absolute likelihood of sales growth, regardless of timeline, is the starting point. Among sub-sectors and companies where growth is relatively certain, prioritize by the likelihood of that growth appearing in the near-term.   
+
+Be conservative when estimating the timeline for adoption. It's easy to make the mistake of being too early in new technology. Adoption of applications at scale is usually not realized until well after the potential is visible. The infrastructure takes time to build, and people's behaviors need time to adapt. 
+
+-----------------
 
 
-
-The AI sector may offer more growth potential than any other sector. 
-
-
-
----------
-
-The overall AI sector can be divided into 2 primary sub-sectors: Infrastructure and Applications. 
 
 The overall AI sector still has substantial room for near-term growth. AI-native applications are not even publicly traded yet. Infrastructure is much further along, but there are still sub-sectors within infrastructure with the potential for substantial growth.
 
-For a company to be considered as an investment, there should be an expected increase in the stock price (due to anticipated sales growth) within the near-term. Near-term is defined as the next 2 years. However, it's better to buy too early than too late. A preference should be given to sub-sectors and companies where there is a clear path for future growth that is being underestimated by investors.
 
-Expected future sales growth, and the risks to that growth, dictate a company's stock price. Drivers of growth exist at both the company level (individual ability to scale) and the sector level (broader expansion of its sector). Both are critical, but in the context of new technology, the sector is the starting point.  
-* The first objective is to estimate which sub-sectors (e.g., networking, cooling, agentic commerce) will experience the most rapid growth in the near term. This may be the same, or different, than the sub-sectors which are currently experiencing the most growth. Recent sales growth and the level of industry attention are good starting points.
-* The second objective is to identify the companies in that sub-sector which are best positioned to benefit from that growth. If there is sufficient demand, "all" companies may benefit in the near term. However, when demand shifts, it's likely that only the strongest companies (low costs, healthy financials, strong brands) will benefit, or that all companies will suffer from a deceleration.
+
+
+If there is sufficient demand, "all" companies may benefit in the near term. However, when demand shifts, it's likely that only the strongest companies (low costs, healthy financials, strong brands) will benefit, or that all companies will suffer from a deceleration.
 * Buying the strongest companies in the fastest-growing sub-sectors is the best way to enjoy growth while mitigating risk.
-
-Adoption of technology applications at scale is usually not realized for years (even decades) after the potential is visible. A large part of this lag is due to the fact that applications require infrastructure, and infrastructure takes time. enthusiasts are overly optimistic in the near-term; they overestimate the capabilities, the timeline for deployment of those capabilities, and people's willingness to change behaviors.
-
-Applications are the main beneficiary of new technology; the vast majority of value ultimately accrues at the application layer. The primary purpose of infrastructure is to lower the cost of deployment for applications; it benefits while it is expanding to enable the applications, but eventually becomes a commodity. 
-
-Initial applications typically reinvent existing activities before inventing new ones; the internet's first wave re-platformed retail, media, and communication before creating categories that didn't exist before it. New applications enabling new behaviors appear in a second wave.
 
 "AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).
 
@@ -37,7 +49,7 @@ As the infrastructure improves, the cost/token will decrease. As cost/token decr
 
 Physical AI is AI that understands and interacts with the laws of physics and the physical world. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
 
-Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. Changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly.
+Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly.
 
 Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move).
 
