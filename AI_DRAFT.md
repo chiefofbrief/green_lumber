@@ -31,12 +31,6 @@ Be conservative when estimating the timeline for adoption. It's easy to make the
 
 The overall AI sector still has substantial room for near-term growth. AI-native applications are not even publicly traded yet. Infrastructure is much further along, but there are still sub-sectors within infrastructure with the potential for substantial growth.
 
-
-
-
-If there is sufficient demand, "all" companies may benefit in the near term. However, when demand shifts, it's likely that only the strongest companies (low costs, healthy financials, strong brands) will benefit, or that all companies will suffer from a deceleration.
-* Buying the strongest companies in the fastest-growing sub-sectors is the best way to enjoy growth while mitigating risk.
-
 "AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).
 
 In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts.
@@ -48,8 +42,6 @@ To this point, publicly-traded AI-native applications are almost nonexistent, an
 As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
 
 Physical AI is AI that understands and interacts with the laws of physics and the physical world. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
-
-Infrastructure needs and constraints shift over time. Oversupply leads to price competition (and lower margins). Satisfying demand for one component can expose a shortage in another. changes in how applications serve customers (e.g., a shift from chat-based interfaces to background processes) change which pieces matter the most. Novel solutions can make existing constraints obsolete. Therefore, it's best to assess the current needs without assuming they will exist indefinitely, while hedging against scenarios in which they disappear unexpectedly.
 
 Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move).
 
