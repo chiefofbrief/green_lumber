@@ -27,19 +27,41 @@ Be conservative when estimating the timeline for adoption. It's easy to make the
 
 -----------------
 
+## The Basics of AI
 
+### "AI" is a lot of things
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
+
+By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
+
+### Productivity is the Core Value Proposition, and Autonomy is the Promise
+
+In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
+
+At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts.
+
+### AI-Native Applications are Currently Limited, but Will Grow
+
+An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition).
+
+Consistent with the reinvention pattern, existing activities are being reshaped first: content generation (text/image/video), web search, web/app design, coding, and e-commerce (likely next) on the digital side, and driving, product design, manufacturing, and warehouse operations on the physical side. 
+
+Application-layer traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling); recognized within the field, but none have crossed into mainstream brand recognition, and none are publicly traded. 
+
+As the infrastructure improves, infrastructure cost for applications will decrease. As cost decreases, running models becomes cheaper, resulting in more models, model usage, and applications.
+
+### Applications within "Legacy Software" is the Current Application Trade
+
+Some existing public companies are rebuilding core parts of their business around AI-native models internally.  (e.g., AppLovin in ad serving, Unity in game development, Datadog in observability). 
+
+making them investable exposure to the same shift without waiting for AI-native startups to go public.
+
+--------------
 
 The overall AI sector still has substantial room for near-term growth. AI-native applications are not even publicly traded yet. Infrastructure is much further along, but there are still sub-sectors within infrastructure with the potential for substantial growth.
 
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).
-
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts.
-
-AI infrastructure and AI applications are not the same thing. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box (foundation models are not applications by this definition).
-
-To this point, publicly-traded AI-native applications are almost nonexistent, and private AI-native applications lack strong brand recognition, with the exception of a sprinkling of domain/task-specific models (e.g., Cursor, Lovable, Harvey).
-
-As the infrastructure improves, the cost/token will decrease. As cost/token decreases, running models becomes cheaper, resulting in more models, model usage, and applications. There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
+There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
 
 Physical AI is AI that understands and interacts with the laws of physics and the physical world. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
 
@@ -50,10 +72,6 @@ Data centers are the facilities that house accelerators.
 Domain-specific data, data traces (the thought that went into an output), and 'persistent' memory (history, preferences, etc.) are needed to expand beyond foundation models.
 
 Autonomous systems are the central focus for digital infrastructure.
-
-Consistent with the reinvention pattern, existing activities are being reshaped first: content generation (text/image/video), web search, web/app design, coding, and e-commerce (likely next) on the digital side, and driving, product design, manufacturing, and warehouse operations on the physical side. Application-layer traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling); recognized within the field, but none have crossed into mainstream brand recognition, and none are publicly traded.
-
-Some existing public companies are rebuilding core parts of their business around AI-native models internally (e.g., AppLovin in ad serving, Unity in game development, Datadog in observability), making them investable exposure to the same shift without waiting for AI-native startups to go public.
 
 AI is currently synonymous with models. LLMs have gotten the majority of the attention, but there are also generative image models, generative video models, vision models, vision-action models, world models, etc. Within models, the focus has been on foundation models, general-purpose models trained on broad data that can be adapted to many different tasks. And within foundation models, the focus has been on frontier models, a foundation model at (or near) the current cutting edge of capability. But, this focus is shifting, and will continue to do so. Rather than just relying on frontier models, users are exploring alternative models that offer a better mix of capabilities, cost, and privacy; the open-source vs. closed debate is the current iteration of this exploration. The conversation will eventually shift to domain/task-specific models, which actually meet the definition of an AI application.
 
