@@ -31,65 +31,136 @@ Be conservative when estimating the timeline for adoption. It's easy to make the
 
 ### Productivity is the Value Proposition
 
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
+In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. 
+
+This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
 
 ### Autonomy is the Goal
 
-At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts.
+At the extreme end of the productivity spectrum are autonomous systems that perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy will likely be the focus of AI development.
 
 ### Context and Compute are the Fuel
 
-Compute is the processing power that lets AI models learn patterns and generate outputs. Accelerators, such as GPUs or ASICs, perform the computations.
+Compute is the processing power that lets AI models learn patterns and generate outputs.
 
-Context is the data a model learns from and works with, from the training corpus to the documents and memory. Models need context to be effective.
+Context is the data a model learns from and works with, from the training corpus to the documents and memory. 
 
-### Accelerators are the Engines
+### Training and Inference are the Two Jobs
 
-Accelerators are designed to do massive amounts of specialized math simultaneously, which requires three things working together: processing cores (execute the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictate how far data travels and how fast it can move). Programming determines how well those pieces are used, since software has to keep the cores fed and busy.
+Training is the process of building a model: compute is applied to data so the model learns patterns. Inference is using the trained model to generate outputs.
 
-### Infrastructure and Applications Both have Digital and Physical Components
+Training happens before a model is deployed. Inference happens every time it is used.
 
-AI 
+Inference has two stages: prefill (processing the initial prompt) and decode (generating the response token by token). Decode is typically the constraint because it is limited by memory bandwidth, the speed at which data can be fetched.
+
+### Accelerators are the Critical Piece of Hardware
+
+Accelerators, such as GPUs and custom ASICs (e.g., TPUs), perform the computations. They also store context in memory.
+
+Accelerators are designed to do massive amounts of specialized math simultaneously, which requires three things working together: processing cores (execute the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictate how far data travels and how fast it can move). 
+
+Programming determines how well those pieces are used. Accelerators don't reach their full capacity out of the box; they need a software stack (kernels, compilers, serving frameworks) to approach their theoretical throughput.
+
+### Data Centers are Where Utilization is Maximized
+
+Data centers are the facilities that house accelerators. Accelerators, racks, networking, cooling, and power must all work together to keep accelerators fully utilized.
+
+Power (electricity) keeps accelerators running. Cooling removes the heat accelerators produce. Networking connects accelerators to each other so they can share data fast enough to work as one system.
+
+### Model Architectures are the Critical Piece of Software
+
+Architecture is the design that determines how much compute and memory a model needs. The transformer is the basis for today's foundation models.
+
+A new base architecture could change things drastically. Until then, efficiency comes from modifying the transformer to use less compute and less memory, and from hybrids that blend in alternative designs. MoE is one example, activating only part of the model for each token.
+
+### Data is Necessary to Expand Beyond Foundation Models
+
+General models need domain-specific data and data "traces" (the thought that went into human output) to go beyond what the internet provides. The likely sources are the holders of that work: end customers, specialized data providers, and vertical software companies.
+
+Data for physical AI is more limited since there is no equivalent to internet data. Approaches such as world models, video, and simulation are being used, but the most likely source of substantial data is the robots themselves during deployment.
+
+### Infrastructure and Applications are Both Digital and Physical
+
+AI infrastructure has two components. Physical infrastructure is the hardware: accelerators, racks, networking, power, and cooling. Digital infrastructure is the software and context: models, architectures, data, and protocols.
+
+AI applications split the same way. Digital AI works with information, such as text, images, and video. Physical AI understands and interacts with the physical world, as in robots, autonomous vehicles, and industrial systems.
+
+### Digital Infrastructure Needs to Adapt to Autonomous Software
+
+Most software is stateless: each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ("elastic"). Autonomous systems are stateful: they retain information between requests, and requests must be routed back to the infrastructure that holds their state.  
+
+Autonomous systems have to act on a world built for humans, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world adapts to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people. 
+
+### Inference Makes AI Costs Variable
+
+Traditional software costs almost nothing to serve to one more user. AI applications pay for inference (priced in tokens) every time they are used, so their costs scale with usage and their margins depend on what inference costs.
 
 
 -------------------------
 
-### Physical and Digital Infrastructure
+## The Current Landscape of AI
 
-There are two major components of AI infrastructure, both of which are being developed at the same time: Physical infrastructure (hardware, data centers, power, etc.) and Digital infrastructure (models, data, architectures, protocols, etc.).
+### Frontier Models are the Focus, but the Conversation is Shifting
+
+AI is currently synonymous with models. LLMs have gotten the majority of the attention, but there are also generative image models, generative video models, vision models, vision-action models, world models, etc. Within models, the focus has been on foundation models, general-purpose models trained on broad data that can be adapted to many different tasks. And within foundation models, the focus has been on frontier models, a foundation model at (or near) the current cutting edge of capability. But, this focus is shifting, and will continue to do so. Rather than just relying on frontier models, users are exploring alternative models that offer a better mix of capabilities, cost, and privacy; the open-source vs. closed debate is the current iteration of this exploration. The conversation will eventually shift to domain/task-specific models, which actually meet the definition of an AI application.
+
+### agents are the implementation of autonomy
+
+### digital infra is focused on models and agents
+
+### physical infra is focused on accelerator utlilization
+
+### cost needs to decrease, but GPU prices are increasing
+
+### GPUs are the best current option, but not the best option
+
+### data is at a premium
+
+### inference is a bottleneck
+
+### Data centers need natural gas
+
+### Innovative approaches to cooling and networking are gaining traction slowly
+
+### 'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure
+
+### physical AI is coming along slowly
+
+
+
+
+Accelerators aren't used at full capacity out of the box; they require a software stack (kernels, compilers, serving frameworks) to actually reach their theoretical throughput, and most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice.
+
+Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
 
 ### Physical AI
 
-Physical AI is AI that understands and interacts with the laws of physics and the physical world. Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
+Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
 
 ### accelerators are the core piece of hardware
 
 Accelerator utilization is the central focus for physical infrastructure. 
 
-Data centers are the facilities that house accelerators. 
-
 The biggest point of leverage, though, is accelerators; new designs that better balance memory and compute, as well as speed and throughput, will alleviate or eliminate some of the current constraints and workarounds.
 
 ### Doman Models
 
-Domain-specific data, data traces (the thought that went into an output), and 'persistent' memory (history, preferences, etc.) are needed to expand beyond foundation models.
+
 
 
 ### Model landscape
 
-AI is currently synonymous with models. LLMs have gotten the majority of the attention, but there are also generative image models, generative video models, vision models, vision-action models, world models, etc. Within models, the focus has been on foundation models, general-purpose models trained on broad data that can be adapted to many different tasks. And within foundation models, the focus has been on frontier models, a foundation model at (or near) the current cutting edge of capability. But, this focus is shifting, and will continue to do so. Rather than just relying on frontier models, users are exploring alternative models that offer a better mix of capabilities, cost, and privacy; the open-source vs. closed debate is the current iteration of this exploration. The conversation will eventually shift to domain/task-specific models, which actually meet the definition of an AI application.
+
 
 ### Data is king
 
  More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
 
-Data is perhaps the most important component of context. For software, domain-specific data and data 'traces' (the thought that went into human output) are necessary to augment beyond general models. Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
+Data is perhaps the most important component of context. 
 
-Data for physical AI is currently more limited since there is no equivalent to internet data; various approaches such as world models, videos, and simulations are being used, but the most likely source of substantial data is from the robots themselves during deployment.
 
-### Stateful vs. Stateless
 
-Most software is stateless; each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ('elastic'). Stateful systems retain information between requests and need to route users back to infrastructure that holds their state.
+
 
 ### Setting up the infra for agents
 
@@ -99,11 +170,11 @@ For autonomous systems to reach their potential, they need to act on a world bui
 
 ### software as a lever to improve hardware
 
-Accelerators aren't used at full capacity out of the box; they require a software stack (kernels, compilers, serving frameworks) to actually reach their theoretical throughput, and most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice. Inference serving frameworks (vLLM, SGLang, TensorRT-LLM) close some of this gap through techniques like continuous batching, speculative decoding, and quantization, extracting more throughput from existing chips rather than waiting on new ones. Mastering the software layer is the faster, cheaper lever before new accelerator designs arrive.
+ Inference serving frameworks (vLLM, SGLang, TensorRT-LLM) close some of this gap through techniques like continuous batching, speculative decoding, and quantization, extracting more throughput from existing chips rather than waiting on new ones. Mastering the software layer is the faster, cheaper lever before new accelerator designs arrive.
 
 ### inference is a bottleneck
 
-Inference, when a model applies its training to produce output, has two stages: prefill (processing the initial prompt) and decode (generating the response token by token). Decode is the constraint, severely limited by memory bandwidth (the speed data is fetched). Solving for this constraint happens at two levels: the software running on chips, and the design of the chips and data centers themselves.
+Decode is the constraint, severely limited by memory bandwidth (the speed data is fetched). Solving for this constraint happens at two levels: the software running on chips, and the design of the chips and data centers themselves.
 
 ### Agnt infra
 
