@@ -29,17 +29,30 @@ Be conservative when estimating the timeline for adoption. It's easy to make the
 
 ## The Basics of AI
 
-### "AI" is a lot of things
-
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
-
-By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
-
-### Productivity is the Core Value Proposition, and Autonomy is the Goal
+### Productivity is the Value Proposition
 
 In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
 
+### Autonomy is the Goal
+
 At the extreme end of the productivity spectrum is autonomous systems that perform a variety of actions with limited (or zero) human input. Whether this will come to fruition is uncertain, but the building blocks towards autonomy will likely be the focus of AI enthusiasts.
+
+### Context and Compute are the Fuel
+
+Compute is the processing power that lets AI models learn patterns and generate outputs. Accelerators, such as GPUs or ASICs, perform the computations.
+
+Context is the data a model learns from and works with, from the training corpus to the documents and memory. Models need context to be effective.
+
+### Accelerators are the Engines
+
+Accelerators are designed to do massive amounts of specialized math simultaneously, which requires three things working together: processing cores (execute the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictate how far data travels and how fast it can move). Programming determines how well those pieces are used, since software has to keep the cores fed and busy.
+
+### Infrastructure and Applications Both have Digital and Physical Components
+
+AI 
+
+
+-------------------------
 
 ### Physical and Digital Infrastructure
 
@@ -51,7 +64,7 @@ Physical AI is AI that understands and interacts with the laws of physics and th
 
 ### accelerators are the core piece of hardware
 
-Accelerator utilization is the central focus for physical infrastructure. Accelerators are designed to do massive amounts of specialized math simultaneously, requiring sufficient compute (executes the math), fast memory (where weights and state live), and high-speed fabric/interconnects (dictates how far data travels and how fast can it move).
+Accelerator utilization is the central focus for physical infrastructure. 
 
 Data centers are the facilities that house accelerators. 
 
@@ -68,7 +81,7 @@ AI is currently synonymous with models. LLMs have gotten the majority of the att
 
 ### Data is king
 
-Models need context (data, memory, guidance, etc.) to be effective. More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
+ More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
 
 Data is perhaps the most important component of context. For software, domain-specific data and data 'traces' (the thought that went into human output) are necessary to augment beyond general models. Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
 
@@ -126,6 +139,12 @@ Physical AI also requires something digital AI does not: the means to sense and 
 
 
 ------------------------
+
+### "AI" is hardware, software, infrastructure, and applications
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
+
+By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
 
 ### AI-Native Applications are Currently Limited, but Will Grow
 
