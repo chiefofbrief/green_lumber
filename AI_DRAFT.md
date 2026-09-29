@@ -100,17 +100,25 @@ Traditional software costs almost nothing to serve to one more user. AI applicat
 
 ## The Current Landscape of AI
 
-### "AI" is hardware, software, infrastructure, and applications
+### "AI" Is Too Broad to Have One View On
 
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
+"AI" is an umbrella term for advances in hardware, software, infrastructure, and applications. Because it covers all of them at once, it invites too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations).
 
-By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
+### The Focus Is Shifting from the Best Model to the Right Model
 
-### Frontier Models are the Focus, but the Conversation is Shifting
+AI is currently synonymous with models, and within models, with LLMs, foundation models, and frontier models. 
 
-AI is currently synonymous with models. LLMs have gotten the majority of the attention, but there are also generative image models, generative video models, vision models, vision-action models, world models, etc. Within models, the focus has been on foundation models, general-purpose models trained on broad data that can be adapted to many different tasks. And within foundation models, the focus has been on frontier models, a foundation model at (or near) the current cutting edge of capability. But, this focus is shifting, and will continue to do so. Rather than just relying on frontier models, users are exploring alternative models that offer a better mix of capabilities, cost, and privacy; the open-source vs. closed debate is the current iteration of this exploration. The conversation will eventually shift to domain/task-specific models, which actually meet the definition of an AI application.
+But there are other types of models, including image, video, vision, vision-action, and world models. Even within a single type, models vary in size, context, cost, and where they can run. 
 
-### agents are the implementation of autonomy
+That variety is why the focus is shifting. Users are looking for a better mix of capability, cost, and privacy rather than defaulting to the frontier. The open-source vs. closed debate is one version of that search. Local models, which run on a user's own hardware, are another, and enterprises building their own domain-specific models are a third.
+
+### Agents Are Autonomy in Practice, and Digital Infrastructure Is Being Built Around Them
+
+Autonomy is the goal, and agents are how it is showing up in practice today. Where a chatbot answers, an agent acts: it carries context across a long task, uses tools, and makes decisions along the way.
+
+Much of the current work on digital infrastructure is aimed at making agents workable. New protocols are emerging to let agents do what they couldn't natively, such as communicate with each other and execute transactions (e.g., A2A for agent-to-agent communication, x402 for agentic payments). Observability (monitoring what agents are doing) and governance (controlling what they can do) are becoming critical as agents are given more autonomy.
+
+### 
 
 
 ### digital infra is focused on models and agents
