@@ -61,7 +61,7 @@ Accelerators are designed to do massive amounts of specialized math simultaneous
 
 Programming determines how well those pieces are used. Accelerators don't reach their full capacity out of the box; they need a software stack (kernels, compilers, serving frameworks) to approach their theoretical throughput.
 
-### Data Centers are Where Utilization is Maximized
+### Data Centers are Where Accelerators Live
 
 Data centers are the facilities that house accelerators. Accelerators, racks, networking, cooling, and power must all work together to keep accelerators fully utilized.
 
@@ -100,122 +100,80 @@ Traditional software costs almost nothing to serve to one more user. AI applicat
 
 ## The Current Landscape of AI
 
+### "AI" is hardware, software, infrastructure, and applications
+
+"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
+
+By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
+
 ### Frontier Models are the Focus, but the Conversation is Shifting
 
 AI is currently synonymous with models. LLMs have gotten the majority of the attention, but there are also generative image models, generative video models, vision models, vision-action models, world models, etc. Within models, the focus has been on foundation models, general-purpose models trained on broad data that can be adapted to many different tasks. And within foundation models, the focus has been on frontier models, a foundation model at (or near) the current cutting edge of capability. But, this focus is shifting, and will continue to do so. Rather than just relying on frontier models, users are exploring alternative models that offer a better mix of capabilities, cost, and privacy; the open-source vs. closed debate is the current iteration of this exploration. The conversation will eventually shift to domain/task-specific models, which actually meet the definition of an AI application.
 
 ### agents are the implementation of autonomy
 
+
 ### digital infra is focused on models and agents
-
-### physical infra is focused on accelerator utlilization
-
-### cost needs to decrease, but GPU prices are increasing
-
-### GPUs are the best current option, but not the best option
-
-### data is at a premium
-
-### inference is a bottleneck
-
-### Data centers need natural gas
-
-### Innovative approaches to cooling and networking are gaining traction slowly
-
-### 'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure
-
-### physical AI is coming along slowly
-
-
-
-
-Accelerators aren't used at full capacity out of the box; they require a software stack (kernels, compilers, serving frameworks) to actually reach their theoretical throughput, and most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice.
-
-Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
-
-### Physical AI
-
-Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
-
-### accelerators are the core piece of hardware
-
-Accelerator utilization is the central focus for physical infrastructure. 
-
-The biggest point of leverage, though, is accelerators; new designs that better balance memory and compute, as well as speed and throughput, will alleviate or eliminate some of the current constraints and workarounds.
-
-### Doman Models
-
-
-
-
-### Model landscape
-
-
-
-### Data is king
-
- More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
-
-Data is perhaps the most important component of context. 
-
-
-
-
-
-### Setting up the infra for agents
 
 Observability (monitoring what is being done) and governance (controlling what can be done) will continue to be critical.
 
 For autonomous systems to reach their potential, they need to act on a world built for humans. New protocols are emerging to let systems do what they couldn't natively, communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication, x402 for agentic payments). At the same time, the human-facing world reshapes itself to be operable by non-human actors, with websites, software, and payment providers adapting to systems rather than people.
 
-### software as a lever to improve hardware
+### physical infra is focused on accelerator utlilization
 
- Inference serving frameworks (vLLM, SGLang, TensorRT-LLM) close some of this gap through techniques like continuous batching, speculative decoding, and quantization, extracting more throughput from existing chips rather than waiting on new ones. Mastering the software layer is the faster, cheaper lever before new accelerator designs arrive.
+Accelerator utilization is the central focus for physical infrastructure. 
+
+The biggest point of leverage, though, is accelerators; new designs that better balance memory and compute, as well as speed and throughput, will alleviate or eliminate some of the current constraints and workarounds.
+
+Inference serving frameworks (vLLM, SGLang, TensorRT-LLM) close some of this gap through techniques like continuous batching, speculative decoding, and quantization, extracting more throughput from existing chips rather than waiting on new ones. Mastering the software layer is the faster, cheaper lever before new accelerator designs arrive.
+
+Accelerators aren't used at full capacity out of the box; they require a software stack (kernels, compilers, serving frameworks) to actually reach their theoretical throughput, and most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice.
+
+**hybrid chip combinations (ASICs, GPUs, TPUs) will be standard for data centers.**
+
+### cost needs to decrease, but GPU prices are increasing
+
+
+
+### GPUs are the best current option, but not the best option
+
+### data is at a premium
+
+Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
+
+More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
+
+Data is perhaps the most important component of context. 
+
+
 
 ### inference is a bottleneck
 
 Decode is the constraint, severely limited by memory bandwidth (the speed data is fetched). Solving for this constraint happens at two levels: the software running on chips, and the design of the chips and data centers themselves.
 
-### Agnt infra
-
-Autonomous systems are the central focus for digital infrastructure.
-
-### data center
-
-Data centers traditionally rely on air cooling, but as accelerators are packed more densely and run hotter, air cooling struggles to keep up, forcing chips to throttle (reduce performance) to avoid damage. Liquid cooling, which removes heat directly at the chip, is one current approach to sustaining higher density without throttling.
-
-Optical networking, which moves data as light rather than electrical signal, is one current approach to carrying more data with less latency and heat than copper as clusters scale to thousands of chips.
-
-All of this runs inside the data center, and the data center itself requires electricity to operate.
+### Data centers need natural gas
 
 Data centers need electricity, and the only reliable source at the moment is natural gas. processing, gathering, and transmission infrastructure is insufficient for cost-effective deployment.
 
 Nuclear could fill the gap but isn't a five-year solution; existing plants are limited in number, new ones take years to build, and newer reactor designs aren't yet reliable. Solar and batteries are getting cheaper on the hardware itself, but surrounding costs (e.g., land, transmission, storage at scale) are not. Advanced geothermal may be the wildcard: it sits between gas, solar, and nuclear, running 24/7 with zero emissions while reusing existing oil and gas drilling equipment.
 
-hybrid chip combinations (ASICs, GPUs, TPUs) will be standard for data centers. 
+### Innovative approaches to cooling and networking are gaining traction slowly
 
-### whs providing the infra?
+Data centers traditionally rely on air cooling, but as accelerators are packed more densely and run hotter, air cooling struggles to keep up, forcing chips to throttle (reduce performance) to avoid damage. Liquid cooling, which removes heat directly at the chip, is one current approach to sustaining higher density without throttling.
+
+Optical networking, which moves data as light rather than electrical signal, is one current approach to carrying more data with less latency and heat than copper as clusters scale to thousands of chips.
+
+### 'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure
 
 'Incumbents' (pre-2023 companies) are providing/building the majority of the infrastructure, and that is unlikely to change in the near-term.  However, because of the amount of investment, even minor efficiency improvements can have a huge impact, attracting new ideas and companies. It's likely that in the near-term the established vendors do most of the work, in the near to medium-term new entrants steal some market share, and in the long-term prices drop and everyone gets hurt (until the cycle resets).
 
-### Physicl ai
-
-Much of the above applies to physical AI as well; it runs on much of the same compute infrastructure, shares many of the same models, and faces many of the same digital constraints.
+### physical AI is coming along slowly
 
 Robotics excitement has grown because language and vision models lowered the barrier to training. But within the next five years, these models are more likely to serve as the 'brain' for existing machines than to power entirely new ones, and the new machines that do get built are more likely to be deployed into existing enterprise applications, like manufacturing, than into new categories.
 
 World models, and possibly foundation models for robotics, are what unlock a wider range of use cases; a foundation model lets a robot pick up new tasks with limited training, though as with software, ROI will likely be higher for models trained on a specific environment.
 
 Physical AI also requires something digital AI does not: the means to sense and act on the physical world. Sensing spans vision, audio, and other sensors; acting spans movement, dexterity, spatial awareness, and coordination with other autonomous systems.
-
-
-------------------------
-
-### "AI" is hardware, software, infrastructure, and applications
-
-"AI" has become the umbrella term for a variety of advances in hardware, software, infrastructure, and applications. 
-
-By being attached to all four categories at the same time, it lends itself easily to too much optimism or pessimism depending on the framing (e.g., optimistic about agents, pessimistic about memory limitations). But AI infrastructure and AI applications are not the same thing.
 
 ### AI-Native Applications are Currently Limited, but Will Grow
 
@@ -237,5 +195,16 @@ Existing SAAS companies that provide agentic infrastructure are well-positioned 
 
 ### stages of growth
 
-The overall AI sector still has substantial room for near-term growth. AI-native applications are not even publicly traded yet. Infrastructure is much further along, but there are still sub-sectors within infrastructure with the potential for substantial growth.
+The overall AI sector still has substantial room for near-term growth. AI-native applications are not even publicly traded yet. Infrastructure is much further along, but there 
+
+------------------------
+
+
+### Physical AI
+
+Physical AI's upside is larger if it arrives, but the path there runs through real-world deployment, data collection, and hardware, none of which digital AI has to contend with to the same degree.
+
+Much of the above applies to physical AI as well; it runs on much of the same compute infrastructure, shares many of the same models, and faces many of the same digital constraints.
+
+are still sub-sectors within infrastructure with the potential for substantial growth.
 
