@@ -43,7 +43,7 @@ At the extreme end of the productivity spectrum are autonomous systems that perf
 
 Compute is the processing power that lets AI models learn patterns and generate outputs.
 
-Context is the data a model learns from and works with, from the training corpus to the documents and memory. 
+Context is everything a model learns from and works with, including data, state, and memory. 
 
 ### Training and Inference are the Two Jobs
 
@@ -118,14 +118,24 @@ Autonomy is the goal, and agents are how it is showing up in practice today. Whe
 
 Much of the current work on digital infrastructure is aimed at making agents workable. New protocols are emerging to let agents do what they couldn't natively, such as communicate with each other and execute transactions (e.g., A2A for agent-to-agent communication, x402 for agentic payments). Observability (monitoring what agents are doing) and governance (controlling what they can do) are becoming critical as agents are given more autonomy.
 
-### 
+### Task-Specific Data Is Valuable
+
+For an autonomous system to choose the right action and execute it properly, it needs persistent, task-specific context. 
+
+General models have already absorbed most of what the internet offers, so the data that is scarce now is the domain-specific data and traces held by the people who do the work. Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SaaS companies (e.g., Tyler, Agilysys).
+
+### Every Physical Constraint Shows Up as an Idle Accelerator
+
+Accelerators are the most expensive part of the stack, so physical infrastructure is currently organized around keeping them busy. Memory bandwidth leaves cores waiting on data, weak networking leaves chips waiting on each other, heat forces throttling, and missing power leaves chips unused. Most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice.
+
+### Inference Is Constrained by Memory Bandwidth
 
 
-### digital infra is focused on models and agents
 
-Observability (monitoring what is being done) and governance (controlling what can be done) will continue to be critical.
 
-For autonomous systems to reach their potential, they need to act on a world built for humans. New protocols are emerging to let systems do what they couldn't natively, communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication, x402 for agentic payments). At the same time, the human-facing world reshapes itself to be operable by non-human actors, with websites, software, and payment providers adapting to systems rather than people.
+
+
+
 
 ### physical infra is focused on accelerator utlilization
 
@@ -145,13 +155,7 @@ Accelerators aren't used at full capacity out of the box; they require a softwar
 
 ### GPUs are the best current option, but not the best option
 
-### data is at a premium
 
-Potential sources include end customers (e.g., a law firm providing its data and thought process), third-party model trainers and data providers (e.g., Mercor), and vertical SAAS companies (e.g., Tyler, Agilsys).
-
-More broadly, in order for an autonomous system to choose the right action and execute it properly, persistent, task-specific context is critical.
-
-Data is perhaps the most important component of context. 
 
 
 
