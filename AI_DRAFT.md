@@ -188,11 +188,45 @@ World models, and possibly foundation models for robotics, are what could broade
 
 Physical AI faces major constraints beyond the models themselves, including the hardware needed to sense and act on the physical world and the lack of an equivalent to the internet data that trained language models. World models, video, and simulation are being explored as data sources, but the robots themselves during deployment are the most likely source of substantial data.
 
-
+### Applications Have the Most Room, and Infrastructure Is Further Along
 
 ----------------------
 
+## Projections and Investment Implications
 
+### Own Infrastructure and Existing SaaS Now, and Rotate to AI-Native Applications Later
+
+### Incumbents Are Building Infrastructure Now, Entrants Will Take Share Later, and Competition Eventually Hurts All but the Strongest
+
+### Own Networking, Especially Optical
+
+### Own Cooling, Especially Liquid
+
+### Own Memory as Inference Demand Grows
+
+### Own Accelerators Broadly While GPU Prices Keep Rising
+
+### Own Natural Gas and Its Supply Chain for Data Center Power
+
+### Own Agentic Infrastructure Providers in the Near Term
+
+### Own Companies Building Domain-Specific Models and Holding Domain Data
+
+### Own Existing Machine Makers Adding AI
+
+### Own Sensors, Cameras, and Actuators as Physical AI Deploys
+
+### Own Data Holders as Domain Data Becomes the Scarce Input
+
+### Own Models Beyond the Frontier, Including Local and Domain-Specific Models
+
+### Own the APIs That Agents Use to Act
+
+### Own Cloud and Runtime Providers as Agents Make Workloads Stateful
+
+### Own Robot and Machine Makers as AI Lowers the Cost of Deploying Them
+
+### Own Sensor, Camera, and Actuator Suppliers as Physical AI Deploys
 
 
 
