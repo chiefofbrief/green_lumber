@@ -180,7 +180,17 @@ Consistent with the reinvention pattern, AI-native applications are reshaping ex
 
 Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition or are publicly traded. 
 
+### Physical AI is Coming, but Still Needs Time
 
+Robotics excitement has grown because language and vision models lowered the barrier to training robots. But for now, these models are more likely to serve as the "brain" for existing machines than to power entirely new ones. The machines that get deployed are more likely to go into existing enterprise applications, like manufacturing, than into new categories.
+
+World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications.
+
+Physical AI faces major constraints beyond the models themselves, including the hardware needed to sense and act on the physical world and the lack of an equivalent to the internet data that trained language models. World models, video, and simulation are being explored as data sources, but the robots themselves during deployment are the most likely source of substantial data.
+
+
+
+----------------------
 
 
 
