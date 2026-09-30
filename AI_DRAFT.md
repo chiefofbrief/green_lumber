@@ -17,7 +17,7 @@ Applications initially get more traction by reinventing existing activities rath
 
 The primary purpose of infrastructure is to lower the cost of deployment for applications. The companies benefit while they are solving a constraint to deployment, but eventually become commodities as constraints shift. Oversupply (leading to price competition), changes in how applications serve customers, and novel solutions can all shift constraints. The strongest companies (low costs, healthy financials, strong brands) are a good starting point as they are best able to withstand oversupply, but even they can experience huge price decreases.  
 
-### Be Early, but not Too Early
+### Try to Be Early, But Definitely Don't Be Late
 
 Being right on the wrong timeline can be similar to being wrong. A balance must be struck between being early enough to enjoy growth while not being so early that a return is not available for years. The ideal investment experiences sales growth in the near-term, which is about 2 years. 
 
@@ -25,23 +25,21 @@ However, the worst possible scenario is being late, so the absolute likelihood o
 
 Be conservative when estimating the timeline for adoption. It's easy to make the mistake of being too early in new technology. Adoption of applications at scale is usually not realized until well after the potential is visible. The infrastructure takes time to build, and people's behaviors need time to adapt. 
 
+Being early only pays if you still own it when the growth arrives. The usual failure isn't bad analysis, it's giving up on the position before the payoff. 
+
 -----------------
 
 ## The Basics of AI
 
-### Productivity is the Value Proposition
+### Productivity is the Value Proposition, Autonomy is the Goal
 
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. 
+In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
 
-This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
-
-### Autonomy is the Goal
-
-At the extreme end of the productivity spectrum are autonomous systems that perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy will likely be the focus of AI development.
+At the extreme end of the productivity spectrum are autonomous systems that perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy are the focus of AI development.
 
 ### Context and Compute are the Fuel
 
-Compute is the processing power that lets AI models learn patterns and generate outputs.
+Compute is the processing power that lets AI models learn patterns and generate outputs. 
 
 Context is everything a model learns from and works with, including data, state, and memory. 
 
