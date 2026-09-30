@@ -85,6 +85,8 @@ AI infrastructure has two components. Physical infrastructure is the hardware: a
 
 AI applications split the same way. Digital AI works with information, such as text, images, and video. Physical AI understands and interacts with the physical world, as in robots, autonomous vehicles, and industrial systems.
 
+An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box.
+
 ### Digital Infrastructure Needs to Adapt to Autonomous Software
 
 Most software is stateless: each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ("elastic"). Autonomous systems are stateful: they retain information between requests, and requests must be routed back to the infrastructure that holds their state.  
@@ -128,7 +130,63 @@ General models have already absorbed most of what the internet offers, so the da
 
 Accelerators are the most expensive part of the stack, so physical infrastructure is currently organized around keeping them busy. Memory bandwidth leaves cores waiting on data, weak networking leaves chips waiting on each other, heat forces throttling, and missing power leaves chips unused. Most deployed accelerators, including Nvidia GPUs, run below 100% utilization in practice.
 
-### Inference Is Constrained by Memory Bandwidth
+### Inference is a Central Concern
+
+Inference is where cost and capacity pressure accumulate as usage grows, and decode is the issue.
+
+Solutions are being pursued at every layer of the stack, from model architecture and compression to runtime software (e.g., vLLM, SGLang, TensorRT-LLM), chip design, and data center design. These are leading approaches, and no single one has settled the constraint.
+
+### Cooling Innovations Reduce Idle Accelerators, but Adoption Is Gradual
+
+Air cooling is the default way to cool accelerators in data centers. As accelerators are packed more densely and run hotter, it struggles to keep up.
+
+Liquid cooling, which removes heat directly at the chip, is the new alternative gaining attention for sustaining higher density.
+
+For now, both are being used. Liquid cooling adoption is real, but it needs to keep scaling.
+
+### Networking Is Being Extended Up, Out, and Across to Reduce Idle Accelerators
+
+Scale up links chips within a rack so they act like one larger accelerator. Scale out links racks across the data center, and scale across links data centers. All three are being explored to ease the inference bottleneck and work around limited GPU supply.
+
+Copper is the default within a rack. Optical is the hot alternative. It moves data as light rather than electrical signals, carrying more data with less latency and heat as clusters scale to thousands of chips.
+
+Ethernet is the approach for scaling across long distances.
+
+### Power Limits How Many Accelerators Can Run, and Natural Gas Is the Only Reliable Source Today
+
+Data centers need large, constant supplies of electricity, and natural gas is the only source that can reliably provide it now. Even gas is constrained, since the processing, gathering, and transmission infrastructure is insufficient for cost-effective deployment.
+
+The alternatives each fall short on something different. Nuclear isn't a five-year solution: existing plants are limited in number, new ones take years to build, and newer reactor designs aren't yet reliable. Solar and batteries are getting cheaper on the hardware itself, but the surrounding costs (land, transmission, storage at scale) are not.
+
+Advanced geothermal may be the wildcard. It sits between gas, solar, and nuclear, running 24/7 with zero emissions while reusing existing oil and gas drilling equipment.
+
+### Cost per Token Is Falling Only Incrementally, and GPU Prices Are Rising
+
+GPUs dominate the accelerators available in the market, and their prices keep rising. 
+
+Cost per token is currently falling only through efficiency. Current techniques deliver incremental gains within existing designs: model architectures that use less compute and memory (e.g., MoE), quantization that shrinks the data being moved, runtime software that batches requests and generates tokens faster, and networking that moves data faster.
+
+A drastic decline would require a step change in technology, either a new base architecture or new accelerator designs. or more accelerators being deployed. 
+
+### Incumbents Are Building Most of the Infrastructure, although it's Attracting New Entrants
+
+"Incumbents" (companies that existed before 2023) are providing and building the majority of the infrastructure, and that is unlikely to change in the near term.
+
+But the amount of investment and the constraints on current infrastructure are attracting new ideas and companies since even minor efficiency improvements can have a huge impact. These entrants are not gaining major share yet, but may over time.
+
+### AI-Native Applications Are Early, and Existing Activities Are Being Reshaped First
+
+Consistent with the reinvention pattern, AI-native applications are reshaping existing activities first: content generation (text, image, video), web search, web and app design, coding, and e-commerce (likely next) on the digital side, and driving, product design, manufacturing, and warehouse operations on the physical side.
+
+Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition or are publicly traded. 
+
+
+
+
+
+
+
+
 
 
 
