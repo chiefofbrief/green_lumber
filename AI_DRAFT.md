@@ -114,6 +114,21 @@ Cost per token is falling, but only through efficiency gains within existing des
 
 Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless, since agents consume far more tokens per task than chat does.
 
+### Every Physical Constraint Shows Up as an Idle Accelerator
+
+Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, heat forces throttling, and missing power leaves chips unused.
+
+Memory is the hardest constraint to relieve. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. One response is to stop using the same chip for everything. Training, prefill, and decode have different compute and memory needs, so data centers are running mixed fleets and routing each job to the silicon that fits it. GPUs remain the default by a wide margin, but the field is widening beyond the chips best suited to training.
+
+Networking is being extended up, out, and across. Scale up links chips within a rack so they act like one larger accelerator. Scale out links racks across the data center. Scale across links data centers. Copper still handles most connections within a rack, but it runs into distance and heat limits as racks get denser. Optical moves data as light, carrying more with less latency and heat, and everything beyond a rack already runs on it. Ethernet is the protocol for scaling out and across.
+
+Cooling is shifting to liquid, gradually. Air is the default, but as accelerators are packed more densely and run hotter it struggles to keep up. Liquid removes heat at the chip and sustains higher density. 
+
+Power limits how many accelerators can run, and natural gas is the only source that can reliably supply it now. Even gas is constrained, since processing, gathering, and transmission infrastructure is insufficient for cost-effective deployment. 
+* Nuclear is not a five-year solution: existing plants are limited, new ones take years, and newer reactor designs are not yet reliable.
+* Solar and batteries are getting cheaper on the hardware, but land, transmission, and storage at scale are not.
+* Advanced geothermal may be the wildcard, running constantly with zero emissions while reusing existing oil and gas drilling equipment.
+
 
 ------------------------
 
