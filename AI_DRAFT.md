@@ -106,7 +106,13 @@ Vertical software companies hold data as a byproduct, since the work runs inside
 
 A third industry is forming to build it deliberately (e.g., Mercor). These companies supply traces, the reasoning behind expert work rather than the output, to the labs.
 
-### 
+### Inference (and Cost) is the Central Concern
+
+Inference is where cost and capacity pressure accumulate as usage grows. Decode is the main issue. Solutions are being pursued at every layer: model architecture and compression, runtime software (e.g., vLLM, SGLang, TensorRT-LLM), chip design, and data center design.
+
+Cost per token is falling, but only through efficiency gains within existing designs: architectures that use less compute and memory (e.g., MoE), quantization that shrinks the data being moved, runtime software that batches requests, and networking that moves data faster. A drastic decline would require more accelerator supply or a step change through a new base architecture or new accelerator designs. 
+
+Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless, since agents consume far more tokens per task than chat does.
 
 
 ------------------------
