@@ -37,6 +37,8 @@ In its current form, AI is a productivity tool; it provides a better ratio of ou
 
 At the extreme end of the productivity spectrum are autonomous systems that perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy are the focus of AI development.
 
+What limits autonomy is reliability. Models are probabilistic, not deterministic: the same input can produce different outputs, and a wrong one looks like a right one. Reliability varies by task in ways that are hard to predict. Autonomy has arrived first where outputs can be verified, and is likely to be more prevalent where the cost of errors is low. 
+
 ### Infrastructure and Applications are Both Digital and Physical
 
 AI infrastructure has two components. Physical infrastructure is the hardware: accelerators, racks, networking, power, and cooling. Digital infrastructure is the software and context: models, architectures, data, and protocols.
@@ -45,7 +47,9 @@ AI applications split the same way. An AI-native application is a user-facing pr
 
 ### Context and Compute are the Fuel
 
-Compute is the processing power that lets AI models learn patterns and generate outputs. Training spends it to learn patterns from data; inference spends it every time the model is used. It is the input you can buy, so it scales with money and with how fast data centers get built.
+Compute is the processing power that lets AI models learn patterns and generate outputs. Training spends it to learn patterns from data; inference spends it every time the model is used. It is the input you can buy, so it scales with money and with how fast data centers get built. 
+
+The industry assumes scale works: more compute and more data produce better models, predictably, and it has held over several orders of magnitude. That assumption is what justifies the spending. It is an empirical observation, not a law, and architecture is the most likely thing to break it.
 
 Context is what the model works with. It takes three forms, and they behave differently.
 * Training data is what the model learns from before it is deployed. General models have already absorbed the public internet, so what remains scarce is domain-specific data and traces, meaning the thinking behind the work rather than just the output. That sits with whoever does the work: end customers, data providers, and vertical software companies. Physical AI has no public equivalent to start from.
@@ -72,7 +76,7 @@ Accelerators are the most expensive part of the stack, so an idle one is the cos
 
 ### Digital Infrastructure Makes Models Useful
 
-Digital infrastructure has two layers: the model, and everything around it.
+Digital infrastructure has two layers: the model, and everything around it. A model is any system trained to produce outputs from patterns in data. LLMs are one type. Image, video, vision, vision-action, and world models are others. Within a type, models vary in size, cost, context, and where they can run.
 
 Architecture is the design that determines what a model can do and how much compute and memory it needs. The transformer is the basis for today's foundation models. A new base architecture would change things drastically. Until then, efficiency comes from modifying the transformer to use less compute and less memory, and from hybrids that blend in alternative designs (e.g., MoE).
 
@@ -81,6 +85,31 @@ A model on its own only produces outputs. Everything around it turns those outpu
 * They also have to act on a world built for humans, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world adapts to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
 
 --------------------
+
+## The Current AI Landscape
+
+### The Model Layer is Diversifying
+
+AI is still largely synonymous with LLMs, and within LLMs, with frontier models. But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run. 
+
+Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Open-source versus closed is one version of that search. Local models, which run on a user's own hardware, are another.
+
+Enterprises are going a step further. Rather than choosing among general models, they are building their own on their own data. A frontier model knows what is public; it does not know how a particular company works.
+
+### Task-Specific Data Is the Scarce Input
+
+Proprietary data is valuable right now. General models have absorbed what the internet offers, so what improves performance on a specific task is the data held by whoever does the work,  hosts the work, or collects it on purpose. 
+
+Data originates with the people doing the work: a law firm, a hospital, a manufacturer. They hold both the output and the reasoning behind it, and they are using it to build and augment their own models.
+
+Vertical software companies hold data as a byproduct, since the work runs inside their systems (e.g., Tyler, Agilysys). 
+
+A third industry is forming to build it deliberately (e.g., Mercor). These companies supply traces, the reasoning behind expert work rather than the output, to the labs.
+
+### 
+
+
+------------------------
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
 
