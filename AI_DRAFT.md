@@ -129,6 +129,33 @@ Power limits how many accelerators can run, and natural gas is the only source t
 * Solar and batteries are getting cheaper on the hardware, but land, transmission, and storage at scale are not.
 * Advanced geothermal may be the wildcard, running constantly with zero emissions while reusing existing oil and gas drilling equipment.
 
+### Agents Are Autonomy in Practice, and Digital Infrastructure Is Being Built Around Them
+
+Where a chatbot answers, an agent acts. It carries context across a long task, uses tools, and makes decisions along the way.
+
+Errors compound across a long task, so observability and governance are becoming critical as agents are given more autonomy: someone has to see what they did and limit what they can do. New protocols are emerging to let agents do what they cannot natively, such as communicate with each other and execute transactions (e.g., A2A for agent-to-agent communication, x402 for agentic payments).
+
+Serving agents is a different problem than serving software, and cloud providers are rearchitecting around it. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request.
+
+### AI-Native Applications Are Early
+
+Existing activities are being reshaped before new ones are invented, which is the usual pattern. Content generation (text, image, video) came first, since the output is the product. Coding followed, since the output can be checked. Web search is being substituted, and web and app design after it. E-commerce is the likely next one, since it is a transaction an agent can carry out.
+
+Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition, and none are publicly traded. That is the gap between what is working and what is investable.
+
+Inference cost is the constraint on the business model. Applications pay for every use, so margins depend on what inference costs, and most cannot yet run frontier models profitably. Until that changes, the better application is not necessarily the better business.
+
+### Physical AI is Coming, but Still Needs Time
+
+Robotics excitement has grown because language and vision models lowered the barrier to training robots. For now, these models are more likely to serve as the brain for existing machines than to power entirely new ones, and the machines that get deployed are more likely to go into existing enterprise applications like manufacturing than into new categories.
+
+Driving, product design, manufacturing, and warehouse operations are where it is showing up.
+
+The constraints go beyond the models. Hardware to sense and act on the physical world is expensive and slow to iterate. Errors are not reversible, which raises the reliability bar. And there is no public equivalent to the internet data that trained language models. World models, video, and simulation are being explored as substitutes, but the robots themselves during deployment are the most likely source at scale.
+
+World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications.
+
+
 
 ------------------------
 
