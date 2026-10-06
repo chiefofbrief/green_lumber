@@ -92,7 +92,7 @@ A model on its own only produces outputs. Everything around it turns those outpu
 
 AI is still largely synonymous with LLMs, and within LLMs, with frontier models. But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run. 
 
-Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Open-source versus closed is one version of that search. Local models, which run on a user's own hardware, are another.
+Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Open-source versus closed is one version of that search. Local models, which run on a user's own hardware, are another. Taken together, these point to general capability commoditizing: open-weight models have closed much of the gap and cap what labs can charge for it.
 
 Enterprises are going a step further. Rather than choosing among general models, they are building their own on their own data. A frontier model knows what is public; it does not know how a particular company works.
 
@@ -137,6 +137,17 @@ Errors compound across a long task, so observability and governance are becoming
 
 Serving agents is a different problem than serving software, and cloud providers are rearchitecting around it. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request.
 
+### Incumbents Are Leading the Buildout (for Now)
+
+Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software.
+
+Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it. That creates two problems:
+
+Some of the demand is circular. They buy from each other, invest in each other, and commit to each other's capacity, so a share of what looks like end demand is the group paying itself. How much is unknown.
+The funding is getting more expensive. It has moved down the capital curve: operating cash flow first, then debt, and now equity and off-balance-sheet structures. Each step costs more and leaves less room, and at some point the spending has to be supported by cash the assets generate.
+
+The money involved is drawing in startups, since even minor efficiency improvements are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). When they do, they compete on price, which is how infrastructure margins come down.
+
 ### AI-Native Applications Are Early
 
 Existing activities are being reshaped before new ones are invented, which is the usual pattern. Content generation (text, image, video) came first, since the output is the product. Coding followed, since the output can be checked. Web search is being substituted, and web and app design after it. E-commerce is the likely next one, since it is a transaction an agent can carry out.
@@ -156,7 +167,10 @@ The constraints go beyond the models. Hardware to sense and act on the physical 
 World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications.
 
 
+-------------------------
+_________________________________________
 
+DUCIOSFhnljsdnfjklasdfn;
 ------------------------
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
