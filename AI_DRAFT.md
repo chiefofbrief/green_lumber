@@ -137,6 +137,8 @@ Errors compound across a long task, so observability and governance are becoming
 
 Serving agents is a different problem than serving software, and cloud providers are rearchitecting around it. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request.
 
+Agents act on software through APIs. MCP has become the leading protocol for exposing them to agents, and adoption is already deep in large enterprises, but agents call ordinary APIs too. Software that exposes comprehensive access gets used by agents; software that does not gets routed around.
+
 ### Incumbents Are Leading the Buildout (for Now)
 
 Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software.
@@ -166,12 +168,102 @@ The constraints go beyond the models. Hardware to sense and act on the physical 
 
 World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications.
 
-
 -------------------------
-_________________________________________
 
-DUCIOSFhnljsdnfjklasdfn;
-------------------------
+## Investment Implications
+
+### Buy the Physical Bottlenecks
+
+The total spend is not the trade. The trade is whatever is scarce while it is scarce. The best of these are the ones others are not already crowded into, and the ones that survive a change in architecture or chip design.
+
+**Natural gas and its supply chain**. Power is the hardest constraint on how many accelerators can run, and gas is the only source that reliably supplies it now. This is the safest of the five. It is the raw input, so it does not care which architecture wins, which chip is deployed, or how fast cost per token falls. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
+
+**Cooling, especially liquid**. Density keeps rising and air cannot keep up. Adoption is gradual, which makes the demand long rather than spiky, and it is not yet crowded. Like gas, it is indifferent to what runs on the chips.
+
+**Networking, especially optical**. Everything beyond a rack already runs on light, and scale out and scale across keep adding links. More deployment means more connections regardless of whose silicon is in the racks.
+
+**Accelerators broadly**. Mixed fleets mean picking the winning chip matters less than owning the growth in chips deployed. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason. The bet is on volume, not on who wins.
+
+**Memory**. The most obvious of the five and the most crowded. Demand is real and scales directly with inference volume, but current margins reflect shortage pricing, and shortage pricing reverts. Own it knowing the margin is what gives back, not the demand.
+
+### Within Each Bottleneck, Find the Strongest and the Best-Priced
+
+Do not buy something priced as if the bottleneck is permanent. A company earning shortage margins is being valued on earnings that do not survive the shortage, so the more inflated the margin, the more the price assumes the constraint never breaks.
+
+What you are selecting for is durability, at two levels. Start with the constraints that break later; for example, gas doesn't care which architecture wins or whose chip gets deployed. Then, within them, own the strongest companies: low cost, healthy financials, strong brands, real distribution. They hold up when supply catches up and competition arrives.
+
+Tracking the constraint directly is sharper, but the data is often not public, and what is public can be wrong or talked up by the people selling into it. You will not see the break coming, so the position has to survive it without you.
+
+### Own Agentic Infrastructure
+
+Agents are where autonomy is showing up, and the layer serving them is being built now. Most of it is coming from incumbents extending what they already sell, which makes this ownable today in a way the applications are not.
+
+**Task-specific data**. What an agent needs to act correctly rather than generically. It sits with whoever does the work, hosts it, or collects it on purpose.
+
+**Observability and governance**. The tools that record what agents did and limit what they can do. The existing observability and security vendors are selling it.
+
+**APIs and access**. How agents reach software. MCP leads, but agents call ordinary APIs too, and gateway and identity vendors sit in the same path.
+
+**The agent-readable web**. Sites made parseable, search sold as an API instead of a results page, catalogs and content structured for systems rather than people.
+
+**Cloud and runtime**. The providers rebuilding for sessions that hold state and run long.
+
+**Agentic commerce**. Merchants, marketplaces, and the rails underneath all have to handle a buyer that is not a person. Several standards are competing and none has settled.
+
+### Own Existing Software as the Application Proxy and Data Holder
+
+The application layer is where value ends up, but the AI-native ones are private and cannot run profitably yet. Existing software companies are the way to own that layer now. They hold the domain data by default, since the work runs inside their systems, and they have the customers and distribution already.
+
+Some of these companies are also the ones AI replaces. Owning the category does not work; three things separate them:
+* Is the data hard to replicate, or incidental? Accumulated judgment about how work gets done is not reproducible. Transaction records and configuration settings mostly are.
+* Do agents use them, or route around them? The ones exposing comprehensive access become the systems agents call. The ones that do not become a layer agents skip.
+* Does AI deepen the product, or sit on top of it? Domain-specific models built on their own data are a different thing from a chat interface added to the existing one.
+
+Task-specific models are where this goes. The companies holding the data are the ones positioned to build them.
+
+### Physical AI Is a Supplier and Machine-Maker Trade
+
+Robots are mostly private, unproven, and years from scale. The companies supplying the parts and the machines are neither.
+
+Sensors, cameras, and actuators. What a machine needs to perceive and act. Demand grows with units deployed regardless of which robot company deploys them.
+
+Existing machine makers adding AI. Manufacturing equipment, warehouse systems, agricultural and construction machinery. The models go into machines that already have buyers and installed bases rather than into new categories.
+
+Deployment is slower here than in digital AI. The hardware is expensive and slow to iterate, errors are not reversible, and there is no public data to train on.
+
+### Rotate to AI-Native Applications Later
+
+This is where the value ends up. It is also the one position that cannot be taken yet: the standouts are private, and inference costs more than most applications can carry. What has to change:
+* Inference cost. Applications pay per use. Until that falls far enough, the better product is not the better business.
+* Access. Nothing here is publicly traded. Listings, or acquisitions that put the exposure inside something that is.
+* Reliability. Autonomy has arrived where outputs can be verified. The applications that scale next are the ones where that holds.
+
+Existing software is the proxy until then. When these change, the rotation is out of infrastructure and into applications, because infrastructure eventually competes on price and applications are where the margin ends up.
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+## STOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+----------------------------------------------------------------
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
 
@@ -328,53 +420,6 @@ World models, and possibly foundation models for robotics, are what could broade
 Physical AI faces major constraints beyond the models themselves, including the hardware needed to sense and act on the physical world and the lack of an equivalent to the internet data that trained language models. World models, video, and simulation are being explored as data sources, but the robots themselves during deployment are the most likely source of substantial data.
 
 ### Applications Have the Most Room, and Infrastructure Is Further Along
-
-----------------------
-
-## Projections and Investment Implications
-
-### Own Infrastructure and Existing SaaS Now, and Rotate to AI-Native Applications Later
-
-### Incumbents Are Building Infrastructure Now, Entrants Will Take Share Later, and Competition Eventually Hurts All but the Strongest
-
-### Own Networking, Especially Optical
-
-### Own Cooling, Especially Liquid
-
-### Own Memory as Inference Demand Grows
-
-### Own Accelerators Broadly While GPU Prices Keep Rising
-
-### Own Natural Gas and Its Supply Chain for Data Center Power
-
-### Own Agentic Infrastructure Providers in the Near Term
-
-### Own Companies Building Domain-Specific Models and Holding Domain Data
-
-### Own Existing Machine Makers Adding AI
-
-### Own Sensors, Cameras, and Actuators as Physical AI Deploys
-
-### Own Data Holders as Domain Data Becomes the Scarce Input
-
-### Own Models Beyond the Frontier, Including Local and Domain-Specific Models
-
-### Own the APIs That Agents Use to Act
-
-### Own Cloud and Runtime Providers as Agents Make Workloads Stateful
-
-### Own Robot and Machine Makers as AI Lowers the Cost of Deploying Them
-
-### Own Sensor, Camera, and Actuator Suppliers as Physical AI Deploys
-
-
-
-
-
-
-
-
-
 
 
 
