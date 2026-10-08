@@ -88,6 +88,10 @@ A model on its own only produces outputs. Everything around it turns those outpu
 
 ## The Current AI Landscape
 
+### The Sector Is Early
+
+Infrastructure is further along than applications, and within infrastructure, physical is further along than digital. None of it is late.
+
 ### The Model Layer is Diversifying
 
 AI is still largely synonymous with LLMs, and within LLMs, with frontier models. But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run. 
@@ -112,7 +116,7 @@ Inference is where cost and capacity pressure accumulate as usage grows. Decode 
 
 Cost per token is falling, but only through efficiency gains within existing designs: architectures that use less compute and memory (e.g., MoE), quantization that shrinks the data being moved, runtime software that batches requests, and networking that moves data faster. A drastic decline would require more accelerator supply or a step change through a new base architecture or new accelerator designs. 
 
-Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless, since agents consume far more tokens per task than chat does.
+Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless. Agents consume far more tokens per task than chat does, and agentic adoption is early, so the mix is still shifting toward the expensive workload.
 
 ### Every Physical Constraint Shows Up as an Idle Accelerator
 
@@ -143,12 +147,18 @@ Agents act on software through APIs. MCP has become the leading protocol for exp
 
 Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software.
 
-Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it. That creates two problems:
-
-Some of the demand is circular. They buy from each other, invest in each other, and commit to each other's capacity, so a share of what looks like end demand is the group paying itself. How much is unknown.
-The funding is getting more expensive. It has moved down the capital curve: operating cash flow first, then debt, and now equity and off-balance-sheet structures. Each step costs more and leaves less room, and at some point the spending has to be supported by cash the assets generate.
+Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it.
 
 The money involved is drawing in startups, since even minor efficiency improvements are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). When they do, they compete on price, which is how infrastructure margins come down.
+
+### Earnings are Real, Sustainability is Uncertain
+
+Prices for several of the major companies have risen with earnings, not ahead of them. The usual bubble test does not apply. Three things work against the earnings continuing:
+* Some of the demand is circular. They buy from each other, invest in each other, and commit to each other’s capacity, so a share of what looks like end demand is the group paying itself. How much is unknown.
+* Some of the recent token revenue came from tokenmaxxing, enterprises pushing usage for its own sake rather than for work. That has turned as buyers get cost conscious, so recent growth rates overstate the baseline. It hits the model providers first and the hardware later, since capex is committed against expected token demand.
+* The funding is getting more expensive. It has moved down the capital curve: operating cash flow first, then debt, and now equity and off-balance-sheet structures. Each step costs more and leaves less room, and at some point the spending has to be supported by cash the assets generate.
+
+With agentic adoption still early, how durable the demand is remains unclear. 
 
 ### AI-Native Applications Are Early
 
@@ -186,13 +196,17 @@ The total spend is not the trade. The trade is whatever is scarce while it is sc
 
 **Memory**. The most obvious of the five and the most crowded. Demand is real and scales directly with inference volume, but current margins reflect shortage pricing, and shortage pricing reverts. Own it knowing the margin is what gives back, not the demand.
 
+Three of the five are bets on density, not on AI. Gas, cooling, and networking exist to solve concentration, so they are only bought where compute is packed tightly. Accelerators and memory travel with the workload and get bought wherever inference runs. On-prem deployment is mostly a change in who owns the facility rather than how dense it is, so this is a watch item rather than a live risk, but it inverts the ranking above.
+
 ### Within Each Bottleneck, Find the Strongest and the Best-Priced
 
-Do not buy something priced as if the bottleneck is permanent. A company earning shortage margins is being valued on earnings that do not survive the shortage, so the more inflated the margin, the more the price assumes the constraint never breaks.
+Do not buy something priced as if the bottleneck is permanent. A company earning shortage margins is being valued on earnings that do not survive the shortage, so the more inflated the margin, the more the price assumes the constraint never breaks. The margin is also what funds the attack on it; the most profitable constraint is the one with the most people working to remove it.
 
 What you are selecting for is durability, at two levels. Start with the constraints that break later; for example, gas doesn't care which architecture wins or whose chip gets deployed. Then, within them, own the strongest companies: low cost, healthy financials, strong brands, real distribution. They hold up when supply catches up and competition arrives.
 
-Tracking the constraint directly is sharper, but the data is often not public, and what is public can be wrong or talked up by the people selling into it. You will not see the break coming, so the position has to survive it without you.
+Tracking the constraint directly is sharper, but the data is often not public, and what is public can be wrong or talked up by the people selling into it. You will not see the break coming, so the position has to survive it without you. 
+
+The capex break is the exception. The growth has to continue to justify both the prices and the capex, and unlike the physical constraints, that is reported quarterly.
 
 ### Own Agentic Infrastructure
 
