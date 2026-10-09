@@ -54,7 +54,7 @@ The industry assumes scale works: more compute and more data produce better mode
 Context is what the model works with. It takes three forms, and they behave differently.
 * Training data is what the model learns from before it is deployed. General models have already absorbed the public internet, so what remains scarce is domain-specific data and traces, meaning the thinking behind the work rather than just the output. That sits with whoever does the work: end customers, data providers, and vertical software companies. Physical AI has no public equivalent to start from.
 * Prompt context is what the model is given at the moment it runs. It is supplied by the user or the application, and it is the difference between a generic answer and a correct one.
-* State and memory are what a system carries across a task. They are not sourced, they accumulate as the system runs, and they have to be stored and retrieved.
+* State and memory are what a system carries across a task. They are not sourced, they accumulate as the system runs, and they have to be stored and retrieved, typically in databases.
 
 Compute and context are bound together by memory. Every token generated requires fetching context, so compute sits idle whenever it cannot be fetched fast enough. Adding compute does not help if the context cannot reach it.
 
@@ -80,8 +80,9 @@ Digital infrastructure has two layers: the model, and everything around it. A mo
 
 Architecture is the design that determines what a model can do and how much compute and memory it needs. The transformer is the basis for today's foundation models. A new base architecture would change things drastically. Until then, efficiency comes from modifying the transformer to use less compute and less memory, and from hybrids that blend in alternative designs (e.g., MoE).
 
-A model on its own only produces outputs. Everything around it turns those outputs into work. Runtime software decides how requests are batched and served. Observability and governance determine what systems are allowed to do and whether anyone can see what they did. That surrounding layer has to change as systems become autonomous, which breaks two assumptions:
+A model on its own only produces outputs. Everything around it turns those outputs into work. Harnesses manage memory, interfaces, and tool execution. Inference runtime software decides how requests are batched, served, and routed. Agent runtime software sits between applications and cloud infrastructure and runs agents in production: it isolates the code they run and saves their state so a failure does not lose the work. Security, identity, observability, and governance make up trust: who a system is, what it can access, what it is allowed to do, and whether anyone can see what it did. That surrounding layer has to change as systems become autonomous, which breaks three assumptions:
 * Most software is stateless: each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ("elastic"). Autonomous systems are stateful. They retain information between requests, so requests must be routed back to the infrastructure that holds their state.
+* Most software is deterministic: the same input produces the same output. Models are probabilistic, so outputs vary, and cloud infrastructure may need to adapt to that. Early use cases mostly involve verifiable tasks, which behave more like deterministic systems, so the change may come gradually. Observability and governance stay critical either way.
 * They also have to act on a world built for humans, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world adapts to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
 
 --------------------
@@ -96,7 +97,12 @@ Infrastructure is further along than applications, and within infrastructure, ph
 
 AI is still largely synonymous with LLMs, and within LLMs, with frontier models. But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run. 
 
-Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Open-source versus closed is one version of that search. Local models, which run on a user's own hardware, are another. Taken together, these point to general capability commoditizing: open-weight models have closed much of the gap and cap what labs can charge for it.
+Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Examples include:
+* Open-source versus closed.
+* Local models, which run on a user’s own hardware. Efficiency techniques like quantization, sparse activation, and MoE make them more practical, and the hardware for running them is improving.
+* Cheaper models from outside the frontier labs (e.g., Kimi, DeepSeek), which some startups already use because they cost less and are not much worse.
+
+Taken together, these point to general capability commoditizing: open-weight models have closed much of the gap and cap what labs can charge for it. Where models are close substitutes, requests can be routed to whichever fits best on cost, complexity, and domain. Providers then compete to be the one chosen, which may push prices down.
 
 Enterprises are going a step further. Rather than choosing among general models, they are building their own on their own data. A frontier model knows what is public; it does not know how a particular company works.
 
@@ -104,17 +110,26 @@ Enterprises are going a step further. Rather than choosing among general models,
 
 Proprietary data is valuable right now. General models have absorbed what the internet offers, so what improves performance on a specific task is the data held by whoever does the work,  hosts the work, or collects it on purpose. 
 
-Data originates with the people doing the work: a law firm, a hospital, a manufacturer. They hold both the output and the reasoning behind it, and they are using it to build and augment their own models.
+Data originates with the people doing the work: a law firm, a hospital, a manufacturer. They hold both the output and the reasoning behind it, and they are using it to build and augment their own models. Holding the data is not the same as being able to use it. Enterprise data is often messy and not agent ready, so usable data is scarcer than data that exists.
 
-Vertical software companies hold data as a byproduct, since the work runs inside their systems (e.g., Tyler, Agilysys). 
+Vertical software companies hold data as a byproduct, since the work runs inside their systems (e.g., Tyler, Agilysys). Because that data is generated inside software, it may be more structured than what enterprises hold, and so closer to agent ready. 
 
 A third industry is forming to build it deliberately (e.g., Mercor). These companies supply traces, the reasoning behind expert work rather than the output, to the labs.
 
 ### Inference (and Cost) is the Central Concern
 
-Inference is where cost and capacity pressure accumulate as usage grows. Decode is the main issue. Solutions are being pursued at every layer: model architecture and compression, runtime software (e.g., vLLM, SGLang, TensorRT-LLM), chip design, and data center design.
+Inference is where cost and capacity pressure accumulate as usage grows. Decode is the main issue. Serving also gets more complex as the number of models and accelerators grows, since inference runtime software has to route each request to a model and an accelerator based on factors like cost, availability, and latency. Solutions are being pursued at every layer: model architecture and compression, inference runtime software (e.g., vLLM, SGLang, TensorRT-LLM), chip design, and data center design. Software is likely the fastest and cheapest of these, since it gets more throughput from existing chips instead of waiting on new ones.
 
-Cost per token is falling, but only through efficiency gains within existing designs: architectures that use less compute and memory (e.g., MoE), quantization that shrinks the data being moved, runtime software that batches requests, and networking that moves data faster. A drastic decline would require more accelerator supply or a step change through a new base architecture or new accelerator designs. 
+Cost per token is falling through efficiency gains within existing designs, which are significant but not drastic. A drastic decline would require a change in supply or design: more accelerators coming online as data centers are finished, a new base architecture, or new accelerator designs. In the meantime, the marginal gains come from both digital and physical infrastructure:
+* **Digital**
+  * Architectures, such as MoE, that use less compute and memory.
+  * Compression, which shrinks the model and the data being moved.
+  * Smaller task- or domain-specific models, which need less compute because general models carry more than a given task needs.
+  * Inference runtime software, which batches requests and routes each one to the model and chip that fits it on cost, complexity, domain, and availability.
+* **Physical**
+  * Networking, which moves data faster so chips wait less on each other.
+  * Cooling, which keeps chips from throttling.
+  * Mixed fleets, which use different chips for training, prefill, and decode, since their compute and memory needs differ.
 
 Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless. Agents consume far more tokens per task than chat does, and agentic adoption is early, so the mix is still shifting toward the expensive workload.
 
@@ -122,7 +137,10 @@ Accelerator prices remain elevated on demand, and frontier models are too expens
 
 Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, heat forces throttling, and missing power leaves chips unused.
 
-Memory is the hardest constraint to relieve. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. One response is to stop using the same chip for everything. Training, prefill, and decode have different compute and memory needs, so data centers are running mixed fleets and routing each job to the silicon that fits it. GPUs remain the default by a wide margin, but the field is widening beyond the chips best suited to training.
+Memory is the hardest constraint to relieve with hardware. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. Other responses, in rough order of how soon they help:
+* Software and model architecture, the near-term fix, since they reduce how much memory each token needs (e.g., quantization, cache compression, MoE).
+* Higher utilization through cluster layout and networking. Existing chips can be arranged and linked differently, such as racks built for memory and racks built for compute, so cores wait less on data.
+* New chip designs that are more efficient. GPUs remain the default by a wide margin, but the field is widening beyond the chips best suited to training.
 
 Networking is being extended up, out, and across. Scale up links chips within a rack so they act like one larger accelerator. Scale out links racks across the data center. Scale across links data centers. Copper still handles most connections within a rack, but it runs into distance and heat limits as racks get denser. Optical moves data as light, carrying more with less latency and heat, and everything beyond a rack already runs on it. Ethernet is the protocol for scaling out and across.
 
@@ -135,13 +153,22 @@ Power limits how many accelerators can run, and natural gas is the only source t
 
 ### Agents Are Autonomy in Practice, and Digital Infrastructure Is Being Built Around Them
 
-Where a chatbot answers, an agent acts. It carries context across a long task, uses tools, and makes decisions along the way.
+Where a chatbot answers, an agent acts. It makes decisions, carries context across a long task, and uses tools. Each creates a need that existing infrastructure was not built for.
 
-Errors compound across a long task, so observability and governance are becoming critical as agents are given more autonomy: someone has to see what they did and limit what they can do. New protocols are emerging to let agents do what they cannot natively, such as communicate with each other and execute transactions (e.g., A2A for agent-to-agent communication, x402 for agentic payments).
+Agents make decisions along the way. Because models are probabilistic and a wrong output can look like a right one, errors compound across a long task, and an agent's output cannot be assumed correct. Autonomy is therefore given only to the extent that agents can be trusted, and that trust has to come from controls around them, so adoption may lag until those controls are in place. Trust has four parts:
+* **Security**: agents hold access to sensitive systems and data, so a compromised or misbehaving agent can do damage.
+* **Identity**: each agent needs its own credentials, so it is a non-human identity, and who it is and what it can access has to be defined.
+* **Observability**: someone has to see what they did.
+* **Governance**: someone has to limit what they can do.
 
-Serving agents is a different problem than serving software, and cloud providers are rearchitecting around it. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request.
+Carrying context across a long task makes serving agents a different problem than serving software. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request. Cloud providers are rearchitecting around this, and agent runtime software is the layer being built to keep agents running through failures. Memory also has to persist across sessions, and databases built for transactions and batch queries may need to adapt to serve it.
 
-Agents act on software through APIs. MCP has become the leading protocol for exposing them to agents, and adoption is already deep in large enterprises, but agents call ordinary APIs too. Software that exposes comprehensive access gets used by agents; software that does not gets routed around.
+Using tools means acting on a world built for humans. New protocols are emerging to let agents do what they cannot natively:
+* Communicate with each other (e.g., A2A).
+* Execute transactions (e.g., x402 for payments, UCP for what commerce actions mean to an agent). Micropayments are only viable if transactions get cheaper, which is why new payment protocols are being pursued.
+* Work with websites (e.g., NLWeb, WebMCP). websites).
+
+Agents act on software through APIs, so software that exposes comprehensive access gets used by agents and software that does not gets routed around. MCP has become the leading protocol for that exposure, and adoption is already deep in large enterprises, but agents call ordinary APIs too, so MCP adds to APIs rather than replacing them.
 
 ### Incumbents Are Leading the Buildout (for Now)
 
@@ -166,17 +193,22 @@ Existing activities are being reshaped before new ones are invented, which is th
 
 Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition, and none are publicly traded. That is the gap between what is working and what is investable.
 
-Inference cost is the constraint on the business model. Applications pay for every use, so margins depend on what inference costs, and most cannot yet run frontier models profitably. Until that changes, the better application is not necessarily the better business.
+Inference cost is the constraint on the business model because applications pay for every use. Token prices from the leading labs have stayed high, and token costs are unlikely to fall soon because GPU costs are not falling. Until the economics work, the better application is not necessarily the better business. Application providers are responding in two ways:
+* The first is switching to alternative models from outside the frontier labs (e.g., Kimi, DeepSeek), which offer lower token prices, so margins may improve even if token costs do not fall quickly.
+* The second is focusing on a task or domain (e.g., Cursor for coding), where a higher return per use may support higher prices and justify not being replaced by a foundation model. Task- or domain-specific models offer higher quality output with fewer inputs, and likely start with a well-defined task where AI enables capabilities beyond a human’s, such as 24/7 work, analysis of far more data, and pattern recognition.
 
 ### Physical AI is Coming, but Still Needs Time
 
-Robotics excitement has grown because language and vision models lowered the barrier to training robots. For now, these models are more likely to serve as the brain for existing machines than to power entirely new ones, and the machines that get deployed are more likely to go into existing enterprise applications like manufacturing than into new categories.
+Robots are becoming smarter with AI. Robotics excitement has grown because language and vision models lowered the barrier to training robots. For now, these models are more likely to serve as the brain for existing machines (e.g., predictive maintenance, inspection, autonomous process control, material movement) than to power entirely new ones, and the machines that get deployed are more likely to go into existing enterprise applications like manufacturing than into new categories. Several models act as the brain:
+* A world model understands the laws of physics. Instead of predicting the next word in a sentence, it predicts the next frame of a video, which lets the machine anticipate the physical consequences of an action.
+* An LLM reasons through what needs to be done.
+* Vision models translate that reasoning into physical, mechanical execution.
 
 Driving, product design, manufacturing, and warehouse operations are where it is showing up.
 
-The constraints go beyond the models. Hardware to sense and act on the physical world is expensive and slow to iterate. Errors are not reversible, which raises the reliability bar. And there is no public equivalent to the internet data that trained language models. World models, video, and simulation are being explored as substitutes, but the robots themselves during deployment are the most likely source at scale.
+Robotics has many more dimensions than language or vision, which makes the models harder to build. And the constraints go beyond the models. Hardware to sense and act on the physical world is expensive and slow to iterate. Errors are not reversible, which raises the reliability bar. And there is no public equivalent to the internet data that trained language models. World models, video, and simulation are being explored as substitutes, but the robots themselves during deployment are the most likely source at scale.
 
-World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications.
+World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications. A foundation model lets a robot pick up new tasks with limited training, which is what widens the range of uses. As with software, the return is likely higher for models trained on a specific environment.
 
 -------------------------
 
@@ -213,15 +245,15 @@ The capex break is the exception. The growth has to continue to justify both the
 
 Agents are where autonomy is showing up, and the layer serving them is being built now. Most of it is coming from incumbents extending what they already sell, which makes this ownable today in a way the applications are not.
 
-**Task-specific data**. What an agent needs to act correctly rather than generically. It sits with whoever does the work, hosts it, or collects it on purpose.
+**Task-specific data**. What an agent needs to act correctly rather than generically. It sits with whoever does the work, hosts it, or collects it on purpose. Much of it is messy and not agent ready, so companies that make it usable may benefit, either by cleaning, organizing, and structuring it, by making the databases it sits in usable by agents, or by already holding it in an organized form (e.g., vertical software companies).
 
-**Observability and governance**. The tools that record what agents did and limit what they can do. The existing observability and security vendors are selling it.
+**Trust**: security, identity, observability, and governance. The tools that secure agents, define who each one is and what it can access, record what it did, and limit what it can do. The existing observability, security, and identity vendors are selling it.
 
 **APIs and access**. How agents reach software. MCP leads, but agents call ordinary APIs too, and gateway and identity vendors sit in the same path.
 
 **The agent-readable web**. Sites made parseable, search sold as an API instead of a results page, catalogs and content structured for systems rather than people.
 
-**Cloud and runtime**. The providers rebuilding for sessions that hold state and run long.
+**Cloud, runtime, and databases**. The providers rebuilding for sessions that hold state and run long.
 
 **Agentic commerce**. Merchants, marketplaces, and the rails underneath all have to handle a buyer that is not a person. Several standards are competing and none has settled.
 
@@ -240,18 +272,21 @@ Task-specific models are where this goes. The companies holding the data are the
 
 Robots are mostly private, unproven, and years from scale. The companies supplying the parts and the machines are neither.
 
-Sensors, cameras, and actuators. What a machine needs to perceive and act. Demand grows with units deployed regardless of which robot company deploys them.
+Robot components. What a machine needs to perceive, move, and run. Perception takes depth, navigation, and proximity sensors, cameras, and microphones. Movement takes actuators and motor controllers. Power takes batteries and charging. Demand grows with units deployed regardless of which robot company deploys them.
 
-Existing machine makers adding AI. Manufacturing equipment, warehouse systems, agricultural and construction machinery. The models go into machines that already have buyers and installed bases rather than into new categories.
+Existing machine makers adding AI. Manufacturing equipment, warehouse systems, agricultural and construction machinery. The models go into machines that already have buyers and installed bases rather than into new categories. Where physical AI creates value includes predictive maintenance, material movement, inspection, and autonomous process control.
 
 Deployment is slower here than in digital AI. The hardware is expensive and slow to iterate, errors are not reversible, and there is no public data to train on.
 
 ### Rotate to AI-Native Applications Later
 
 This is where the value ends up. It is also the one position that cannot be taken yet: the standouts are private, and inference costs more than most applications can carry. What has to change:
-* Inference cost. Applications pay per use. Until that falls far enough, the better product is not the better business.
-* Access. Nothing here is publicly traded. Listings, or acquisitions that put the exposure inside something that is.
-* Reliability. Autonomy has arrived where outputs can be verified. The applications that scale next are the ones where that holds.
 
-Existing software is the proxy until then. When these change, the rotation is out of infrastructure and into applications, because infrastructure eventually competes on price and applications are where the margin ends up.
+* **Inference cost**. Applications pay for every use, and token costs are unlikely to fall soon. Until the return per use supports the price, the better product is not the better business.
+* **Access**. Nothing here is publicly traded. Listings, or acquisitions that put the exposure inside something that is.
+* **Reliability**. Autonomy has arrived where outputs can be verified. The applications that scale next are the ones where that holds.
+
+The first investable applications are likely to be task- or domain-specific, because they offer higher quality output with fewer inputs. They may start with a well-defined task where AI enables capabilities beyond a human's, such as 24/7 work, analysis of far more data, and pattern recognition. Helping enterprises use their own data more effectively may be one of the first, since it draws on those capabilities.
+
+Existing software is the proxy until these conditions change. When they do, the rotation is out of infrastructure and into applications, because infrastructure eventually competes on price and applications are where the margin ends up.
 
