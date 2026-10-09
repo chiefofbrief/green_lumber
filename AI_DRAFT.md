@@ -184,19 +184,20 @@ World models, and possibly foundation models for robotics, are what could broade
 
 ### Buy the Physical Bottlenecks
 
-The total spend is not the trade. The trade is whatever is scarce while it is scarce. The best of these are the ones others are not already crowded into, and the ones that survive a change in architecture or chip design.
+A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently five major constraints in the physical supply chain:
+* **Natural gas and its supply chain**. Power limits how many accelerators can run, and gas is the only source that reliably supplies it now. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
+* **Cooling, especially liquid**. Density keeps rising and air cannot keep up. Liquid removes heat at the chip and sustains higher density. Adoption is gradual, which makes the demand long rather than spiky.
+* **Networking, especially optical**. Everything beyond a rack already runs on light, and scale out and scale across keep adding links. More deployment means more connections regardless of whose silicon is in the racks.
+* **Accelerators broadly**. Mixed fleets mean picking the winning chip matters less than owning the growth in chips deployed. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason.
+* **Memory**. Bandwidth sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory addresses both, and supply has not kept up with demand.
 
-**Natural gas and its supply chain**. Power is the hardest constraint on how many accelerators can run, and gas is the only source that reliably supplies it now. This is the safest of the five. It is the raw input, so it does not care which architecture wins, which chip is deployed, or how fast cost per token falls. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
+Each of the five ends for a different reason. Four things can end them:
+* **Supply catching up**. New supply is slow where it needs fabs, plants, or construction. But some supply already exists and is not running: accelerators have been bought that are not racked, because power, shell, and cooling are not ready. Those come online without anything being built.
+* **Technology change**. A new architecture or a different chip changes what is needed, which can end a constraint without relieving it. Gas is indifferent to both, since it is the raw input.
+* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators and memory still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
+* **Software**. Software changes faster than chips, architectures, or physical supply, since the others require fabrication or construction. It cannot produce electricity or remove heat, so power and cooling sit outside its reach. It works on the other three: utilization on accelerators, bytes per token on memory through quantization and cache compression, and data movement on networking.
 
-**Cooling, especially liquid**. Density keeps rising and air cannot keep up. Adoption is gradual, which makes the demand long rather than spiky, and it is not yet crowded. Like gas, it is indifferent to what runs on the chips.
 
-**Networking, especially optical**. Everything beyond a rack already runs on light, and scale out and scale across keep adding links. More deployment means more connections regardless of whose silicon is in the racks.
-
-**Accelerators broadly**. Mixed fleets mean picking the winning chip matters less than owning the growth in chips deployed. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason. The bet is on volume, not on who wins.
-
-**Memory**. The most obvious of the five and the most crowded. Demand is real and scales directly with inference volume, but current margins reflect shortage pricing, and shortage pricing reverts. Own it knowing the margin is what gives back, not the demand.
-
-Three of the five are bets on density, not on AI. Gas, cooling, and networking exist to solve concentration, so they are only bought where compute is packed tightly. Accelerators and memory travel with the workload and get bought wherever inference runs. On-prem deployment is mostly a change in who owns the facility rather than how dense it is, so this is a watch item rather than a live risk, but it inverts the ranking above.
 
 ### Within Each Bottleneck, Find the Strongest and the Best-Priced
 
