@@ -77,7 +77,7 @@ An accelerator needs three things working together: cores to execute the math, m
 
 Software maturity varies by chip and keeps improving, so performance at one point in time may understate what a chip can reach later. That applies to every chip, including Nvidia, but the gap is likely larger for chips with newer software ecosystems.
 
-Accelerators are the most expensive part of the stack, so an idle one is the cost. Everything else in physical infrastructure exists to keep them busy. Data centers house them. Power runs them. Cooling removes their heat so they do not throttle. Networking connects them so they can work as one system instead of waiting on each other.
+Accelerators are the most expensive part of the stack, so an idle one is the cost. Everything else in physical infrastructure exists to keep them busy. Data centers house them. Power runs them. Cooling removes their heat so they do not throttle. Networking connects them so they can work as one system instead of waiting on each other. CPUs run the software around them, including the orchestration and tool calls that agents depend on.
 
 ### Digital Infrastructure Makes Models Useful
 
@@ -150,7 +150,7 @@ Startups are also building new designs that could change things drastically (e.g
 ### Every Physical Constraint Shows Up as an Idle Accelerator
 
 Physical constraints leave accelerators idle in two ways:
-* Deployed, but below full utilization. Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, heat forces throttling, and missing power leaves chips unused.
+* Deployed, but below full utilization. Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, CPU-bound work leaves them waiting on the host, heat forces throttling, and missing power leaves chips unused.
 * Bought, but not yet deployed. Some accelerators sit in inventory because the data center they are meant for is not ready, whether because the building is unfinished or because power, cooling, or networking is not yet in place.
 
 Memory is the hardest constraint to relieve with hardware. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. Demand for both is likely to keep growing as systems retain and reuse more context: agents carry memory across sessions, and caching stores earlier computation instead of recomputing it. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. Other responses, in rough order of how soon they help:
@@ -244,22 +244,23 @@ World models, and possibly foundation models for robotics, are what could broade
 
 ### Buy the Physical Bottlenecks
 
-A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently five major constraints in the physical supply chain:
+A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently six major constraints in the physical supply chain:
 * **Natural gas and its supply chain**. Power limits how many accelerators can run, and gas is the only source that reliably supplies it now. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
 * **Cooling, especially liquid**. Density keeps rising and air cannot keep up at the chip. Liquid removes heat at the chip and sustains higher density. Adoption is gradual, which makes the demand long rather than spiky. Liquid cooling is a system, so the exposure spans the racks and cold plates, the coolant distribution units and pumps, and heat rejection.
 * **Networking, especially optical**. Most connections beyond a rack already run on light, and scale out and scale across keep adding links. More deployment means more connections beyond the rack regardless of whose silicon is in the racks. Two things are less certain:
   * Optical inside the rack. Copper keeps short reach, and the newer designs may not reach large scale until 2027 to 2028 or later.
   * Where the value sits. It may be in scarce optical IP more than in assembling modules, but the pieces differ by design. Lasers are needed by every optical design, silicon photonics may gain under co-packaged designs, and DSP chips are tied to pluggables, which co-packaged designs would largely remove.
 * **Accelerators broadly**. Mixed fleets are likely to be the default, and an accelerator cannot be judged apart from the system around it, so picking the winning accelerator matters less than owning the growth in accelerators bought. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason. A nearer-term risk is that more accelerators have been bought than are in service. Prices today reflect the accelerators running, not those waiting to be installed, so when they come online, scarcity could ease and future purchases could be lower.
+* **CPUs**. Agents run orchestration, tool calls, and code execution on CPUs, so demand follows agent adoption, which is still early, and not only accelerator volume. Server CPU supply has tightened. Nvidia, AMD, Intel, and Arm-based designs all supply them, so, as with accelerators, the bet is likely on volume more than on who wins.
 * **Memory**. Bandwidth sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory (HBM) addresses both, and supply has not kept up with demand. Demand is likely to keep growing as systems retain and reuse more context, through agent memory and caching. HBM leads, but the exposure is wider, since context that does not fit in HBM moves down the tiers:
 * DRAM, where supply is also tight, since suppliers have put capacity toward HBM.
 * Flash, where demand is growing as AI servers use more enterprise SSDs and context storage, and suppliers have added little NAND capacity because DRAM and HBM earn higher margins.
 
-Each of the five ends for a different reason. Four things can end them:
+Each of the six ends for a different reason. Four things can end them:
 * **Supply catching up**. New supply is slow where it needs fabs, plants, or construction. But some supply already exists and is not running: accelerators have been bought that are not racked, because power, shell, and cooling are not ready. Those come online without anything being built.
 * **Technology change**. A new architecture or a different chip changes what is needed, which can end a constraint without relieving it. Gas is indifferent to both, since it is the raw input.
-* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators and memory still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
-* **Software**. Software changes faster than chips, architectures, or physical supply, since the others require fabrication or construction. It cannot produce electricity or remove heat, so power and cooling sit outside its reach. It works on the other three: utilization on accelerators, bytes per token on memory through quantization and cache compression, and data movement on networking.
+* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators, CPUs, and memory still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
+* **Software**. Software changes faster than chips, architectures, or physical supply, since the others require fabrication or construction. It cannot produce electricity or remove heat, so power and cooling sit outside its reach. It works on others: utilization on accelerators, bytes per token on memory through quantization and cache compression, and data movement on networking.
 
 
 
