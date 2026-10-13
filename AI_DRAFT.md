@@ -182,6 +182,8 @@ Networking is being extended up, out, and across:
 
 Copper still handles most connections within a rack and is strongest at short reach, but it runs into distance and heat limits as racks get denser. Optical moves data as light, carrying more with less latency and heat, and most connections beyond a rack already run on it. Optical replacing copper within the rack is not a foregone conclusion, though. It has been the next thing for a while, and several approaches are likely to coexist: copper at short reach, pluggable optics, which are today's standard, and newer designs that put the optics next to or on the chip, known as near-packaged and co-packaged optics (CPO). The newer designs may not reach large scale until 2027 to 2028 or later.
 
+Agents also lean on CPUs. Orchestration, tool calls, code execution, and API requests run on CPUs, and an accelerator can sit idle while it waits for them. As agent use grows, demand for CPUs is likely to grow with it, and server CPU supply has tightened, with price increases and long lead times reported.
+
 Cooling is shifting to liquid, gradually. Air is the default, but as accelerators are packed more densely and run hotter it struggles to keep up. Liquid removes heat at the chip and sustains higher density, but it is a system, and it sits alongside air rather than replacing it:
 * A system, not a single product: the racks, with cold plates on the chips; coolant distribution units (CDUs) and pumps that move the liquid; and heat rejection that carries the heat out of the building.
 * Alongside air: equipment that is not cooled at the chip, such as networking gear and power supplies, still needs air, so many facilities use both. 
