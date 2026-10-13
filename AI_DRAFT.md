@@ -44,11 +44,11 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
 
-In its current form, AI is a productivity tool; it provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs. 
+**In its current form, AI is a productivity tool.** It provides a better ratio of outputs to inputs. This can mean fewer inputs, more outputs, and/or higher-quality outputs.
 
-At the extreme end of the productivity spectrum are autonomous systems that perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy are the focus of AI development.
+**Autonomy is the extreme end of the productivity spectrum.** Autonomous systems perform a variety of actions with limited (or zero) human input. The building blocks towards autonomy are the focus of AI development.
 
-What limits autonomy is reliability. Models are probabilistic, not deterministic: the same input can produce different outputs, and a wrong one looks like a right one. Reliability varies by task in ways that are hard to predict. Autonomy has arrived first where outputs can be verified, and is likely to be more prevalent where the cost of errors is low. 
+**Reliability is what limits autonomy.** Models are probabilistic, not deterministic: the same input can produce different outputs, and a wrong one looks like a right one. The output may not be wrong at all, just weaker than it could have been, and that is harder to catch. Autonomy therefore needs poor outputs to be either caught or tolerated, which is why it has arrived first where outputs can be verified and is likely to be more prevalent where the cost of errors is low. Even there, a system is only given autonomy as far as it can be trusted, which takes controls around it, not just a powerful model.
 
 ### Infrastructure and Applications are Both Digital and Physical
 
