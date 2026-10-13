@@ -107,7 +107,7 @@ A model on its own only produces outputs. Everything around it turns those outpu
 
 ### The Sector Is Early
 
-Infrastructure is further along than applications, and within infrastructure, physical is further along than digital. None of it is late.
+Infrastructure is further along than applications, and within infrastructure, physical is further along than digital. Adoption therefore trails the stack: applications depend on infrastructure that is still being built, so adoption is early. None of it is late.
 
 ### The Model Layer is Diversifying
 
@@ -239,7 +239,7 @@ Existing activities are being reshaped before new ones are invented, which is th
 
 Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition, and none are publicly traded. That is the gap between what is working and what is investable.
 
-Inference cost is the constraint on the business model because applications pay for every use. Token prices from the leading labs have stayed high, and token costs are unlikely to fall soon because GPU costs are not falling. Until the economics work, the better application is not necessarily the better business. Application providers are responding in two ways:
+Inference cost is the constraint on the business model because applications pay for every use. Token prices from the leading labs have stopped falling, and token costs are unlikely to fall much soon because GPU costs are not falling. Until the economics work, the better application is not necessarily the better business. Application providers are responding in two ways:
 * The first is switching to alternative models from outside the frontier labs (e.g., Kimi, DeepSeek), which offer lower token prices, so margins may improve even if token costs do not fall quickly.
 * The second is focusing on a task or domain (e.g., Cursor for coding), where a higher return per use may support higher prices and justify not being replaced by a foundation model. Task- or domain-specific models offer higher quality output with fewer inputs, and likely start with a well-defined task where AI enables capabilities beyond a human’s, such as 24/7 work, analysis of far more data, and pattern recognition.
 
@@ -248,7 +248,7 @@ Inference cost is the constraint on the business model because applications pay 
 Robots are becoming smarter with AI. Robotics excitement has grown because language and vision models lowered the barrier to training robots. For now, these models are more likely to serve as the brain for existing machines (e.g., predictive maintenance, inspection, autonomous process control, material movement) than to power entirely new ones, and the machines that get deployed are more likely to go into existing enterprise applications like manufacturing than into new categories. Several models act as the brain:
 * A world model understands the laws of physics. Instead of predicting the next word in a sentence, it predicts the next frame of a video, which lets the machine anticipate the physical consequences of an action.
 * An LLM reasons through what needs to be done.
-* Vision models translate that reasoning into physical, mechanical execution.
+* Vision-action models translate that reasoning into physical, mechanical execution.
 
 Driving, product design, manufacturing, and warehouse operations are where it is showing up.
 
@@ -334,11 +334,25 @@ Deployment is slower here than in digital AI. The hardware is expensive and slow
 
 This is where the value ends up. It is also the one position that cannot be taken yet: the standouts are private, and inference costs more than most applications can carry. What has to change:
 
-* **Inference cost**. Applications pay for every use, and token costs are unlikely to fall soon. Until the return per use supports the price, the better product is not the better business.
+* **Inference cost**. Applications pay for every use, and token costs are unlikely to fall much soon. Until the return per use supports the price, the better product is not the better business.
 * **Access**. Nothing here is publicly traded. Listings, or acquisitions that put the exposure inside something that is.
 * **Reliability**. Autonomy has arrived where outputs can be verified. The applications that scale next are the ones where that holds.
 
 The first investable applications are likely to be task- or domain-specific, because they offer higher quality output with fewer inputs. They may start with a well-defined task where AI enables capabilities beyond a human’s, such as 24/7 work, analysis of far more data, and pattern recognition. Helping enterprises use their own data more effectively may be one of the first, since it draws on those capabilities. Early versions may wrap foundation models with persistent, task-specific context so users no longer supply it each time, with vertical models that build in domain knowledge following.
 
 Existing software is the proxy until these conditions change. When they do, the rotation is out of infrastructure and into applications, because infrastructure eventually competes on price and applications are where the margin ends up.
+
+### Plan for Slower Adoption
+
+The safest assumption is that adoption comes in slower than assumed, which means demand may be delayed. Most of the slowdown comes from barriers, such as trust, data readiness, cost predictability, and infrastructure still being built, not from a lack of value. Under that assumption:
+
+What holds up:
+* Companies that remove the barriers, since the delay is what creates demand for them.
+* The strongest, lowest-cost suppliers, which are best able to withstand the oversupply and price competition that slower demand can bring.
+* Existing software, which may have more time to build or adopt AI before AI-native competitors become investable.
+
+What is exposed:
+* Positions priced for fast growth, including AI-native applications, which move later still.
+* Scarcity positions, to the extent they depend on committed spending continuing.
+* Anything funded by circular demand or expensive capital.
 
