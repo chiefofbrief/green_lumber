@@ -30,13 +30,13 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 ### Try to Be Early, But Definitely Don't Be Late
 
-Being right on the wrong timeline can be similar to being wrong. A balance must be struck between being early enough to enjoy growth while not being so early that a return is not available for years. The ideal investment experiences sales growth in the near-term, which is about 2 years. 
+**Be early enough to enjoy growth.** Being right on the wrong timeline can be similar to being wrong. There are two ways to miss: being too early, so that a return is not available for years, or being too late. The ideal investment experiences sales growth in the near-term, which is about 2 years.
 
-However, the worst possible scenario is being late, so the absolute likelihood of sales growth, regardless of timeline, is the starting point. Among sub-sectors and companies where growth is relatively certain, prioritize by the likelihood of that growth appearing in the near-term.   
+**Being late is the worst outcome, so start with the likelihood of growth.** The absolute likelihood of sales growth, regardless of timeline, is the starting point. Among sub-sectors and companies where growth is relatively certain, prioritize by the likelihood of that growth appearing in the near-term.
 
-Be conservative when estimating the timeline for adoption. It's easy to make the mistake of being too early in new technology. Adoption of applications at scale is usually not realized until well after the potential is visible. The infrastructure takes time to build, and people's behaviors need time to adapt. 
+**The sweet spot is hard to hit because the timeline is hard to gauge, so be conservative.** It's easy to make the mistake of being too early in new technology. Adoption of applications at scale is usually not realized until well after the potential is visible, because the infrastructure takes time to build and people's behaviors need time to adapt. The mainstream narrative tends to run ahead of that build, so estimate the timeline for adoption more conservatively than it suggests.
 
-Being early only pays if you still own it when the growth arrives. The usual failure isn't bad analysis, it's giving up on the position before the payoff. 
+**Once a position is right, hold it to ride the growth.** Being early only pays if the position is still held when the growth arrives, and the usual failure isn't bad analysis, it's giving up on the position before the payoff. If a position turns out to be too early, holding is usually the safest option, but it is worth reevaluating whether the growth is still coming.
 
 -----------------
 
