@@ -1,6 +1,5 @@
 
 ## The Basics of Investing in New Technology
----------------
 
 ### It's all About Growth
 
@@ -43,10 +42,10 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 **Once a position is right, hold it to ride the growth.** Being early only pays if the position is still held when the growth arrives, and the usual failure isn't bad analysis, it's giving up on the position before the payoff. If a position turns out to be too early, holding is usually the safest option, but it is worth reevaluating whether the growth is still coming.
 
------------------
+--------------------
+--------------------
 
 ## The Basics of AI
---------------------
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
 
