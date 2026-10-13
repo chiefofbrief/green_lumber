@@ -5,23 +5,28 @@
 
 Expected sales growth, and the risks to that growth, dictate a company's stock price. New technology provides the potential for abnormal sales growth, and therefore, the potential for extreme stock price increases.
 
-Technology expands sectors, not just companies. If there is sufficient demand, "all" companies in a sub-sector may benefit temporarily. Start by identifying which sub-sectors will experience the most rapid growth. Good starting points are recent sales growth and constraints to adoption.
+**Start by identifying which sub-sectors will experience the most rapid growth**. New technology expands sectors, so several companies can benefit, not just one, and if there is sufficient demand, “all” companies in a sub-sector may benefit temporarily. That makes the choice of sub-sector the main decision. Good starting points are recent sales growth and constraints to adoption.
 
-Next, identify the companies within the high-growth sub-sectors which are best positioned to benefit from that growth. The strongest companies (low costs, healthy financials, strong brands) are a good starting point. 
+**Next, identify the companies within those sub-sectors that are best positioned to benefit.** Start with the strongest. Then, among the strongest, look for those where the price does not already reflect all of the expected growth. Characteristics of the strongest companies include:
+* Low costs.
+* Healthy financials.
+* Strong brands.
+* Real distribution.
+* Scarce IP.
 
 ### Prioritize Applications, Buy Infrastructure in the Meantime
 
-New technology can be broken into two major sub-sectors, Applications and Infrastructure. The vast majority of value ultimately accrues at the application layer, which is ultimately where investments should be concentrated.  
+**Applications are where the value ends up.** New technology breaks into two major sub-sectors, applications and infrastructure. The vast majority of value accrues at the application layer, which is where investments should ultimately be concentrated. Applications depend on infrastructure, which comes first.
 
-Applications initially get more traction by reinventing existing activities rather than inventing new ones. For example, e-commerce reinvented mail-order catalogs, and LLMs are a substitute for web search. Start with novel approaches to existing activities. Once the technology is well-established, entirely new behaviors gain traction and become investable.   
+**The first applications to gain traction are novel approaches to existing activities.** Applications initially get more traction by reinventing existing activities rather than inventing new ones: e-commerce reinvented mail-order catalogs, and LLMs are a substitute for web search. Once the technology is well-established, entirely new behaviors gain traction and become investable.
 
-The primary purpose of infrastructure is to lower the cost of deployment for applications. The companies benefit while they are solving a constraint to deployment, but eventually become commodities as constraints shift. Constraints shift for several reasons:
+**Within infrastructure, identify the sub-sectors best poised for growth.** The primary purpose of infrastructure is to lower the cost of deployment for applications. The binding constraints on deployment are the most obvious areas for growth, and the ones to focus on are those that are hard to work around and can pay off in the near term. The growth lasts only while a constraint is binding, and the companies solving it eventually become commodities as constraints shift. Constraints shift for several reasons:
 * Oversupply leads to price competition and lower margins.
 * Solving one constraint can expose another.
 * Changes in how applications serve customers change which pieces matter most (e.g., a shift from chat to background processes).
 * Novel solutions can make existing constraints obsolete.
 
-The strongest companies (low costs, healthy financials, strong brands) are a good starting point as they are best able to withstand oversupply, but even they can experience huge price decreases.  
+**Within those sub-sectors, identify the companies best positioned to benefit.** Start with the strongest, since they are best able to withstand oversupply. But even the strongest can experience huge price decreases when a constraint breaks, so look among them for those where the price does not already reflect all of the expected growth. Avoid companies priced as if the constraint is permanent.
 
 ### Try to Be Early, But Definitely Don't Be Late
 
