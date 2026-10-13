@@ -15,7 +15,13 @@ New technology can be broken into two major sub-sectors, Applications and Infras
 
 Applications initially get more traction by reinventing existing activities rather than inventing new ones. For example, e-commerce reinvented mail-order catalogs, and LLMs are a substitute for web search. Start with novel approaches to existing activities. Once the technology is well-established, entirely new behaviors gain traction and become investable.   
 
-The primary purpose of infrastructure is to lower the cost of deployment for applications. The companies benefit while they are solving a constraint to deployment, but eventually become commodities as constraints shift. Oversupply (leading to price competition), changes in how applications serve customers, and novel solutions can all shift constraints. The strongest companies (low costs, healthy financials, strong brands) are a good starting point as they are best able to withstand oversupply, but even they can experience huge price decreases.  
+The primary purpose of infrastructure is to lower the cost of deployment for applications. The companies benefit while they are solving a constraint to deployment, but eventually become commodities as constraints shift. Constraints shift for several reasons:
+* Oversupply leads to price competition and lower margins.
+* Solving one constraint can expose another.
+* Changes in how applications serve customers change which pieces matter most (e.g., a shift from chat to background processes).
+* Novel solutions can make existing constraints obsolete.
+
+The strongest companies (low costs, healthy financials, strong brands) are a good starting point as they are best able to withstand oversupply, but even they can experience huge price decreases.  
 
 ### Try to Be Early, But Definitely Don't Be Late
 
@@ -67,7 +73,12 @@ Training is building the model: compute is applied to data so the model learns p
 
 Inference is using the model. It happens every time, and it is paid for every time.
 
-Inference has two stages. Prefill processes the prompt and is limited by compute. Decode generates the response one token at a time and is limited by memory bandwidth, so decode is usually the constraint. This changes the economics of software. Traditional software costs almost nothing to serve one more user. AI applications pay for inference on every use, so cost scales with usage and margins depend on what inference costs.
+Inference has two stages. Prefill processes the prompt and is limited by compute. Decode generates the response one token at a time and is limited by memory bandwidth, so decode is usually the constraint. Three things explain why:
+* To produce each token, the accelerator has to read the model's weights and the session's context from memory, and does only a small amount of math on each piece before moving on. Its compute cores, the units that do the math, spend much of their time waiting on memory.
+* That is an imbalance between compute and memory bandwidth. Compute has grown far faster than the speed at which memory can feed it, and that doesn't seem to be changing.
+* Training avoids the imbalance by processing very large batches, so each read of memory feeds a lot of math. Inference serves requests one at a time unless they are grouped, so the imbalance shows up there.
+
+This changes the economics of software. Traditional software costs almost nothing to serve one more user. AI applications pay for inference on every use, so cost scales with usage and margins depend on what inference costs.
 
 ### Physical Infrastructure Maximizes Accelerator Utilization
 
@@ -137,7 +148,7 @@ Cost per token is falling through efficiency gains within existing designs, whic
   * Cooling, which keeps chips from throttling.
   * Mixed fleets, which use different chips for training, prefill, and decode, since their compute and memory needs differ.
 
-Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless. Agents consume far more tokens per task than chat does, and agentic adoption is early, so the mix is still shifting toward the expensive workload. However, prices may decrease somewhat if accelerators that have already been bought but not yet deployed come online.
+Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless. Agents consume far more tokens per task than chat does, and agentic adoption is early, so the mix is still shifting toward the expensive workload. However, prices may decrease if accelerators that have already been bought but not yet deployed come online, since providers with spare capacity may compete for routed workloads on price and other terms.
 
 ### The Accelerator Layer is Diversifying
 
@@ -149,11 +160,14 @@ Startups are also building new designs that could change things drastically (e.g
 
 ### Every Physical Constraint Shows Up as an Idle Accelerator
 
-Physical constraints leave accelerators idle in two ways:
-* Deployed, but below full utilization. Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, CPU-bound work leaves them waiting on the host, heat forces throttling, and missing power leaves chips unused.
-* Bought, but not yet deployed. Some accelerators sit in inventory because the data center they are meant for is not ready, whether because the building is unfinished or because power, cooling, or networking is not yet in place.
+Physical constraints leave accelerators idle in three ways:
+* **Deployed, but below full utilization**. Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, CPU-bound work leaves them waiting on the host, heat forces throttling, and missing power leaves chips unused.
+* **Bought, but not yet deployed**. Some accelerators sit in inventory because the data center they are meant for is not ready, whether because the building is unfinished or because power, cooling, or networking is not yet in place.
+* **Wanted, but not yet made.** Foundry capacity limits how many accelerators can be built.
 
-Memory is the hardest constraint to relieve with hardware. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. Demand for both is likely to keep growing as systems retain and reuse more context: agents carry memory across sessions, and caching stores earlier computation instead of recomputing it. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. Other responses, in rough order of how soon they help:
+Accelerator supply starts at the foundry. Leading-edge wafers and advanced packaging, the step that joins each accelerator to its memory, are both tight, and packaging is reportedly the narrower of the two. Both are concentrated at a single supplier, so capacity is hard to add elsewhere quickly
+
+Memory is the hardest constraint to relieve with hardware, in part because compute has outgrown memory bandwidth and that doesn’t seem to be changing. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. Demand for both is likely to keep growing as systems retain and reuse more context: agents carry memory across sessions, and caching stores earlier computation instead of recomputing it. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. Other responses, in rough order of how soon they help:
 * Software and model architecture, the near-term fix, since they reduce how much memory each token needs (e.g., quantization, cache compression, MoE).
 * More memory tiers. Context that does not fit in HBM can sit in DRAM or flash (e.g., Nvidia's CMX, which adds a flash tier for cached context).
 * Higher utilization through cluster layout and networking. Existing chips can be arranged and linked differently, such as racks built for memory and racks built for compute, so cores wait less on data.
@@ -187,6 +201,8 @@ Agents make decisions along the way. Because models are probabilistic and a wron
 * **Observability**: someone has to see what they did.
 * **Governance**: someone has to limit what they can do.
 
+Cost predictability is a second brake on adoption. Because models are probabilistic, identical tasks can take different numbers of steps and cost very different amounts, and spend that scales with usage is hard to forecast. Cheaper tokens do not fully solve this, since agents use far more of them, so enterprises may hold back until they can predict and cap what agents spend.
+
 Carrying context across a long task makes serving agents a different problem than serving software. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request. Cloud providers are rearchitecting around this, and agent runtime software is the layer being built to keep agents running through failures.
 
 Carrying context across sessions also means memory has to persist. Retaining more context adds infrastructure cost, and storage is only part of the problem: memory is useful only if the right prior context is retrieved at the right moment. Databases built for transactions and batch queries may need to adapt to serve it, and newer structures such as vector databases, which retrieve by similarity, and knowledge graphs, which store the relationships between pieces of information, are also used for it.
@@ -200,7 +216,9 @@ Agents act on software through APIs, so software that exposes comprehensive acce
 
 ### Incumbents Are Leading the Buildout (for Now)
 
-Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software.
+Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software. 
+
+New technology does not mean new companies. Much of the new technology in the buildout (e.g., liquid cooling, optical networking, agentic infrastructure) is being brought to market by existing companies extending what they already sell, not by startups.
 
 Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it.
 
@@ -244,7 +262,7 @@ World models, and possibly foundation models for robotics, are what could broade
 
 ### Buy the Physical Bottlenecks
 
-A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently six major constraints in the physical supply chain:
+A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently seven major constraints in the physical supply chain. Most are supplied by existing companies, even where the technology is new (e.g., liquid cooling, optical networking), so the positions can be taken today:
 * **Natural gas and its supply chain**. Power limits how many accelerators can run, and gas is the only source that reliably supplies it now. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
 * **Cooling, especially liquid**. Density keeps rising and air cannot keep up at the chip. Liquid removes heat at the chip and sustains higher density. Adoption is gradual, which makes the demand long rather than spiky. Liquid cooling is a system, so the exposure spans the racks and cold plates, the coolant distribution units and pumps, and heat rejection.
 * **Networking, especially optical**. Most connections beyond a rack already run on light, and scale out and scale across keep adding links. More deployment means more connections beyond the rack regardless of whose silicon is in the racks. Two things are less certain:
@@ -252,14 +270,15 @@ A bottleneck is worth owning until it is solved, and the price already contains 
   * Where the value sits. It may be in scarce optical IP more than in assembling modules, but the pieces differ by design. Lasers are needed by every optical design, silicon photonics may gain under co-packaged designs, and DSP chips are tied to pluggables, which co-packaged designs would largely remove.
 * **Accelerators broadly**. Mixed fleets are likely to be the default, and an accelerator cannot be judged apart from the system around it, so picking the winning accelerator matters less than owning the growth in accelerators bought. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason. A nearer-term risk is that more accelerators have been bought than are in service. Prices today reflect the accelerators running, not those waiting to be installed, so when they come online, scarcity could ease and future purchases could be lower.
 * **CPUs**. Agents run orchestration, tool calls, and code execution on CPUs, so demand follows agent adoption, which is still early, and not only accelerator volume. Server CPU supply has tightened. Nvidia, AMD, Intel, and Arm-based designs all supply them, so, as with accelerators, the bet is likely on volume more than on who wins.
+* **Wafers and advanced packaging**. Every accelerator needs both, whoever designs it, so the exposure does not depend on which accelerator wins. Both are tight and concentrated at a single supplier, so capacity is hard to add elsewhere quickly.
 * **Memory**. Bandwidth sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory (HBM) addresses both, and supply has not kept up with demand. Demand is likely to keep growing as systems retain and reuse more context, through agent memory and caching. HBM leads, but the exposure is wider, since context that does not fit in HBM moves down the tiers:
 * DRAM, where supply is also tight, since suppliers have put capacity toward HBM.
 * Flash, where demand is growing as AI servers use more enterprise SSDs and context storage, and suppliers have added little NAND capacity because DRAM and HBM earn higher margins.
 
-Each of the six ends for a different reason. Four things can end them:
+Each of the seven ends for a different reason. Four things can end them:
 * **Supply catching up**. New supply is slow where it needs fabs, plants, or construction. But some supply already exists and is not running: accelerators have been bought that are not racked, because power, shell, and cooling are not ready. Those come online without anything being built.
 * **Technology change**. A new architecture or a different chip changes what is needed, which can end a constraint without relieving it. Gas is indifferent to both, since it is the raw input.
-* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators, CPUs, and memory still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
+* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators, CPUs, memory, and wafers and packaging still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
 * **Software**. Software changes faster than chips, architectures, or physical supply, since the others require fabrication or construction. It cannot produce electricity or remove heat, so power and cooling sit outside its reach. It works on others: utilization on accelerators, bytes per token on memory through quantization and cache compression, and data movement on networking.
 
 
@@ -280,7 +299,7 @@ Agents are where autonomy is showing up, and the layer serving them is being bui
 
 **Task-specific data**. What an agent needs to act correctly rather than generically. It sits with whoever does the work, hosts it, or collects it on purpose. Much of it is messy and not agent ready, so companies that make it usable may benefit, either by cleaning, organizing, and structuring it, by making the databases it sits in usable by agents, or by already holding it in an organized form (e.g., vertical software companies).
 
-**Trust**: security, identity, observability, and governance. The tools that secure agents, define who each one is and what it can access, record what it did, and limit what it can do. The existing observability, security, and identity vendors are selling it.
+**Trust**: security, identity, observability, and governance. The tools that secure agents, define who each one is and what it can access, record what it did, and limit what it can do, including what it can spend. The existing observability, security, and identity vendors are selling it.
 
 **APIs and access**. How agents reach software. MCP leads, but agents call ordinary APIs too, and gateway and identity vendors sit in the same path.
 
