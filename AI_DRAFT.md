@@ -1,5 +1,6 @@
 
 ## The Basics of Investing in New Technology
+---------------
 
 ### It's all About Growth
 
@@ -13,6 +14,8 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 * Strong brands.
 * Real distribution.
 * Scarce IP.
+
+--------------------
 
 ### Prioritize Applications, Buy Infrastructure in the Meantime
 
@@ -28,6 +31,8 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 **Within those sub-sectors, identify the companies best positioned to benefit.** Start with the strongest, since they are best able to withstand oversupply. But even the strongest can experience huge price decreases when a constraint breaks, so look among them for those where the price does not already reflect all of the expected growth. Avoid companies priced as if the constraint is permanent.
 
+--------------------
+
 ### Try to Be Early, But Definitely Don't Be Late
 
 **Be early enough to enjoy growth.** Being right on the wrong timeline can be similar to being wrong. There are two ways to miss: being too early, so that a return is not available for years, or being too late. The ideal investment experiences sales growth in the near-term, which is about 2 years.
@@ -41,6 +46,7 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 -----------------
 
 ## The Basics of AI
+--------------------
 
 ### Productivity is the Value Proposition, Autonomy is the Goal
 
