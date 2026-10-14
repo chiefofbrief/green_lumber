@@ -200,48 +200,75 @@ Of these, software is likely the fastest and cheapest, since it gets more throug
 * A new base architecture.
 * New accelerator designs.
 
+--------------------
+
 ### The Accelerator Layer is Diversifying
 
-Training was one problem, and it favored one accelerator: the fastest. Inference is many problems. Models differ widely in size, contexts in length, and users in how fast they need a response, so chat, agents, batch jobs, and latency-sensitive traffic stress the machine in different places.
+**Inference has no single best accelerator the way training did.** Training is largely one kind of workload, large batches of parallel math limited by compute, and GPUs, which are built for that, became the standard. Inference workloads differ in model size, context length, and how fast the user needs a response, so chat, agents, batch jobs, and latency-sensitive traffic can each be limited by a different part of the system: cores, memory, or interconnect.
 
-Accelerators are specializing in response, as models are (e.g., Nvidia pairing GPUs for prefill with a separate accelerator for decode). Performance is a property of the system, not the accelerator, so no single design is likely to dominate every workload, and mixed fleets are likely to be the default. The added complexity of running several accelerator types may limit how far this goes.
+**Accelerators are specializing because inference workloads differ, as models are.** For example, Nvidia pairs GPUs for prefill with a separate accelerator for decode. Performance is a property of the system, not the accelerator, so no single design is likely to dominate every workload, and mixed fleets are likely to be the default.
 
-Startups are also building new designs that could change things drastically (e.g., Cerebras, Etched). Few have taken real share yet, GPUs remain the default by a wide margin, and deployment at scale could take a while.
+**Startups are building new accelerator designs (e.g., Cerebras, Etched), drawn by the money at stake.** Spending is large enough that even small efficiency gains are worth a great deal. Inference workloads also differ, so a design that is best at one can find a market without beating GPUs at everything. Few have taken real share yet, GPUs remain the default by a wide margin, and deployment at scale could take a while.
+
+--------------------
 
 ### Every Physical Constraint Shows Up as an Idle Accelerator
 
-Physical constraints leave accelerators idle in three ways:
-* **Deployed, but below full utilization**. Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, CPU-bound work leaves them waiting on the host, heat forces throttling, and missing power leaves chips unused.
-* **Bought, but not yet deployed**. Some accelerators sit in inventory because the data center they are meant for is not ready, whether because the building is unfinished or because power, cooling, or networking is not yet in place.
+**Physical constraints leave accelerators idle in three ways:**
 * **Wanted, but not yet made.** Foundry capacity limits how many accelerators can be built.
+* **Deployed, but below full utilization.** Most deployed accelerators, including Nvidia GPUs, run below full utilization in practice. Memory leaves cores waiting on data, weak networking leaves chips waiting on each other, CPU-bound work leaves them waiting on the host, heat forces throttling, and missing power leaves chips unused.
+* **Bought, but not yet deployed.** Some accelerators sit in inventory because the data center they are meant for is not ready, whether because the building is unfinished or because power, cooling, or networking is not yet in place.
 
-Accelerator supply starts at the foundry. Leading-edge wafers and advanced packaging, the step that joins each accelerator to its memory, are both tight, and packaging is reportedly the narrower of the two. Both are concentrated at a single supplier, so capacity is hard to add elsewhere quickly
+#### Wafers and Advanced Packaging
 
-Memory is the hardest constraint to relieve with hardware, in part because compute has outgrown memory bandwidth and that doesn’t seem to be changing. Bandwidth, not compute, sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. Demand for both is likely to keep growing as systems retain and reuse more context: agents carry memory across sessions, and caching stores earlier computation instead of recomputing it. High-bandwidth memory addresses both, but supply has not kept up with demand and prices have stayed high. Other responses, in rough order of how soon they help:
-* Software and model architecture, the near-term fix, since they reduce how much memory each token needs (e.g., quantization, cache compression, MoE).
-* More memory tiers. Context that does not fit in HBM can sit in DRAM or flash (e.g., Nvidia's CMX, which adds a flash tier for cached context).
+**Wafers and advanced packaging limit how many accelerators can be made.** Leading-edge wafers and advanced packaging are both tight. Both are concentrated at a single supplier, so capacity is hard to add elsewhere quickly.
+
+#### Memory
+
+**Memory is difficult to relieve with hardware.** Memory feeds data to the accelerator's cores, and it constrains them in two ways:
+* **Bandwidth**, how fast memory delivers data, sets how fast tokens can be generated in decode. Compute has outgrown memory bandwidth, so cores wait on data, and that doesn't seem to be changing.
+* **Capacity**, how much memory can hold, sets how much context a chip can work with. Demand is growing as systems retain and reuse more context: agents carry memory across sessions, and caching stores earlier computation instead of recomputing it.
+
+High-bandwidth memory (HBM) addresses both bandwidth and capacity, but supply has not kept up with demand and prices have stayed high. Many other levers are being pulled to relieve the memory constraint, including:
+* Software and model architecture, which reduce how much memory each token needs (e.g., quantization, cache compression, MoE).
+* More memory tiers. Context that does not fit in HBM can sit in DRAM or flash (e.g., Nvidia's CMX, which adds a flash tier for cached context). That moves demand down the tiers, and DRAM and NAND are tight as well: suppliers have put capital into HBM and DRAM and added little NAND capacity.
 * Higher utilization through cluster layout and networking. Existing chips can be arranged and linked differently, such as racks built for memory and racks built for compute, so cores wait less on data.
-* New chip designs that are more efficient. GPUs remain the default by a wide margin, but the field is widening beyond the chips best suited to training.
+* New chip designs that are more efficient.
 
-The shortage is therefore not limited to HBM. Context pushed down the tiers adds demand for DRAM and flash, and suppliers have put capital into HBM and DRAM and added little NAND capacity, so DRAM and NAND are tight as well.
+#### Networking
 
-Networking is being extended up, out, and across:
-* **Scale up** links chips within a rack so they act like one larger accelerator. It runs largely on Nvidia's proprietary NVLink today, with open alternatives, including UALink and Ethernet-based designs, competing for it.
-* **Scale out** links racks across the data center. It uses both Nvidia's InfiniBand and Ethernet, and has been moving toward Ethernet.
-* **Scale across** links data centers, since a single site can run out of power. It is mostly Ethernet-based.
+**Networking keeps accelerators from waiting on each other, and it is being extended up, out, and across:**
+* **Scale up** links chips within a rack so they act like one larger accelerator. Today it mostly runs on copper (e.g., NVLink, with open alternatives such as UALink competing for it). Optical is likely to enter first where scale up extends beyond a single rack.
+* **Scale out** links racks across the data center. Connections beyond the rack mostly run on optical, over protocols such as Ethernet and InfiniBand, and it has been moving toward Ethernet.
+* **Scale across** links data centers, since a single site can run out of power. It is mostly Ethernet over optical fiber.
 
-Copper still handles most connections within a rack and is strongest at short reach, but it runs into distance and heat limits as racks get denser. Optical moves data as light, carrying more with less latency and heat, and most connections beyond a rack already run on it. Optical replacing copper within the rack is not a foregone conclusion, though. It has been the next thing for a while, and several approaches are likely to coexist: copper at short reach, pluggable optics, which are today's standard, and newer designs that put the optics next to or on the chip, known as near-packaged and co-packaged optics (CPO). The newer designs may not reach large scale until 2027 to 2028 or later.
+**Whether optical replaces copper inside the rack is uncertain.** Copper is strongest at short reach, but it runs into distance and heat limits as racks get denser. Optical carries more with less latency and heat, and is already common beyond the rack. It has been the next thing for a while, and the shift is likely to be gradual, with several approaches coexisting:
+* Copper, at the shortest reach.
+* Pluggable optics, today's standard.
+* Near-packaged and co-packaged optics (CPO), newer designs that put the optics next to or on the chip. They are reportedly shipping in some switches already, and are likely to reach large scale over the next few years, with use inside the scale-up domain later still.
 
-Agents also lean on CPUs. Orchestration, tool calls, code execution, and API requests run on CPUs, and an accelerator can sit idle while it waits for them. As agent use grows, demand for CPUs is likely to grow with it, and server CPU supply has tightened, with price increases and long lead times reported.
+#### CPUs
 
-Cooling is shifting to liquid, gradually. Air is the default, but as accelerators are packed more densely and run hotter it struggles to keep up. Liquid removes heat at the chip and sustains higher density, but it is a system, and it sits alongside air rather than replacing it:
-* A system, not a single product: the racks, with cold plates on the chips; coolant distribution units (CDUs) and pumps that move the liquid; and heat rejection that carries the heat out of the building.
-* Alongside air: equipment that is not cooled at the chip, such as networking gear and power supplies, still needs air, so many facilities use both. 
+**Agents lean on CPUs, so CPU-bound work can leave accelerators idle.** Between model calls, orchestration, tool calls, code execution, and API requests run on CPUs, and an accelerator can sit idle while it waits for them. Demand for CPUs is likely to grow with agent use, and server CPU supply has tightened, with price increases and long lead times reported.
 
-Power limits how many accelerators can run, and natural gas is the only source that reliably supplies it now. The usual route, connecting a new data center to the electric utility, can take years and delay projects, so some developers generate power on site with gas. Even gas is constrained, since processing, gathering, and transmission infrastructure is insufficient for cost-effective deployment, and on-site generation still needs a last-mile connection from a main pipeline, which can take a year or more. 
-* Nuclear is not a five-year solution: existing plants are limited, new ones take years, and newer reactor designs are not yet reliable.
-* Solar and batteries are getting cheaper on the hardware, but land, transmission, and storage at scale are not.
-* Advanced geothermal may be the wildcard, running constantly with zero emissions while reusing existing oil and gas drilling equipment.
+#### Cooling
+
+**Cooling for accelerators is shifting from air to liquid as they are packed more densely and run hotter.** Air is the default way to cool data center equipment, but it struggles to remove heat as fast as dense accelerators produce it, and when heat builds up, chips throttle. Liquid removes heat directly at the chip, so it sustains higher density. The shift applies to the accelerators, not the whole facility, and it is gradual for two reasons:
+* **Liquid cooling is a system, not a single product.** It takes racks with cold plates on the chips, coolant distribution units (CDUs) and pumps that move the liquid, and heat rejection that carries the heat out of the building.
+* **Air still cools much of the facility.** Equipment that is not cooled at the chip, such as networking gear and power supplies, still needs air, so many facilities use both.
+
+#### Power
+
+**Power limits how many accelerators can run, and natural gas is the only source that reliably supplies it now.** New power needs a source that generates it reliably and a way to deliver it to the data center. Delivery is usually through the electric utility's grid, but connecting a new data center can take years and delay projects. Some developers therefore generate power on site, which skips the wait, and gas is the source that can do that now: it can be deployed at the site and runs constantly. However, gas faces its own constraints:
+* **Capacity to move gas:** processing, gathering, and transmission infrastructure is insufficient for cost-effective deployment.
+* **Reaching the site:** on-site generation still needs a last-mile connection from a main pipeline, which can take a year or more.
+
+**Other power sources are further out than gas.** Alternatives include nuclear, solar, batteries, and advanced geothermal. Of these, advanced geothermal may have the most potential in the near term:
+* **Advanced geothermal** runs constantly, like gas, with zero emissions, and reuses existing oil and gas drilling equipment.
+* **Nuclear** is not a five-year solution: existing plants are limited, new ones take years, and newer reactor designs are not yet proven at scale.
+* **Solar and batteries** are both getting cheaper on the hardware, but land, transmission, and storage at scale are not.
+
+--------------------
 
 ### Agents Are Autonomy in Practice, and Digital Infrastructure Is Being Built Around Them
 
