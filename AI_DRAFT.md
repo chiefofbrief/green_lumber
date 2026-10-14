@@ -43,7 +43,7 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 **Once a position is right, hold it to ride the growth.** Being early only pays if the position is still held when the growth arrives, and the usual failure isn't bad analysis, it's giving up on the position before the payoff. If a position turns out to be too early, holding is usually the safest option, but it is worth reevaluating whether the growth is still coming.
 
 --------------------
---------------------
+**--------------------**
 
 ## The Basics of AI
 
@@ -55,63 +55,87 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 **Reliability is what limits autonomy.** Models are probabilistic, not deterministic: the same input can produce different outputs, and a wrong one looks like a right one. The output may not be wrong at all, just weaker than it could have been, and that is harder to catch. Autonomy therefore needs poor outputs to be either caught or tolerated, which is why it has arrived first where outputs can be verified and is likely to be more prevalent where the cost of errors is low. Even there, a system is only given autonomy as far as it can be trusted, which takes controls around it, not just a powerful model.
 
+--------------------
+
 ### Infrastructure and Applications are Both Digital and Physical
 
-AI infrastructure has two components. Physical infrastructure is the hardware: accelerators, racks, networking, power, and cooling. Digital infrastructure is the software and context: models, architectures, data, and protocols.
+**AI infrastructure has two components:**
+* Physical infrastructure is the hardware: accelerators, CPUs, racks, networking, power, and cooling.
+* Digital infrastructure is the software and context: models, architectures, data, and protocols.
 
-AI applications split the same way. An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box. Digital applications works with information, such as text, images, and video. Physical applications understand and interact with the physical world, as in robots, autonomous vehicles, and industrial systems.
+**AI applications split the same way.** An AI-native application is a user-facing product, purpose-built around a specific task, that uses AI as its core reasoning engine and ships with everything needed to complete that task out of the box:
+* Digital applications work with information, such as text, images, and video.
+* Physical applications understand and interact with the physical world, as in robots, autonomous vehicles, and industrial systems.
 
 ### Context and Compute are the Fuel
 
-Compute is the processing power that lets AI models learn patterns and generate outputs. Training spends it to learn patterns from data; inference spends it every time the model is used. It is the input you can buy, so it scales with money and with how fast data centers get built. 
+**Compute is the processing power that lets AI models learn patterns and generate outputs.** Training spends it to learn patterns from data; inference spends it every time the model is used. It is the input you can buy, so it scales with money and with how fast data centers get built.
 
-The industry assumes scale works: more compute and more data produce better models, predictably, and it has held over several orders of magnitude. That assumption is what justifies the spending. It is an empirical observation, not a law, and architecture is the most likely thing to break it.
-
-Context is what the model works with. It takes three forms, and they behave differently.
+**Context is what the model works with, and a model is of little use for a task without it.** It takes three forms, and they behave differently:
 * Training data is what the model learns from before it is deployed. General models have already absorbed the public internet, so what remains scarce is domain-specific data and traces, meaning the thinking behind the work rather than just the output. That sits with whoever does the work: end customers, data providers, and vertical software companies. Physical AI has no public equivalent to start from.
 * Prompt context is what the model is given at the moment it runs. It is supplied by the user or the application, and it is the difference between a generic answer and a correct one.
 * State and memory are what a system carries across a task and across sessions, such as history and preferences. They are not sourced, they accumulate as the system runs, and they have to be stored and retrieved, typically in databases.
 
-Compute and context are bound together by memory. Every token generated requires fetching context, so compute sits idle whenever it cannot be fetched fast enough. Adding compute does not help if the context cannot reach it. Memory is a hierarchy, and context that does not fit in a faster tier has to sit in a slower one:
-* HBM sits next to the accelerator. It is the fastest tier and the most expensive per bit.
-* DRAM is the server’s main memory. It is larger and slower.
+**The industry assumes scale works.** More compute and more data produce better models, predictably, and that has held over several orders of magnitude. That assumption is what justifies the spending. It is an empirical observation, not a law, and architecture is the most likely thing to break it.
+
+**In practice, compute and context are bound together by memory.** Every token generated requires fetching context, so compute sits idle whenever it cannot be fetched fast enough. Memory comes in tiers that trade speed for capacity, and context that does not fit in the fastest tier has to sit in a slower one, so where context sits sets how quickly it can reach compute:
+* HBM sits next to the accelerator. It is the fastest tier and the most expensive per bit, and it holds the least.
+* DRAM is the server's main memory. It is larger and slower.
 * Flash (NAND, the chips in SSDs) is slower again and much cheaper per bit.
+
+--------------------
 
 ### Training and Inference are the Two Jobs
 
-Training is building the model: compute is applied to data so the model learns patterns. It happens before deployment and is paid for up front.
+**Training is building the model.** Compute is applied to data so the model learns patterns. It happens before deployment and is paid for up front.
 
-Inference is using the model. It happens every time, and it is paid for every time.
-
-Inference has two stages. Prefill processes the prompt and is limited by compute. Decode generates the response one token at a time and is limited by memory bandwidth, so decode is usually the constraint. Three things explain why:
+**Inference is using the model.** It happens every time, and it is paid for every time. It has two stages: prefill processes the prompt and is limited by compute, and decode generates the response one token at a time and is limited by memory bandwidth, so decode is usually the constraint. Three things explain why decode is limited by memory bandwidth:
 * To produce each token, the accelerator has to read the model's weights and the session's context from memory, and does only a small amount of math on each piece before moving on. Its compute cores, the units that do the math, spend much of their time waiting on memory.
-* That is an imbalance between compute and memory bandwidth. Compute has grown far faster than the speed at which memory can feed it, and that doesn't seem to be changing.
-* Training avoids the imbalance by processing very large batches, so each read of memory feeds a lot of math. Inference serves requests one at a time unless they are grouped, so the imbalance shows up there.
+* Accelerators have gained compute speed far faster than memory has gained bandwidth, so the gap between how fast they can do math and how fast memory can supply the data keeps widening, and that doesn't seem to be changing.
+* Training avoids the gap by processing very large batches, so each read of memory feeds a lot of math. Inference serves requests one at a time unless they are grouped, so the gap shows up there.
 
-This changes the economics of software. Traditional software costs almost nothing to serve one more user. AI applications pay for inference on every use, so cost scales with usage and margins depend on what inference costs.
+**Inference changes the economics of software.** Traditional software costs almost nothing to serve one more user. AI applications pay for inference on every use, so cost scales with usage and margins depend on what inference costs.
+
+--------------------
 
 ### Physical Infrastructure Maximizes Accelerator Utilization
 
-Accelerators, which are designed to do massive amounts of specialized math simultaneously, perform the computations. They hold context in memory and run the math against it. GPUs and custom ASICs (e.g., TPUs) are two forms.
+**Accelerators are the hardware that delivers compute.** Training and inference both rely on specialized math, which an accelerator performs in parallel, with many operations running at once. It keeps the model's weights and the context it is working on in memory, and runs that math against them. Main forms of accelerators include GPUs, which are general-purpose, and custom ASICs, which are built for specific workloads (e.g., TPUs).
 
-An accelerator needs three things working together: cores to execute the math, memory to hold weights and state, and interconnect to move data in and out. Utilization is set by whichever of those is slowest. Software sets how much of that is reached, since accelerators do not hit their rated throughput without kernels, compilers, and serving frameworks built for them. An accelerator therefore cannot be judged apart from the system around it: cost per token is set by the system, not the chip alone.
+**An accelerator's performance, which dictates its cost per token, is set by the system around it.** An accelerator needs three things working together, and its utilization is set by whichever is slowest:
+* Cores to execute the math.
+* Memory to hold weights and state.
+* Interconnect to move data in and out.
 
-Software maturity varies by chip and keeps improving, so performance at one point in time may understate what a chip can reach later. That applies to every chip, including Nvidia, but the gap is likely larger for chips with newer software ecosystems.
+Software decides how much of that capability is actually used. An accelerator does not reach its rated throughput without kernels, compilers, and serving frameworks built for it. That software keeps improving, so a measurement taken at one point in time may understate what the accelerator can reach later. The gap applies to every accelerator, including Nvidia's, but it is likely larger for those with newer software ecosystems.
 
-Accelerators are the most expensive part of the stack, so an idle one is the cost. Everything else in physical infrastructure exists to keep them busy. Data centers house them. Power runs them. Cooling removes their heat so they do not throttle. Networking connects them so they can work as one system instead of waiting on each other. CPUs run the software around them, including the orchestration and tool calls that agents depend on.
+**Accelerators are the most expensive part of the stack, so an idle accelerator is the most expensive waste.** Everything else in physical infrastructure exists to keep accelerators running:
+* Data centers house them.
+* Power runs them.
+* Cooling removes their heat so they do not throttle.
+* Networking connects them so they can work as one system instead of waiting on each other.
+* CPUs run the software around them, including the orchestration and tool calls that agents depend on.
+
+--------------------
 
 ### Digital Infrastructure Makes Models Useful
 
-Digital infrastructure has two layers: the model, and everything around it. A model is any system trained to produce outputs from patterns in data. LLMs are one type. Image, video, vision, vision-action, and world models are others. Within a type, models vary in size, cost, context, and where they can run.
+**Digital infrastructure has two layers: the model, and everything around it.** A model is any system trained to produce outputs from patterns in data. LLMs are one type. Image, video, vision, vision-action, and world models are others. Within a type, models vary in size, cost, context, and where they can run.
 
-Architecture is the design that determines what a model can do and how much compute and memory it needs. The transformer is the basis for today's foundation models. A new base architecture would change things drastically. Until then, efficiency comes from modifying the transformer to use less compute and less memory, and from hybrids that blend in alternative designs (e.g., MoE).
+**Architecture determines what a model can do and how much compute and memory it needs.** The transformer is the basis for today's foundation models. A new base architecture would change things drastically. Until then, efficiency comes from changes that make the transformer cheaper to run, such as mixture of experts and sparse attention, which reduce the compute and memory used per token.
 
-A model on its own only produces outputs. Everything around it turns those outputs into work. Harnesses manage memory, interfaces, and tool execution. Inference runtime software decides how requests are batched, served, and routed. Agent runtime software sits between applications and cloud infrastructure and runs agents in production: it isolates the code they run and saves their state so a failure does not lose the work. Security, identity, observability, and governance make up trust: who a system is, what it can access, what it is allowed to do, and whether anyone can see what it did. That surrounding layer has to change as systems become autonomous, which breaks three assumptions:
-* Most software is stateless: each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ("elastic"). Autonomous systems are stateful. They retain information between requests, so requests must be routed back to the infrastructure that holds their state.
-* Most software is deterministic: the same input produces the same output. Models are probabilistic, so outputs vary, and cloud infrastructure may need to adapt to that. Early use cases mostly involve verifiable tasks, which behave more like deterministic systems, so the change may come gradually. Observability and governance stay critical either way.
-* They also have to act on a world built for humans, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world adapts to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
+**A model on its own only produces outputs, so everything around it is what turns those outputs into work.** Some of the major components of that surrounding layer include:
+* **Harnesses**, which manage memory, interfaces, and tool execution.
+* **Runtime software**, which keeps models and agents running in production: it decides how requests are batched, served, and routed, and it runs agents, isolating the code they run and saving their state so a failure does not lose the work.
+* **Trust**, which covers who a system is (identity), what it can access (security), what it is allowed to do (governance), and whether anyone can see what it did (observability).
+
+**That surrounding layer has to change as systems become autonomous, which breaks three assumptions most software makes:**
+* **Most software is stateless:** each request is handled independently, with no memory of prior requests, which makes it easy to scale up or down on demand ("elastic"). Autonomous systems are stateful. They retain information between requests, so requests must be routed back to the infrastructure that holds their state.
+* **Most software is deterministic:** the same input produces the same output. Models are probabilistic, so outputs vary, and cloud infrastructure may need to adapt to that. Early use cases mostly involve verifiable tasks, which behave more like deterministic systems, so the change may come gradually. Observability and governance stay critical either way.
+* **Most software is built for humans to operate.** Autonomous systems have to act in that world, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world is adapting to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
 
 --------------------
+**--------------------**
 
 ## The Current AI Landscape
 
