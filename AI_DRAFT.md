@@ -43,6 +43,7 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 **Once a position is right, hold it to ride the growth.** Being early only pays if the position is still held when the growth arrives, and the usual failure isn't bad analysis, it's giving up on the position before the payoff. If a position turns out to be too early, holding is usually the safest option, but it is worth reevaluating whether the growth is still coming.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## The Basics of AI
 
@@ -136,53 +137,68 @@ Software decides how much of that capability is actually used. An accelerator do
 * **Most software is built for humans to operate.** Autonomous systems have to act in that world, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world is adapting to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## The Current AI Landscape
 
 ### The Sector Is Early
 
-Infrastructure is further along than applications, and within infrastructure, physical is further along than digital. Adoption therefore trails the stack: applications depend on infrastructure that is still being built, so adoption is early. None of it is late.
+**AI is still being built out, and none of it is late.** Applications depend on the infrastructure beneath them, and both layers are still being adapted for AI:
+* Physical infrastructure is furthest along, but is still being expanded to make AI cost effective. Some of its sub-sectors remain investable.
+* Digital infrastructure is earlier, and is being adapted so systems can operate autonomously.
+* Applications are earliest. Few exist yet, and the ones that do face barriers to adoption: reliability, trust, and cost.
+
+--------------------
 
 ### The Model Layer is Diversifying
 
-AI is still largely synonymous with LLMs, and within LLMs, with frontier models. But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run. 
+**AI is still largely synonymous with language models, and within them, with frontier models (e.g., ChatGPT, Claude).** But image, video, vision, vision-action, and world models are all in use, and within any type, models vary in size, cost, context, and where they can run.
 
-Users are exploring rather than defaulting to the frontier. They are looking for a workable mix of capability, cost, and privacy. Examples include:
+**Users are exploring rather than defaulting to the frontier, looking for a workable mix of capability, cost, and privacy.** Examples include:
 * Open-source versus closed.
-* Local models, which run on a user’s own hardware. Efficiency techniques like quantization, sparse activation, and MoE make them more practical, and the hardware for running them is improving.
+* Local models, which run on a user's own hardware. Efficiency techniques like quantization, sparse activation, and MoE make them more practical, and the hardware for running them is improving.
 * Cheaper models from outside the frontier labs (e.g., Kimi, DeepSeek), which some startups already use because they cost less and are not much worse.
+* Models enterprises build themselves on their own data, rather than choosing among general models. A frontier model knows what is public; it does not know how a particular company works.
 
-Taken together, these point to general capability commoditizing: open-weight models have closed much of the gap and cap what labs can charge for it. Where models are close substitutes, requests can be routed to whichever fits best on cost, complexity, and domain. Providers then compete to be the one chosen, which may push prices down.
+**Together, these options point to general capability commoditizing.** The gap between frontier and non-frontier models is narrowing. Where models are close substitutes, requests can be routed to whichever offers the best mix of capability, cost, and privacy, and providers compete to be the one chosen.
 
-Enterprises are going a step further. Rather than choosing among general models, they are building their own on their own data. A frontier model knows what is public; it does not know how a particular company works.
+--------------------
 
 ### Task-Specific Data Is the Scarce Input
 
-Proprietary data is valuable right now. General models have absorbed what the internet offers, so what improves performance on a specific task is the data held by whoever does the work, hosts the work, or collects it on purpose. Because foundation models are still the default, the user has to supply the task context, and it does not persist. 
+**Proprietary data is valuable because foundation models lack the context for a specific task.** They have already absorbed what the internet offers, so the missing context is not public. Until models are built on that data, the user has to supply it. Task-specific data comes from three places:
+* **The people doing the work** (e.g., a law firm, a hospital, a manufacturer). They hold both the output and the reasoning behind it, and they are using it to build and augment their own models. Holding the data is not the same as being able to use it. Enterprise data is often messy and not agent ready, so usable data is scarcer than data that exists.
+* **Vertical software companies**, which hold data as a byproduct, since the work runs inside their systems (e.g., Tyler, Agilysys). Because that data is generated inside software, it may be more structured than what enterprises hold, and so closer to agent ready.
+* **A third industry, forming to build it deliberately** (e.g., Mercor). These companies supply traces, the reasoning behind expert work rather than the output, to the labs.
 
-Data originates with the people doing the work: a law firm, a hospital, a manufacturer. They hold both the output and the reasoning behind it, and they are using it to build and augment their own models. Holding the data is not the same as being able to use it. Enterprise data is often messy and not agent ready, so usable data is scarcer than data that exists.
-
-Vertical software companies hold data as a byproduct, since the work runs inside their systems (e.g., Tyler, Agilysys). Because that data is generated inside software, it may be more structured than what enterprises hold, and so closer to agent ready. 
-
-A third industry is forming to build it deliberately (e.g., Mercor). These companies supply traces, the reasoning behind expert work rather than the output, to the labs.
+--------------------
 
 ### Inference (and Cost) is the Central Concern
 
-Inference is where cost and capacity pressure accumulate as usage grows. Decode is the main issue. Serving also gets more complex as the number of models and accelerators grows, since inference runtime software has to route each request to a model and an accelerator based on factors like cost, availability, and latency. Solutions are being pursued at every layer: model architecture and compression, inference runtime software (e.g., vLLM, SGLang, TensorRT-LLM), chip design, and data center design. Software is likely the fastest and cheapest of these, since it gets more throughput from existing chips instead of waiting on new ones (e.g., software updates and retuning alone raised throughput on the same AMD chip several-fold in three months). 
+**Inference is where cost and capacity pressure accumulate as usage grows, and decode is the main issue.** Decode is limited by memory bandwidth: to produce each token, the accelerator reads the model's weights and the session's context from memory, so its cores spend much of their time waiting. Each token therefore takes a lot of accelerator capacity for little math.
 
-Cost per token is falling through efficiency gains within existing designs, which are significant but not drastic. A drastic decline would require a change in supply or design: more accelerators coming online as data centers are finished, a new base architecture, or new accelerator designs. In the meantime, the marginal gains come from both digital and physical infrastructure:
+**Agents increase the decode load in two ways.** They generate far more tokens per task than chat does, so there are many more decode steps, and they carry long context across long tasks, so each step has to read more from memory. Agentic adoption is early, so this load is likely to keep growing.
+
+**The decode load falls on the accelerators in service, which are scarce.** Prices remain elevated on demand and the cost of each token stays high. That is why frontier models are too expensive for most applications to run profitably.
+
+**Efficiency gains lower the cost to serve each token by getting more tokens out of the accelerators already in service, significantly but not drastically.** They do it by cutting the compute and memory each token needs, sharing each read of memory across more requests, avoiding repeated work, or keeping accelerators from waiting. They come from both digital and physical infrastructure:
 * **Digital**
   * Architectures, such as MoE, that use less compute and memory.
   * Compression, which shrinks the model and the data being moved.
   * Smaller task- or domain-specific models, which need less compute because general models carry more than a given task needs.
-  * Inference runtime software, which batches requests and routes each one to the model and chip that fits it on cost, complexity, domain, and availability.
+  * Inference runtime software (e.g., vLLM, SGLang, TensorRT-LLM), which batches requests and routes each one to the model and chip that fits it on cost, complexity, domain, and availability. This matters more as the number of models and accelerators grows.
   * Caching, which reads back what the model has already computed for a repeated prompt instead of recomputing it. Providers charge less for cached input tokens.
 * **Physical**
   * Networking, which moves data faster so chips wait less on each other.
   * Cooling, which keeps chips from throttling.
   * Mixed fleets, which use different chips for training, prefill, and decode, since their compute and memory needs differ.
 
-Accelerator prices remain elevated on demand, and frontier models are too expensive for most applications to run profitably. Demand keeps climbing regardless. Agents consume far more tokens per task than chat does, and agentic adoption is early, so the mix is still shifting toward the expensive workload. However, prices may decrease if accelerators that have already been bought but not yet deployed come online, since providers with spare capacity may compete for routed workloads on price and other terms.
+Of these, software is likely the fastest and cheapest, since it gets more throughput from existing chips instead of waiting on new ones (e.g., software updates and retuning alone raised throughput on the same AMD chip several-fold in three months).
+
+**A drastic decline in the cost to serve each token would require a change in supply or design:**
+* More accelerators coming online as data centers are finished. Prices may decrease if accelerators that have already been bought but not yet deployed come online, since providers with spare capacity may compete for routed workloads on price and other terms.
+* A new base architecture.
+* New accelerator designs.
 
 ### The Accelerator Layer is Diversifying
 
