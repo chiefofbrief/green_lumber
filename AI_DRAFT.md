@@ -42,8 +42,7 @@ Expected sales growth, and the risks to that growth, dictate a company's stock p
 
 **Once a position is right, hold it to ride the growth.** Being early only pays if the position is still held when the growth arrives, and the usual failure isn't bad analysis, it's giving up on the position before the payoff. If a position turns out to be too early, holding is usually the safest option, but it is worth reevaluating whether the growth is still coming.
 
---------------------
---------------------
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## The Basics of AI
 
@@ -136,8 +135,7 @@ Software decides how much of that capability is actually used. An accelerator do
 * **Most software is deterministic:** the same input produces the same output. Models are probabilistic, so outputs vary, and cloud infrastructure may need to adapt to that. Early use cases mostly involve verifiable tasks, which behave more like deterministic systems, so the change may come gradually. Observability and governance stay critical either way.
 * **Most software is built for humans to operate.** Autonomous systems have to act in that world, so new protocols are needed for them to communicate with each other, execute transactions, and more (e.g., A2A for agent-to-agent communication). At the same time, the human-facing world is adapting to non-human actors, with websites, software, and payment providers becoming operable by systems as well as people.
 
---------------------
---------------------
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## The Current AI Landscape
 
