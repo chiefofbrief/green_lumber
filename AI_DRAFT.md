@@ -272,26 +272,43 @@ High-bandwidth memory (HBM) addresses both bandwidth and capacity, but supply ha
 
 ### Agents Are Autonomy in Practice, and Digital Infrastructure Is Being Built Around Them
 
-Where a chatbot answers, an agent acts. It makes decisions, carries context across a long task, and uses tools. Each creates a need that existing infrastructure was not built for.
+**An agent acts where a chatbot answers, and each way it acts creates a need that existing infrastructure was not built for:**
+* **Makes decisions**, so it needs controls that make it trustworthy and costs that can be predicted.
+* **Carries context** across a long task and across sessions, so it needs infrastructure built for long-running work that holds state, and memory that persists.
+* **Uses tools and accesses data**, so it needs protocols to communicate, transact, and fetch the data it needs.
 
-Agents make decisions along the way. Because models are probabilistic and a wrong output can look like a right one, errors compound across a long task, and an agent's output cannot be assumed correct. Autonomy is therefore given only to the extent that agents can be trusted, and that trust has to come from controls around them, so adoption may lag until those controls are in place. Trust has four parts:
-* **Security**: agents hold access to sensitive systems and data, so a compromised or misbehaving agent can do damage.
-* **Identity**: each agent needs its own credentials, so it is a non-human identity, and who it is and what it can access has to be defined.
-* **Observability**: someone has to see what they did.
-* **Governance**: someone has to limit what they can do.
+#### Trust and Cost
 
-Cost predictability is a second brake on adoption. Because models are probabilistic, identical tasks can take different numbers of steps and cost very different amounts, and spend that scales with usage is hard to forecast. Cheaper tokens do not fully solve this, since agents use far more of them, so enterprises may hold back until they can predict and cap what agents spend.
+**Agents can only be given autonomy to the extent they can be trusted, and the controls that provide that trust are still being built.** Models are probabilistic, so errors compound across a long task and an agent's output cannot be assumed correct. Until the controls are in place, adoption may lag. Trust has four parts:
+* **Identity:** each agent needs its own credentials, so it is a non-human identity, and who it is has to be defined.
+* **Security:** agents hold access to sensitive systems and data, so a compromised or misbehaving agent can do real damage.
+* **Governance:** what an agent is allowed to do, including how much it can spend, has to be limited.
+* **Observability:** someone has to be able to see what an agent did and what it cost.
 
-Carrying context across a long task makes serving agents a different problem than serving software. Sessions run for minutes or hours rather than milliseconds, capacity cannot be added or removed freely, and a failure loses the work rather than just the request. Cloud providers are rearchitecting around this, and agent runtime software is the layer being built to keep agents running through failures.
+**Autonomy also makes cost hard to predict.** An agent decides how many steps a task takes, so identical tasks can cost very different amounts. Agents also use far more tokens than chat does, so total spend is hard to forecast. Companies are now more cost conscious after recent tokenmaxxing (encouraging employees to use as many tokens as possible), so enterprises may hold back until they can predict and cap what agents spend.
 
-Carrying context across sessions also means memory has to persist. Retaining more context adds infrastructure cost, and storage is only part of the problem: memory is useful only if the right prior context is retrieved at the right moment. Databases built for transactions and batch queries may need to adapt to serve it, and newer structures such as vector databases, which retrieve by similarity, and knowledge graphs, which store the relationships between pieces of information, are also used for it.
+#### Runtime and Memory
 
-Using tools means acting on a world built for humans. New protocols are emerging to let agents do what they cannot natively:
+**Carrying context across a long task makes serving agents a different problem than serving software.** Cloud providers are rearchitecting around it, and agent runtime software is the layer being built to keep agents running through failures by saving their state. Ordinary software handles short, independent requests, and agents differ in three ways:
+* **Sessions run long.** They last minutes or hours rather than milliseconds.
+* **Capacity cannot be added or removed freely.** An agent's state sits on the machine running it, so requests have to return there.
+* **A failure loses the work,** not just the request.
+
+**Agents that carry context across sessions need memory that persists.** Retaining more context adds infrastructure cost, and the harder problem is retrieval: memory is useful only if the right prior context is retrieved at the right moment. Databases built for transactions and batch queries may need to adapt, and newer database structures are built for retrieval. Examples include:
+* **Vector databases,** which retrieve by similarity.
+* **Knowledge graphs,** which store the relationships between pieces of information.
+
+#### Protocols and APIs
+
+**New protocols are emerging to let agents act in a world built for humans.** Agents need to be able to do several things there, and protocols are emerging for each:
 * Communicate with each other (e.g., A2A).
 * Execute transactions (e.g., x402 for payments, UCP for what commerce actions mean to an agent). Micropayments are only viable if transactions get cheaper, which is why new payment protocols are being pursued.
-* Work with websites (e.g., NLWeb, WebMCP). websites).
+* Work with websites (e.g., NLWeb, WebMCP).
+* Use tools and access data (e.g., MCP, which has become the leading protocol for this, with deep adoption in large enterprises).
 
-Agents act on software through APIs, so software that exposes comprehensive access gets used by agents and software that does not gets routed around. MCP has become the leading protocol for that exposure, and adoption is already deep in large enterprises, but agents call ordinary APIs too, so MCP adds to APIs rather than replacing them.
+**In an agentic world, software and data that are easier for agents to use get more usage.** Companies can make themselves more accessible by adopting these protocols, or by making existing data more accessible, for example through well-built APIs, which agents call directly too.
+
+--------------------
 
 ### Incumbents Are Leading the Buildout (for Now)
 
@@ -301,7 +318,7 @@ New technology does not mean new companies. Much of the new technology in the bu
 
 Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it.
 
-The money involved is drawing in startups, since even minor efficiency improvements are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). When they do, they compete on price, which is how infrastructure margins come down.
+The money involved is drawing in startups, since even minor efficiency improvements are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). When they do, they compete on price, which is how infrastructure margins come down. 
 
 ### Earnings are Real, Sustainability is Uncertain
 
