@@ -370,6 +370,23 @@ High-bandwidth memory (HBM) addresses both bandwidth and capacity, but supply ha
 
 ## Investment Implications
 
+### Own Infrastructure Now, Rotate to Applications Later
+
+**Hold infrastructure while its constraints bind, and rotate to applications as they ease.** Applications are held back by constraints that take time to ease. Infrastructure earns while it removes them, and then competes on price, which is why the margin ends up in applications.
+
+**Plan for slower adoption.** The narrative runs ahead of the constraints, which take time to ease, so adoption is likely to come in slower than expected. Positions priced for fast growth are the most exposed, and AI-native applications, which depend on the most constraints easing, move later still.
+
+**The main constraints on applications are the ones that infrastructure removes.**
+* **Cost to serve.** Inference is paid per use and capacity is limited. It eases as data centers come online and efficiency gains accrue.
+* **Trust, reliability, and cost predictability.** Autonomy needs controls, and enterprises may hold back until they can predict and cap spend. It eases as the controls get built.
+* **Data readiness.** Enterprise data is often messy and not agent ready. It eases as that data gets cleaned and structured.
+* **Physical limits.** Machines with brains are limited by models, hardware, irreversible errors, and a lack of public data. It eases as models improve and machines in the field generate data.
+* **Access.** AI-native applications are private. It eases through listings or acquisitions, and until then existing software is the stand-in.
+
+**The first investable applications are likely to be task- or domain-specific.** They offer higher-quality output with fewer inputs, and helping enterprises use their own data more effectively may be one of the first. Early versions may wrap foundation models with persistent, task-specific context so users no longer supply it each time, with vertical models that build in domain knowledge following.
+
+--------------------
+
 ### Buy the Physical Bottlenecks That Stay Binding
 
 **Physical constraints are worth owning only while they bind, and the price already assumes when that ends.** Over the next year or two, the question is which ones keep binding. There are six that keep accelerators from being made, deployed, or fully used (wafers and advanced packaging, memory, networking, CPUs, cooling, and power), and they are not equally worth owning. Within the constraints worth owning, pick the strongest companies at prices that do not assume the shortage is permanent.
@@ -537,37 +554,57 @@ The harder its data is to replicate, the safer its position.
 
 ### Physical AI Is a Supplier and Machine-Maker Trade
 
-Robots are mostly private, unproven, and years from scale. The companies supplying the parts and the machines are neither.
+**Physical AI shows up first in the categories where machines already operate.** That means manufacturing, warehouses, driving, agriculture, and construction. Much of the attention goes to new robot companies, which are private, unproven, and years from scale, and a lot of that attention is hype.
 
-Robot components. What a machine needs to perceive, move, and run. Perception takes depth, navigation, and proximity sensors, cameras, and microphones. Movement takes actuators and motor controllers. Power takes batteries and charging. Demand grows with units deployed regardless of which robot company deploys them.
+**Physical AI is best held as an option on how fast machines with brains spread.** Models are making machines easier to train and deploy, so the number of machines with brains, not only robots, could grow much faster than it does today. How fast is unknown, and this is the furthest from scale of anything here, so it is upside, not a base case, and the price shouldn't assume a fast ramp. The exposure is the companies that supply the components and materials, and the existing machine makers adding AI.
 
-Existing machine makers adding AI. Manufacturing equipment, warehouse systems, agricultural and construction machinery. The models go into machines that already have buyers and installed bases rather than into new categories. Where physical AI creates value includes predictive maintenance, material movement, inspection, and autonomous process control.
+#### Components and Materials Are the Infrastructure for Physical AI
 
-Deployment is slower here than in digital AI. The hardware is expensive and slow to iterate, errors are not reversible, and there is no public data to train on.
+**Their demand grows with machines deployed, whichever company wins.** A machine needs to sense, move, run its models, and power itself:
+* **Movement.** Actuators seem to be the largest share of a machine's cost and the most specialized part, which makes movement the most interesting piece.
+  * **Where to look:**
+    * Precision gearing and roller screws, specialized parts that seem slow to scale.
+    * Rare-earth magnets for motors. Processing is concentrated in China, so look at the largest Chinese producers and at suppliers building capacity elsewhere.
+    * Motors and motor controllers, which overlap with EV and industrial supply.
+  * **Durability:** Specialized parts are slow to expand, which supports them if deployment ramps, but capacity built for a fast ramp goes unused if it doesn't. Robot makers designing their own parts, or new designs, could also move demand.
+* **Sensing.** Machines need visual, audio, force, and touch sensing, and it is as necessary as movement.
+  * **Where to look:**
+    * Cameras and depth sensors for visual sensing, and microphones for audio.
+    * Force and torque sensors, and touch sensors for hands.
+  * **Durability:** Which sensors machines use is unsettled (e.g., cameras only versus cameras with lidar), and touch sensing has no standard design, so demand for any one type could shift.
+* **Onboard compute.** A machine acting in the physical world seems to need to run its models locally, since it cannot wait on a network connection.
+  * **Where to look:** Chips and modules for running models at the edge, from the accelerator makers and from embedded and automotive chip makers.
+  * **Durability:** Demand follows deployment, but how much of a machine's thinking runs on board versus in the cloud could shift as models get more efficient.
+* **Power.** Batteries and charging.
+  * **Where to look:** Battery makers and charging suppliers, which already operate at scale for EVs.
+  * **Durability:** Demand is steady, but supply is unlikely to be scarce, so it is less of an upside.
 
-### Rotate to AI-Native Applications Later
+#### Existing Machine Makers Adding AI Are the Nearest Public Stand-In for Physical Applications
 
-This is where the value ends up. It is also the one position that cannot be taken yet: the standouts are private, and inference costs more than most applications can carry. What has to change:
+**They put the brains into machines that already have buyers.** The models go into machines with installed bases, in the categories where machines operate today, so deployment doesn't wait on a new market. AI adds value in those machines through:
+* Predictive maintenance.
+* Material movement.
+* Inspection.
+* Autonomous process control.
 
-* **Inference cost**. Applications pay for every use, and token costs are unlikely to fall much soon. Until the return per use supports the price, the better product is not the better business.
-* **Access**. Nothing here is publicly traded. Listings, or acquisitions that put the exposure inside something that is.
-* **Reliability**. Autonomy has arrived where outputs can be verified. The applications that scale next are the ones where that holds.
+**Installed bases are an advantage, because machines in the field are the likely source of training data.** There is no public equivalent of the data that trained language models, and the machines doing the work produce it. The makers with the largest installed bases have the advantage, especially those building the AI into the machine's core and not on top of it.
 
-The first investable applications are likely to be task- or domain-specific, because they offer higher quality output with fewer inputs. They may start with a well-defined task where AI enables capabilities beyond a human’s, such as 24/7 work, analysis of far more data, and pattern recognition. Helping enterprises use their own data more effectively may be one of the first, since it draws on those capabilities. Early versions may wrap foundation models with persistent, task-specific context so users no longer supply it each time, with vertical models that build in domain knowledge following.
+--------------------
 
-Existing software is the proxy until these conditions change. When they do, the rotation is out of infrastructure and into applications, because infrastructure eventually competes on price and applications are where the margin ends up.
+### Watch the Signals That Say When to Hold or Rotate
 
-### Plan for Slower Adoption
+**Track these regularly:**
+* **Capex and funding.** Hyperscaler capex plans and the cost and form of new financing. Sustained capex supports the infrastructure positions, while cuts or more expensive funding are the warning.
+* **Margins and valuations of companies in a constraint.** Margins well above a company's history, with a price that assumes they last, mean the market is treating the shortage as permanent.
+* **Gross margins of software that is leaning in.** Falling gross margins show the cost of serving agents is hitting.
+* **Token prices from the leading labs.** Prices that stall or fall show the cost to serve easing, which is a step toward rotating.
+* **New capacity in a constraint.** Added packaging, memory, and gas infrastructure is the main thing that ends a shortage.
+* **Listings and acquisitions of AI-native applications.** They show application exposure becoming available.
+* **AI revenue.** Cloud companies, software companies, and machine makers that break out AI revenue show whether adoption is showing up in sales.
 
-The safest assumption is that adoption comes in slower than assumed, which means demand may be delayed. Most of the slowdown comes from barriers, such as trust, data readiness, cost predictability, and infrastructure still being built, not from a lack of value. Under that assumption:
-
-What holds up:
-* Companies that remove the barriers, since the delay is what creates demand for them.
-* The strongest, lowest-cost suppliers, which are best able to withstand the oversupply and price competition that slower demand can bring.
-* Existing software, which may have more time to build or adopt AI before AI-native competitors become investable.
-
-What is exposed:
-* Positions priced for fast growth, including AI-native applications, which move later still.
-* Scarcity positions, to the extent they depend on committed spending continuing.
-* Anything funded by circular demand or expensive capital.
+**Stay aware of these:**
+* **Accelerators bought but not yet deployed.** If many come online at once, scarcity could ease and future purchases could fall.
+* **Pullbacks in spending or data center plans, and their cause,** such as enterprises capping AI spend or data centers being delayed or cancelled. Pullbacks from the constraints themselves support those constraints, while pullbacks from funding or weak demand hurt them.
+* **Agents moving from pilots to production in higher-stakes work.** It means the barriers are easing, which supports the pieces that remove them and moves rotation closer.
+* **A major buyer adopting a new architecture or accelerator design at scale.** It would change several positions at once, since memory, networking, and cooling needs would shift.
 
