@@ -312,47 +312,61 @@ High-bandwidth memory (HBM) addresses both bandwidth and capacity, but supply ha
 
 ### Incumbents Are Leading the Buildout (for Now)
 
-Companies that existed before 2023 are both funding the buildout and supplying it. A handful of hyperscalers are putting up most of the money. A wider set of incumbents is selling into it, because they already have the manufacturing, the relationships, the products, the data, and the software. 
+**Companies that existed before 2023 are leading the buildout:**
+* **Funding:** a handful of hyperscalers are putting up most of the money.
+* **Supplying:** a wider set of incumbents sells into the buildout, across physical and digital infrastructure. They already have the manufacturing, the relationships, the products, the data, and the software. Hyperscalers sell into it too, so they sit on both sides of the spending.
 
-New technology does not mean new companies. Much of the new technology in the buildout (e.g., liquid cooling, optical networking, agentic infrastructure) is being brought to market by existing companies extending what they already sell, not by startups.
+**New technology does not mean new companies.** Much of the new technology in the buildout (e.g., liquid cooling, optical networking, agentic infrastructure) is being brought to market by existing companies extending what they already sell, not by startups.
 
-Hyperscalers are the linchpin, since they sit on both sides. They fund the spending and they sell into it.
+**New companies are entering the buildout, and are likely to help commoditize infrastructure over time.** The money involved is drawing them in, since even small efficiency gains are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). As they gain share, they compete on price, which is how infrastructure margins come down.
 
-The money involved is drawing in startups, since even minor efficiency improvements are worth a great deal at this scale. Few have taken real share yet, though some are making headway (e.g., Cerebras). When they do, they compete on price, which is how infrastructure margins come down. 
+--------------------
 
 ### Earnings are Real, Sustainability is Uncertain
 
-Prices for several of the major companies have risen with earnings, not ahead of them. The usual bubble test does not apply. Three things work against the earnings continuing:
-* Some of the demand is circular. They buy from each other, invest in each other, and commit to each other’s capacity, so a share of what looks like end demand is the group paying itself. How much is unknown.
-* Some of the recent token revenue came from tokenmaxxing, enterprises pushing usage for its own sake rather than for work. That has turned as buyers get cost conscious, so recent growth rates overstate the baseline. It hits the model providers first and the hardware later, since capex is committed against expected token demand.
-* The funding is getting more expensive. It has moved down the capital curve: operating cash flow first, then debt, and now equity and off-balance-sheet structures. Each step costs more and leaves less room, and at some point the spending has to be supported by cash the assets generate.
+**Prices for many of the major companies have risen with earnings, not ahead of them.** That is not the usual bubble pattern. But three things make it uncertain how durable those earnings are:
+* **Circular demand.** The major companies buy from each other, invest in each other, and commit to each other's capacity (e.g., Broadcom's reported loan to Anthropic, which buys its chips), so a share of what looks like end demand is the group paying itself. How much is unknown.
+* **Unclear real demand.** Some of the recent token revenue came from tokenmaxxing, enterprises pushing usage for its own sake rather than for work. That has turned as buyers get cost conscious, so recent growth rates overstate the baseline, and with agentic adoption still early, how durable the real demand is remains unclear.
+* **More expensive funding.** The funding has moved down the capital curve: operating cash flow first, then debt, and now equity and off-balance-sheet structures. Each step costs more and leaves less room. With the amount being spent so large and the return and real demand still unclear, funding is getting more expensive (e.g., CoreWeave's recent loan, reportedly priced wider than its earlier ones). At some point the spending has to be supported by cash the assets generate.
 
-With agentic adoption still early, how durable the demand is remains unclear. 
+--------------------
 
 ### AI-Native Applications Are Early
 
-Existing activities are being reshaped before new ones are invented, which is the usual pattern. Content generation (text, image, video) came first, since the output is the product. Coding followed, since the output can be checked. Web search is being substituted, and web and app design after it. E-commerce is the likely next one, since it is a transaction an agent can carry out.
+**AI-native applications are early.** These are user-facing products purpose-built around a specific task that use AI as their core reasoning engine, not the foundation models themselves. They are appearing first by reshaping existing activities:
+* **Content generation** (text, image, video), since the output is the product.
+* **Coding**, since the output can be checked.
+* **Web search**, which foundation models and search APIs built for AI are substituting for.
+* **Web and app design.**
+* **E-commerce**, likely next, since it is a transaction an agent can carry out.
 
-Traction is concentrated in a small number of standouts (e.g., Cursor, Midjourney, Kling). They are recognized within the field, but none has crossed into mainstream brand recognition, and none are publicly traded. That is the gap between what is working and what is investable.
+**Traction is concentrated in a few standouts, and in practice none of them are publicly traded.** Cursor, Midjourney, and Lovable are known within the field, but day-to-day use is still mostly inside the foundation models themselves, so there is little to own directly today.
 
-Inference cost is the constraint on the business model because applications pay for every use. Token prices from the leading labs have stopped falling, and token costs are unlikely to fall much soon because GPU costs are not falling. Until the economics work, the better application is not necessarily the better business. Application providers are responding in two ways:
-* The first is switching to alternative models from outside the frontier labs (e.g., Kimi, DeepSeek), which offer lower token prices, so margins may improve even if token costs do not fall quickly.
-* The second is focusing on a task or domain (e.g., Cursor for coding), where a higher return per use may support higher prices and justify not being replaced by a foundation model. Task- or domain-specific models offer higher quality output with fewer inputs, and likely start with a well-defined task where AI enables capabilities beyond a human’s, such as 24/7 work, analysis of far more data, and pattern recognition.
+**Inference cost limits whether an application can scale profitably.** Early on, funding, building the product, and getting adoption come first. Inference cost arrives with success, because an application pays for every use, so its cost grows with its usage. Token prices from the leading labs have stopped falling, and token costs are unlikely to fall much soon because GPU costs are not falling. There are two ways to widen the margin:
+* **Lower the cost.** Startups are already switching to cheaper models from outside the frontier labs (e.g., Kimi, DeepSeek), so margins may improve even if token costs do not fall.
+* **Raise the price.** A higher price has to be justified by a higher return for the customer, and focusing on a task or domain is how an application offers one (e.g., Cursor for coding). Task- or domain-specific models offer higher quality output with fewer inputs, and likely start with a well-defined task where AI enables capabilities beyond a human's, such as 24/7 work, analysis of far more data, and pattern recognition.
+
+--------------------
 
 ### Physical AI is Coming, but Still Needs Time
 
-Robots are becoming smarter with AI. Robotics excitement has grown because language and vision models lowered the barrier to training robots. For now, these models are more likely to serve as the brain for existing machines (e.g., predictive maintenance, inspection, autonomous process control, material movement) than to power entirely new ones, and the machines that get deployed are more likely to go into existing enterprise applications like manufacturing than into new categories. Several models act as the brain:
+**Robots are getting smarter because AI models have made them easier to train.** The brain is several models working together:
 * A world model understands the laws of physics. Instead of predicting the next word in a sentence, it predicts the next frame of a video, which lets the machine anticipate the physical consequences of an action.
 * An LLM reasons through what needs to be done.
 * Vision-action models translate that reasoning into physical, mechanical execution.
 
-Driving, product design, manufacturing, and warehouse operations are where it is showing up.
+**For now, these models are more likely to serve as the brain for existing machines than to power entirely new ones.** The machines that get deployed are more likely to go into existing enterprise applications than into new categories. It is showing up in driving, manufacturing, and warehouse operations (e.g., predictive maintenance, inspection, autonomous process control, and material movement).
 
-Robotics has many more dimensions than language or vision, which makes the models harder to build. And the constraints go beyond the models. Hardware to sense and act on the physical world is expensive and slow to iterate. Errors are not reversible, which raises the reliability bar. And there is no public equivalent to the internet data that trained language models. World models, video, and simulation are being explored as substitutes, but the robots themselves during deployment are the most likely source at scale.
+**Several constraints explain why physical AI is limited to existing machines for now:**
+* **Models** are harder to build, since robotics has many more dimensions than language or vision.
+* **Hardware** to sense and act on the physical world is expensive and slow to iterate.
+* **Errors** are not reversible, which raises the reliability bar.
+* **Data** has no public equivalent to the internet data that trained language models. World models, video, and simulation are being explored as substitutes, but the robots themselves during deployment are the most likely source at scale.
 
-World models, and possibly foundation models for robotics, are what could broaden physical AI beyond its current applications. A foundation model lets a robot pick up new tasks with limited training, which is what widens the range of uses. As with software, the return is likely higher for models trained on a specific environment.
+**Better models could broaden what physical AI is used for.** World models, and possibly foundation models for robotics, could ease the model and data limits. A foundation model lets a robot pick up new tasks with limited training, which is what widens the range of uses. As with software, the return is likely higher for models trained on a specific environment.
 
--------------------------
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## Investment Implications
 
