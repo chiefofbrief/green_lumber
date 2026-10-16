@@ -370,65 +370,170 @@ High-bandwidth memory (HBM) addresses both bandwidth and capacity, but supply ha
 
 ## Investment Implications
 
-### Buy the Physical Bottlenecks
+### Buy the Physical Bottlenecks That Stay Binding
 
-A bottleneck is worth owning until it is solved, and the price already contains a guess about when that happens. The position is the difference between that guess and the truth. There are currently seven major constraints in the physical supply chain. Most are supplied by existing companies, even where the technology is new (e.g., liquid cooling, optical networking), so the positions can be taken today:
-* **Natural gas and its supply chain**. Power limits how many accelerators can run, and gas is the only source that reliably supplies it now. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
-* **Cooling, especially liquid**. Density keeps rising and air cannot keep up at the chip. Liquid removes heat at the chip and sustains higher density. Adoption is gradual, which makes the demand long rather than spiky. Liquid cooling is a system, so the exposure spans the racks and cold plates, the coolant distribution units and pumps, and heat rejection.
-* **Networking, especially optical**. Most connections beyond a rack already run on light, and scale out and scale across keep adding links. More deployment means more connections beyond the rack regardless of whose silicon is in the racks. Two things are less certain:
-  * Optical inside the rack. Copper keeps short reach, and the newer designs may not reach large scale until 2027 to 2028 or later.
-  * Where the value sits. It may be in scarce optical IP more than in assembling modules, but the pieces differ by design. Lasers are needed by every optical design, silicon photonics may gain under co-packaged designs, and DSP chips are tied to pluggables, which co-packaged designs would largely remove.
-* **Accelerators broadly**. Mixed fleets are likely to be the default, and an accelerator cannot be judged apart from the system around it, so picking the winning accelerator matters less than owning the growth in accelerators bought. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason. A nearer-term risk is that more accelerators have been bought than are in service. Prices today reflect the accelerators running, not those waiting to be installed, so when they come online, scarcity could ease and future purchases could be lower.
-* **CPUs**. Agents run orchestration, tool calls, and code execution on CPUs, so demand follows agent adoption, which is still early, and not only accelerator volume. Server CPU supply has tightened. Nvidia, AMD, Intel, and Arm-based designs all supply them, so, as with accelerators, the bet is likely on volume more than on who wins.
-* **Wafers and advanced packaging**. Every accelerator needs both, whoever designs it, so the exposure does not depend on which accelerator wins. Both are tight and concentrated at a single supplier, so capacity is hard to add elsewhere quickly.
-* **Memory**. Bandwidth sets how fast tokens can be generated in decode, and capacity sets how much context a chip can hold. High-bandwidth memory (HBM) addresses both, and supply has not kept up with demand. Demand is likely to keep growing as systems retain and reuse more context, through agent memory and caching. HBM leads, but the exposure is wider, since context that does not fit in HBM moves down the tiers:
-* DRAM, where supply is also tight, since suppliers have put capacity toward HBM.
-* Flash, where demand is growing as AI servers use more enterprise SSDs and context storage, and suppliers have added little NAND capacity because DRAM and HBM earn higher margins.
+**Physical constraints are worth owning only while they bind, and the price already assumes when that ends.** Over the next year or two, the question is which ones keep binding. There are six that keep accelerators from being made, deployed, or fully used (wafers and advanced packaging, memory, networking, CPUs, cooling, and power), and they are not equally worth owning. Within the constraints worth owning, pick the strongest companies at prices that do not assume the shortage is permanent.
 
-Each of the seven ends for a different reason. Four things can end them:
-* **Supply catching up**. New supply is slow where it needs fabs, plants, or construction. But some supply already exists and is not running: accelerators have been bought that are not racked, because power, shell, and cooling are not ready. Those come online without anything being built.
-* **Technology change**. A new architecture or a different chip changes what is needed, which can end a constraint without relieving it. Gas is indifferent to both, since it is the raw input.
-* **Density**. The buildout assumes compute keeps concentrating in large, dense sites. Gas, cooling, and networking are only needed there, since they exist to solve density. If inference spreads to smaller sites instead, those three are not bought, while accelerators, CPUs, memory, and wafers and packaging still are. On-prem and edge deployment is growing, and whether it reaches a scale that changes data center demand remains to be seen.
-* **Software**. Software changes faster than chips, architectures, or physical supply, since the others require fabrication or construction. It cannot produce electricity or remove heat, so power and cooling sit outside its reach. It works on others: utilization on accelerators, bytes per token on memory through quantization and cache compression, and data movement on networking.
+#### The Fewer and Harder the Levers, the Better the Constraint
 
+**The constraints worth owning have few levers, and hard ones.** A lever is something a customer can do to get around a constraint, and there are three kinds:
+* **Get more of it.** New capacity is the hardest, since it takes fabs, plants, pipelines, or construction. Idle supply that already exists coming online is easier.
+* **Use less of it.** Efficiency gains (e.g., efficient architectures, compression, caching, smarter routing) get more tokens from each accelerator, watt, and byte moved. They are the fastest and cheapest lever, but the gains are significant, not drastic, and they act most directly on memory, networking, and CPUs.
+* **Use something else.** An existing solution can last longer than expected (e.g., copper, air cooling, the grid), which slows adoption of the newer one.
 
+#### Data Center Development Is the Swing Factor
 
-### Within Each Bottleneck, Find the Strongest and the Best-Priced
+**Whether data centers get built on time decides how long a constraint pays, and the reason for a delay matters.** Development can run on schedule, be delayed, or be cancelled:
+* **A delay caused by the constraints themselves** (power, equipment, permits) supports those constraints. Revenue shifts later, but the shortage is real.
+* **A delay caused by funding or weak demand** is worse, because it reduces spending instead of moving it.
 
-Do not buy something priced as if the bottleneck is permanent. A company earning shortage margins is being valued on earnings that do not survive the shortage, so the more inflated the margin, the more the price assumes the constraint never breaks. The margin is also what funds the attack on it; the most profitable constraint is the one with the most people working to remove it.
+#### How the Constraints Stack Up
 
-What you are selecting for is durability, at two levels. Start with the constraints that break later; for example, gas doesn't care which architecture wins or whose chip gets deployed. Then, within them, own the strongest companies: low cost, healthy financials, strong brands, real distribution. They hold up when supply catches up and competition arrives.
+**The constraints sit at two points in the buildout.** Upstream constraints (wafers and packaging, memory, CPUs) are bought when accelerators and servers are made, so they depend on accelerator orders, which can outrun deployments (the overhang, covered below). Downstream constraints (power, cooling, networking) are bought when sites are built, so they depend on data center development.
 
-Tracking the constraint directly is sharper, but the data is often not public, and what is public can be wrong or talked up by the people selling into it. You will not see the break coming, so the position has to survive it without you. 
+**Natural gas and wafers and packaging hold up best across scenarios.** Their levers are few and hard, and each has one main exposure.
+* **Natural gas and its supply chain.** Power limits how many accelerators can run, and gas is the only source that reliably supplies it now.
+  * **Where to look:** The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
+  * **Relief:** Alternatives (nuclear, geothermal, solar with batteries) are further out. The nearer lever is the grid: faster, more flexible connections could reduce the need for on-site gas, but that is early.
+  * **Exposure:** Downstream, so delays apply, mainly permits and last-mile pipeline connections. Gas also has demand beyond data centers, which cushions a slowdown.
+* **Wafers and advanced packaging.** Every accelerator needs both, so demand tracks accelerator volume.
+  * **Where to look:** Both are concentrated at TSMC, so the exposure is largely one company. Samsung and Intel are the other major foundries, at smaller scale.
+  * **Relief:** Capacity is hard to add elsewhere and slow to add at TSMC, which reportedly plans to roughly double advanced packaging capacity by 2028. Intel and outside packagers (e.g., Amkor, ASE) are emerging alternatives, in smaller volumes.
+  * **Exposure:** Upstream, so the overhang applies. Orders can slow if accelerators are made faster than they are deployed.
 
-The capex break is the exception. The growth has to continue to justify both the prices and the capex, and unlike the physical constraints, that is reported quarterly.
+**Cooling and networking are strong if the buildout proceeds, but exposed to the pace of adoption.** Both are downstream, and both have an existing solution (air, copper) that could last longer than expected.
+* **Cooling, especially liquid.** Liquid is better than air for higher-power accelerators, so demand grows as density rises.
+  * **Where to look:** Liquid cooling is a system, so the exposure spans the racks and cold plates, the coolant distribution units and pumps, and heat rejection.
+  * **Relief:** Air is the existing solution and still cools much of the facility, so the question is how fast liquid replaces it at the chip. Adoption is gradual, which makes demand long rather than spiky.
+  * **Exposure:** Downstream, so delays hit it hardest, since it is installed when a site or rack is finished.
+* **Networking, especially optical.** Networking keeps accelerators from waiting on each other, and links are being added up, out, and across.
+  * **Where to look:** Optical beyond the rack is already standard, and scale out and scale across keep adding links. Within optical, the value depends on the design: lasers are needed by every design, silicon photonics may gain under co-packaged optics, and DSP chips are tied to pluggables, which co-packaged designs would largely remove.
+  * **Relief:** Copper is the existing solution inside the rack and may last longer than expected, so optical inside the rack is upside, not the base case. Software can also cut data movement.
+  * **Exposure:** Downstream, so delays apply, and so does the pace of the newer designs, which are likely to reach large scale over the next few years.
 
-### Own Agentic Infrastructure
+**Memory and CPUs are conditional, for different reasons.** Memory has several levers, mostly easy ones. CPUs depend on whether agent adoption holds.
+* **Memory.** Memory limits how fast tokens are generated and how much context an accelerator can hold. High-bandwidth memory (HBM) addresses both, and supply has not kept up with demand.
+  * **Where to look:** HBM leads, but DRAM and flash are tight as well, since suppliers have put capital into HBM and added little NAND capacity.
+  * **Relief:** Several levers, mostly the easy kind: software and model architecture that cut memory per token, higher utilization through cluster layout and networking, and new accelerator designs. More tiers move context down into DRAM and flash, which relieves HBM but not memory overall, since those are tight too.
+  * **Exposure:** Upstream, so the overhang applies.
+* **CPUs.** Agents run orchestration, tool calls, and code execution on CPUs, so demand follows agent adoption. Server CPU supply has tightened, with price increases and long lead times reported.
+  * **Where to look:** Nvidia, AMD, Intel, and Arm-based designs all supply them, so the bet is likely on volume more than on who wins.
+  * **Relief:** Software efficiency in agent runtimes, and reallocating capacity (e.g., shifting wafers from PC to data center chips), can relieve it relatively quickly.
+  * **Exposure:** Agent adoption, which is still early (e.g., Intel reports the CPU-to-GPU ratio moving from about 1:8 to 1:4, and possibly 1:1 in agentic cases). CPUs are upstream and ride with servers, so the overhang applies.
 
-Agents are where autonomy is showing up, and the layer serving them is being built now. Most of it is coming from incumbents extending what they already sell, which makes this ownable today in a way the applications are not.
+#### Accelerators and Dense Sites Underpin the Buildout, and Both Could Change
 
-**Task-specific data**. What an agent needs to act correctly rather than generically. It sits with whoever does the work, hosts it, or collects it on purpose. Much of it is messy and not agent ready, so companies that make it usable may benefit, either by cleaning, organizing, and structuring it, by making the databases it sits in usable by agents, or by already holding it in an organized form (e.g., vertical software companies).
+**Accelerators are the volume exposure beneath the constraints.** Two things shape it:
+* **Mixed fleets are likely to be the default.** An accelerator cannot be judged apart from the system around it, so picking the winner matters less than owning the growth in accelerators bought. Nvidia, the custom-silicon designers, and the hyperscalers building their own can all be held for the same reason.
+* **There may be an overhang.** Sites are still being built, so some accelerators have been bought ahead of the sites that will run them, and how many is hard to know. Prices reflect the accelerators running, not those waiting, so when they come online, scarcity could ease and future purchases could be lower. This is also the exposure for the upstream constraints.
 
-**Trust**: security, identity, observability, and governance. The tools that secure agents, define who each one is and what it can access, record what it did, and limit what it can do, including what it can spend. The existing observability, security, and identity vendors are selling it.
+**Two longer-term changes could reset several constraints at once:**
+* **Where compute runs.** The buildout assumes compute keeps concentrating in large, dense sites. If inference spreads to smaller sites or the edge, the downstream constraints (power, cooling, networking) are hit first, while wafers, memory, and CPUs are still needed. Edge is a small share of inference today, and large models and overflow still need data centers, so this looks longer term than the next year or two.
+* **New accelerator designs.** A more efficient design could change how much memory, networking, and cooling are needed. Gas is the least affected. It is the most drastic change, but the least predictable.
 
-**APIs and access**. How agents reach software. MCP leads, but agents call ordinary APIs too, and gateway and identity vendors sit in the same path.
+#### Within the Constraints, Own the Strongest Companies That Aren't Priced for Permanence
 
-**The agent-readable web**. Sites made parseable, search sold as an API instead of a results page, catalogs and content structured for systems rather than people.
+**Within the constraints worth owning, pick the strongest companies at prices that do not assume the shortage is permanent.** The levers rank which constraints to own, so the rest of the decision is the company.
 
-**Cloud, runtime, and databases**. The providers rebuilding for sessions that hold state and run long.
+**Start with the strongest companies, since they best withstand the end of the shortage.** Oversupply and price competition arrive when it ends. Low costs and healthy financials get a company through the downturn, and strong brands, real distribution, and scarce IP keep its customers afterward.
 
-**Agentic commerce**. Merchants, marketplaces, and the rails underneath all have to handle a buyer that is not a person. Several standards are competing and none has settled.
+**Among the strongest, avoid those priced as if the shortage is permanent.** A shortage can last a year or two and still pay. The problem is a price that needs it to last far longer. Two things to check:
+* **Margins show whether the earnings are temporary.** Margins well above a company's history or its peers' usually come from the shortage itself (e.g., price increases and long lead times). The bigger the margin, the more competition works to remove the constraint: new supply, substitutes, and customers' own efforts to get around it.
+* **The valuation shows whether the market assumes they last.** A normal multiple on shortage-level earnings assumes those margins are permanent, so the test is what the price implies on earnings at normal margins. A price running well ahead of sales or earnings is a more obvious warning.
 
-### Own Existing Software as the Application Proxy and Data Holder
+**The break is hard to time, so rely on strength instead.** Aside from funding, which can be tracked through capex reported every quarter, the signals are difficult to track reliably, and the public ones can be thin or talked up by the people selling into the constraint. A position in the strongest companies should survive the break without being timed.
 
-The application layer is where value ends up, but the AI-native ones are private and cannot run profitably yet. Existing software companies are the way to own that layer now. They hold the domain data by default, since the work runs inside their systems, and they have the customers and distribution already.
+--------------------
 
-Some of these companies are also the ones AI replaces. Owning the category does not work; three things separate them:
-* Is the data hard to replicate, or incidental? Accumulated judgment about how work gets done is not reproducible. Transaction records and configuration settings mostly are.
-* Do agents use them, or route around them? The ones exposing comprehensive access become the systems agents call. The ones that do not become a layer agents skip.
-* Does AI deepen the product, or sit on top of it? Domain-specific models built on their own data are a different thing from a chat interface added to the existing one.
+### Own the Companies Providing Durable Agentic Infrastructure
 
-Task-specific models are where this goes. The companies holding the data are the ones positioned to build them.
+**Autonomy is the goal, and agents are how it is showing up now.** Companies that supply what agents need benefit as adoption grows.
+
+**Most of the supply can be owned today, because it is coming from incumbents.** Returns over the next year or two could show up in data, tools, trust, runtime, memory, and cost controls, because incumbents are extending what they already sell and already have what agents need:
+* Products, customers, and distribution already in place.
+* Data and context, for the software companies among them, since the work runs inside their systems.
+* Tools, for the same companies, since an agent's tools are mostly the functions of existing software exposed through APIs.
+
+#### Importance and Durability Make a Piece Worth Owning
+
+**The pieces worth owning are the ones holding adoption back now and still needed in a year or two.** Two questions:
+* **Is it holding adoption back now?** The pieces not yet in place are the barriers agents have to get past.
+* **How durable is the need?** A durable need is core infrastructure. A less durable one is a workaround that models, clouds, or a shift in standards could absorb.
+
+#### Agent Adoption Is the Swing Factor
+
+**How fast agents are adopted decides how fast these pieces grow, and the reason for any slowdown matters.** Adoption is early, and how far it goes is unknown.
+* **A slowdown caused by barriers** (trust, cost predictability, data readiness, infrastructure still being built) supports the pieces that remove them. The delay is what creates the demand.
+* **A slowdown caused by weak value or demand** hurts all of them. Recent growth may overstate real demand, since some of it was tokenmaxxing (enterprises pushing token use for its own sake), which is now shifting as buyers get cost conscious.
+
+#### How the Pieces Stack Up
+
+**Data, tools, trust, and runtime are core and durable.** Data and tools are what make an agent useful. Trust and runtime are what let it run on its own.
+* **Data.** A model is of little use for a task without the right context, and the context that matters is task-specific and not public.
+  * **Where to look:**
+    * Software companies that hold organized data as a byproduct (e.g., Tyler, Agilysys).
+    * Vendors that clean, organize, and structure messy enterprise data.
+    * Database vendors making their databases usable by agents.
+  * **Durability:** The data itself is durable, since a proprietary asset persists. The cleanup tooling is less durable, since models may get better at messy data.
+* **Tools.** An agent can only act through the software it can call, and software that is easier for agents to use gets more usage.
+  * **Where to look:**
+    * Companies that make their software, data, and sites usable by agents through APIs and standards such as MCP (including search sold as an API).
+    * Integration and API-management vendors that connect agents to enterprise software.
+    * MCP and agent gateway vendors, and identity vendors in the same path.
+    * Payment networks and processors building for agent purchases (e.g., Visa's Intelligent Commerce).
+  * **Durability:** The need is lasting. The protocols are less durable, since several are competing and none has settled.
+* **Trust: identity, security, governance, observability.** Agents can only be given autonomy as far as they can be trusted, so adoption may lag until these controls are in place. They cover who an agent is, what it can access, what it is allowed to do, and what it did.
+  * **Where to look:** Existing vendors in each part.
+    * Identity, including machine and non-human identity, and privileged access and secrets management, since agents hold credentials.
+    * Security vendors adding agent-specific protection, such as guardrails and defenses against prompt injection.
+    * Observability vendors that trace what agents did and what it cost.
+    * Governance platforms that set policies, permissions, and spend limits.
+  * **Durability:** High. Any non-human actor holding access needs these controls.
+* **Runtime.** Agents run long and hold state, so they need infrastructure built to keep them running through failures, not just to serve short requests.
+  * **Where to look:**
+    * Cloud providers, the infrastructure agents run on, which are rebuilding for stateful, long-running work.
+    * Agent runtime software, a layer on top that keeps agents running through failures by saving their state and isolating the code they run. Cloud providers offer versions of it, and specialized vendors do too.
+  * **Durability:** High. The need comes from what agents are, long-running and stateful, so it does not go away as models improve. What is open is whether clouds or specialized vendors capture it.
+
+**Memory and cost controls are needed, but less durable or less certain.**
+* **Memory.** Agents that carry context across sessions need it to persist, and the harder problem is retrieval.
+  * **Where to look:**
+    * Database vendors, both incumbents adapting existing products and newer retrieval-oriented ones (e.g., vector databases, knowledge graphs).
+    * Clouds and agent frameworks building memory into their agent platforms.
+    * Dedicated memory vendors, which are mostly private.
+  * **Durability:** Uncertain. The need is likely lasting, but it is unclear who captures it. The best structures are still settling, and it is unclear how much will stay a separate product to buy versus being built into clouds, agent frameworks, or model providers.
+* **Cost controls.** Identical tasks cost different amounts and spend is hard to forecast, so enterprises may hold back until they can predict and cap it.
+  * **Where to look:** Likely the same governance and observability vendors, plus clouds and gateways that meter usage.
+  * **Durability:** Moderate. The need to know what things cost is lasting, but the form could shift a lot if providers bundle spend caps or pricing becomes more predictable.
+
+#### Existing Software Is the Most Direct Proxy for Applications
+
+**AI-native applications are private, and the nearest public equivalent is what existing software companies build themselves.** Domain- or task-specific models and apps built on the data they hold are the form this takes now, and they already have customers to deploy them to. It is a stand-in until AI-native applications become investable, since applications are where the value ends up.
+
+#### Own the Strongest Companies Whose Offering Is Durable
+
+**Start with the strongest companies, since they are best placed to absorb the cost of leaning in and to keep their customers if new competitors arrive.** Low costs and healthy financials get a company through the cost, and strong brands, real distribution, and scarce IP hold its customers.
+
+**Among the strongest, test how long what each one provides will last.** This applies to every company above, whether it sells infrastructure, applications, or both. Four questions:
+* **Can it build something real for agents, or only add a bolt-on?** A feature added to an old product is easy to copy and does not hold customers. Three things show which one a company can build:
+  * **How proprietary its data is.** Accumulated judgment about how work gets done is hard to reproduce. Transaction records and configuration settings mostly are not.
+  * **How strong its technical team is.** Look for a record of shipping substantial new products, not only maintaining the old one.
+  * **Whether the AI deepens the product or sits on top of it.** For software, a domain model built on its own data deepens the product, while a chat interface on the old one sits on top. For an infrastructure vendor, it is a product built for agents versus the old product with an agent label.
+* **Is agent demand big enough to matter to it?** The core business works without agents, so it is the floor, and the agentic slice is the upside.
+  * **How large the slice is** decides how much faster adoption helps the company.
+  * **The price** should reflect the floor, not fast adoption.
+* **Is what it provides safe from replacement?** Replacement means something else absorbing what the company sells, or going around it. It can happen in three ways:
+  * **Absorbed by a bigger layer.** Clouds, model providers, or a shift in standards could bundle what it sells (e.g., runtime, memory, spend caps).
+  * **Routed around by agents.** The companies exposing comprehensive access become the systems agents call. The ones that do not become a layer agents skip.
+  * **Taken by AI-native entrants** that win its customers. This is a longer-term threat.
+
+The harder its data is to replicate, the safer its position.
+* **Can it afford to lean in?** Serving agents costs more, since inference is paid per use and agents use far more of it. This matters most for companies running inference. Margins could fall, and the gross margin trend shows it. Three things show whether a company can absorb it:
+  * **Lower the cost,** through cheaper models, routing between models, and smaller domain-specific models built on its own data.
+  * **Raise the price,** but only if the return to the customer justifies it. Usage-based pricing is the default for AI products.
+  * **Make up the difference with usage,** since more volume can offset thinner margins if demand holds.
+
+--------------------
 
 ### Physical AI Is a Supplier and Machine-Maker Trade
 
