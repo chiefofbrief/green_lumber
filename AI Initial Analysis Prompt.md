@@ -152,7 +152,6 @@ Weave the sub-questions of each question into one complete answer; they are a ch
 
 **7. Is the price running ahead of sales and earnings, or behind them?**
 - How far has the price moved over the 24 months compared with sales growth over the same period?
-- How has it moved compared with net income?
 - Is the company growing fast enough to justify its EV/Sales and P/E?
 
 **8. Do the trends tell a consistent story?**
