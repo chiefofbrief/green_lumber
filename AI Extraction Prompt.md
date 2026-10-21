@@ -6,17 +6,17 @@ You extract verbatim excerpts about AI for a stock analysis pipeline. You "read"
 The final output is `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts.md`. The raw file `{TICKER}_ai_extracts_raw.md` in the same folder is a scratch file.
 
 ## Rules
-- Do not read the source documents. The only files you read are `AI Framework.md` and the raw extracts file, and only through the reader script in Step 3. Do not use the Read tool on either. Do not open, preview, or run any command (`head`, `cat`, `tail`, `grep`, `ls`) on the extracts file, the raw file, or any source document, before or after the scripts run.
+- Do not read the source documents. The only files you read are `AI Framework.md` and the raw extracts file. Read `AI Framework.md` with the Read tool, in full. Read the raw extracts file only through the reader script in Step 3, and do not use the Read tool on it. Do not open, preview, or run any command (`head`, `cat`, `tail`, `grep`, `ls`) on the extracts file, the raw file, or any source document, before or after the scripts run.
 - Run every search. Skip none.
 - Run each script below exactly as written, as a single inline command, every time. Paste the script from this prompt into the command itself. Do not save it to a file (including `/tmp`), and do not run a saved copy from an earlier run. Do not split a script up or edit it. The only things you supply are the arguments shown in each step.
 - Do not alter any text. Passages are removed whole, by line number. Nothing is edited, shortened, or added.
 - Do not paraphrase, compress, or restate — not even one sentence.
 - Do not add commentary or transitions between passages.
-- Each excerpt begins with its source file in square brackets, e.g. `[CLS_10k.txt]`. The script adds it. Do not change it.
+- Each excerpt begins with a tag in square brackets: the source file, the search that found it, and the terms that matched, e.g. `[CLS_10k.txt | 3d. Physical Infrastructure: Networking | optical; laser]`. The script adds it. Do not change it.
 - If the same passage, or a near-duplicate of it, appears more than once in the raw file, keep it once.
 - When in doubt, keep it.
-- Do not write process notes, coverage summaries, self-assessments, or any commentary about the extraction itself into the extracts file — the file contains section headers and excerpts and nothing else.
-- Empty sections are expected. A company will not touch most layers.
+- Do not write process notes, coverage summaries, self-assessments, or any commentary about the extraction itself into the extracts file — the file contains excerpts and nothing else.
+- Many searches will find nothing for a given company. That is expected. A company will not touch most layers.
 
 ## Context
 Two things are used to judge whether a passage belongs. Read both before reviewing anything.
@@ -46,7 +46,7 @@ Two things are used to judge whether a passage belongs. Read both before reviewi
 Get the `{TICKER}`. If none is given, ask for one before starting.
 
 ### Step 2 — Stage every search
-Run the script below as a single inline command, with the ticker as the argument: `python3 - {TICKER} <<'PY'`. It searches every `.md` and `.txt` file in `/workspaces/green_lumber/data/companies/{TICKER}/` except the data summary, the Excerpts file, and earlier extracts. It flattens each file into one line (so phrases wrapped across lines still match), writes each section's matches under its own header in the raw file, merges overlapping snippets, removes exact-duplicate snippets, and prints each section's hit count and the raw file size. Run every search — skip none. The script only stages raw matches — it must not filter, judge relevance, or truncate anything.
+Run the script below as a single inline command, with the ticker as the argument: `python3 - {TICKER} <<'PY'`. It searches every `.md` and `.txt` file in `/workspaces/green_lumber/data/companies/{TICKER}/` except the data summary, the numbers file, the Excerpts file, and earlier extracts. It flattens each file into one line (so phrases wrapped across lines still match), writes every match to the raw file with its tag, merges overlapping snippets, removes exact-duplicate snippets, and prints the raw file size. Run every search — skip none. The script only stages raw matches — it must not filter, judge relevance, or truncate anything.
 
 ```bash
 python3 - {TICKER} <<'PY'
@@ -55,12 +55,12 @@ import os, re, sys
 TICKER = sys.argv[1]
 SRC = f"/workspaces/green_lumber/data/companies/{TICKER}"
 RAW = f"{SRC}/{TICKER}_ai_extracts_raw.md"
-SKIP = ("_data_summary", "Excerpts", "_ai_extracts")
+SKIP = ("_data_summary", "_numbers", "Excerpts", "_ai_extracts")
 FILES = sorted(f for f in os.listdir(SRC)
                if f.endswith((".md", ".txt")) and not any(s in f for s in SKIP))
 
 SECTIONS = [
-("1. Business and Segments", r"(segment|end market)s? (consists?|comprised|include)|revenue by (segment|end market)|end market revenue|principal products|two (operating and )?reportable segments", 150),
+("1. Business and Segments", r"(segment|end market)s? (consists?|comprised|include)|revenue by (segment|end market)|end market revenue|principal products|two (operating and )?reportable segments|\b(revenue|sales|operating|reportable|product|business)( and \w+)?\s+(segments?|categor(y|ies)|lines?|units?|divisions?)\b|our business (consists|is comprised|is organized|is divided)|we (operate|report) (in|through|as) (one|two|three|four|five|a single)|we are an? (leading |global |\w+ )?(provider|manufacturer|supplier|designer|developer)|disaggregation of revenue|products and services|## Description|\b(segments?|categor(y|ies)|end markets?|product lines?|products?)\b[^.%]{0,60}(represented|accounted for)[^.%]{0,40}\d", 400),
 ("2. AI Exposure, Revenue, and Customers", r"\bAI\b.{0,100}(revenue|demand|customers?|infrastructure|workloads?|servers?|programs?)|AI/ML|artificial intelligence|hyperscal(er|ers|e)|cloud service providers?|data cent(er|re)s?|largest customers?|customers?.{0,80}(accounted for|represented).{0,60}(%|percent)|top (10|ten) customers|customer concentration|segment customers include|digital[- ]native", 400),
 ("3a. Physical Infrastructure: Accelerators and Chips", r"\bGPUs?\b|\bTPUs?\b|\bASICs?\b|\bXPUs?\b|custom silicon|merchant silicon|accelerators?|accelerated comput|AI servers?|rack-scale|\bracks?\b|\bsilicon\b|Blackwell|Rubin|Trainium|\bchips?\b|semiconductors?|mixed fleets?", 400),
 ("3b. Physical Infrastructure: Memory", r"\bHBM\b|high[- ]bandwidth memory|\bDRAM\b|\bNAND\b|\bCXL\b|KV cache|memory bandwidth|flash storage|memory.{0,60}(allocation|constrain|shortage|tight|lead times?|pricing|supply|capacity)|(allocation|constrain|shortage|tight|lead times?).{0,60}memory", 250),
@@ -79,7 +79,7 @@ SECTIONS = [
 ("6. Shortage, Pricing, and Backlog", r"(shortages?|lead times?|supply constraints?).{0,100}(memory|HBM|DRAM|NAND|wafers?|packaging|components?|power|transformers?|optical|lasers?|GPUs?|chips?|\bAI\b|data cent)|(memory|HBM|DRAM|NAND|wafers?|packaging|components?|power|transformers?|optical|lasers?|GPUs?|chips?|\bAI\b|data cent).{0,100}(shortages?|lead times?|supply constraints?)|sold out|on allocation|extended lead times?|supply[- ]constrained|capacity constrained|non-cancel(l)?able|price (increases?|decreases?)|pricing (power|actions?)|backlog|remaining performance obligations?|\bRPO\b|book-to-bill|design wins?|multi-?year (agreements?|contracts?|visibility|programs?)|customer commitments?", 400),
 ("7. AI Investments", r"(capital expenditures?|\bcapex\b).{0,100}(\$|%|billion|million)|(\$|billion|million).{0,60}(capital expenditures?|\bcapex\b)|capacity (expansion|addition|investment)|new (facility|facilities|plant|factory|campus|fab)|production ramp|ramp(ing)? (up )?(production|capacity)|greenfield|brownfield|bolt-on|tuck-in|joint venture|purchase (commitments?|obligations?).{0,80}(\$|billion|million)|(acquisitions?|acquired|acquire).{0,100}(\bAI\b|data cent|rack|networking|\bcompute\b|servers?)|(\bAI\b|data cent|rack|networking|\bcompute\b|servers?).{0,100}(acquisitions?|acquired|acquire)", 400),
 ("8. Funding for AI Investments", r"equity offerings?|public offerings?|capital raise|bought deal|follow-on|at-the-market|underwritten|proceeds from (the )?(issuance|offering)|net proceeds|common shares offered|underwriting agreement|senior notes|convertible (notes|debt)|(notes|bonds) offering|(amend|upsiz|increas|extend|refinanc|new).{0,100}(credit (facility|agreement)|revolver|term (a |b )?loan)|(credit (facility|agreement)|revolver|term (a |b )?loan).{0,100}(amend|upsiz|increas|extend|refinanc)|available liquidity|liquidity of|vendor financing|customer financing|customer (cash )?deposits|advance payments?|(customers?|suppliers?).{0,80}(equity investment|invest(s|ed|ing) in)|special purpose (vehicle|entity)|off-balance", 400),
-("9. Management Commentary on AI", r"highest priority|no hesitation|we (are|remain) (confident|comfortable|disciplined)|unprecedented|record (demand|levels|backlog)|prudent|appropriately hedged|conservative(ly)?|overbuild|oversupply|digestion|air pocket|capex (cuts?|reductions?)|(we are investing|our priority|our priorities|we are committed).{0,150}(\bAI\b|data cent|capacity|infrastructure)", 400),
+("9. Management Commentary on AI", r"highest priority|no hesitation|we (are|remain|feel) (\w+ )?(confident|comfortable|disciplined|optimistic|excited)|(extremely|very|really) excited|head start|well[- ]positioned|early innings|just getting started|inflection|tailwinds?|momentum|conviction|(strong|good|improving) visibility|unprecedented|record (demand|levels|backlog)|prudent|appropriately hedged|conservative(ly)?|overbuild|oversupply|digestion|air pocket|capex (cuts?|reductions?)|(we are investing|our priority|our priorities|we are committed).{0,150}(\bAI\b|data cent|capacity|infrastructure)", 400),
 ("10. AI's Effect on the Financials", r"gross margin|operating margin|segment margin|margin (expansion|compression|pressure|accretive|dilutive)|inference costs?|cost to serve|compute costs?|AI revenue|AI-related revenue|AI (bookings|pipeline|run rate)|return on (investment|capital)|\bROIC\b|\bROI\b|payback|free cash flow.{0,120}(outlook|guidance|\$[0-9]|million|billion)|cash conversion|(generated|generating).{0,40}cash flow|working capital.{0,80}(inventory|build|support|investment)", 400),
 ]
 
@@ -88,34 +88,41 @@ for f in FILES:
     with open(os.path.join(SRC, f), encoding="utf-8", errors="ignore") as fh:
         texts[f] = re.sub(r"\s+", " ", fh.read())
 
+def clean(term):
+    term = re.sub(r"\s+", " ", term.lower()).strip()
+    for ch in "[]|;":
+        term = term.replace(ch, "")
+    return term[:40]
+
 seen = set()
 with open(RAW, "w", encoding="utf-8") as out:
     for title, pat, w in SECTIONS:
         rx = re.compile(pat, re.I)
-        n = 0
-        out.write(f"\n## {title}\n\n")
         for f in FILES:
             t = texts[f]
             spans = []
             for m in rx.finditer(t):
                 s, e = max(0, m.start() - w), min(len(t), m.end() + w)
+                term = clean(m.group(0))
                 if spans and s <= spans[-1][1]:
                     spans[-1][1] = max(spans[-1][1], e)
+                    if term and term not in spans[-1][2]:
+                        spans[-1][2].append(term)
                 else:
-                    spans.append([s, e])
-            for s, e in spans:
-                line = f"[{f}] {t[s:e].strip()}"
-                if line not in seen:
-                    seen.add(line)
-                    out.write(line + "\n")
-                    n += 1
-        print(f"{title}: {n} hits")
+                    spans.append([s, e, [term] if term else []])
+            for s, e, terms in spans:
+                text = t[s:e].strip()
+                if (f, text) not in seen:
+                    seen.add((f, text))
+                    out.write(f"[{f} | {title} | {'; '.join(terms[:6])}] {text}\n\n")
 print("Raw file size (bytes):", os.path.getsize(RAW))
 PY
 ```
 
 ### Step 3 — Read and review
-Read in full, using the reader script below, in this order: first `AI Framework.md`, then the raw file `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts_raw.md`. The reader prints one numbered chunk of a file at a time, and every line carries its real line number. Run it as `python3 - "<path>" <chunk number> <<'PY'`, starting at chunk 1 and continuing in sequence. Each chunk's header says which chunk it is and how many there are in total. Never assume a chunk's contents or skip ahead; read every chunk through the last one, the one marked "end of file." Truncation is not allowed.
+First read `AI Framework.md` in full with the Read tool. If a read stops short of the end of the file, continue from that point until the entire file has been read. Truncation is not allowed.
+
+Then read the raw file `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts_raw.md` in full, using the reader script below. The reader prints one numbered chunk of a file at a time, and every line carries its real line number. Run it as `python3 - "<path>" <chunk number> <<'PY'`, starting at chunk 1 and continuing in sequence. Each chunk's header says which chunk it is and how many there are in total. Never assume a chunk's contents or skip ahead; read every chunk through the last one, the one marked "end of file." Truncation is not allowed.
 
 ```bash
 python3 - "<path>" <chunk number> <<'PY'
@@ -145,10 +152,10 @@ if n == total:
 PY
 ```
 
-Judge each passage in the raw file against the Context above: `AI Framework.md` and the fourteen questions. Choose the line numbers to remove. Remove a line only when you are sure it does not belong, and keep it whenever in doubt. Section header lines (starting with `## `) are never removed. Note the line numbers to remove as you finish each chunk, and combine them into one list at the end. Do not edit, shorten, or add to any line.
+Judge each passage in the raw file against the Context above: `AI Framework.md` and the fourteen questions. Choose the line numbers to remove. Remove a line only when you are sure it does not belong, and keep it whenever in doubt. Note the line numbers to remove as you finish each chunk, and combine them into one list at the end. Do not edit, shorten, or add to any line.
 
 ### Step 4 — Apply the removals
-Run the script below as a single inline command, with the ticker followed by every line number to remove as arguments: `python3 - {TICKER} 12 45 78 <<'PY'`. Use the numbers exactly as the reader showed them. If there is nothing to remove, give the ticker alone. The script writes the final extracts file from the raw file, minus the removed lines. It overwrites the final extracts file if one already exists. That is expected. Do not look at the old file first.
+Run the script below as a single inline command, with the ticker followed by every line number to remove as arguments: `python3 - {TICKER} 12 45 78 <<'PY'`. Use the numbers exactly as the reader showed them. If there is nothing to remove, give the ticker alone. The script writes the final extracts file from the raw file, minus the removed lines, and prints, for each of the 21 searches, how many excerpts it found, how many were kept, and how many were removed. It overwrites the final extracts file if one already exists. That is expected. Do not look at the old file first.
 
 ```bash
 python3 - {TICKER} <line numbers> <<'PY'
@@ -159,30 +166,53 @@ REMOVE = {int(x) for x in sys.argv[2:]}
 SRC = f"/workspaces/green_lumber/data/companies/{TICKER}"
 RAW = f"{SRC}/{TICKER}_ai_extracts_raw.md"
 FINAL = f"{SRC}/{TICKER}_ai_extracts.md"
+TITLES = [
+    "1. Business and Segments",
+    "2. AI Exposure, Revenue, and Customers",
+    "3a. Physical Infrastructure: Accelerators and Chips",
+    "3b. Physical Infrastructure: Memory",
+    "3c. Physical Infrastructure: Wafers, Foundry, and Packaging",
+    "3d. Physical Infrastructure: Networking",
+    "3e. Physical Infrastructure: CPUs",
+    "3f. Physical Infrastructure: Cooling",
+    "3g. Physical Infrastructure: Power",
+    "3h. Physical Infrastructure: Data Center Buildout",
+    "4a. Digital Infrastructure: Models and Inference",
+    "4b. Digital Infrastructure: Agents, Runtime, and Orchestration",
+    "4c. Digital Infrastructure: Trust and Security",
+    "4d. Digital Infrastructure: Protocols and Tools",
+    "4e. Digital Infrastructure: Data and Proprietary IP",
+    "5. Physical AI",
+    "6. Shortage, Pricing, and Backlog",
+    "7. AI Investments",
+    "8. Funding for AI Investments",
+    "9. Management Commentary on AI",
+    "10. AI's Effect on the Financials",
+]
 
+stats = {t: [0, 0] for t in TITLES}
 lines = open(RAW, encoding="utf-8").read().split("\n")
-out, section, stats = [], None, {}
+out = []
 for i, line in enumerate(lines, 1):
-    if line.startswith("## "):
-        section = line[3:]
-        stats[section] = [0, 0]
-        out.append(line)
+    if not line.strip():
         continue
-    if i in REMOVE and line.strip():
+    section = line[1:line.index("] ")].split(" | ")[1] if line.startswith("[") and "] " in line else None
+    if section not in stats:
+        stats[section] = [0, 0]
+    if i in REMOVE:
         stats[section][1] += 1
         continue
-    if line.strip() and section:
-        stats[section][0] += 1
-    out.append(line)
+    stats[section][0] += 1
+    out.append(line + "\n")
 open(FINAL, "w", encoding="utf-8").write("\n".join(out))
 for s, (k, r) in stats.items():
-    print(f"{s}: kept {k}, removed {r}")
+    print(f"{s}: found {k + r}, kept {k}, removed {r}")
 print("Final file size (bytes):", os.path.getsize(FINAL))
 PY
 ```
 
 ### Step 5 — Report
-Report each section's kept and removed counts and the final file size, exactly as printed by the script. Do not summarize the contents.
+Report each search's found, kept and removed counts and the final file size, exactly as printed by the script. Do not summarize the contents.
 
 ### Step 6 — Clean up
 Delete the raw file `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts_raw.md`. It is a scratch file, not output. Do not delete the final extracts file.
