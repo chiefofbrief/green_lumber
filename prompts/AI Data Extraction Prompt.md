@@ -32,9 +32,9 @@ Searches every `.md` and `.txt` file in `/workspaces/green_lumber/data/companies
 #### How
 - Run the script below as a single inline command, with the ticker as the argument: `python3 - {TICKER} <<'PY'`
 - Run every search — skip none.
-- The script flattens each file into one line (so phrases wrapped across lines still match), writes every match to the raw file with its tag, merges overlapping snippets, and removes exact-duplicate snippets.
+- The script flattens each file into one line (so phrases wrapped across lines still match) and collects every match from all 23 searches, each with the text around it. Within a file, it merges any matches whose surrounding text overlaps, whichever search found them, so no text is written twice. It then cuts each merged stretch into passages of at most about 2,000 characters and writes them to the raw file, file by file, in the order they appear in the document.
 - The script only stages raw matches. It must not filter, judge relevance, or truncate anything.
-- Each excerpt begins with a tag in square brackets: the source file, the search that found it, and the terms that matched, e.g. `[CLS_10k.txt | 3d. Physical Infrastructure: Networking | optical; laser]`. The script adds it. Do not change it.
+- Each excerpt begins with a tag in square brackets: the source file, the searches that found it, and the terms that matched, e.g. `[CLS_earnings_2026Q1.md | 2. AI Exposure, Revenue, and Customers; 3d. Physical Infrastructure: Networking | hyperscaler; 800g]`. The script adds it. Do not change it.
 
 #### Required output
 The raw file, and the raw file size printed by the script.
@@ -77,6 +77,8 @@ SECTIONS = [
 ("12. Headwinds and Risks to Growth", r"headwinds?|slowdown|softness|weakness|demand (pressure|softness|decline|reduction)|(pressure|downturn|decline|reduction|slowdown|delays?) (in|on|to) (demand|orders|spending|programs?)|macroeconomic|tariffs?|supply chain (disruption|constraint)|customer (delays?|cancell?ations?|push[- ]?outs?)|inventory (digestion|correction)|loss of (a |one |our )?(major |significant )?customer|reduc(e|tion)s? in (orders|demand|spending)", 400),
 ]
 
+CAP = 2000
+
 texts = {}
 for f in FILES:
     with open(os.path.join(SRC, f), encoding="utf-8", errors="ignore") as fh:
@@ -88,27 +90,43 @@ def clean(term):
         term = term.replace(ch, "")
     return term[:40]
 
-seen = set()
+rxs = [re.compile(pat, re.I) for _, pat, _ in SECTIONS]
+
 with open(RAW, "w", encoding="utf-8") as out:
-    for title, pat, w in SECTIONS:
-        rx = re.compile(pat, re.I)
-        for f in FILES:
-            t = texts[f]
-            spans = []
-            for m in rx.finditer(t):
-                s, e = max(0, m.start() - w), min(len(t), m.end() + w)
-                term = clean(m.group(0))
-                if spans and s <= spans[-1][1]:
-                    spans[-1][1] = max(spans[-1][1], e)
-                    if term and term not in spans[-1][2]:
-                        spans[-1][2].append(term)
-                else:
-                    spans.append([s, e, [term] if term else []])
-            for s, e, terms in spans:
-                text = t[s:e].strip()
-                if (f, text) not in seen:
-                    seen.add((f, text))
-                    out.write(f"[{f} | {title} | {'; '.join(terms[:6])}] {text}\n\n")
+    for f in FILES:
+        t = texts[f]
+        hits = []
+        for i, (title, pat, w) in enumerate(SECTIONS):
+            for m in rxs[i].finditer(t):
+                hits.append((max(0, m.start() - w), min(len(t), m.end() + w), i, clean(m.group(0))))
+        hits.sort()
+        regions = []
+        for h in hits:
+            if regions and h[0] <= regions[-1][1]:
+                regions[-1][1] = max(regions[-1][1], h[1])
+                regions[-1][2].append(h)
+            else:
+                regions.append([h[0], h[1], [h]])
+        for S, E, hs in regions:
+            a = S
+            while a < E:
+                b = min(E, a + CAP)
+                if b < E:
+                    dot = t.rfind(". ", a, b)
+                    if dot > a + CAP // 2:
+                        b = dot + 1
+                    else:
+                        sp = t.rfind(" ", a, b)
+                        if sp > a:
+                            b = sp
+                piece = t[a:b].strip()
+                idxs = sorted({h[2] for h in hs if h[0] < b and h[1] > a})
+                terms = []
+                for h in hs:
+                    if h[0] < b and h[1] > a and h[3] and h[3] not in terms:
+                        terms.append(h[3])
+                out.write(f"[{f} | {'; '.join(SECTIONS[i][0] for i in idxs)} | {'; '.join(terms[:8])}] {piece}\n\n")
+                a = b
 print("Raw file size (bytes):", os.path.getsize(RAW))
 PY
 ```
@@ -139,8 +157,8 @@ Chooses which passages in the raw file to remove. A passage belongs if it helps 
   14. Which investment implications does it line up with?
 
 ##### Deciding what to remove
-- Remove a passage only when you are sure it does not belong. Judge it by what it is about, not by whether it says "AI". A sentence about a "Cloud and Data Center segment" belongs even though it never says AI.
-  - When in doubt, keep it.
+- Remove a passage when it does not help answer any of the fourteen questions and has no bearing on AI as the framework describes it. Judge it by what it is about, not by whether it says "AI". A sentence about a "Cloud and Data Center segment" belongs even though it never says AI.
+  - If it is genuinely borderline, keep it.
 - Remove a passage as a duplicate only if its entire text already appears inside another passage you are keeping.
 
 ##### Reading the raw file
@@ -189,12 +207,12 @@ Writes the final extracts file from the raw file, minus the removed lines.
 #### How
 - Run the script below as a single inline command, with the ticker followed by every line number to remove as arguments: `python3 - {TICKER} 12 45 78 <<'PY'`
 - Use the numbers exactly as the reader showed them. If there is nothing to remove, give the ticker alone.
-- The script prints, for each of the 23 searches, how many excerpts it found, how many were kept, and how many were removed.
+- The script prints, for each of the 23 searches, how many passages it found, how many were kept, and how many were removed. A passage found by several searches is counted under each of them, so those counts add up to more than the number of passages. The last count line, "All passages", counts each passage once.
 - It overwrites the final extracts file if one already exists. That is expected. Do not look at the old file first.
 
 #### Required output
 - The final extracts file.
-- A report of each search's found, kept and removed counts and the final file size, exactly as printed by the script. Do not summarize the contents.
+- A report of each search's found, kept and removed counts, the "All passages" line, and the final file size, exactly as printed by the script. Do not summarize the contents.
 
 #### Apply script
 ```bash
@@ -233,22 +251,25 @@ TITLES = [
 ]
 
 stats = {t: [0, 0] for t in TITLES}
+total = [0, 0]
 lines = open(RAW, encoding="utf-8").read().split("\n")
 out = []
 for i, line in enumerate(lines, 1):
     if not line.strip():
         continue
-    section = line[1:line.index("] ")].split(" | ")[1] if line.startswith("[") and "] " in line else None
-    if section not in stats:
-        stats[section] = [0, 0]
-    if i in REMOVE:
-        stats[section][1] += 1
-        continue
-    stats[section][0] += 1
-    out.append(line + "\n")
+    titles = line[1:line.index("] ")].split(" | ")[1].split("; ") if line.startswith("[") and "] " in line else []
+    removed = i in REMOVE
+    for t in titles:
+        if t not in stats:
+            stats[t] = [0, 0]
+        stats[t][1 if removed else 0] += 1
+    total[1 if removed else 0] += 1
+    if not removed:
+        out.append(line + "\n")
 open(FINAL, "w", encoding="utf-8").write("\n".join(out))
 for s, (k, r) in stats.items():
     print(f"{s}: found {k + r}, kept {k}, removed {r}")
+print(f"All passages: found {sum(total)}, kept {total[0]}, removed {total[1]}")
 print("Final file size (bytes):", os.path.getsize(FINAL))
 PY
 ```
