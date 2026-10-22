@@ -73,6 +73,8 @@ SECTIONS = [
 ("8. Funding for AI Investments", r"equity offerings?|public offerings?|capital raise|bought deal|follow-on|at-the-market|underwritten|proceeds from (the )?(issuance|offering)|net proceeds|common shares offered|underwriting agreement|senior notes|convertible (notes|debt)|(notes|bonds) offering|(amend|upsiz|increas|extend|refinanc|new).{0,100}(credit (facility|agreement)|revolver|term (a |b )?loan)|(credit (facility|agreement)|revolver|term (a |b )?loan).{0,100}(amend|upsiz|increas|extend|refinanc)|available liquidity|liquidity of|vendor financing|customer financing|customer (cash )?deposits|advance payments?|(customers?|suppliers?).{0,80}(equity investment|invest(s|ed|ing) in)|special purpose (vehicle|entity)|off-balance", 400),
 ("9. Management Commentary on AI", r"highest priority|no hesitation|we (are|remain|feel) (\w+ )?(confident|comfortable|disciplined|optimistic|excited)|(extremely|very|really) excited|head start|well[- ]positioned|early innings|just getting started|inflection|tailwinds?|momentum|conviction|(strong|good|improving) visibility|unprecedented|record (demand|levels|backlog)|prudent|appropriately hedged|conservative(ly)?|overbuild|oversupply|digestion|air pocket|capex (cuts?|reductions?)|(we are investing|our priority|our priorities|we are committed).{0,150}(\bAI\b|data cent|capacity|infrastructure)", 400),
 ("10. AI's Effect on the Financials", r"gross margin|operating margin|segment margin|margin (expansion|compression|pressure|accretive|dilutive)|inference costs?|cost to serve|compute costs?|AI revenue|AI-related revenue|AI (bookings|pipeline|run rate)|return on (investment|capital)|\bROIC\b|\bROI\b|payback|free cash flow.{0,120}(outlook|guidance|\$[0-9]|million|billion)|cash conversion|(generated|generating).{0,40}cash flow|working capital.{0,80}(inventory|build|support|investment)", 400),
+("11. Growth Drivers and Outlook", r"(revenue|sales)s?\b.{0,60}\b(increased|decreased|grew|declined|rose|fell)\b|\b(increase|decrease|growth|decline) in (revenue|sales)|(primarily|mainly|largely) (due to|driven by|attributable to|as a result of)|driven (primarily |mainly )?by|partially offset|organic (growth|revenue)|new (programs?|customers?|contracts?|wins?)|ramp(ing)? (up|of)|addressable market|market opportunity|growth opportunit|\bguidance\b|(our|the|business|financial|revenue|market) outlook|we (expect|anticipate|project) (that )?(revenue|sales|growth|demand)|reaffirm|(next|coming|following) (quarter|fiscal year)", 400),
+("12. Headwinds and Risks to Growth", r"headwinds?|slowdown|softness|weakness|demand (pressure|softness|decline|reduction)|(pressure|downturn|decline|reduction|slowdown|delays?) (in|on|to) (demand|orders|spending|programs?)|macroeconomic|tariffs?|supply chain (disruption|constraint)|customer (delays?|cancell?ations?|push[- ]?outs?)|inventory (digestion|correction)|loss of (a |one |our )?(major |significant )?customer|reduc(e|tion)s? in (orders|demand|spending)", 400),
 ]
 
 texts = {}
@@ -114,7 +116,7 @@ PY
 ### Step 3 — Read and review
 
 #### What it does
-Chooses which passages in the raw file to remove, by deciding which are not relevant to AI. It uses the AI framework and the fourteen questions as context, reads the raw file through the reader script, and produces a list of line numbers to remove.
+Chooses which passages in the raw file to remove. A passage belongs if it helps explain how the company is involved in AI, what is driving its growth, what is holding it back, or how it is investing and paying for it. It does not need to contain the word "AI". It uses the AI framework and the fourteen questions as context, reads the raw file through the reader script, and produces a list of line numbers to remove.
 
 #### How
 
@@ -137,8 +139,7 @@ Chooses which passages in the raw file to remove, by deciding which are not rele
   14. Which investment implications does it line up with?
 
 ##### Deciding what to remove
-- Remove a passage if it is not relevant to AI. Use the framework and the fourteen questions as context for what is relevant.
-  - Remove it only when you are sure it does not belong.
+- Remove a passage only when you are sure it does not belong. Judge it by what it is about, not by whether it says "AI". A sentence about a "Cloud and Data Center segment" belongs even though it never says AI.
   - When in doubt, keep it.
 - Remove a passage as a duplicate only if its entire text already appears inside another passage you are keeping.
 
@@ -188,7 +189,7 @@ Writes the final extracts file from the raw file, minus the removed lines.
 #### How
 - Run the script below as a single inline command, with the ticker followed by every line number to remove as arguments: `python3 - {TICKER} 12 45 78 <<'PY'`
 - Use the numbers exactly as the reader showed them. If there is nothing to remove, give the ticker alone.
-- The script prints, for each of the 21 searches, how many excerpts it found, how many were kept, and how many were removed.
+- The script prints, for each of the 23 searches, how many excerpts it found, how many were kept, and how many were removed.
 - It overwrites the final extracts file if one already exists. That is expected. Do not look at the old file first.
 
 #### Required output
@@ -227,6 +228,8 @@ TITLES = [
     "8. Funding for AI Investments",
     "9. Management Commentary on AI",
     "10. AI's Effect on the Financials",
+    "11. Growth Drivers and Outlook",
+    "12. Headwinds and Risks to Growth",
 ]
 
 stats = {t: [0, 0] for t in TITLES}
