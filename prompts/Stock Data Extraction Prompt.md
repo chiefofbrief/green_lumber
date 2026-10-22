@@ -1,162 +1,250 @@
-# Data Extraction Prompt
+# AI Extraction Prompt
 
 ## Role
-You extract verbatim qualitative excerpts for a stock analysis pipeline. You "read" the long documents — earnings-call transcripts, news, 10-Ks, 10-Qs, and the rest — by running the grep searches below, staging their raw output, then reading that staged output and copying every passage relevant to the eleven questions below into one flat Excerpts file. You do not analyze the data. You may use judgment only to decide relevance and to drop obvious noise from grep output — never to alter, shorten, or add to the text you keep.
+You extract verbatim excerpts about AI from a company's documents for a stock analysis pipeline. You run scripts that find the passages, then review them and remove only what does not belong. You do not analyze the data, and you never alter, shorten, paraphrase, or add to the text you keep.
 
-All output lands in `data/companies/{TICKER}/{TICKER} Excerpts.md`.
+The final output is `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts.md`.
 
 ## Rules
-- Extract qualitative narrative only: management commentary, explanations, disclosures, risk language, analyst questions, and news framing. The quantitative data already lives in the data summary — do not reproduce financial tables, price targets, or rating changes as data.
-- Do not read full files. Grep only, using the terms below. Reading full files destroys session context.
-- Run every grep. Skip none.
-- Copy relevant excerpts verbatim — no condensing or truncation.
-- When a passage you keep contains figures, year-over-year comparisons, dollar amounts, or qualifications, copy them exactly — do not strip numbers or hedging out of the narrative.
-- Do not paraphrase, compress, or restate — not even one sentence.
-- Do not add commentary or transitions between passages.
-- End every excerpt with its source file in parentheses, e.g. `(AAPL_10k.txt)`.
-- A passage is worth keeping if it helps answer any one of the eleven questions below — judge each passage against all eleven at once. Skip passages that are too generic to add anything (e.g., boilerplate risk disclosures) or too inconsequential to matter (e.g., granular international tax nuances), even if they nominally touch a question's topic. The output is one flat, unstructured list of excerpts, in the order you encounter them — do not create section headers or otherwise group excerpts by question.
-- If the same passage, or a near-duplicate of it, appears more than once in the staging file, include it in the Excerpts file once.
-- Do not write process notes, coverage summaries, self-assessments, or any commentary about the extraction itself into the Excerpts file — the file contains excerpts and nothing else.
-
-## The eleven questions
-These are relevance criteria, used in Step 1 (as labels on the grep commands) and Step 3 (to judge each passage). They are not output sections.
-
-1. How does the company make money?
-2. What are its competitive advantages?
-3. How and why are sales growing?
-4. Is there a reasonable expectation of accelerated or continued future sales growth?
-5. Is it highly dependent on a small number of customers?
-6. Does it have a worthwhile gross margin? If not, is there a good reason why the margin is low?
-7. Is it generating FCF? If not, is there a good reason why?
-8. Are liabilities and expenses reasonable and manageable?
-9. Do accounting choices appear to be inflating or depressing reported earnings?
-10. What is the financial community's current appraisal of the company and its growth prospects?
-11. What catalyst(s) may force the financial community's appraisal to converge with ours?
+- Do not read the source documents. The scripts search them for you.
+- Run each script exactly as written.
+  - Run it as a single inline command, every time.
+  - Paste the script from this prompt into the command itself.
+  - Do not save it to a file (including `/tmp`), and do not run a saved copy from an earlier run.
+  - Do not split a script up or edit it.
+  - The only things you supply are the arguments shown in each step.
+- You never write, edit, shorten, or paraphrase any excerpt text. Your only input to the process is the list of line numbers to remove.
+  - Do not alter any text. Passages are removed whole, by line number. Nothing is edited, shortened, or added.
+  - Do not paraphrase, compress, or restate — not even one sentence.
+  - Do not add commentary or transitions between passages.
+  - Do not write process notes, coverage summaries, self-assessments, or any commentary about the extraction itself into the extracts file — the file contains excerpts and nothing else.
 
 ## Flow
 
-### Step 1 — Stage every grep
-Set `SRC="/workspaces/green_lumber/data/companies/{TICKER}"`. Every grep runs across all of the ticker's files — `$SRC/*.md $SRC/*.txt`. Do not narrow to specific documents.
+### Step 1 — Ticker
+Get the `{TICKER}`. If none is given, ask for one before starting.
 
-Run every command below, in a single script, appending all output to one staging file (e.g. `/tmp/{TICKER}_greps.txt`). Run every grep — skip none, even where one pattern covers several questions. The script only stages raw matches — it must not filter, judge relevance, or truncate anything.
+### Step 2 — Stage every search
+**What it does:** Searches every `.md` and `.txt` file in `/workspaces/green_lumber/data/companies/{TICKER}/` except the data summary, the numbers file, the Excerpts file, and earlier extracts, and stages the matches in a raw file, `{TICKER}_ai_extracts_raw.md`, in the same folder.
 
-**Q1 — money**
+**How:**
+- Run the script below as a single inline command, with the ticker as the argument: `python3 - {TICKER} <<'PY'`
+- Run every search — skip none.
+- The script flattens each file into one line (so phrases wrapped across lines still match), writes every match to the raw file with its tag, merges overlapping snippets, and removes exact-duplicate snippets.
+- The script only stages raw matches. It must not filter, judge relevance, or truncate anything.
+- Each excerpt begins with a tag in square brackets: the source file, the search that found it, and the terms that matched, e.g. `[CLS_10k.txt | 3d. Physical Infrastructure: Networking | optical; laser]`. The script adds it. Do not change it.
+
+**Required output:** The raw file, and the raw file size printed by the script.
+
 ```bash
-grep -niE -A8 "reportable segment|operating segment|revenue by segment|segment revenue|disaggregation of revenue|net (sales|revenue) by|principal products|products and services|sources of revenue|we (generate|derive|earn) .*revenue|we (sell|offer|provide)|business line|product line|recurring revenue|subscription|transaction-based|license revenue" $SRC/*.md $SRC/*.txt
+python3 - {TICKER} <<'PY'
+import os, re, sys
+
+TICKER = sys.argv[1]
+SRC = f"/workspaces/green_lumber/data/companies/{TICKER}"
+RAW = f"{SRC}/{TICKER}_ai_extracts_raw.md"
+SKIP = ("_data_summary", "_numbers", "Excerpts", "_ai_extracts")
+FILES = sorted(f for f in os.listdir(SRC)
+               if f.endswith((".md", ".txt")) and not any(s in f for s in SKIP))
+
+SECTIONS = [
+("1. Business and Segments", r"(segment|end market)s? (consists?|comprised|include)|revenue by (segment|end market)|end market revenue|principal products|two (operating and )?reportable segments|\b(revenue|sales|operating|reportable|product|business)( and \w+)?\s+(segments?|categor(y|ies)|lines?|units?|divisions?)\b|our business (consists|is comprised|is organized|is divided)|we (operate|report) (in|through|as) (one|two|three|four|five|a single)|we are an? (leading |global |\w+ )?(provider|manufacturer|supplier|designer|developer)|disaggregation of revenue|products and services|## Description|\b(segments?|categor(y|ies)|end markets?|product lines?|products?)\b[^.%]{0,60}(represented|accounted for)[^.%]{0,40}\d", 400),
+("2. AI Exposure, Revenue, and Customers", r"\bAI\b.{0,100}(revenue|demand|customers?|infrastructure|workloads?|servers?|programs?)|AI/ML|artificial intelligence|hyperscal(er|ers|e)|cloud service providers?|data cent(er|re)s?|largest customers?|customers?.{0,80}(accounted for|represented).{0,60}(%|percent)|top (10|ten) customers|customer concentration|segment customers include|digital[- ]native", 400),
+("3a. Physical Infrastructure: Accelerators and Chips", r"\bGPUs?\b|\bTPUs?\b|\bASICs?\b|\bXPUs?\b|custom silicon|merchant silicon|accelerators?|accelerated comput|AI servers?|rack-scale|\bracks?\b|\bsilicon\b|Blackwell|Rubin|Trainium|\bchips?\b|semiconductors?|mixed fleets?", 400),
+("3b. Physical Infrastructure: Memory", r"\bHBM\b|high[- ]bandwidth memory|\bDRAM\b|\bNAND\b|\bCXL\b|KV cache|memory bandwidth|flash storage|memory.{0,60}(allocation|constrain|shortage|tight|lead times?|pricing|supply|capacity)|(allocation|constrain|shortage|tight|lead times?).{0,60}memory", 250),
+("3c. Physical Infrastructure: Wafers, Foundry, and Packaging", r"wafers?|foundr(y|ies)|TSMC|CoWoS|advanced packaging|2\.5D|3D packaging|sole[- ]source|single[- ]source|Amkor|leading[- ]edge", 250),
+("3d. Physical Infrastructure: Networking", r"optical|transceivers?|co-packaged|\bCPO\b|silicon photonics|\blasers?\b|InfiniBand|Ethernet|NVLink|UALink|\bAEC\b|\bcopper\b|pluggables?|scale[- ]up|scale[- ]out|scale[- ]across|\b(400|800)G\b|1\.6T|1\.6 terabit|data center interconnect|AI networking", 400),
+("3e. Physical Infrastructure: CPUs", r"\bCPUs?\b|server CPUs?|agentic CPU|\bXeon\b|\bEPYC\b|Graviton|Arm-based|CPU-to-GPU", 250),
+("3f. Physical Infrastructure: Cooling", r"liquid[- ]cool(ing|ed)|air[- ]cool(ing|ed)|coolants?|cold plates?|\bCDUs?\b|direct-to-chip|immersion cooling|heat rejection|thermal management|rack density|power density", 250),
+("3g. Physical Infrastructure: Power", r"natural gas|gas turbines?|behind-the-meter|on-site (power|generation)|grid (connection|interconnection)|power (constraint|availability|infrastructure|shortage)|megawatts?|gigawatts?|\bGW\b|nuclear|geothermal|energy storage|transformers?|switchgear", 250),
+("3h. Physical Infrastructure: Data Center Buildout", r"data cent(er|re) (construction|capacity|delays?|buildout|build-out|development)|powered shell|colocation|time to power|permits?.{0,80}data cent|data cent.{0,80}permits?|capacity coming online|bought but not deployed|deployment delays", 250),
+("4a. Digital Infrastructure: Models and Inference", r"\binference\b|\bLLMs?\b|large language models?|foundation models?|AI-native|quantization|\btokens?\b.{0,60}(cost|price|pricing|usage)|usage-based pricing|consumption-based pricing|fine-tun(ed|ing)", 150),
+("4b. Digital Infrastructure: Agents, Runtime, and Orchestration", r"agentic|\bagents?\b.{0,80}(\bAI\b|model|LLM|software|autonomous)|(\bAI\b|model|LLM|autonomous).{0,80}\bagents?\b|runtime|orchestration|agent harness|harness.{0,40}(agent|model)|stateful|sandbox|agent memory|vector database|knowledge graph", 150),
+("4c. Digital Infrastructure: Trust and Security", r"non-human identity|machine identity|privileged access|prompt injection|guardrails|(governance|observability).{0,100}(\bAI\b|agents?|model)|(\bAI\b|agents?|model).{0,100}(governance|observability)", 250),
+("4d. Digital Infrastructure: Protocols and Tools", r"\bMCP\b|model context protocol|\bA2A\b|agent-to-agent|x402|NLWeb|agent gateways?", 250),
+("4e. Digital Infrastructure: Data and Proprietary IP", r"proprietary (data|datasets?|models?|algorithms?)|training data|domain-specific|system of record|AI-(powered|enabled)|embedded AI|data readiness|(intellectual property|\bIP\b|proprietary).{0,60}(\bAI\b|machine learning|training data|\bLLMs?\b)|(\bAI\b|machine learning|training data|\bLLMs?\b).{0,60}(intellectual property|\bIP\b|proprietary)", 150),
+("5. Physical AI", r"robots?|robotics|humanoid|actuators?|roller screws?|harmonic drive|rare[- ]earth|magnets?|motor controllers?|lidar|force sensors?|torque sensors?|machine vision|autonomous (vehicles?|systems?)|edge (AI|inference)|world models?|vision-action|warehouse automation|predictive maintenance", 250),
+("6. Shortage, Pricing, and Backlog", r"(shortages?|lead times?|supply constraints?).{0,100}(memory|HBM|DRAM|NAND|wafers?|packaging|components?|power|transformers?|optical|lasers?|GPUs?|chips?|\bAI\b|data cent)|(memory|HBM|DRAM|NAND|wafers?|packaging|components?|power|transformers?|optical|lasers?|GPUs?|chips?|\bAI\b|data cent).{0,100}(shortages?|lead times?|supply constraints?)|sold out|on allocation|extended lead times?|supply[- ]constrained|capacity constrained|non-cancel(l)?able|price (increases?|decreases?)|pricing (power|actions?)|backlog|remaining performance obligations?|\bRPO\b|book-to-bill|design wins?|multi-?year (agreements?|contracts?|visibility|programs?)|customer commitments?", 400),
+("7. AI Investments", r"(capital expenditures?|\bcapex\b).{0,100}(\$|%|billion|million)|(\$|billion|million).{0,60}(capital expenditures?|\bcapex\b)|capacity (expansion|addition|investment)|new (facility|facilities|plant|factory|campus|fab)|production ramp|ramp(ing)? (up )?(production|capacity)|greenfield|brownfield|bolt-on|tuck-in|joint venture|purchase (commitments?|obligations?).{0,80}(\$|billion|million)|(acquisitions?|acquired|acquire).{0,100}(\bAI\b|data cent|rack|networking|\bcompute\b|servers?)|(\bAI\b|data cent|rack|networking|\bcompute\b|servers?).{0,100}(acquisitions?|acquired|acquire)", 400),
+("8. Funding for AI Investments", r"equity offerings?|public offerings?|capital raise|bought deal|follow-on|at-the-market|underwritten|proceeds from (the )?(issuance|offering)|net proceeds|common shares offered|underwriting agreement|senior notes|convertible (notes|debt)|(notes|bonds) offering|(amend|upsiz|increas|extend|refinanc|new).{0,100}(credit (facility|agreement)|revolver|term (a |b )?loan)|(credit (facility|agreement)|revolver|term (a |b )?loan).{0,100}(amend|upsiz|increas|extend|refinanc)|available liquidity|liquidity of|vendor financing|customer financing|customer (cash )?deposits|advance payments?|(customers?|suppliers?).{0,80}(equity investment|invest(s|ed|ing) in)|special purpose (vehicle|entity)|off-balance", 400),
+("9. Management Commentary on AI", r"highest priority|no hesitation|we (are|remain|feel) (\w+ )?(confident|comfortable|disciplined|optimistic|excited)|(extremely|very|really) excited|head start|well[- ]positioned|early innings|just getting started|inflection|tailwinds?|momentum|conviction|(strong|good|improving) visibility|unprecedented|record (demand|levels|backlog)|prudent|appropriately hedged|conservative(ly)?|overbuild|oversupply|digestion|air pocket|capex (cuts?|reductions?)|(we are investing|our priority|our priorities|we are committed).{0,150}(\bAI\b|data cent|capacity|infrastructure)", 400),
+("10. AI's Effect on the Financials", r"gross margin|operating margin|segment margin|margin (expansion|compression|pressure|accretive|dilutive)|inference costs?|cost to serve|compute costs?|AI revenue|AI-related revenue|AI (bookings|pipeline|run rate)|return on (investment|capital)|\bROIC\b|\bROI\b|payback|free cash flow.{0,120}(outlook|guidance|\$[0-9]|million|billion)|cash conversion|(generated|generating).{0,40}cash flow|working capital.{0,80}(inventory|build|support|investment)", 400),
+]
+
+texts = {}
+for f in FILES:
+    with open(os.path.join(SRC, f), encoding="utf-8", errors="ignore") as fh:
+        texts[f] = re.sub(r"\s+", " ", fh.read())
+
+def clean(term):
+    term = re.sub(r"\s+", " ", term.lower()).strip()
+    for ch in "[]|;":
+        term = term.replace(ch, "")
+    return term[:40]
+
+seen = set()
+with open(RAW, "w", encoding="utf-8") as out:
+    for title, pat, w in SECTIONS:
+        rx = re.compile(pat, re.I)
+        for f in FILES:
+            t = texts[f]
+            spans = []
+            for m in rx.finditer(t):
+                s, e = max(0, m.start() - w), min(len(t), m.end() + w)
+                term = clean(m.group(0))
+                if spans and s <= spans[-1][1]:
+                    spans[-1][1] = max(spans[-1][1], e)
+                    if term and term not in spans[-1][2]:
+                        spans[-1][2].append(term)
+                else:
+                    spans.append([s, e, [term] if term else []])
+            for s, e, terms in spans:
+                text = t[s:e].strip()
+                if (f, text) not in seen:
+                    seen.add((f, text))
+                    out.write(f"[{f} | {title} | {'; '.join(terms[:6])}] {text}\n\n")
+print("Raw file size (bytes):", os.path.getsize(RAW))
+PY
 ```
 
-**Q2 — competitive advantage**
+### Step 3 — Read and review
+**What it does:** Decides which passages in the raw file are relevant to AI, and chooses the ones to remove.
+
+**How:**
+
+*What belongs*
+
+Objective: decide which passages are relevant to AI, and remove the ones that are not.
+
+*Context*
+- Read `AI Framework.md` in full, for context on the AI landscape. If a read stops short, continue until the entire file has been read. Truncation is not allowed.
+- Read the fourteen questions below, for context on what the analysis of this company needs to answer. They are not output sections.
+- Use both as context when deciding whether a passage is relevant to AI.
+
+*The fourteen questions*
+
+1. What does the company do, how central is AI to it, and where does it sit in the AI stack?
+2. How fast are sales growing, and is the pace speeding up or slowing down?
+3. Which infrastructure constraint does it address, and how durable is that constraint over the next one to two years?
+4. Are margins worthwhile, and what is AI doing to them?
+5. Is the business generating real cash?
+6. What investments is the company making in AI, and how much do they cost?
+7. How is the company paying for its AI investments?
+8. What return is the company earning on its AI investments?
+9. What is management saying about the AI opportunity, and how realistic does it sound?
+10. What are the risks to its growth?
+11. How much of the growth opportunity is still ahead over the next one to two years?
+12. Is the price running ahead of or behind sales growth?
+13. Could it withstand a downturn?
+14. Which investment implications does it line up with?
+
+*Removing*
+- Remove a passage only when you are sure it does not belong. When in doubt, keep it.
+- Remove a passage as a duplicate only if its entire text already appears inside another passage you are keeping.
+
+*Reading the raw file*
+- The only files you read in this step are `AI Framework.md` and the raw file `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts_raw.md`.
+- Read the raw file in full, using the reader script below, and only through it. Do not use the Read tool on it, and do not run `head`, `cat`, `tail`, `grep`, or `ls` on it. The reader prints one numbered chunk of a file at a time, and every line carries its real line number.
+- Run it as `python3 - "<path>" <chunk number> <<'PY'`, starting at chunk 1 and continuing in sequence. Each chunk's header says which chunk it is and how many there are in total. Never assume a chunk's contents or skip ahead; read every chunk through the last one, the one marked "end of file." Truncation is not allowed.
+- Judge each passage in the raw file against what belongs, as described above. Choose the line numbers to remove. Note them as you finish each chunk, and combine them into one list at the end. Do not edit, shorten, or add to any line.
+
+**Required output:** One combined list of the line numbers to remove (or none).
+
 ```bash
-grep -niE -A5 "competit|(competitive|cost|technology|strategic|sustainable|structural) advantage|differentiat|patent|intellectual property|proprietary|trade secret|trademark|market leader|leading provider|market share|economies of scale|barrier to entry|switching cost|network effect|moat|pricing power|dominant (position|player|share)|scale advantage|first[- ]mover" $SRC/*.md $SRC/*.txt
+python3 - "<path>" <chunk number> <<'PY'
+import sys
+
+path, n = sys.argv[1], int(sys.argv[2])
+LIMIT = 20000
+lines = open(path, encoding="utf-8", errors="ignore").read().split("\n")
+chunks, cur, size = [], [], 0
+for i, line in enumerate(lines, 1):
+    s = f"{i}: {line}"
+    if cur and size + len(s) + 1 > LIMIT:
+        chunks.append(cur)
+        cur, size = [], 0
+    cur.append(s)
+    size += len(s) + 1
+if cur:
+    chunks.append(cur)
+total = len(chunks)
+if n < 1 or n > total:
+    print(f"No chunk {n}. This file has {total} chunks.")
+    sys.exit()
+print(f"=== chunk {n} of {total} ===")
+print("\n".join(chunks[n - 1]))
+if n == total:
+    print("=== end of file ===")
+PY
 ```
 
-**Q3 — sales growing**
+### Step 4 — Apply the removals
+**What it does:** Writes the final extracts file from the raw file, minus the removed lines.
+
+**How:**
+- Run the script below as a single inline command, with the ticker followed by every line number to remove as arguments: `python3 - {TICKER} 12 45 78 <<'PY'`
+- Use the numbers exactly as the reader showed them. If there is nothing to remove, give the ticker alone.
+- The script prints, for each of the 21 searches, how many excerpts it found, how many were kept, and how many were removed.
+- It overwrites the final extracts file if one already exists. That is expected. Do not look at the old file first.
+
+**Required output:** The final extracts file, and the counts and file size printed by the script.
+
 ```bash
-grep -niE -B1 -A6 "(revenue|sales) (increased|decreased|grew|declined)|increased? .*due to|driven (primarily )?by|primarily due to|attributable to|growth .*driven by|partially offset|organic (growth|revenue)|acquisition|acquired|(unit price|volume|pricing|price increase).{0,60}(increase|decrease|higher|lower|driven|due to|growth|declin)|new (product|service|offering|customer|contract)|product launch|introduc|new market|expansion into" $SRC/*.md $SRC/*.txt
+python3 - {TICKER} <line numbers> <<'PY'
+import os, sys
+
+TICKER = sys.argv[1]
+REMOVE = {int(x) for x in sys.argv[2:]}
+SRC = f"/workspaces/green_lumber/data/companies/{TICKER}"
+RAW = f"{SRC}/{TICKER}_ai_extracts_raw.md"
+FINAL = f"{SRC}/{TICKER}_ai_extracts.md"
+TITLES = [
+    "1. Business and Segments",
+    "2. AI Exposure, Revenue, and Customers",
+    "3a. Physical Infrastructure: Accelerators and Chips",
+    "3b. Physical Infrastructure: Memory",
+    "3c. Physical Infrastructure: Wafers, Foundry, and Packaging",
+    "3d. Physical Infrastructure: Networking",
+    "3e. Physical Infrastructure: CPUs",
+    "3f. Physical Infrastructure: Cooling",
+    "3g. Physical Infrastructure: Power",
+    "3h. Physical Infrastructure: Data Center Buildout",
+    "4a. Digital Infrastructure: Models and Inference",
+    "4b. Digital Infrastructure: Agents, Runtime, and Orchestration",
+    "4c. Digital Infrastructure: Trust and Security",
+    "4d. Digital Infrastructure: Protocols and Tools",
+    "4e. Digital Infrastructure: Data and Proprietary IP",
+    "5. Physical AI",
+    "6. Shortage, Pricing, and Backlog",
+    "7. AI Investments",
+    "8. Funding for AI Investments",
+    "9. Management Commentary on AI",
+    "10. AI's Effect on the Financials",
+]
+
+stats = {t: [0, 0] for t in TITLES}
+lines = open(RAW, encoding="utf-8").read().split("\n")
+out = []
+for i, line in enumerate(lines, 1):
+    if not line.strip():
+        continue
+    section = line[1:line.index("] ")].split(" | ")[1] if line.startswith("[") and "] " in line else None
+    if section not in stats:
+        stats[section] = [0, 0]
+    if i in REMOVE:
+        stats[section][1] += 1
+        continue
+    stats[section][0] += 1
+    out.append(line + "\n")
+open(FINAL, "w", encoding="utf-8").write("\n".join(out))
+for s, (k, r) in stats.items():
+    print(f"{s}: found {k + r}, kept {k}, removed {r}")
+print("Final file size (bytes):", os.path.getsize(FINAL))
+PY
 ```
 
-**Q4 — growth opportunity**
-```bash
-grep -niE -A6 "market share|addressable market|total addressable|penetration|growth opportunity|invest(ing)? .*growth|(demand|expand(ing|sion)?|scal(e|ing)|adoption).{0,60}(customer|market|capacity|business|growth|product)|artificial intelligence|machine learning|generative|automation|(long[- ]term|multi-year).{0,60}(growth|strategy|opportunity|demand|contract|agreement)|new (product|service|offering)|product launch|introduc|pipeline (of|for) (new|customer|product)|innovation|road ?map|new market" $SRC/*.md $SRC/*.txt
-```
+### Step 5 — Report
+Report each search's found, kept and removed counts and the final file size, exactly as printed by the script. Do not summarize the contents.
 
-**Q4 — ARR / retention**
-```bash
-grep -niE -B1 -A2 "annual recurring revenue|recurring revenue|\bARR\b|net (dollar )?retention|net revenue retention|\bNRR\b|\bDBNRR\b|retention rate|bookings|remaining performance obligation|\bRPO\b|backlog|deferred revenue|billings|renewal|churn|subscriber|subscription" $SRC/*.md $SRC/*.txt
-```
-
-**Q4 — headwinds**
-```bash
-grep -niE -B1 -A4 "headwind|challenge|(margin|cost|pricing|demand) pressure|uncertainty|slowdown|soft(ness)?|weak(ness|er)?|macroeconomic|(adverse|unfavorable|negatively) (impact|effect|affected)|constrain|investigation|antitrust|lawsuit|litigation|probe|regulatory (change|scrutiny|action|investigation)" $SRC/*.md $SRC/*.txt
-```
-
-**Q4, Q6, Q7, Q11 — guidance / outlook**
-```bash
-grep -niE -B1 -A8 "guidance|outlook|forecast|we (expect|anticipate|plan|intend|estimate) (to|that)|reaffirm|raise[d]? .*guidance|lower[ed]? .*guidance|(full[ -]year|next quarter|for (the remainder of )?fiscal).{0,60}(guidance|outlook|expect|anticipate|revenue|growth|margin|EPS)" $SRC/*.md $SRC/*.txt
-```
-
-**Q5 — customer concentration**
-```bash
-grep -niE -B1 -A8 "significant customer|major customer|customer concentration|no (single|one) customer|largest customer|(one|two|three) customers?|top .*customers|(accounted for|represented) .*% of .*(revenue|sales)|concentration of credit|dependence on|reliance on" $SRC/*.md $SRC/*.txt
-```
-
-**Q6 — margin**
-```bash
-grep -niE -B1 -A5 "margin.{0,60}(driven|due to|primarily|reflect|attribut|expand|contract|improv|declin|pressure|compress|benefit|headwind|offset)|(driven|due to|primarily|reflect|attribut|expand|contract|improv|declin|pressure|compress|benefit|headwind|offset).{0,60}margin|gross profit (increase|decrease|driven|due to)|cost of (revenue|sales|goods) (increase|decrease|driven|due to|as a percentage)" $SRC/*.md $SRC/*.txt
-```
-
-**Q7 — free cash flow**
-```bash
-grep -niE -B1 -A5 "free cash flow|cash flow (increase|decrease|generat|from operations)|cash from operations|cash (provided|used) (by|in) operating|cash generation|cash conversion|capital allocation|return .*capital|repurchase|buyback|accelerated share repurchase|\bASR\b|dividend (increase|paid|declared)|debt paydown" $SRC/*.md $SRC/*.txt
-```
-
-**Q8 — liabilities / liquidity**
-```bash
-grep -niE -A8 "liquidity|capital resources|(debt|indebtedness) (increase|decrease|level|matur|covenant|outstanding)|borrowings|notes payable|credit facility|revolving|term loan|senior notes|covenant (compliance|violation|breach)|leverage ratio|interest expense|maturit|refinanc|commitments and contingencies|purchase obligation|(operating|finance) lease (obligation|commitment|expense)|contingent liabilit|off-balance" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — critical accounting estimates**
-```bash
-grep -niE -A15 "critical accounting (estimate|polic)|significant accounting polic|use of estimates|change(s|d)? (in|to) .*(estimate|accounting|policy)|newly adopted|recently (adopted|issued) accounting|accounting standards update|\bASU\b" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — revenue recognition**
-```bash
-grep -niE -B1 -A6 "revenue recognition|recognize(d)? revenue|point-in-time|ratably|ASC 606|performance obligation|deferred revenue|unearned|unbilled|days sales outstanding|allowance for (doubtful|credit)|accounts receivable (increase|decrease|reserve|allowance)|inventor(y|ies) (reserve|write-?down|obsolete|excess)|channel (partner|inventory|stuffing|fill)" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — accruals / reserves**
-```bash
-grep -niE -B1 -A5 "accru(e|ed|al)|(reserve|provision|allowance) (for|of|increase|decrease|release|establish)|expense recognition|cookie.jar" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — capitalization / depreciation**
-```bash
-grep -niE -B1 -A5 "capitaliz|useful li(fe|ves)|depreciat|amortiz|impair(ment|ed) (charge|loss|test|assessment)" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — one-time items**
-```bash
-grep -niE -B1 -A5 "one-time|one time|non-recurring|nonrecurring|unusual|infrequent|extraordinary|special (charge|item)|certain (charges|items)|discrete|write-?off|write-?down|impairment (charge|loss)|restructuring|severance|workforce reduction|reduction in force|facility (closure|exit)|exit cost" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — non-GAAP adjustments**
-```bash
-grep -niE -B1 -A5 "non-gaap|adjusted (ebitda|earnings|net income|eps|operating income)|core earnings|excluding.{0,40}(charge|expense|cost|impact|item)|add-?back|stock-based compensation|share-based|rebate" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — circular / round-trip financing**
-```bash
-grep -niE -B1 -A5 "circular|round.trip|vendor financing|customer financing|counterparty|reciprocal|factor(ing|ed)|securitiz|reclassif" $SRC/*.md $SRC/*.txt
-```
-
-**Q9 — off-balance-sheet / lease / goodwill**
-```bash
-grep -niE -B1 -A8 "off-balance|unconsolidated|variable interest entit|\bVIE\b|letter of credit|(operating|finance) lease (obligation|commitment|term|expense)|related.party (transaction|arrangement)|contingent (liabilit|loss)|guarantee(d)? (obligation|debt|of)|pension (plan|obligation|expense)|post.?retirement|OPEB|goodwill (impair|write-?down)|auditor|independent registered public accounting|audit fee" $SRC/*.md $SRC/*.txt
-```
-
-**Q10 — analyst quotes**
-```bash
-grep -niE -A15 "\(Analyst" $SRC/*.md $SRC/*.txt
-```
-
-**Q10 — sentiment**
-```bash
-grep -niE -B1 -A3 "bullish|bearish|optimistic|pessimistic|skeptic|sentiment|narrative|thesis|momentum|overhang|out of favor|priced (in|for)|undervalued|overvalued|attractive|compelling|on sale|compounder|Wall Street|the Street|analysts?|investors?|the market|concern|caution|worried|fears?|doubt|conviction" $SRC/*.md $SRC/*.txt
-```
-
-**Q11 — catalysts**
-```bash
-grep -niE -A6 "look forward|upcoming|later this year|next (fiscal|generation)|(product|service) launch|introduc(e|ing|tion) (of|a new)|rollout|roll out|new product|road ?map|pipeline (of|for)|on track|will begin|ramp (up|ing)|milestone|catalyst|coming (months|quarters)|approval|certif|partnership|go[- ]live" $SRC/*.md $SRC/*.txt
-```
-
-### Step 2 — Deduplicate mechanically
-Remove exact-duplicate lines from the staging file, preserving original order (e.g. `awk '!seen[$0]++' staging_file > deduped_file`). This is a structural step, not a judgment call — it only removes byte-identical repeated lines, never anything based on meaning or relevance.
-
-### Step 3 — Read and fill the Excerpts file
-Read the deduplicated staging file in full. If it's too large for one read, read it in sequential chunks that cover it completely — never assume a chunk's contents or skip ahead; if a read stops short of the file's end, continue reading from that point until the entire file has been read. Truncation is not allowed.
-
-Judge each passage against the eleven questions above. Copy every relevant passage verbatim into `data/companies/{TICKER}/{TICKER} Excerpts.md`, one flat list, in the order you encounter them.
-
-### Step 4 — Clean up
-Delete the staging file and the deduplicated file created in Steps 1–2. They are scratch files, not output.
+### Step 6 — Clean up
+Delete the raw file `/workspaces/green_lumber/data/companies/{TICKER}/{TICKER}_ai_extracts_raw.md`. It is a scratch file, not output. Do not delete the final extracts file.
