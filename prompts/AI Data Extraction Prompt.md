@@ -96,7 +96,9 @@ with open(RAW, "w", encoding="utf-8") as out:
     for f in FILES:
         t = texts[f]
         hits = []
+        grow = 2.5 if "earnings" in f.lower() else 1
         for i, (title, pat, w) in enumerate(SECTIONS):
+            w = int(w * grow)
             for m in rxs[i].finditer(t):
                 hits.append((max(0, m.start() - w), min(len(t), m.end() + w), i, clean(m.group(0))))
         hits.sort()
