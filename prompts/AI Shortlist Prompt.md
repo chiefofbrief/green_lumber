@@ -19,7 +19,7 @@ You build the candidate lists for a stock analysis pipeline. For each AI sub-sec
 When a step tells you to read a file in full:
 - Read it in full, using the script below, and only through it. Do not use the Read tool on it, and do not run `head`, `cat`, `tail`, `grep`, or `ls` on it.
 - Run it as `python3 - "<path>" <chunk number> <<'PY'`, starting at chunk 1 and continuing in sequence. Each chunk's header says which chunk it is and how many there are in total. Never assume a chunk's contents or skip ahead. Read every chunk through the last one, the one marked "end of file." Truncation is not allowed.
-- Run one chunk per command. Do not loop, run several chunks together, or add other lines to the command. A command's output is cut off at about 30,000 characters, and each chunk is about 20,000.
+- Run one chunk per command. Wait for each chunk's output before running the next. Do not loop, run several chunks together, or add other lines to the command. A command's output is cut off at about 30,000 characters, and each chunk is about 20,000.
 
 ```bash
 python3 - "<path>" <chunk number> <<'PY'
@@ -322,9 +322,9 @@ PY
 Chooses which staged companies to keep. A company belongs if its description shows it is the kind of company the **`Sub-Sector Guidance`** says we are looking for. It reads the staged file through the **`Reader Script`** and writes a ranked list of the companies to keep, each with a tier and a reason.
 
 #### How
-Do these four steps in order.
+Do these five steps in order.
 
-##### 3.1 Get the guidance
+##### 3.1 Find your entry in the **`Sub-Sector Guidance`**
 Find your sub-sector in the **`Sub-Sector Guidance`** section at the end of this prompt. The "What we are looking for" part of its entry says which companies to keep. Use the entry to decide in 3.2, rank in 3.3, and write the reasons in 3.4.
 
 ##### 3.2 Read the staged file and decide what to keep
@@ -341,10 +341,11 @@ Read the staged file, `data/screener/{SUBSECTOR}_staged.md`, in full, with the *
   - A: `{SUBSECTOR}` is central to what the company does.
   - B: `{SUBSECTOR}` is a meaningful part of the business, or the description is too thin to tell.
   - If it is genuinely borderline, keep it as a B.
+- The tier says how much of the business it is. How important a player the company is goes in the reason.
 
 ##### 3.3 Combine, rank and cap the list
 After the last chunk, combine your notes into one list.
-- Within each tier, rank the companies by how closely they match the guidance, best first.
+- Within each tier, rank the companies by how closely they match the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**, best first.
 - Keep at most 100 companies in total. If you have more than 100 after reading every chunk, drop the weakest B's first, then the lowest-ranked A's.
 
 ##### 3.4 Write the picks file
@@ -352,15 +353,24 @@ Write the combined list to the picks file, `data/screener/{SUBSECTOR}_picks.md`,
 - One company per line, as `SYMBOL:tier:reason`.
 - List all the A's first, then the B's, each best first.
 - The file contains the list and nothing else.
-- Write each reason as one or two sentences that stand on their own, because later steps will not see the description. Say what the company does that matters for `{SUBSECTOR}`, and where it sits against the guidance (which part, and how central it is to the business).
+- Write each reason as one or two sentences that stand on their own, because later steps will not see the description. Say what the company does that matters for `{SUBSECTOR}`, where it sits against the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`** (which part, and how central it is to the business), and, where the description or what you know shows it, how important a player it is in `{SUBSECTOR}`.
+
+##### 3.5 Check the picks file
+Re-read the picks file and answer these in your reply:
+- Before reading the staged file, did you read the whole `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**, including all of "What we are looking for"?
+- Did you read every chunk through "end of file" with the **`Reader Script`**, one at a time? How many chunks was that?
+- Does the picks file include keeps from the early chunks as well as the later ones?
+- Does every company you kept fit what the `{SUBSECTOR}` entry says we are looking for, judged from its description? Did you keep the borderline cases as B?
+- Did you give every tier on the same basis? Where two similar companies got different tiers, can you say why?
+- Within each tier, is the order by how closely each company matches the `{SUBSECTOR}` entry?
 
 #### Required output
-The picks file, `data/screener/{SUBSECTOR}_picks.md`, e.g. `LITE:A:Makes lasers and optical components for data center networks. Lasers are needed by every optical design, and optical is central to its business.`
+The picks file, `data/screener/{SUBSECTOR}_picks.md`, e.g. `LITE:A:Makes lasers and optical components for data center networks. Lasers are needed by every optical design, and optical is central to its business.` In your reply in the chat, answer the self-check questions. Do not put them in the file.
 
-### Step 4: Build the sub-sector file
+### Step 4: Build the Candidates file
 
 #### What it does
-Takes the picks file and builds a dated sub-sector file with the screener data for just the companies you kept. Each company gets its fit rank, fit tier and fit reason alongside its screener columns.
+Takes the picks file and builds a dated Candidates file with the screener data for just the companies you kept. Each company gets its fit rank, fit tier and fit reason alongside its screener columns.
 
 #### How
 Run the script below as a single inline command, with the sub-sector as the argument: `python3 - {SUBSECTOR} <<'PY'`
@@ -377,7 +387,7 @@ The script first checks the picks file:
 If any line fails, the script prints the bad lines and stops without building anything. Fix the picks file and run the script again.
 
 #### Required output
-The sub-sector file, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, and the counts printed by the script: the number of companies, and how many are tier A and how many tier B.
+The Candidates file, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, and the counts printed by the script: the number of companies, and how many are tier A and how many tier B.
 
 #### Script
 ```bash
@@ -453,10 +463,10 @@ PY
 ### Step 5: Prioritize
 
 #### What it does
-Reads the sub-sector file from Step 4, gives each company a short read on four things (potential growth, current growth, strength and price), weighs them together, and writes a ranked shortlist.
+Reads the Candidates file from Step 4, gives each company a short read on four things (potential growth, current growth, strength and price), weighs them together, and writes a ranked shortlist.
 
 #### How
-Do these four steps in order.
+Do these five steps in order.
 
 ##### 5.1 Read the file
 Read the Candidates file from Step 4, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, in full, with the **`Reader Script`**.
@@ -466,29 +476,38 @@ Read the Candidates file from Step 4, `data/screener/{SUBSECTOR} Candidates {MM-
 - Most figures also have a percentile column (`pctl_` prefix): the company's rank on that figure among all the companies the list was drawn from, more than 1,700 in total, from 0 to 100, where higher is always better. It is not a rank within this file.
 
 ##### 5.2 Assess each company
-Give each company a short read on four things: potential growth, current growth, strength and price, using the **`Company Assessment Criteria`** section at the end of this prompt.
+Go through every company in the file, one at a time. Give each a short read on four things: potential growth, current growth, strength and price, applying the **`Company Assessment Criteria`** section at the end of this prompt in full and using every figure it points to.
 
 ##### 5.3 Rank the companies
 Rank every company in the file, best first. Weigh the four reads together. Growth counts most, which means potential growth and current growth, but none of the reads is a filter. A company with great growth and weak financials can rank below one with average growth and strong financials. A great company that is extremely expensive can rank below a good one at a reasonable price. When growth looks similar, strength and price decide.
 
 ##### 5.4 Write the shortlist
-Write the shortlist to `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md` with the Write tool.
+Write the shortlist to `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md` with the Write tool, using the same date as in the Candidates file name.
 - The file starts with a short note, a few sentences on what is driving the order, such as who leads and where the main trade-offs are.
 - Then comes a table with one row per company and these columns: rank, symbol, company name, fit tier, potential growth, current growth, strength, price, and why.
   - The why is one or two sentences on what puts the company where it is.
-- Support every claim in the note and in the why column with the figures it rests on, and give the figures in the text.
+- Support every claim in the why column with the figures it rests on, and give the figures in the text. In the note, give only the key figures behind the main drivers.
 - The file contains the note and the table and nothing else.
 
+##### 5.5 Check the shortlist
+Re-read the file you wrote and answer these in your reply:
+- Did you read the whole Candidates file with the **`Reader Script`**, one chunk at a time? How many chunks was that?
+- Did you apply the full **`Company Assessment Criteria`** to every company, using every figure it points to?
+- Did you re-read the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`** and use it for each company's potential growth?
+- Did you rank every company by weighing the four reads from the **`Company Assessment Criteria`** together, and does the table order match them?
+- Where two companies with similar figures got different reads on current growth, strength or price, can you say why?
+- Did you check every ranking claim, comparison and superlative in the note and the why (such as "cheapest" or "below X") against the table order and the figures?
+
 #### Required output
-The shortlist file, `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md`.
+The shortlist file, `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md`. In your reply in the chat, answer the self-check questions. Do not put them in the file.
 
 ### Step 6: Final analysis
 
 #### What it does
-This step does the real analysis. Step 5 wrote a first draft of the shortlist. Starting again from the figures, write the final shortlist over the draft.
+This step does the real analysis. Step 5 wrote a first draft of the shortlist. Starting again from the figures, assess every company again and write the final shortlist over the draft.
 
 #### How
-Do these five steps in order.
+Do these seven steps in order.
 
 ##### 6.1 Re-read Step 5
 Re-read Step 5 in full, in this prompt, before you start. Apply all of it again: what to assess (the **`Company Assessment Criteria`**), the ranking, and the shortlist format and rules. Also re-read the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**, since potential growth takes its expected growth from it.
@@ -497,21 +516,33 @@ Re-read Step 5 in full, in this prompt, before you start. Apply all of it again:
 Read the Candidates file from Step 4 in full, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, with the **`Reader Script`**, and form your own view of each company from the figures.
 
 ##### 6.3 Read the draft shortlist
-Then read the draft shortlist from Step 5, `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, in full, with the **`Reader Script`**. It is a first attempt to test, not to defend.
+Then read the draft shortlist from Step 5, `data/screener/{SUBSECTOR} Shortlist {MM-DD-YY}.md` (the same date as in the Candidates file name), in full, with the **`Reader Script`**. It is a first attempt to test, not to defend.
 
-##### 6.4 Check the draft
-Check every comparison in the note and the why column against the figures. Check that each of the four reads (potential growth, current growth, strength and price) fits the figures.
+##### 6.4 Assess every company again
+Go through every company in the file, one at a time, as if you were writing the shortlist from scratch. Apply the **`Company Assessment Criteria`** in full to each company, using every figure it points to. Then decide whether its reads (potential growth, current growth, strength and price) and its why still fit, and rewrite any that do not. Check every comparison in the why against the figures.
 
-##### 6.5 Write the final shortlist
+##### 6.5 Rank again
+Rank every company again, best first, weighing the four reads together as in Step 5.3. Rank from your own assessment, not from the draft's order. Move any company that the figures say should move.
+
+##### 6.6 Write the final shortlist
 Write the final shortlist to the same file with the Write tool.
 - You may change anything Step 5 produced: the ranking, the four reads, the why, and the note.
 - You may not change the figures, the fit tier and fit reason from Step 3, or which companies are in the list.
 
+##### 6.7 Check the final shortlist
+Re-read the file you wrote and answer these in your reply:
+- Did you read the whole Candidates file and the whole draft shortlist with the **`Reader Script`**, one chunk at a time?
+- Before you started, did you re-read Step 5 and the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**?
+- Did you apply the full **`Company Assessment Criteria`** to every company, using every figure it points to? How many companies did you assess again, and for which did you change a read or the why?
+- Did you rank every company again from your own assessment, not from the draft's order, weighing the four reads from the **`Company Assessment Criteria`** together? Which ranks changed?
+- Where two companies with similar figures got different reads on current growth, strength or price, can you say why?
+- Did you check every ranking claim, comparison and superlative in the note and the why (such as "cheapest" or "below X") against the table order and the figures?
+
 #### Required output
-The final shortlist, in the same file. In your reply in the chat, give a short explanation and list of what you changed from the draft and why. Do not put this in the file.
+The final shortlist, in the same file. In your reply in the chat, give a short explanation and list of what you changed from the draft and why, then answer the self-check questions. Do not put either in the file.
 
 ### Step 7: Clean up
-Delete the staged file `data/screener/{SUBSECTOR}_staged.md` and the picks file `data/screener/{SUBSECTOR}_picks.md`. They are scratch files, not output. Do not delete the sub-sector file or the shortlist.
+Delete the staged file `data/screener/{SUBSECTOR}_staged.md` and the picks file `data/screener/{SUBSECTOR}_picks.md`. They are scratch files, not output. Do not delete the Candidates file or the Shortlist file.
 
 ## Sub-Sector Guidance
 Used in Steps 3, 5 and 6. Use the entry for the sub-sector you are running.
