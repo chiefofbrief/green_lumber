@@ -9,7 +9,7 @@ You build the candidate lists for a stock analysis pipeline. For each AI sub-sec
   - Run it as a single inline command, every time.
   - Paste the script from this prompt into the command itself.
   - Do not save it to a file (including `/tmp`), and do not run a saved copy from an earlier run.
-  - Do not split a script up or edit it.
+  - Do not split a script up or edit it, including removing the other sub-sectors from the table.
   - The only things you supply are the arguments shown in each step.
 - Never alter the screener CSV.
 - Run every command from the repository root.
@@ -328,7 +328,7 @@ Do these five steps in order.
 Find your sub-sector in the **`Sub-Sector Guidance`** section at the end of this prompt. The "What we are looking for" part of its entry says which companies to keep. Use the entry to decide in 3.2, rank in 3.3, and write the reasons in 3.4.
 
 ##### 3.2 Read the staged file and decide what to keep
-Read the staged file, `data/screener/{SUBSECTOR}_staged.md`, in full, with the **`Reader Script`**. As you finish each chunk, note the companies to keep.
+Read the staged file, `data/screener/{SUBSECTOR}_staged.md`, in full, with the **`Reader Script`**. As you finish each chunk, note the companies to keep, each with its tier and a line on why it fits, since you will rank them and write the reasons from these notes.
 
 ###### Reading the staged file
 - The only file you read in this step is the staged file, `data/screener/{SUBSECTOR}_staged.md`.
@@ -343,15 +343,15 @@ Read the staged file, `data/screener/{SUBSECTOR}_staged.md`, in full, with the *
   - If it is genuinely borderline, keep it as a B.
 - The tier says how much of the business it is. How important a player the company is goes in the reason.
 
-##### 3.3 Combine, rank and cap the list
+##### 3.3 Combine and rank the list
 After the last chunk, combine your notes into one list.
-- Within each tier, rank the companies by how closely they match the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**, best first.
-- Keep at most 100 companies in total. If you have more than 100 after reading every chunk, drop the weakest B's first, then the lowest-ranked A's.
+- Rank all the companies, best first, by how closely they match the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`**. Rank across both tiers: a B that the entry values more than an A goes above it.
+- There is no limit on the length of the list. Step 4 cuts it to 100 from the bottom, so the order decides who is cut.
 
 ##### 3.4 Write the picks file
 Write the combined list to the picks file, `data/screener/{SUBSECTOR}_picks.md`, with the Write tool.
 - One company per line, as `SYMBOL:tier:reason`.
-- List all the A's first, then the B's, each best first.
+- List the companies in rank order, best first, whatever the tier.
 - The file contains the list and nothing else.
 - Write each reason as one or two sentences that stand on their own, because later steps will not see the description. Say what the company does that matters for `{SUBSECTOR}`, where it sits against the `{SUBSECTOR}` entry in the **`Sub-Sector Guidance`** (which part, and how central it is to the business), and, where the description or what you know shows it, how important a player it is in `{SUBSECTOR}`.
 
@@ -362,7 +362,7 @@ Re-read the picks file and answer these in your reply:
 - Does the picks file include keeps from the early chunks as well as the later ones?
 - Does every company you kept fit what the `{SUBSECTOR}` entry says we are looking for, judged from its description? Did you keep the borderline cases as B?
 - Did you give every tier on the same basis? Where two similar companies got different tiers, can you say why?
-- Within each tier, is the order by how closely each company matches the `{SUBSECTOR}` entry?
+- Is the order by how closely each company matches the `{SUBSECTOR}` entry, whatever its tier?
 
 #### Required output
 The picks file, `data/screener/{SUBSECTOR}_picks.md`, e.g. `LITE:A:Makes lasers and optical components for data center networks. Lasers are needed by every optical design, and optical is central to its business.` In your reply in the chat, answer the self-check questions. Do not put them in the file.
@@ -370,7 +370,7 @@ The picks file, `data/screener/{SUBSECTOR}_picks.md`, e.g. `LITE:A:Makes lasers 
 ### Step 4: Build the Candidates file
 
 #### What it does
-Takes the picks file and builds a dated Candidates file with the screener data for just the companies you kept. Each company gets its fit rank, fit tier and fit reason alongside its screener columns.
+Takes the picks file and builds a dated Candidates file with the screener data for the companies you kept, cut to the top 100 if there are more. Each company gets its fit rank, fit tier and fit reason alongside its screener columns.
 
 #### How
 Run the script below as a single inline command, with the sub-sector as the argument: `python3 - {SUBSECTOR} <<'PY'`
@@ -381,13 +381,13 @@ The script first checks the picks file:
 - The reason must not be empty.
 - Every symbol must be in the staged file.
 - No symbol may appear twice.
-- All A's must come before the B's.
-- There can be at most 100 lines.
 
 If any line fails, the script prints the bad lines and stops without building anything. Fix the picks file and run the script again.
 
+If the picks file has more than 100 lines, the script keeps the first 100 and prints the companies it cut, with their tiers.
+
 #### Required output
-The Candidates file, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, and the counts printed by the script: the number of companies, and how many are tier A and how many tier B.
+The Candidates file, `data/screener/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, and what the script printed: the number of companies, how many are tier A and how many tier B, and the companies cut, if any.
 
 #### Script
 ```bash
@@ -415,11 +415,9 @@ with open(SRC, encoding="utf-8", newline="") as fh:
     for row in reader:
         rows[row["symbol"]] = row
 
-picks, problems, seen, seen_b = [], [], set(), False
+picks, problems, seen = [], [], set()
 with open(PICKS, encoding="utf-8") as fh:
     lines = [(n, l.strip()) for n, l in enumerate(fh, 1) if l.strip()]
-if len(lines) > CAP:
-    problems.append(f"The picks file has {len(lines)} lines. The limit is {CAP}.")
 for n, line in lines:
     parts = line.split(":", 2)
     if len(parts) != 3:
@@ -437,16 +435,15 @@ for n, line in lines:
     if symbol in seen:
         problems.append(f"Line {n}: {symbol} appears more than once")
     seen.add(symbol)
-    if tier == "B":
-        seen_b = True
-    elif tier == "A" and seen_b:
-        problems.append(f"Line {n}: {symbol} is an A listed after a B. All A's come first.")
     picks.append((symbol, tier, reason))
 
 if problems:
     print("The picks file has problems. Nothing was built.")
     print("\n".join(problems))
     sys.exit(1)
+
+cut = picks[CAP:]
+picks = picks[:CAP]
 
 with open(OUT, "w", encoding="utf-8", newline="") as fh:
     w = csv.writer(fh)
@@ -456,6 +453,8 @@ with open(OUT, "w", encoding="utf-8", newline="") as fh:
 print("Companies:", len(picks))
 print("Tier A:", sum(1 for p in picks if p[1] == "A"))
 print("Tier B:", sum(1 for p in picks if p[1] == "B"))
+if cut:
+    print(f"Cut at {CAP} ({len(cut)} companies): " + ", ".join(f"{s} ({t})" for s, t, _ in cut))
 print("File:", OUT)
 PY
 ```
