@@ -123,6 +123,21 @@ SUBSECTORS = {
         # A match counts only if a context word also appears in the same description.
         "paired": [],
     },
+    "electrical": {
+        "industries": [
+            "Electrical Equipment & Parts", "Industrial - Machinery", "Engineering & Construction",
+            "Industrial - Distribution", "Industrial - Specialties",
+        ],
+        # A match counts on its own.
+        "searches": [
+            ("Transformers and switchgear", r"power transformers?|distribution transformers?|\bswitchgear\b|switchboards?|circuit breakers?|modular substations?|substation packages?|control room substations?|\bHVDC\b"),
+            ("Power distribution", r"power distribution|power quality|\bbusways?\b|\bbusbars?\b|\bPDUs?\b|electrical (apparatus|equipment|enclosures?)|wiring devices|prefabricated (electrical|power)"),
+            ("Backup and conversion", r"uninterruptible power|backup power|standby (power|generators?)|backup generators?|power conversion|solid[- ]state transformers?|\b800 ?V\b|DC-DC"),
+            ("Data center electrical", r"data ?cent(er|re)s?[^.]{0,60}(electrical|power distribution|power systems?|power infrastructure)|(electrical|power distribution|power systems?)[^.]{0,60}data ?cent(er|re)s?"),
+        ],
+        # A match counts only if a context word also appears in the same description.
+        "paired": [],
+    },
     "wafers": {
         "industries": [
             "Semiconductors", "Hardware, Equipment & Parts",
@@ -586,6 +601,21 @@ Companies that produce the fuel or the electricity that powers data centers, or 
 Natural gas and its supply chain. Natural gas is the only source that reliably supplies power in the near term, and it also has demand beyond data centers, which cushions a slowdown. The processing, gathering, and transmission infrastructure is as much the trade as the gas itself, since that is where the shortage sits.
 
 Other potential sources of power: nuclear, solar, batteries, advanced geothermal, and any other source such as wind or hydro. These are likely further out than gas, but may still provide value in the near term, so any of them could turn up a company worth keeping. Of these, advanced geothermal may have the most potential in the near term: it runs constantly, like gas, and reuses existing oil and gas drilling equipment. Makers of technology that is itself a power source, such as solar panels and batteries, also count.
+
+### Electrical equipment
+
+Power limits how many accelerators can run, and the power has to be connected to the data center and distributed inside it. Transformers and switchgear connect the site to the grid and step the power down. Inside, switchgear, breakers, uninterruptible power supplies (UPS), power distribution units and busways condition it and deliver it to the racks. This equipment can itself hold up a site, because lead times run from about a year for switchgear to several years for large power transformers.
+
+The equipment needed grows with the power per rack, which is rising fast. Designs are also changing: 800 V DC distribution replaces some of the conventional AC equipment with newer power conversion equipment. It is newer, and when it reaches scale is unclear.
+
+#### What we are looking for
+
+Companies that make or install the electrical equipment that connects a data center to power and distributes it to the racks. Equipment that generates the site's main power, such as turbines, engines and fuel cells, belongs to Power.
+- **Connecting to the grid and stepping power down,** such as transformers and switchgear. Large power transformers have the longest lead times.
+- **Distributing and protecting power inside the site,** such as breakers, power distribution units, busways and cabling.
+- **Keeping it running,** such as UPS and the batteries behind it, and backup generators.
+- **Power conversion at the rack,** including the 800 V DC designs: solid-state transformers, DC-DC converters and the power chips in them.
+- **Installing it,** the electrical contractors and prefabricated electrical systems that build it into the site.
 
 ### Wafers and advanced packaging
 
