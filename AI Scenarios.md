@@ -1,6 +1,6 @@
 # AI Scenarios
 
-This file defines the two scenarios that sub-sectors and companies are assessed against over the next year or two. In the base scenario, the buildout continues and AI adoption keeps growing, with some delays and higher funding costs. In the pessimistic scenario, spending is cut or demand proves weaker than expected. Each scenario is defined first, then followed by how each sub-sector is likely to be affected. The longer-term downsides in `AI Sub-Sectors.md` are outside both.
+This file defines the two scenarios that sub-sectors and companies are assessed against over the next year or two. In the base scenario, the buildout continues and AI adoption keeps growing, with some delays and higher funding costs. In the pessimistic scenario, spending is cut or demand proves weaker than expected. Each scenario is defined first, then followed by how each sub-sector is likely to be affected. The last section lists the considerations for judging a company in each scenario. The longer-term downsides in `AI Sub-Sectors.md` are outside both.
 
 ## Base scenario
 
@@ -55,3 +55,70 @@ The result is less computing, weaker returns for AI companies, and the return on
 - **Tools:** If adoption slows or enterprises cap what agents spend, agents do fewer tasks inside other companies' systems. Companies that rebuilt their products and pricing for agents get less payoff, which could shrink their margins. The companies whose systems hold the work, such as Salesforce and SAP, lose volume but not their place, because agents still have to work in them.
 - **Trust:** Demand for controls over agents falls as fewer agents are deployed. Security concerns and enterprise spending caps may offset part of that, because both need controls to enforce them.
 - **Runtime:** If adoption slows or enterprises cap what agents spend, less inference has to be run, so cloud providers and the software vendors that help run it see less demand. A lab that fails to raise capital cuts that demand further, because it buys less computing from cloud providers.
+
+## Company Scenario Considerations
+Each company is judged in two scenarios, base and pessimistic, which are defined above. This section lists the considerations for judging a company in each.
+
+### Factors in both scenarios
+
+#### Growth
+Expected sales growth, and the risks to that growth, dictate a company's stock price. Growth has two parts.
+- **Potential growth** is the growth expected over the next 1 to 2 years. It rests on three things:
+  - Where the expected growth is in the sub-sector. Take this from the entry for your sub-sector in `AI Sub-Sectors.md`.
+  - The company's position. Is it positioned for that growth, and how will it benefit, if at all?
+  - How central the sub-sector is to the company. The more central it is, the more of the company's own sales growth depends on it.
+- **Current growth** is how fast sales are growing now. It is the starting point and an indicator of potential growth, but it is not the same thing. A company growing fast now may not keep doing it.
+
+#### Strength
+Strength is how well the company would hold up through a downturn, and be positioned to prosper after it. It depends on four things:
+- **Earning its way.** Low costs and good margins make a company strong. Low costs show up as good gross margin and good free cash flow margin. A low margin is fine when the company is reinvesting the money in growth. Margins far above normal are a problem, as described below.
+- **Funding itself.** Growth that can be funded from free cash flow.
+- **Debt.** Debt that is manageable compared with free cash flow.
+- **Size.** Larger, stronger companies are more likely to survive a downturn and to keep their pricing power and distribution advantages afterward.
+
+#### Price
+Price is how much of the expected growth is already in the price. We want companies where the price does not already reflect all of it. A price running well ahead of sales or earnings is a warning. Look at two things:
+- **Valuation.** How much the market is paying for the company's sales and earnings. Valuation is measured at current margins, so also ask what the price implies on earnings at normal margins.
+- **Sentiment.** Optimism can mean the growth is already priced in, and pessimism can mean it is not. Valuation reflects sentiment, and so do analyst ratings, where available.
+
+#### Margins far above history or peers
+Margins and free cash flow far above the company's own five-year lows, or its peers' (the other companies in the same sub-sector), usually come from something temporary, such as a shortage. The bigger the gap, the more competition works to close it. This affects all three factors:
+- Growth: part of the company's position may be temporary. Growth that comes with high margins may be higher prices more than higher volume, and it fades when the prices do.
+- Strength: the company may look stronger than it is. Ask whether it would still be healthy once margins fall back.
+- Price: valuation looks cheaper at high margins. Where margins are far above normal, pessimism may be the market already pricing them falling.
+
+The five-year low can be an unusually weak year, so treat a large gap as a flag, not proof.
+
+### Base scenario
+Use the base scenario above as the context for judging each company. In base, look for sustainable growth at a reasonable price.
+
+#### Growth
+- Potential growth is the most important factor. The sub-sector's upside, described in its entry in `AI Sub-Sectors.md`, may not be spread evenly across the companies in a sub-sector, so look for the companies whose business sits in the areas where the base scenario above shows demand growing.
+- Current growth shows whether a company is already capturing the sub-sector's upside. Strong current growth in a company positioned for the upside may mean it is already capturing some of it. Weak current growth can mean two things:
+  - If the company's peers are growing, it may not be capturing the upside.
+  - If its peers' growth is low as well, the upside may not have arrived yet.
+
+#### Strength
+- Strength matters less than potential growth, but it indicates how sustainable the growth is. All else equal, larger companies with higher margins, higher free cash flow and lower debt are better. Two caveats apply to margins and free cash flow:
+  - Margins far above the company's own history may reflect shortage pricing. That may not last, and profitability may fall when margins revert.
+  - Lower margins and free cash flow may reflect reinvestment in growth. Sales growth indicates whether that is the case.
+
+#### Price
+- All else equal, companies at lower valuations are better. A fair or somewhat high valuation can be worth paying for strong growth.
+- Avoid extreme valuations. An extreme valuation leaves little room for a shortfall in growth, even when growth is strong.
+
+### Pessimistic scenario
+Use the pessimistic scenario above as the context for judging each company. In pessimistic, look for companies that hold up when spending is cut or demand is weaker than expected.
+
+#### Growth
+- Potential growth still matters, but counts less than in base. The effect of pessimistic may not be spread evenly across the companies in a sub-sector, so look for the companies whose business sits in the areas where the pessimistic scenario above shows the least harm.
+- Current growth shows whether a company is already capturing some of the sub-sector's upside, which may leave it better positioned to hold up in a downturn. However, a downturn hurts the whole sub-sector, so strong current growth does not guarantee the company holds up.
+
+#### Strength
+- Strength matters more than in base, because it indicates how well a company holds up when demand falls. All else equal, larger companies with higher margins, higher free cash flow and lower debt are better. Three things stand out:
+  - Debt may matter more than in base, because payments continue while revenue falls.
+  - Larger, established companies are more likely to keep their customers and orders, and smaller players are more likely to be pushed aside.
+  - Margins far above the company's own history are a bigger flag than in base, because the conditions behind them may not last.
+
+#### Price
+- All else equal, companies at lower valuations are better. The most expensive companies are the most exposed, because their prices assume growth that may not arrive.
