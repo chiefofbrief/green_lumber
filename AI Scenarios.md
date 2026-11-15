@@ -81,8 +81,8 @@ Price is how much of the expected growth is already in the price. We want compan
 - **Valuation.** How much the market is paying for the company's sales and earnings. Valuation is measured at current margins, so also ask what the price implies on earnings at normal margins.
 - **Sentiment.** Optimism can mean the growth is already priced in, and pessimism can mean it is not. Valuation reflects sentiment, and so do analyst ratings, where available.
 
-#### Margins far above history or peers
-Margins and free cash flow far above the company's own five-year lows, or its peers' (the other companies in the same sub-sector), usually come from something temporary, such as a shortage. The bigger the gap, the more competition works to close it. This affects all three factors:
+#### Margins far above history
+Margins and free cash flow far above the company's own five-year lows usually come from something temporary, such as a shortage. The bigger the gap, the more competition works to close it. Peers (the other companies in the same sub-sector) help tell why. If their margins have risen too, a shortage is likely lifting the whole sub-sector. If the company has long earned more than its peers, it may simply be better run, which is a strength, not a flag. This affects all three factors:
 - Growth: part of the company's position may be temporary. Growth that comes with high margins may be higher prices more than higher volume, and it fades when the prices do.
 - Strength: the company may look stronger than it is. Ask whether it would still be healthy once margins fall back.
 - Price: valuation looks cheaper at high margins. Where margins are far above normal, pessimism may be the market already pricing them falling.
