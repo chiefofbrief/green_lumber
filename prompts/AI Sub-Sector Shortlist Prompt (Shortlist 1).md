@@ -389,6 +389,7 @@ Write the combined list to the picks file, `data/screener/{SUBSECTOR}_picks.md`,
 - One company per line, as `SYMBOL:tier:reason`.
 - List the companies in rank order, best first, whatever the tier.
 - The file contains the list and nothing else.
+- Do not use the `|` symbol in a reason, because the reason is later copied into a table.
 - Write each reason as two or three sentences that stand on their own, because later steps will not see the company's description. Say:
   - what the company does that matters for `{SUBSECTOR}`, and which kind of company in the **Companies** subsection of the `{SUBSECTOR}` section in `AI Sub-Sectors.md` that makes it;
   - why that kind of company matters, as the description and **Upside** subsection of the `{SUBSECTOR}` section in `AI Sub-Sectors.md` explain;
@@ -396,7 +397,7 @@ Write the combined list to the picks file, `data/screener/{SUBSECTOR}_picks.md`,
   - how important a player the company is in `{SUBSECTOR}`, where its description or what you know shows it.
 
 ##### 3.5 Check the picks file
-Re-read the picks file, `data/screener/{SUBSECTOR}_picks.md`, and answer these in your reply:
+Re-read the picks file, `data/screener/{SUBSECTOR}_picks.md`, and answer these in your reply. If any answer is no, fix the file and answer that question again:
 - Before reading the staged file, `data/screener/{SUBSECTOR}_staged.md`, did you read `AI Sub-Sectors.md` in full with the **`Reader Script`**, and read all of the `{SUBSECTOR}` section in it closely?
 - Did you read every chunk of `data/screener/{SUBSECTOR}_staged.md` through "end of file" with the **`Reader Script`**, one at a time? How many chunks was that?
 - Does the picks file include keeps from the early chunks as well as the later ones?
@@ -423,6 +424,7 @@ First, it checks the picks file:
 - The tier must be A or B.
 - The reason must not be empty.
 - Every symbol must be in the staged file.
+- Every symbol must be in the screener.
 - No symbol may appear twice.
 
 If any line fails, the script prints the bad lines and stops without building anything. Fix the picks file and run the script again.
@@ -541,7 +543,7 @@ Write the Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM
 - The file contains the note and the table and nothing else.
 
 ##### 5.5 Check the Shortlist file
-Re-read the Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, and answer these in your reply:
+Re-read the Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, and answer these in your reply. If any answer is no, fix the file and answer that question again:
 - Did you read the whole Candidates file, `data/screener/AI Subsectors/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, with the **`Reader Script`**, one chunk at a time? How many chunks was that?
 - Did you apply the full **`Company Assessment Criteria`** to every company, using every figure it points to?
 - Did you read `AI Sub-Sectors.md` in full with the **`Reader Script`**, and read all of the `{SUBSECTOR}` section in it closely? Does each company's potential growth weigh the **Upside** subsection of the `{SUBSECTOR}` section in `AI Sub-Sectors.md`, its fit reason and its fit tier?
@@ -574,6 +576,9 @@ Read the Candidates file from Step 4 in full, `data/screener/AI Subsectors/{SUBS
 ##### 6.3 Read the draft Shortlist file
 Then read the draft Shortlist file from Step 5, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md` (the same date as in the Candidates file name), in full, with the **`Reader Script`**. It is a first attempt to test, not to defend.
 
+###### Reading the files
+- The only files you read in Step 6 are `AI Sub-Sectors.md`, the Candidates file and the draft Shortlist file. Do not look anything up.
+
 ##### 6.4 Assess every company again
 Go through every company in the Candidates file, `data/screener/AI Subsectors/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, one at a time, as if you were writing the shortlist from scratch. Assess each one as in 5.2: apply the **`Company Assessment Criteria`** in full, with potential growth weighing the **Upside** subsection of the `{SUBSECTOR}` section in `AI Sub-Sectors.md`, the company's fit reason and its fit tier, and current growth, strength and price taken from every figure the **`Company Assessment Criteria`** point to.
 
@@ -585,10 +590,10 @@ Rank every company again, best first, weighing the four reads together as in Ste
 ##### 6.6 Write the final Shortlist file
 Write the final Shortlist file over the draft, to `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, with the Write tool.
 - You may change anything Step 5 produced: the ranking, the four reads, the why, and the note.
-- You may not change the figures, the fit tier and fit reason from Step 3, or which companies are in the list.
+- You may not change the fit tier and fit reason from Step 3, or which companies are in the list.
 
 ##### 6.7 Check the final Shortlist file
-Re-read the final Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, and answer these in your reply:
+Re-read the final Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, and answer these in your reply. If any answer is no, fix the file and answer that question again:
 - Did you read the whole Candidates file, `data/screener/AI Subsectors/{SUBSECTOR} Candidates {MM-DD-YY}.csv`, and the whole draft Shortlist file, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, with the **`Reader Script`**, one chunk at a time?
 - Before you started, did you re-read Step 5 and the **`Company Assessment Criteria`** in full, and read `AI Sub-Sectors.md` in full with the **`Reader Script`**, including all of the `{SUBSECTOR}` section? Does each company's potential growth weigh the **Upside** subsection of the `{SUBSECTOR}` section in `AI Sub-Sectors.md`, its fit reason and its fit tier?
 - Did you apply the full **`Company Assessment Criteria`** to every company, using every figure it points to? How many companies did you assess again, and for which did you change a read or the why?
