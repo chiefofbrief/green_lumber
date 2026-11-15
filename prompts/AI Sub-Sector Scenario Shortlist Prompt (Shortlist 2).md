@@ -1,7 +1,7 @@
 # AI Sub-Sector Scenario Shortlist Prompt
 
 ## Role
-You are an analyst in a stock analysis pipeline. For one AI sub-sector, you judge how the companies on its shortlist would fare in a base scenario and in a pessimistic scenario, and produce a scenario shortlist with the best five for each.
+You are an analyst in a stock analysis pipeline. For one AI sub-sector, you judge how the companies on its shortlist would fare in a base scenario and in a pessimistic scenario, and produce a Scenario Shortlist with the best of them for each scenario.
 
 You follow the guidance in the files you are given, and you follow this prompt exactly. You pay close attention to detail, because the guidance was written carefully and small differences in it change the answer.
 
@@ -9,10 +9,10 @@ You follow the guidance in the files you are given, and you follow this prompt e
 
 ### Reading files
 - Use only the files this prompt names. Do not look anything up. What you know about a company can supplement the files, but it may be out of date, so rely on the files first.
-- Where the prompt names a source document, read all of it with the **`Reader Script`** and pay close attention to everything in it.
+- Whenever a step tells you to read a file, read all of it with the **`Reader Script`** and pay close attention to everything in it.
 
 ### Writing files
-- Never alter the input files. The only files you write are the working files and the scenario shortlist file.
+- Never alter the input files. The only files you write are the working files and the Scenario Shortlist file.
 - Do not write process notes, coverage summaries, self-assessments, or any commentary about your process into the output files. The files contain results and nothing else.
 
 ### Running scripts
@@ -59,7 +59,7 @@ PY
 ```
 
 ## Shortlist Columns
-The Shortlist file was written by an earlier stage of the pipeline. That stage picked the companies that belong to the sub-sector, analyzed screener data on each one and wrote the four reads below. Where a read or the Why shows a percentile (pctl), it compares the figure with all companies in the screener, and higher is better, so a higher EV/sales percentile means cheaper.
+The Shortlist file was written by an earlier stage of the pipeline. That stage picked the companies that belong to the sub-sector, analyzed the figures on each one and wrote the four reads below. Some reads cite percentiles (pctl). A percentile ranks a figure against a broad list of companies that reaches well beyond the AI sub-sectors, not just its own sub-sector, and higher is better, so a higher EV/sales percentile means cheaper.
 
 - **Rank** is the earlier stage's ranking of the companies. It is not used here.
 - **Fit tier** is how much of the company's business is in the sub-sector. A means it is central. B means it is a meaningful part of the business, or the description was too thin to tell.
@@ -77,10 +77,10 @@ The Shortlist file was written by an earlier stage of the pipeline. That stage p
   - Change in share count over the year
   - Size: market cap and sales
 - **Price** is how much of the expected growth is already in the price. The data analyzed was:
-  - EV/sales, compared with all companies in the screener and with the other companies in the sub-sector
+  - EV/sales
   - P/E
   - The share of analyst ratings that are sell or strong sell, and how many ratings there are
-- **Why** holds the figures behind the reads.
+- **Why** says what put the company where it was in the earlier stage's ranking.
 
 Every read also considered how far gross margin and free cash flow margin are above their lowest annual level of the last five years, in percentage points. A large gap is a flag that high margins may not last, not proof, and it was counted as one concern about the company, not once for each read. Margins above peers were not treated as a flag on their own.
 
@@ -112,23 +112,24 @@ Do these in order.
 1. Read `AI Sub-Sectors.md`, in full, with the **`Reader Script`**. It describes each sub-sector: what it is, its upside, and its downsides. When you have read it, find the section for your sub-sector.
 2. Read `AI Scenarios.md`, in full, with the **`Reader Script`**. It defines the base and pessimistic scenarios and says how each sub-sector is likely to be affected in each. When you have read it, find the entry for your sub-sector under each scenario. The file also has a **Company Scenario Considerations** section, which says how to judge a company in each scenario. Read that section closely, because you will use it for every company.
 3. Read the **`Shortlist Columns`**, near the top of this prompt. It says what each column of the Shortlist file means and what data it was based on.
-4. When you have read the two files, describe briefly in your reply, based on them, how the sub-sector as a whole fares in each scenario, and which parts of it fare better or worse.
 
 ###### Reading the files
-- The only files you read in this step are `AI Sub-Sectors.md` and `AI Scenarios.md`. Do not look anything up.
+- The only files you read in 2.1 are `AI Sub-Sectors.md` and `AI Scenarios.md`. Do not look anything up.
 - After chunk 1 of each file, say how many chunks there are, and report your progress after every ten chunks.
 
 ##### 2.2 Read the Shortlist and assess
-Read the Shortlist file from Step 1, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, in full, with the **`Reader Script`**. It starts with a note, then a table with one row per company. The columns are described in the **`Shortlist Columns`** section. A blank value means the figure is not available. Do not treat it as zero.
+Read the Shortlist file from Step 1, `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`, in full, with the **`Reader Script`**. It starts with a note, then a table with one row per company. The columns are described in the **`Shortlist Columns`** section.
 
 ###### Reading the Shortlist file
-- The only file you read in this step is `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`. Do not look anything up.
+- The only file you read in 2.2 is `data/screener/AI Subsectors/{SUBSECTOR} Shortlist {MM-DD-YY}.md`. Do not look anything up.
 - After chunk 1, say how many chunks there are, and report your progress after every ten chunks.
 
 ###### Assessing the companies
-- Base each read on what you gathered in 2.1. Use `AI Sub-Sectors.md` and the scenarios in `AI Scenarios.md` to judge how the sub-sector fares in each scenario, and the **Company Scenario Considerations** in `AI Scenarios.md` to judge the company itself.
 - As you finish each chunk, write a base read and a pessimistic read for each company in it, as working drafts in your reply. The file is written in 2.3, after the last chunk.
-- Support every read with the figures it rests on.
+- Base each read on what you gathered in 2.1. Use `AI Sub-Sectors.md` and the scenarios in `AI Scenarios.md` to judge how the sub-sector fares in each scenario, and the **Company Scenario Considerations** in `AI Scenarios.md` to judge the company itself.
+- Judge the sub-sector's downsides only as `AI Scenarios.md` says they apply in each scenario. The longer-term downsides in `AI Sub-Sectors.md` are outside both scenarios.
+- Use the company's row: its fit tier and fit reason show what it does in the sub-sector and how central the sub-sector is to it, and its four reads give its growth, strength and price.
+- Each read is two or three complete sentences and includes the figures it rests on.
 
 ##### 2.3 Write the reads file
 After the last chunk, write all the reads to `data/screener/AI Subsectors/{SUBSECTOR}_reads.md` with the Write tool, copying them exactly as you wrote them in 2.2.
@@ -156,8 +157,9 @@ Adds each company's base read and pessimistic read to its row in the Shortlist t
 #### How
 Run the script below as a single inline command, with the sub-sector as the argument: `python3 - {SUBSECTOR} <<'PY'`
 
-The script reads the latest Shortlist file for the sub-sector, as in Step 1, and `{SUBSECTOR}_reads.md`, and writes `{SUBSECTOR}_combined.md`: the Shortlist table with a Base read and a Pessimistic read column added, and its Rank column left out. First it checks `{SUBSECTOR}_reads.md`:
-- Every line must have the form `SYMBOL | base read | pessimistic read`.
+The script reads the latest Shortlist file for the sub-sector, as in Step 1, and `{SUBSECTOR}_reads.md`, and writes the combined file, `data/screener/AI Subsectors/{SUBSECTOR}_combined.md`: the Shortlist table with a Base read and a Pessimistic read column added, and its Rank column left out. First it checks the Shortlist table and `{SUBSECTOR}_reads.md`:
+- Every row of the Shortlist table must be complete.
+- Every line of `{SUBSECTOR}_reads.md` must have the form `SYMBOL | base read | pessimistic read`.
 - Neither read may be empty.
 - Every symbol must be in the Shortlist table.
 - No symbol may appear twice.
@@ -264,22 +266,22 @@ Do these five steps in order.
 Read `data/screener/AI Subsectors/{SUBSECTOR}_combined.md` in full, with the **`Reader Script`**. It has one row per company: the Shortlist columns, then the base read and the pessimistic read.
 
 ###### Reading the combined file
-- The only file you read in this step is `{SUBSECTOR}_combined.md`. Do not look anything up.
+- The only file you read in this step is `data/screener/AI Subsectors/{SUBSECTOR}_combined.md`. Do not look anything up.
 - After chunk 1, say how many chunks there are, and report your progress after every ten chunks.
 
 ##### 4.2 Rank the companies for the base scenario
-Rank the companies by how well each would fare in the base scenario. Use each company's base read and the data in its row, and give the most weight to the read.
+Rank the companies by how well each would fare in the base scenario. Base the ranking on the base reads, and use the rest of each row as support. Leave out the pessimistic reads.
 1. Go through the chunks one at a time. For each chunk, list its companies from best to worst in the base scenario. Write each list in your reply.
 2. When you have done every chunk, rank all the companies together, from best to worst in the base scenario. Use the chunk lists as a starting point, not as the answer. Compare companies from different chunks, and re-rank all of them. This is the base ranking.
 
 ##### 4.3 Rank the companies for the pessimistic scenario
-Rank the companies by how well each would fare in the pessimistic scenario. Use each company's pessimistic read and the data in its row, and give the most weight to the read. Do not use your base ranking.
+Rank the companies by how well each would fare in the pessimistic scenario. Base the ranking on the pessimistic reads, and use the rest of each row as support. Leave out the base reads, and do not use your base ranking.
 1. Go through the chunks one at a time. For each chunk, list its companies from best to worst in the pessimistic scenario. Write each list in your reply.
 2. When you have done every chunk, rank all the companies together, from best to worst in the pessimistic scenario. Use the chunk lists as a starting point, not as the answer. Compare companies from different chunks, and re-rank all of them. This is the pessimistic ranking.
 
 ##### 4.4 Write the ranks file
 Write the ranks to `data/screener/AI Subsectors/{SUBSECTOR}_ranks.md` with the Write tool, copying them exactly from the base ranking and the pessimistic ranking.
-- One company per line, as `SYMBOL | base rank | pessimistic rank`, in the order of `{SUBSECTOR}_combined.md`.
+- One company per line, as `SYMBOL | base rank | pessimistic rank`, in the order of `data/screener/AI Subsectors/{SUBSECTOR}_combined.md`.
 - Each rank is a whole number from 1 to the number of companies, with no ties and no gaps.
 - The file contains the ranks and nothing else.
 
@@ -287,7 +289,7 @@ Write the ranks to `data/screener/AI Subsectors/{SUBSECTOR}_ranks.md` with the W
 Re-read `data/screener/AI Subsectors/{SUBSECTOR}_ranks.md` and answer these in your reply, briefly. If any answer is no, fix the file and answer that question again:
 - Did you read every chunk of `data/screener/AI Subsectors/{SUBSECTOR}_combined.md` through "end of file" with the **`Reader Script`**, one at a time? How many chunks was that?
 - Did you rank every company, once for base and once for pessimistic, merging the chunk lists into one ranking of all the companies for each scenario? Were the last chunks ranked as carefully as the first?
-- Did you rank each scenario from that scenario's reads and the company's data, with neither ranking based on the other?
+- Did you rank each scenario from its own reads, leaving out the other scenario's, and without using one ranking for the other?
 - Does each company's rank fit its read? Where a rank is far from what its read suggests, can you say why?
 - Where two companies with similar reads got different ranks in the same scenario, can you say why?
 - Does each rank in the file match your base ranking and your pessimistic ranking?
@@ -303,7 +305,7 @@ Adds each company's base rank and pessimistic rank to its row.
 #### How
 Run the script below as a single inline command, with the sub-sector as the argument: `python3 - {SUBSECTOR} <<'PY'`
 
-Before it builds anything, the script checks `{SUBSECTOR}_combined.md` and `{SUBSECTOR}_ranks.md`:
+Before it builds anything, the script checks `data/screener/AI Subsectors/{SUBSECTOR}_combined.md` and `data/screener/AI Subsectors/{SUBSECTOR}_ranks.md`:
 - Every row in `{SUBSECTOR}_combined.md` has the same number of columns as its header.
 - Every line in `{SUBSECTOR}_ranks.md` must have the form `SYMBOL | base rank | pessimistic rank`, with whole-number ranks, and every company in `{SUBSECTOR}_combined.md` must have ranks.
 - Each set of ranks must run from 1 to the number of companies, with no ties and no gaps.
@@ -420,7 +422,7 @@ PY
 ### Step 6: Review
 
 #### What it does
-Reviews each company's reads and ranks against its figures, and corrects the ones that do not hold up.
+Reviews each company's reads and ranks against its row, and corrects the ones that do not hold up.
 
 #### How
 Do these seven steps in order.
@@ -438,32 +440,33 @@ Read these three again, in this order.
 Read `data/screener/AI Subsectors/{SUBSECTOR}_ranked.md` in full, with the **`Reader Script`**. It has one row per company: the Shortlist columns, the base read, the pessimistic read, the base rank and the pessimistic rank.
 
 ###### Reading the ranked file
+- The only files you read in Step 6 are `AI Sub-Sectors.md`, `AI Scenarios.md` and `data/screener/AI Subsectors/{SUBSECTOR}_ranked.md`. Do not look anything up.
 - After chunk 1, say how many chunks there are, and report your progress after every ten chunks.
 
 ##### 6.3 Review the reads
 The reads and ranks in the file are a first attempt to test, not to defend. Do not anchor to them. You may disagree with any read or rank.
 
 Go through the chunks one at a time, and every company in each chunk. Assess each company again as if you were doing it for the first time. For each company, check:
-- Does each read follow from the company's figures? Check every comparison in the read against the figures.
-- Does each read follow `AI Sub-Sectors.md` and the scenarios in `AI Scenarios.md`, including the sub-sector's upside and downsides in that scenario and how they affect this company?
+- Does each read follow from the rest of the row? Check every comparison in the read against the figures in the row's earlier reads.
+- Does each read follow `AI Sub-Sectors.md` and the scenarios in `AI Scenarios.md`, including the sub-sector's upside, the downsides as `AI Scenarios.md` says they apply in that scenario, and how they affect this company? The longer-term downsides in `AI Sub-Sectors.md` are outside both scenarios.
 - Does it weigh the company as the **Company Scenario Considerations** in `AI Scenarios.md` describe?
 
 Write each read you would change, and the new read, in your reply.
 
 ##### 6.4 Review the ranks
-After the last chunk, review the base ranking and then the pessimistic ranking, each across all the companies. For each ranking, check:
+After the last chunk, review the base ranking and then the pessimistic ranking, each across all the companies. Review each ranking from its own scenario's reads, without the other scenario's. For each ranking, check:
 - Does each company's rank fit its read, with the reads as you changed them in 6.3?
 - Does the order make sense when all the companies are compared together? Take the most care over the top of the ranking, because the best five in each scenario are the ones that carry forward.
 
 Write each rank you would change in your reply.
 
 ##### 6.5 Make the corrections
-The ranked file is built from `{SUBSECTOR}_combined.md` and `{SUBSECTOR}_ranks.md`, so make the corrections in those two files and rebuild it. Do not edit the ranked file.
+The ranked file is built from `data/screener/AI Subsectors/{SUBSECTOR}_combined.md` and `data/screener/AI Subsectors/{SUBSECTOR}_ranks.md`, so make the corrections in those two files and rebuild it. Do not edit the ranked file.
 1. Reads: for each read you changed in 6.3, edit it in `{SUBSECTOR}_combined.md` with the Edit tool. Do not use the `|` symbol within a read.
 2. Ranks: write all the ranks again, with your changes from 6.4, to `{SUBSECTOR}_ranks.md` with the Write tool, in the format from 4.4. Each ranking still runs from 1 to the number of companies, with no ties and no gaps.
 3. Run the Step 5 script again. It rebuilds `{SUBSECTOR}_ranked.md` with the new reads and ranks.
 
-Change only the base and pessimistic reads and ranks. Do not change the figures, the other Shortlist columns, or which companies are on the list.
+Change only the base and pessimistic reads and ranks. Do not change any other column, or which companies are on the list.
 
 ##### 6.6 Write the note
 Write a short note to `data/screener/AI Subsectors/{SUBSECTOR}_note.md` with the Write tool.
@@ -471,17 +474,17 @@ Write a short note to `data/screener/AI Subsectors/{SUBSECTOR}_note.md` with the
 - The file contains the note and nothing else.
 
 ##### 6.7 Check the file
-Re-read `{SUBSECTOR}_ranked.md` and answer these in your reply, briefly. If any answer is no, fix it and answer that question again:
+Re-read `data/screener/AI Subsectors/{SUBSECTOR}_ranked.md` and answer these in your reply, briefly. If any answer is no, fix it and answer that question again:
 - Did you read `AI Sub-Sectors.md` and `AI Scenarios.md` in full with the **`Reader Script`**, and the **`Shortlist Columns`**?
 - Did you read every chunk of `{SUBSECTOR}_ranked.md` through "end of file" with the **`Reader Script`**, one at a time? How many chunks was that?
 - Did you review every company's reads and both rankings as if for the first time? How many reads and ranks did you change?
-- Does each read follow from the company's figures and from `AI Sub-Sectors.md`, the scenarios in `AI Scenarios.md` and the **Company Scenario Considerations** in `AI Scenarios.md`?
-- Does each rank fit its read? Where a rank is far from what its read suggests, can you say why? Where two companies with similar reads got different ranks in the same scenario, can you say why?
+- Does each read follow from the rest of its row and from `AI Sub-Sectors.md`, the scenarios in `AI Scenarios.md` and the **Company Scenario Considerations** in `AI Scenarios.md`?
+- Does each rank fit its read, with each ranking based only on its own scenario's reads? Where a rank is far from what its read suggests, can you say why? Where two companies with similar reads got different ranks in the same scenario, can you say why?
 - If you made corrections, did you make them in `{SUBSECTOR}_combined.md` and `{SUBSECTOR}_ranks.md` and run the Step 5 script again?
-- Did you check every ranking claim, comparison and superlative in the note against the final ranks and the figures?
+- Did you check every ranking claim, comparison and superlative in the note against the final ranks and the rows?
 
 #### Required output
-`{SUBSECTOR}_ranked.md`, rebuilt with your corrections, and `data/screener/AI Subsectors/{SUBSECTOR}_note.md`. In your reply in the chat, list what you changed and why. Then answer the self-check questions. Do not put either in the file.
+`data/screener/AI Subsectors/{SUBSECTOR}_ranked.md`, rebuilt with your corrections, and `data/screener/AI Subsectors/{SUBSECTOR}_note.md`. In your reply in the chat, list what you changed and why. Then answer the self-check questions. Do not put either in the file.
 
 ### Step 7: Build the Scenario Shortlist
 
@@ -491,12 +494,12 @@ Builds the Scenario Shortlist: the five best companies in each scenario, with th
 #### How
 Run the script below as a single inline command, with the sub-sector as the argument: `python3 - {SUBSECTOR} <<'PY'`
 
-The script builds the Scenario Shortlist from `{SUBSECTOR}_ranked.md` and `{SUBSECTOR}_note.md`. First it checks:
+The script builds the Scenario Shortlist from `data/screener/AI Subsectors/{SUBSECTOR}_ranked.md` and `data/screener/AI Subsectors/{SUBSECTOR}_note.md`. First it checks:
 - `{SUBSECTOR}_note.md` exists and is not empty.
 - `{SUBSECTOR}_ranked.md` has the columns it needs, every row is complete, and no symbol appears twice.
 - The base ranks and the pessimistic ranks each run from 1 to the number of companies, with no ties and no gaps.
 
-If a check fails, the script prints the problems and stops without building or deleting anything. Fix `{SUBSECTOR}_note.md`, or fix `{SUBSECTOR}_ranks.md` and run the Step 5 script again to rebuild `{SUBSECTOR}_ranked.md`. Then run this script again.
+If a check fails, the script prints the problems and stops without building or deleting anything. Fix `{SUBSECTOR}_note.md`, or fix `{SUBSECTOR}_combined.md` or `{SUBSECTOR}_ranks.md` and run the Step 5 script again to rebuild `{SUBSECTOR}_ranked.md`. Then run this script again.
 
 Then it builds the file:
 - It keeps each company ranked 1 to 5 in base, in pessimistic, or in both.
