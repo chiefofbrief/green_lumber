@@ -110,6 +110,8 @@ Use the base scenario above as the context for judging each company. In base, lo
 ### Pessimistic scenario
 Use the pessimistic scenario above as the context for judging each company. In pessimistic, look for companies that hold up when spending is cut or demand is weaker than expected.
 
+The scenarios describe only the AI buildout, so they say nothing about a company's businesses outside its sub-sector. Judge those businesses on their own prospects rather than treating them as safe. A business in a market that is growing on its own, such as aerospace and defense, helps a company hold up. One exposed to its own risks, such as commodity prices or an industrial cycle, helps less. Either way, they support a company's place rather than decide it: a company whose resilience comes mostly from a business outside its sub-sector should not rank at the top.
+
 #### Growth
 - Potential growth still matters, but counts less than in base. The effect of pessimistic may not be spread evenly across the companies in a sub-sector, so look for the companies whose business sits in the areas where the pessimistic scenario above shows the least harm.
 - Current growth shows whether a company is already capturing some of the sub-sector's upside, which may leave it better positioned to hold up in a downturn. However, a downturn hurts the whole sub-sector, so strong current growth does not guarantee the company holds up.

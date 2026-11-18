@@ -255,7 +255,7 @@ Use the company's row like this:
 - Everything in the row compared the company only with others in its sub-sector, apart from the percentiles. Use the sub-sector reads as a starting point to test, not to copy.
 - For a company on more than one Scenario Shortlist, judge how each of its sub-sectors fares in that scenario and how that affects the company. Weight each sub-sector by how central it is to the company, from its fit tier and fit reason. Then write one read that combines them and names each sub-sector's effect.
 
-Each read is two or three complete sentences and includes the figures it rests on, taken from the earlier reads. A company on more than one Scenario Shortlist may need more, to cover each of its sub-sectors.
+Each read is two or three complete sentences and includes the figures it rests on, taken from the earlier reads. A company on more than one Scenario Shortlist may need more, to cover each of its sub-sectors. Write each draft as the full read, not as notes, because 2.3 copies the drafts exactly.
 
 ##### 2.3 Write the reads file
 After the last chunk, write all the reads to the reads file, `data/screener/AI Subsectors/all_reads.md`, with the Write tool, copying them exactly as you wrote them in 2.2.
@@ -580,7 +580,7 @@ Change only the base and pessimistic reads and ranks. Do not change any other co
 
 ##### 6.6 Write the note
 Write a short note to the note file, `data/screener/AI Subsectors/all_note.md`, with the Write tool.
-- A few sentences on what put companies in the Both scenarios table (the companies with the best average of their base rank and pessimistic rank, which Step 7 keeps), what drove the top of the base ranking and the top of the pessimistic ranking, and why the other companies fell short. Give only the key figures.
+- A few sentences on what drove the top of the ranking by average rank (the average of each company's base rank and pessimistic rank), the top of the base ranking and the top of the pessimistic ranking, and why the other companies fell short. Give only the key figures.
 - The file contains the note and nothing else.
 
 ##### 6.7 Check the ranked file
@@ -599,15 +599,18 @@ The ranked file, `data/screener/AI Subsectors/all_ranked.md`, rebuilt with your 
 ### Step 7: Build the Composite Shortlist
 
 #### What it does
-Builds the Composite Shortlist file: the note, the companies that fare best across both scenarios, and the companies that fare best in each.
+Builds the Composite Shortlist file: the note, the companies that fare best across both scenarios and in each scenario, and the full ranking of every company.
 
 #### How
 Run the script below as a single inline command: `python3 - <<'PY'`
 
-The script builds the Composite Shortlist file, `data/screener/AI Subsectors/AI Composite Shortlist {MM-DD-YY}.md`, dated today, from the ranked file, `data/screener/AI Subsectors/all_ranked.md`, and the note file, `data/screener/AI Subsectors/all_note.md`. The note comes first, as one paragraph, then three tables:
-- Both scenarios: the companies with the best average of their base rank and pessimistic rank, with equal weight. It keeps the best 30. If companies tie at 30th place, it keeps all of them, so the list can run over 30.
-- Base: the top 10 of the base ranking, and whether each is in the Both scenarios table.
-- Pessimistic: the top 10 of the pessimistic ranking, and whether each is in the Both scenarios table.
+The script builds the Composite Shortlist file, `data/screener/AI Subsectors/AI Composite Shortlist {MM-DD-YY}.md`, dated today, from the ranked file, `data/screener/AI Subsectors/all_ranked.md`, and the note file, `data/screener/AI Subsectors/all_note.md`. The note comes first, as one paragraph, then four tables:
+- Top 30 by average rank: the companies with the best average of their base rank and pessimistic rank, with equal weight. If companies tie at 30th place, it keeps all of them, so the list can run over 30.
+- Top 30 by base rank.
+- Top 30 by pessimistic rank.
+- All companies: every company, ordered by its average rank.
+
+The three top 30 tables have the same columns: symbol, company, sub-sectors, the three ranks, the base and pessimistic reads, the fit reason, and the potential growth, current growth, strength and price reads. The All companies table has the ranks and the base and pessimistic reads.
 
 First, it checks:
 - The note file exists and is not empty.
@@ -619,7 +622,7 @@ If a check fails, the script prints the problems and stops without building or d
 After it writes the file, it reads it back and checks that it matches the rows it chose. If it does not, it deletes the new file and nothing else. If it does, it deletes the working files: `all_combined.md`, `all_reads.md`, `all_assessed.md`, `all_ranks.md`, `all_ranked.md` and `all_note.md`.
 
 #### Required output
-The Composite Shortlist file, `data/screener/AI Subsectors/AI Composite Shortlist {MM-DD-YY}.md`, and what the script printed: the number of companies in the Both scenarios table and its cutoff, the companies in it that are on more than one Scenario Shortlist, the companies in the base and pessimistic top 10 that are not in it, and the files it deleted.
+The Composite Shortlist file, `data/screener/AI Subsectors/AI Composite Shortlist {MM-DD-YY}.md`, and what the script printed: the number of companies in each table, the cutoff for the top 30 by average rank, the number of companies in at least one top 30 table, those of them on more than one Scenario Shortlist, and the files it deleted.
 
 #### Script
 ```bash
@@ -632,7 +635,6 @@ NOTE = f"{DIR}/all_note.md"
 OUT = f"{DIR}/AI Composite Shortlist {datetime.date.today().strftime('%m-%d-%y')}.md"
 SCRATCH = [f"{DIR}/all_{name}.md" for name in ("combined", "reads", "assessed", "ranks", "ranked", "note")]
 TOP = 30
-SCENARIO_TOP = 10
 
 def cells(line):
     return [c.strip() for c in line.strip().strip("|").split("|")]
@@ -686,22 +688,29 @@ def pr(r): return int(r[ix["Pessimistic rank"]])
 
 companies = sorted(rows, key=lambda r: (br(r) + pr(r), min(br(r), pr(r)), r[ix["Symbol"]]))
 cutoff = br(companies[min(TOP, N) - 1]) + pr(companies[min(TOP, N) - 1])
-composite = [r for r in companies if br(r) + pr(r) <= cutoff]
-on_composite = {r[ix["Symbol"]] for r in composite}
+by_average = [r for r in companies if br(r) + pr(r) <= cutoff]
+by_base = sorted(rows, key=br)[:TOP]
+by_pess = sorted(rows, key=pr)[:TOP]
 
-comp_header = ["Symbol", "Company", "Sub-sectors", "Fit reason", "Potential growth", "Current growth", "Strength",
-               "Price", "Why", "Base read", "Pessimistic read", "Base rank", "Pessimistic rank", "Average rank"]
-comp_rows = [[r[ix[n]] for n in comp_header[:-1]] + [f"{(br(r) + pr(r)) / 2:.1f}"] for r in composite]
+def avg(r):
+    return f"{(br(r) + pr(r)) / 2:.1f}"
 
-def scenario_table(rank_col, read_col, other_col):
-    top = sorted(rows, key=lambda r: int(r[ix[rank_col]]))[:SCENARIO_TOP]
-    h = ["Symbol", "Company", "Sub-sectors", rank_col, other_col, "In Both scenarios table", read_col]
-    return h, [[r[ix["Symbol"]], r[ix["Company"]], r[ix["Sub-sectors"]], r[ix[rank_col]], r[ix[other_col]],
-                "yes" if r[ix["Symbol"]] in on_composite else "no", r[ix[read_col]]] for r in top]
+full_header = ["Symbol", "Company", "Sub-sectors", "Average rank", "Base rank", "Pessimistic rank", "Base read",
+               "Pessimistic read", "Fit reason", "Potential growth", "Current growth", "Strength", "Price"]
+def full_row(r):
+    return [r[ix["Symbol"]], r[ix["Company"]], r[ix["Sub-sectors"]], avg(r), r[ix["Base rank"]], r[ix["Pessimistic rank"]],
+            r[ix["Base read"]], r[ix["Pessimistic read"]], r[ix["Fit reason"]], r[ix["Potential growth"]],
+            r[ix["Current growth"]], r[ix["Strength"]], r[ix["Price"]]]
 
-tables = [("Both scenarios", comp_header, comp_rows),
-          ("Base", *scenario_table("Base rank", "Base read", "Pessimistic rank")),
-          ("Pessimistic", *scenario_table("Pessimistic rank", "Pessimistic read", "Base rank"))]
+all_header = ["Average rank", "Symbol", "Company", "Sub-sectors", "Base rank", "Pessimistic rank", "Base read", "Pessimistic read"]
+def all_row(r):
+    return [avg(r), r[ix["Symbol"]], r[ix["Company"]], r[ix["Sub-sectors"]], r[ix["Base rank"]], r[ix["Pessimistic rank"]],
+            r[ix["Base read"]], r[ix["Pessimistic read"]]]
+
+tables = [(f"Top {TOP} by average rank", full_header, [full_row(r) for r in by_average]),
+          (f"Top {TOP} by base rank", full_header, [full_row(r) for r in by_base]),
+          (f"Top {TOP} by pessimistic rank", full_header, [full_row(r) for r in by_pess]),
+          ("All companies", all_header, [all_row(r) for r in companies])]
 
 with open(OUT, "w", encoding="utf-8") as out:
     out.write(note + "\n")
@@ -730,11 +739,12 @@ if first != note or any(built.get(t) != [h] + rs for t, h, rs in tables):
 for path in SCRATCH:
     if os.path.exists(path):
         os.remove(path)
-print("Both scenarios:", len(comp_rows), f"companies (average rank cutoff {cutoff / 2:.1f}; {max(0, len(comp_rows) - TOP)} above {TOP} because of ties)")
-print("On more than one Scenario Shortlist:", ", ".join(r[0] for r in comp_rows if "), " in r[2]) or "none")
-for title, h, rs in tables[1:]:
-    missed = [r[0] for r in rs if r[5] == "no"]
-    print(f"{title} top {len(rs)}, not in the Both scenarios table:", ", ".join(missed) or "none")
+in_any = {r[ix["Symbol"]] for r in by_average + by_base + by_pess}
+print(f"Top {TOP} by average rank:", len(by_average), f"companies (average rank cutoff {cutoff / 2:.1f}; {max(0, len(by_average) - TOP)} above {TOP} because of ties)")
+print(f"Top {TOP} by base rank and by pessimistic rank:", len(by_base), "and", len(by_pess), "companies")
+print("Companies in at least one top table:", len(in_any))
+print("On more than one Scenario Shortlist, in at least one top table:", ", ".join(sorted(s for s in in_any if "), " in next(r[ix["Sub-sectors"]] for r in rows if r[ix["Symbol"]] == s))) or "none")
+print("All companies:", len(companies))
 print("Deleted:", ", ".join(os.path.basename(p) for p in SCRATCH))
 print("File:", OUT)
 PY

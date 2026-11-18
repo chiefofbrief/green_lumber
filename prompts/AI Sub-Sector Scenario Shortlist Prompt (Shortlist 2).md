@@ -129,7 +129,7 @@ Read the Shortlist file from Step 1, `data/screener/AI Subsectors/{SUBSECTOR} Sh
 - Base each read on what you gathered in 2.1. Use `AI Sub-Sectors.md` and the scenarios in `AI Scenarios.md` to judge how the sub-sector fares in each scenario, and the **Company Scenario Considerations** in `AI Scenarios.md` to judge the company itself.
 - Judge the sub-sector's downsides only as `AI Scenarios.md` says they apply in each scenario. The longer-term downsides in `AI Sub-Sectors.md` are outside both scenarios.
 - Use the company's row: its fit tier and fit reason show what it does in the sub-sector and how central the sub-sector is to it, and its four reads give its growth, strength and price.
-- Each read is two or three complete sentences and includes the figures it rests on.
+- Each read is two or three complete sentences and includes the figures it rests on. Write each draft as the full read, not as notes, because 2.3 copies the drafts exactly.
 
 ##### 2.3 Write the reads file
 After the last chunk, write all the reads to `data/screener/AI Subsectors/{SUBSECTOR}_reads.md` with the Write tool, copying them exactly as you wrote them in 2.2.
