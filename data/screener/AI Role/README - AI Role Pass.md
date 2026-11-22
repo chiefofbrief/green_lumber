@@ -13,7 +13,7 @@ I'm building a watchlist of AI companies. The working list is `data/screener/AI 
 2. Find the first row where **Sub-sectors** is empty. Start there.
 3. For each row, read its Previous sub-sectors, Description and News AI, then fill in:
    - **Sub-sectors:** the sub-sectors from `AI Sub-Sectors.md` the company belongs to, as a plain comma-separated list using these names: networking, power, electrical, wafers, cooling, data, trust, runtime, processors, racks, memory, tools. Start from the previous sub-sectors, then add, drop or keep each based on the description and the news. No tiers. If none fit, write "none".
-   - **AI Role:** a short paragraph or two on what the company does in AI: its products or services, its customers, how much of its business that is, and how important a player it is in each of its sub-sectors. Cite the evidence (figures, named products, customers, dates) and say whether it comes from the description or the news.
+   - **AI Role:** a short paragraph or two on what the company does in AI: its products or services and its customers, citing the evidence (figures, named products, customers, dates) and whether it comes from the description or the news. Where the inputs show how much of the business this is (for example, segment revenue or growth) or how significant a player it is (for example, named customers, partners or market share), include it. Do not comment on what the inputs leave out.
 4. Do five rows, then stop and ask whether to continue.
 
 ## Rules
