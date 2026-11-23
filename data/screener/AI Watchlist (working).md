@@ -14,6 +14,7 @@
 - AI Role pass: `data/screener/AI Role/` (Sub-sectors and AI Role).
 - Current Growth pass: `data/screener/Current Growth/` (Current growth).
 - Potential Growth pass: `data/screener/Potential Growth/` (Potential growth).
+- Valuation pass: `data/screener/Valuation/` (Valuation; prices as of the November 20, 2026 close).
 
 | # | Symbol | Company | Level | Sub-sectors | Potential growth | Valuation | Strength |
 |---|---|---|---|---|---|---|---|
