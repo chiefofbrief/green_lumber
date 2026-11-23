@@ -16,13 +16,13 @@ Two figures give the level of growth:
 - **Sales growth latest Q (YoY):** the latest quarter's sales compared with the same quarter a year earlier.
 
 Two figures give the change in growth:
-- **TTM growth accel:** the change in the annual growth rate, in percentage points. Positive means speeding up.
-- **4Q growth accel:** the change in the quarterly growth rate over the last year, in percentage points. Positive means speeding up.
+- **TTM growth accel:** TTM growth now minus TTM growth a year ago, in percentage points. Positive means speeding up.
+- **4Q growth accel:** the latest quarter's year-over-year growth minus the same figure four quarters earlier, in percentage points. Positive means speeding up.
 
 Read the level and the change together, not mechanically. High growth that is slowing can still be strong growth. Sharp acceleration from a low level can still be modest growth. The strongest picture is high growth that is also speeding up.
 
 A fifth figure speaks to where the growth is coming from:
-- **Gross margin vs 5-yr low:** how far gross margin, what the company keeps from each sale after the direct cost of making it, is above its lowest annual level of the last five years, in percentage points. A gap far above history may mean part of the growth is coming from higher prices rather than more volume, and that it may be temporary if prices fall back. The five-year low can be an unusually weak year, so treat a large gap as a possible sign, not proof.
+- **Gross margin vs 5-yr low:** how far gross margin, what the company keeps from each sale after the direct cost of making it, is above its lowest annual level of the last five years, in percentage points. The current gross margin is the last four quarters (TTM); a negative figure means it is below every yearly level of the last five years. A gap far above history may mean part of the growth is coming from higher prices rather than more volume, and that it may be temporary if prices fall back. The five-year low can be an unusually weak year, so treat a large gap as a possible sign, not proof.
 
 ## Steps
 1. Find the first row where **Current growth** is empty. Start there.
@@ -30,7 +30,7 @@ A fifth figure speaks to where the growth is coming from:
 3. Do five rows, then stop and ask whether to continue.
 
 ## Rules
-- Use only the figures in the row and the guidance above.
+- Use only the figures in the row and the guidance above. Interpreting what the figures show together is wanted, such as whether a speed-up is recent. Inferences are fine if they are reasonable, supported by the figures and worded as inferences; do not add facts from outside the row.
 - A dash means the figure is not available, not zero. For the gross margin gap it usually means fewer than five years of data. Say so where it matters.
 - Write in complete sentences.
 - Do not compare the company with others, and do not assess potential growth, valuation, strength or whether the company belongs on the watchlist.
