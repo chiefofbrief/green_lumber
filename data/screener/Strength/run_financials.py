@@ -15,7 +15,7 @@ fetch   Fetches statements into raw/{TICKER}_financials.json (skips existing unl
 show    Prints the Strength figures computed from the saved raw file.
 
 Figures (TTM = last four quarters, or last two half-years for half-yearly reporters):
-    OCF margin, FCF margin, FCF margin for the last five fiscal years, share count change
+    OCF margin, FCF margin, stock-based compensation as a share of sales, FCF margin for the last five fiscal years, share count change
     (latest period vs a year earlier, basic weighted average), Debt / OCF, net debt or net cash
     (total debt minus cash and short-term investments, latest balance sheet).
 """
@@ -86,7 +86,10 @@ def figures(t):
         rev = s([i for i, _ in rows], "revenue")
         ocf = s([c for _, c in rows], "operatingCashFlow")
         fcf = s([c for _, c in rows], "freeCashFlow")
-        out.update(ocf_margin=div(ocf, rev), fcf_margin=div(fcf, rev), ocf=ocf)
+        sbc = s([c for _, c in rows], "stockBasedCompensation")
+        # FMP reports 0 where a company does not break SBC out; treat that as not available.
+        out.update(ocf_margin=div(ocf, rev), fcf_margin=div(fcf, rev), ocf=ocf,
+                   sbc_margin=div(sbc, rev) if sbc else None)
     if bal:
         b = bal[0]
         debt = sf(b.get("totalDebt"))
@@ -127,6 +130,7 @@ def fmt(t):
     hist = " / ".join(f"{lbl} {p(v)}" for lbl, v in f["fcf_history"]) or "-"
     sc = "-" if f.get("share_change") is None else f"{f['share_change']*100:+.1f}%"
     return {"OCF margin (TTM)": p(f.get("ocf_margin")), "FCF margin (TTM)": p(f.get("fcf_margin")),
+            "SBC (% of sales, TTM)": p(f.get("sbc_margin")),
             "FCF margin (last 5 FY)": hist, "Share count change (YoY)": sc,
             "Debt / OCF": dto, "Net debt or net cash": netdebt, "half_yearly": f["half_yearly"]}
 
