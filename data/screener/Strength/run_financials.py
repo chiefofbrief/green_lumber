@@ -16,7 +16,7 @@ show    Prints the Strength figures computed from the saved raw file.
 
 Figures (TTM = last four quarters, or last two half-years for half-yearly reporters):
     OCF margin, FCF margin, FCF margin for the last five fiscal years, share count change
-    (latest period vs a year earlier, diluted weighted average), Debt / OCF, net debt or net cash
+    (latest period vs a year earlier, basic weighted average), Debt / OCF, net debt or net cash
     (total debt minus cash and short-term investments, latest balance sheet).
 """
 
@@ -95,8 +95,10 @@ def figures(t):
                    net_debt=(debt - cash) if debt is not None and cash is not None else None,
                    debt_to_ocf=div(debt, out.get("ocf")) if out.get("ocf") and out["ocf"] > 0 else None)
     if len(inc) > n:
-        cur = sf(inc[0].get("weightedAverageShsOutDil")) or sf(inc[0].get("weightedAverageShsOut"))
-        ago = sf(inc[n].get("weightedAverageShsOutDil")) or sf(inc[n].get("weightedAverageShsOut"))
+        # Basic, not diluted: diluted counts jump when a loss-maker turns profitable and its
+        # options or convertibles start counting, which looks like issuance but isn't.
+        cur = sf(inc[0].get("weightedAverageShsOut")) or sf(inc[0].get("weightedAverageShsOutDil"))
+        ago = sf(inc[n].get("weightedAverageShsOut")) or sf(inc[n].get("weightedAverageShsOutDil"))
         out["share_change"] = div(cur - ago, ago) if cur is not None and ago else None
     ia = {x["date"]: x for x in (raw.get("inc_a") or [])}
     hist = []
