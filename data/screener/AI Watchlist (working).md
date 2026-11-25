@@ -3,9 +3,9 @@
 11-23-26
 
 ## Columns
-- **Level** (strongest first): **3 - Composite top 30**, in a top-30 table of the AI Composite Shortlist; **2 - Scenario Shortlist**, in the top 5 of a sub-sector's Scenario Shortlist but no composite top-30 table; **1 - Sub-sector Shortlist top 10**, in the top 10 of a sub-sector Shortlist but no Scenario Shortlist; **0 - Added from Candidates**, added by judgment from the data, tools, trust or runtime Candidates files; **Manual add**, added by judgment and not assessed by the pipeline. **Re-added**, cut earlier for extreme valuation or weak financial strength and brought back, because both can change and are covered by the Valuation and Financial status reads.
+- **Level** (strongest first): **3 - Composite top 30**, in a top-30 table of the AI Composite Shortlist; **2 - Scenario Shortlist**, in the top 5 of a sub-sector's Scenario Shortlist but no composite top-30 table; **1 - Sub-sector Shortlist top 10**, in the top 10 of a sub-sector Shortlist but no Scenario Shortlist; **0 - Added from Candidates**, added by judgment from the data, tools, trust or runtime Candidates files; **Manual add**, added by judgment and not assessed by the pipeline. **Added from physical Candidates**, added by judgment from the physical sub-sectors' Candidates files (cooling, electrical, memory, networking, power, processors, racks, wafers): at least 15% sales growth (TTM or latest quarter), EV/sales of 25 or less, and concentrated on AI. **Re-added**, cut earlier for extreme valuation or weak financial strength and brought back, because both can change and are covered by the Valuation and Financial status reads.
 - **Sub-sectors:** from the AI Role pass.
-- **Still to run through the passes:** the five Re-added companies (ARM, CRWD, DOCN, NET, TLN) have no reads yet and need every pass (News, AI Role, Current Growth, Potential Growth, Valuation, Strength). Nubank (NU) is not in the screener, so its Current growth is empty and its Potential growth, Valuation and Financial status were written without screener figures; it needs Current Growth run from its FMP statements, then Potential Growth and Valuation redone.
+- **Still to run through the passes:** the five Re-added companies (ARM, CRWD, DOCN, NET, TLN) and the 36 Added from physical Candidates have no reads yet and need every pass (News, AI Role, Current Growth, Potential Growth, Valuation, Strength). Nubank (NU) is not in the screener, so its Current growth is empty and its Potential growth, Valuation and Financial status were written without screener figures; it needs Current Growth run from its FMP statements, then Potential Growth and Valuation redone.
 - **Potential growth, Valuation, Financial status:** the outputs of the component passes. Financial status is the Strength pass's output: whether the company can keep funding its own growth from the cash its business generates, in good times and in a downturn.
 
 ## Sources
@@ -155,3 +155,39 @@
 | 133 | DOCN | DigitalOcean Holdings, Inc. | Re-added |  |  |  |  |
 | 134 | NET | Cloudflare, Inc. | Re-added |  |  |  |  |
 | 135 | TLN | Talen Energy Corporation | Re-added |  |  |  |  |
+| 136 | AAOI | Applied Optoelectronics, Inc. | Added from physical Candidates |  |  |  |  |
+| 137 | AEHR | Aehr Test Systems | Added from physical Candidates |  |  |  |  |
+| 138 | AEIS | Advanced Energy Industries, Inc. | Added from physical Candidates |  |  |  |  |
+| 139 | AMKR | Amkor Technology, Inc. | Added from physical Candidates |  |  |  |  |
+| 140 | AXTI | AXT, Inc. | Added from physical Candidates |  |  |  |  |
+| 141 | CAMT | Camtek Ltd. | Added from physical Candidates |  |  |  |  |
+| 142 | CBRS | Cerebras Systems Inc. | Added from physical Candidates |  |  |  |  |
+| 143 | COHR | Coherent, Inc. | Added from physical Candidates |  |  |  |  |
+| 144 | ENTG | Entegris, Inc. | Added from physical Candidates |  |  |  |  |
+| 145 | GLW | Corning Inc | Added from physical Candidates |  |  |  |  |
+| 146 | ICHR | Ichor Holdings, Ltd. | Added from physical Candidates |  |  |  |  |
+| 147 | KGS | Kodiak Gas Services, Inc. | Added from physical Candidates |  |  |  |  |
+| 148 | KNTK | Kinetik Holdings Inc. | Added from physical Candidates |  |  |  |  |
+| 149 | MKSI | MKS Inc. | Added from physical Candidates |  |  |  |  |
+| 150 | MTSI | MACOM Technology Solutions Holdings, Inc. | Added from physical Candidates |  |  |  |  |
+| 151 | NLST | Netlist, Inc. | Added from physical Candidates |  |  |  |  |
+| 152 | NRG | NRG Energy, Inc. | Added from physical Candidates |  |  |  |  |
+| 153 | NVMI | Nova Ltd. | Added from physical Candidates |  |  |  |  |
+| 154 | ORA | Ormat Technologies, Inc. | Added from physical Candidates |  |  |  |  |
+| 155 | P | Everpure, Inc. | Added from physical Candidates |  |  |  |  |
+| 156 | PDFS | PDF Solutions, Inc. | Added from physical Candidates |  |  |  |  |
+| 157 | PENG | Penguin Solutions, Inc. | Added from physical Candidates |  |  |  |  |
+| 158 | Q | Qnity Electronics, Inc. | Added from physical Candidates |  |  |  |  |
+| 159 | RMBS | Rambus Inc. | Added from physical Candidates |  |  |  |  |
+| 160 | SEI | Solaris Energy Infrastructure, Inc. | Added from physical Candidates |  |  |  |  |
+| 161 | SIMO | Silicon Motion Technology Corporation | Added from physical Candidates |  |  |  |  |
+| 162 | SMTC | Semtech Corporation | Added from physical Candidates |  |  |  |  |
+| 163 | STX | Seagate Technology Holdings plc | Added from physical Candidates |  |  |  |  |
+| 164 | TRGP | Targa Resources Corp. | Added from physical Candidates |  |  |  |  |
+| 165 | TRP | TC Energy Corporation | Added from physical Candidates |  |  |  |  |
+| 166 | TSEM | Tower Semiconductor Ltd. | Added from physical Candidates |  |  |  |  |
+| 167 | UCTT | Ultra Clean Holdings, Inc. | Added from physical Candidates |  |  |  |  |
+| 168 | VECO | Veeco Instruments Inc. | Added from physical Candidates |  |  |  |  |
+| 169 | VICR | Vicor Corporation | Added from physical Candidates |  |  |  |  |
+| 170 | WDC | Western Digital Corporation | Added from physical Candidates |  |  |  |  |
+| 171 | WES | Western Midstream Partners, LP | Added from physical Candidates |  |  |  |  |
