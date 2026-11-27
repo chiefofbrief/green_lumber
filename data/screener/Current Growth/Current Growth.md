@@ -1,6 +1,6 @@
 # Current Growth
 
-Figures from `data/screener/Large_Actives_with_Metrics.csv` (mid-November 2026). A dash means the figure is not available (for the gross margin gap, usually fewer than five years of data). RELX, LSEGY and SBGSY report half-yearly: their figures use their last two half-years as the trailing year and their latest half-year in place of a quarter (corrected 11-23-26).
+Figures from `data/screener/Large_Actives_with_Metrics.csv` (mid-November 2026). A dash means the figure is not available (for the gross margin gap, usually fewer than five years of data). RELX, LSEGY and SBGSY report half-yearly: their figures use their last two half-years as the trailing year and their latest half-year in place of a quarter (corrected 11-23-26). Nubank (NU) is not in the screener: its figures are calculated the same way from its FMP statements (fetched November 24, 2026); as a bank, its revenue and gross margin are not directly comparable with other companies'.
 
 | # | Symbol | Company | Sales growth TTM | Sales growth latest Q (YoY) | TTM growth accel | 4Q growth accel | Gross margin vs 5-yr low | Current growth |
 |---|---|---|---|---|---|---|---|---|
@@ -131,6 +131,46 @@ Figures from `data/screener/Large_Actives_with_Metrics.csv` (mid-November 2026).
 | 125 | CDNS | Cadence Design Systems, Inc. | 17.6% | 22.0% | -2.1pp | +11.8pp | -0.4pp | Sales grew 17.6% over the trailing twelve months, and the latest quarter was up 22.0% year over year, ahead of the annual pace. The two change measures point in different directions: the annual growth rate fell 2.1 percentage points from about 20% a year ago, while the quarterly growth rate rose 11.8 percentage points from about 10% four quarters earlier. Read together, this suggests growth eased over the past year but has turned up in recent quarters, and part of the latest quarter's strength may reflect comparison with a slower quarter a year ago. Gross margin over the trailing twelve months is 0.4 percentage points below its five-year low, meaning it is below every yearly level of the last five years, so there is no sign that higher prices are driving the growth. |
 | 126 | DUOL | Duolingo, Inc. | 22.6% | 13.7% | -17.2pp | -27.4pp | +0.9pp | Sales grew 22.6% over the trailing twelve months, but the latest quarter was up only 13.7% year over year, well below the annual pace. Growth is slowing sharply: the annual growth rate fell 17.2 percentage points from about 40% a year ago, and the quarterly growth rate fell 27.4 percentage points from about 41% four quarters earlier. This suggests growth has come down a long way over the year, and the latest quarter points to a slower pace than the trailing figure shows. Gross margin is 0.9 percentage points above its five-year low, so there is no sign that higher prices are supporting sales. |
 | 127 | KVYO | Klaviyo, Inc. | 27.0% | 24.6% | -5.8pp | -7.7pp | +2.7pp | Sales grew 27.0% over the trailing twelve months and 24.6% year over year in the latest quarter, so the latest quarter is below the annual pace. Growth is slowing: the annual growth rate fell 5.8 percentage points and the quarterly growth rate fell 7.7 percentage points, from about 33% and 32% a year earlier, which suggests still solid growth that is decelerating steadily, slightly faster in recent quarters. Gross margin is 2.7 percentage points above its five-year low, a small gap that gives no sign the growth depends on higher prices. |
-| 128 | NU | Nu Holdings Ltd. (Nubank) | - | - | - | - | - |  |
+| 128 | NU | Nu Holdings Ltd. (Nubank) | 49.0% | 34.2% | +16.6pp | -11.8pp | +8.3pp |  |
 | 129 | SNPS | Synopsys, Inc. | 46.3% | 42.4% | +40.7pp | +28.3pp | -4.6pp | Sales grew 46.3% over the trailing twelve months and 42.4% year over year in the latest quarter, both high, though the latest quarter is a little below the annual pace. Growth has sped up sharply from a low base: the annual growth rate rose 40.7 percentage points from about 6% a year ago, and the quarterly growth rate rose 28.3 percentage points from about 14% four quarters earlier. Gross margin over the trailing twelve months is 4.6 percentage points below its five-year low, meaning it is well below every yearly level of the last five years, so the growth is not coming from higher prices. A jump in growth of this size alongside a drop in margin to a new low suggests something beyond ordinary business growth is behind these figures, which the figures alone cannot explain. |
 | 130 | U | Unity Software Inc. | 20.9% | 32.2% | +29.1pp | +26.8pp | +1.2pp | Sales grew 20.9% over the trailing twelve months, and the latest quarter was up 32.2% year over year, well above the annual pace. Growth has turned around sharply: the annual growth rate rose 29.1 percentage points, implying sales were falling by about 8% a year ago, and the quarterly growth rate rose 26.8 percentage points from about 5% four quarters earlier. This suggests a clear turn from decline to solid growth, with part of the trailing figure likely reflecting a weak year-ago base. Gross margin is 1.2 percentage points above its five-year low, a small gap that gives no sign the growth depends on higher prices. |
+| 131 | ARM | Arm Holdings plc American Depositary Shares | 23.8% | 27.1% | -1.0pp | -7.3pp | +3.5pp |  |
+| 132 | CRWD | CrowdStrike Holdings, Inc. | 24.3% | 25.8% | +0.8pp | +4.5pp | +2.1pp |  |
+| 133 | DOCN | DigitalOcean Holdings, Inc. | 27.6% | 39.9% | +13.4pp | +24.2pp | -4.4pp |  |
+| 134 | NET | Cloudflare, Inc. | 35.7% | 39.2% | +7.7pp | +8.6pp | -2.6pp |  |
+| 135 | TLN | Talen Energy Corporation | 70.3% | 63.4% | +48.4pp | +17.1pp | +18.5pp |  |
+| 136 | AAOI | Applied Optoelectronics, Inc. | 77.2% | 127.5% | -24.1pp | +45.4pp | +13.7pp |  |
+| 137 | AEHR | Aehr Test Systems | 28.4% | 200.9% | +31.6pp | +217.3pp | +5.3pp |  |
+| 138 | AEIS | Advanced Energy Industries, Inc. | 31.7% | 50.3% | +14.5pp | +26.5pp | +4.8pp |  |
+| 139 | AMKR | Amkor Technology, Inc. | 15.7% | 0.2% | +15.6pp | -6.5pp | +2.6pp |  |
+| 140 | AXTI | AXT, Inc. | 89.1% | 162.6% | +93.7pp | +144.4pp | +31.3pp |  |
+| 141 | CBRS | Cerebras Systems Inc. | 79.9% | 55.3% | -17.3pp | -32.3pp | - |  |
+| 142 | COHR | Coherent, Inc. | 30.8% | 49.9% | +10.0pp | +32.6pp | +7.2pp |  |
+| 143 | ENTG | Entegris, Inc. | 9.4% | 24.6% | +8.8pp | +24.7pp | +4.6pp |  |
+| 144 | GLW | Corning Inc | 18.8% | 18.4% | +0.5pp | -2.5pp | +5.2pp |  |
+| 145 | ICHR | Ichor Holdings, Ltd. | 15.2% | 37.4% | -1.6pp | +24.0pp | +3.8pp |  |
+| 146 | KGS | Kodiak Gas Services, Inc. | 14.5% | 24.5% | -4.9pp | +25.1pp | +3.5pp |  |
+| 147 | KNTK | Kinetik Holdings Inc. | 15.8% | 22.7% | -3.1pp | +5.7pp | +16.9pp |  |
+| 148 | MKSI | MKS Inc. | 24.6% | 43.0% | +16.4pp | +32.8pp | +4.2pp |  |
+| 149 | MTSI | MACOM Technology Solutions Holdings, Inc. | 37.3% | 62.7% | +4.7pp | +32.5pp | +7.1pp |  |
+| 150 | NLST | Netlist, Inc. | 168.7% | 148.9% | +168.1pp | +143.8pp | +28.6pp |  |
+| 151 | NRG | NRG Energy, Inc. | 17.5% | 24.0% | +11.6pp | +18.3pp | +13.8pp |  |
+| 152 | NVMI | Nova Ltd. | 17.4% | 28.1% | -22.0pp | +2.7pp | +0.9pp |  |
+| 153 | ORA | Ormat Technologies, Inc. | 28.6% | 10.2% | +22.5pp | -7.8pp | +0.9pp |  |
+| 154 | P | Everpure, Inc. | 27.2% | 37.7% | +15.9pp | +25.0pp | +2.2pp |  |
+| 155 | PDFS | PDF Solutions, Inc. | 22.1% | 19.6% | +0.9pp | -3.4pp | +11.4pp |  |
+| 156 | PENG | Penguin Solutions, Inc. | 26.5% | 67.7% | +9.6pp | +59.1pp | -0.0pp |  |
+| 157 | Q | Qnity Electronics, Inc. | 17.6% | 21.9% | - | -7.9pp | - |  |
+| 158 | RMBS | Rambus Inc. | 17.3% | 22.3% | -13.7pp | -0.4pp | +10.1pp |  |
+| 159 | SEI | Solaris Energy Infrastructure, Inc. | 73.8% | 104.4% | -18.5pp | -18.0pp | +31.7pp |  |
+| 160 | SIMO | Silicon Motion Technology Corporation | 104.5% | 131.8% | +106.5pp | +117.9pp | +8.2pp |  |
+| 161 | SMTC | Semtech Corporation | 17.8% | 32.7% | -4.4pp | +13.1pp | +9.0pp |  |
+| 162 | STX | Seagate Technology Holdings plc | 44.4% | 61.0% | +12.8pp | +39.8pp | +31.1pp |  |
+| 163 | TRGP | Targa Resources Corp. | 4.0% | 33.2% | -3.3pp | +25.1pp | +27.5pp |  |
+| 164 | TRP | TC Energy Corporation | 31.4% | 8.8% | +49.4pp | +18.1pp | +5.0pp |  |
+| 165 | TSEM | Tower Semiconductor Ltd. | 21.6% | 33.0% | +13.6pp | +26.2pp | +7.8pp |  |
+| 166 | UCTT | Ultra Clean Holdings, Inc. | 15.8% | 48.8% | +9.1pp | +54.5pp | +0.4pp |  |
+| 167 | VECO | Veeco Instruments Inc. | 6.6% | 26.2% | +10.5pp | +36.5pp | -2.5pp |  |
+| 168 | VICR | Vicor Corporation | 27.0% | 78.5% | +2.8pp | +60.0pp | +15.3pp |  |
+| 169 | WDC | Western Digital Corporation | 43.0% | 55.5% | +30.5pp | +28.1pp | +30.4pp |  |
+| 170 | WES | Western Midstream Partners, LP | 22.3% | 25.4% | +16.5pp | +17.6pp | -3.5pp |  |

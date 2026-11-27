@@ -134,3 +134,43 @@ News AI and News Sentiment for each company, written in the news pass from the `
 | 128 | NU | Nu Holdings Ltd. (Nubank) | Coverage frames Nu Holdings (Nubank) as Latin America's largest digital bank, with about 143M customers, and says little about AI: a Seeking Alpha author called its digital-only model 'AI-driven' with a 20:1 revenue-to-cost ratio, and Zacks said AI is among the factors reshaping digital banking in a SoFi comparison. Q3 coverage reported record net income of $1.1B, 3.7M new customers, 33% credit growth, deposits up 19% to $47.5B and a roughly 33% ROE. Other news covers its U.S. launch and the multi-currency Nu Global account in September, bank charters in Mexico and Brazil, and reported interest in Monzo. | Coverage is mostly positive with Brazil-related caveats. Shares rose about 12% after the Q3 beat and 23% in October, UBS raised its target and Needham reiterated Buy, and Seeking Alpha and Motley Fool authors call it undervalued at about 15x 2027 earnings, with one predicting the stock doubles its $9 IPO price by 2030. Caveats include Itau BBA's downgrade to Market Perform on Brazil credit risk, rising late-stage delinquencies (Zacks), a sell-off in Brazilian assets after the October election leaving it down 24% for the year (Motley Fool), and execution risk in the U.S. expansion. Coverage is FMP only (48 items), many of them Motley Fool comparisons and holdings notices. |
 | 129 | SNPS | Synopsys, Inc. | Coverage frames Synopsys as the chip design (EDA) software 'gatekeeper' behind AI chips, with 24/7 Wall St and the Motley Fool describing a picks-and-shovels position as AI makes chips more complex. Reported AI deals include contracts with Amazon and OpenAI (MarketBeat and Seeking Alpha), a $2B NVIDIA investment and joint agentic AI workflows for chip design and verification (the Motley Fool), and an AI-focused Design IP business and Ansys integration (Zacks). A Seeking Alpha author cited Q3 revenue up 42% and operating income up 116%, and another said it raised fiscal 2027 guidance above estimates and announced a $1B buyback; 24/7 Wall St reported a fourth straight earnings beat. Results are due December 8. | Coverage is bullish but the stock is volatile. After being down more than 20% for the year by mid-September, it rose about 30-35% in a month on the Amazon and OpenAI deals, with Zacks, Seeking Alpha, the Motley Fool and 24/7 Wall St calling it a buy and consensus targets implying 25-37% upside. It then gave back gains: down 6.4% on October 22, nearly 10% in a week in November, and 7.96% to $396.61 on November 20, with 24/7 Wall St saying it keeps surrendering post-earnings pops. Caveats include about $10B of debt, export controls, valuation against ambitious 2030 targets and a $6.8M CEO share sale in October. Coverage is FMP only (48 items). |
 | 130 | U | Unity Software Inc. | Coverage frames Unity as 'the world's leading game engine' that Seeking Alpha authors say is turning into a high-margin AI advertising platform, calling it 'this forgotten AI winner.' The main AI products reported are its Vector ad platform, which Wedbush said has become a fully budgeted channel for user-acquisition teams, and an AI-powered game creation platform, Unity Spark, built with Google so millions of new creators can make games, which Barron's said could threaten Roblox. Q3 coverage reported its first GAAP-profitable quarter since its IPO and strategic revenue up 59% on Vector (MarketBeat), with one author citing 90% growth in its Strategic Grow revenue; a prior quarter showed a 29% adjusted EBITDA margin. Benzinga also ran a piece on AI as a threat to game studios. | Coverage is mostly positive but the stock is volatile. Raymond James upgraded it on the Google partnership, Wedbush raised its target to $55, William Blair put it on its conviction list, Seeking Alpha authors rate it Buy (one preferring it to AppLovin), and MarketBeat consensus is Moderate Buy (18 of 23 Buy) with a $48 average target. Yet it fell 11% to $41.40 on October 14 despite the Wedbush note and has traded mostly around $40-45; the CEO, CFO and COO sold shares in August, and a Motley Fool piece citing early reports of a $25B (about $55 per share) valuation said 'that's not enough.' Coverage is FMP only (48 items), many of them Zacks screens and holdings notices. |
+| 131 | ARM | Arm Holdings plc American Depositary Shares |  |  |
+| 132 | CRWD | CrowdStrike Holdings, Inc. |  |  |
+| 133 | DOCN | DigitalOcean Holdings, Inc. |  |  |
+| 134 | NET | Cloudflare, Inc. |  |  |
+| 135 | TLN | Talen Energy Corporation |  |  |
+| 136 | AAOI | Applied Optoelectronics, Inc. |  |  |
+| 137 | AEHR | Aehr Test Systems |  |  |
+| 138 | AEIS | Advanced Energy Industries, Inc. |  |  |
+| 139 | AMKR | Amkor Technology, Inc. |  |  |
+| 140 | AXTI | AXT, Inc. |  |  |
+| 141 | CBRS | Cerebras Systems Inc. |  |  |
+| 142 | COHR | Coherent, Inc. |  |  |
+| 143 | ENTG | Entegris, Inc. |  |  |
+| 144 | GLW | Corning Inc |  |  |
+| 145 | ICHR | Ichor Holdings, Ltd. |  |  |
+| 146 | KGS | Kodiak Gas Services, Inc. |  |  |
+| 147 | KNTK | Kinetik Holdings Inc. |  |  |
+| 148 | MKSI | MKS Inc. |  |  |
+| 149 | MTSI | MACOM Technology Solutions Holdings, Inc. |  |  |
+| 150 | NLST | Netlist, Inc. |  |  |
+| 151 | NRG | NRG Energy, Inc. |  |  |
+| 152 | NVMI | Nova Ltd. |  |  |
+| 153 | ORA | Ormat Technologies, Inc. |  |  |
+| 154 | P | Everpure, Inc. |  |  |
+| 155 | PDFS | PDF Solutions, Inc. |  |  |
+| 156 | PENG | Penguin Solutions, Inc. |  |  |
+| 157 | Q | Qnity Electronics, Inc. |  |  |
+| 158 | RMBS | Rambus Inc. |  |  |
+| 159 | SEI | Solaris Energy Infrastructure, Inc. |  |  |
+| 160 | SIMO | Silicon Motion Technology Corporation |  |  |
+| 161 | SMTC | Semtech Corporation |  |  |
+| 162 | STX | Seagate Technology Holdings plc |  |  |
+| 163 | TRGP | Targa Resources Corp. |  |  |
+| 164 | TRP | TC Energy Corporation |  |  |
+| 165 | TSEM | Tower Semiconductor Ltd. |  |  |
+| 166 | UCTT | Ultra Clean Holdings, Inc. |  |  |
+| 167 | VECO | Veeco Instruments Inc. |  |  |
+| 168 | VICR | Vicor Corporation |  |  |
+| 169 | WDC | Western Digital Corporation |  |  |
+| 170 | WES | Western Midstream Partners, LP |  |  |
