@@ -4,8 +4,28 @@
 
 ## Columns
 - **Level** (strongest first): **3 - Composite top 30**, in a top-30 table of the AI Composite Shortlist; **2 - Scenario Shortlist**, in the top 5 of a sub-sector's Scenario Shortlist but no composite top-30 table; **1 - Sub-sector Shortlist top 10**, in the top 10 of a sub-sector Shortlist but no Scenario Shortlist; **0 - Added from Candidates**, added by judgment from the data, tools, trust or runtime Candidates files; **Manual add**, added by judgment and not assessed by the pipeline. **Added from physical Candidates**, added by judgment from the physical sub-sectors' Candidates files (cooling, electrical, memory, networking, power, processors, racks, wafers): at least 15% sales growth (TTM or latest quarter), EV/sales of 25 or less, and concentrated on AI. **Re-added**, cut earlier for extreme valuation or weak financial strength and brought back, because both can change and are covered by the Valuation and Financial status reads.
-- **Sub-sectors:** from the AI Role pass.
-- **Potential growth, Valuation, Financial status, Pessimistic:** the outputs of the component passes. Financial status is the Strength pass's output: whether the company can keep funding its own growth from the cash its business generates, in good times and in a downturn. Pessimistic: how much of the company's demand and earnings is at risk if the pessimistic scenario in `AI Scenarios.md` comes to pass, and what cushions it.
+
+## How the reads were built
+Each read was written one company at a time, with no comparison between companies and no summary rating, by a session following the pass's README (in the pass folder). Inferences are allowed if marked; outside knowledge is labelled.
+
+**In this file**
+
+| Column | Question it answers | Inputs | Also read |
+|---|---|---|---|
+| **Sub-sectors** | Which AI sub-sectors does the company belong to? | Previous sub-sectors (earlier pipeline, with fit tier), Description (screener), News AI | `AI Sub-Sectors.md` |
+| **Potential growth** | What growth is expected over the next 1-2 years, and how much of it is already visible in current growth versus still ahead? | Sub-sectors, AI Role, Current growth, Sales TTM, Market cap | Each sub-sector's Upside in `AI Sub-Sectors.md` (downsides excluded) |
+| **Valuation** | How much of the expected growth is already in the price? | EV/sales, P/E, 1-yr price change, vs 52-week high, Gross margin vs 5-yr low, News Sentiment, Potential growth | |
+| **Financial status** | Can the company keep funding its own growth from the cash its business generates, in good times and in a downturn? | OCF margin (TTM), FCF margin (TTM), SBC (% of sales, TTM), FCF margin (last 5 FY), Share count change (YoY), Debt / OCF, Net debt or net cash, Gross margin vs 5-yr low | |
+| **Pessimistic** | If the pessimistic scenario comes to pass, how much of the company's demand and earnings is at risk, and what cushions it? | Sub-sectors, AI Role, Current growth, Gross margin vs 5-yr low | The pessimistic scenario in `AI Scenarios.md` |
+
+**Feeding the reads above (in their pass files only)**
+
+| Read | Question it answers | Inputs | Also read |
+|---|---|---|---|
+| **News AI** | What does the news say the company is doing in AI? | Three months of FMP news | |
+| **News Sentiment** | What tone does the coverage take, and why? | Three months of FMP news | |
+| **AI Role** | What does the company do in AI: its products, customers, and how much of the business it is? | Previous sub-sectors (with fit tier), Description, News AI | `AI Sub-Sectors.md` |
+| **Current growth** | How fast are sales growing now, and is growth speeding up or slowing down? | Sales growth TTM, Sales growth latest Q (YoY), TTM growth accel, 4Q growth accel, Gross margin vs 5-yr low | |
 
 ## Sources
 - Earlier pipeline outputs: `data/screener/AI Subsectors/` (Candidates, Shortlists, Scenario Shortlists, AI Composite Shortlist 11-18-26).
