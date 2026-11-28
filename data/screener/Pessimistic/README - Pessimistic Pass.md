@@ -24,7 +24,7 @@ Answer the question by reading the inputs against the scenario:
 ## Steps
 1. Before the first row, read `AI Scenarios.md` in full.
 2. Find the first row where **Pessimistic** is empty. Start there.
-3. For each row, write **Pessimistic**: a paragraph or two, usually about 200-300 words (longer if the company genuinely needs it), working through the guidance above and ending with the overall judgment. State the evidence you rely on.
+3. For each row, write **Pessimistic**: a paragraph or two, about 250-300 words, working through the guidance above and ending with the overall judgment. Spend the words where the exposure is; you do not need to work through every point for every sub-sector. State the evidence you rely on.
 4. Do five rows, then stop and ask whether to continue.
 
 ## Rules
@@ -32,6 +32,10 @@ Answer the question by reading the inputs against the scenario:
 - Do not judge how likely the pessimistic scenario is. Assess the company as if it comes to pass.
 - Use only the pessimistic scenario. Leave out the base scenario, the considerations on strength and price, and the longer-term downsides in `AI Sub-Sectors.md`.
 - A dash means the figure is not available, not zero.
+- Weight each sub-sector by how much of the business it is. A minor one gets a brief mention or a clause, not its own analysis.
+- Customer concentration: use what AI Role shows, or your own knowledge if marked. If neither shows anything, leave it out rather than guess, and do not stretch weak hints (a list of research partners does not show who buys the equipment).
+- Backlog: use it where the inputs give it. If it is a main cushion and its terms are not given, say once, briefly, that its firmness is not known; do not repeat the caveat otherwise.
+- AI and non-AI businesses: use any split AI Role gives; otherwise a marked inference is fine. Judge non-AI businesses briefly, as the scenario file says, without estimating their growth rates.
 - Write in complete sentences, without a summary rating or label.
 - Do not compare the company with others, and do not assess the balance sheet, valuation or whether the company belongs on the watchlist.
 - Do not use the `|` character in a cell.
