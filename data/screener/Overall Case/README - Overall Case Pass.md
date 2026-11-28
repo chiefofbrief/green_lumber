@@ -18,18 +18,21 @@ Everything revolves around growth. Potential growth is the growth itself: how mu
 
 Read the four together, not as a checklist. None is a filter on its own, and weakness in one can be outweighed by strength in the others, but without meaningful growth still ahead there is no case. Count each concern once: a margin far above history, for example, may appear in several reads, but it is one concern.
 
-Write three things:
+Write three paragraphs:
 - **The case for:** what in the reads makes the company worth prioritizing, if anything.
 - **The case against:** what holds it back.
-- **What it hinges on:** the one or two things the decision turns on. Do not make the decision itself.
+- **What it hinges on:** a short third paragraph beginning "What it hinges on", naming the one or two things the decision turns on. Do not make the decision itself.
 
 ## Steps
 1. Find the first row where **Overall case** is empty. Start there.
-2. For each row, write **Overall case**: a paragraph or two, about 200-300 words, covering the case for, the case against and what it hinges on.
+2. For each row, write **Overall case**: three paragraphs, about 200-300 words in all, separated by `<br><br>`: the case for, the case against, and what it hinges on.
 3. Do five rows, then stop and ask whether to continue.
 
 ## Rules
-- Base the read on the four input reads. Do not redo them or add facts they do not contain; mark any inference as an inference, and anything drawn from your own knowledge as such.
+- Base the read on the four input reads. Do not redo them or add facts they do not contain; mark any inference as an inference.
+- Cite the input reads' own conclusions rather than redoing them, but weigh them against each other where they pull in different directions.
+- Where an input read marks a point as background knowledge, keep the marking when you use it. Do not add background knowledge of your own.
+- If the reads show little growth still ahead, say so plainly as a description, for example "the reads show little growth still ahead, so the case for is thin." Do not go further and say whether the company should be prioritized.
 - Do not say whether the company should be prioritized, and do not give a rating or label.
 - Do not compare the company with others.
 - Write in complete sentences.
